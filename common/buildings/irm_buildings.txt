@@ -1,0 +1,195 @@
+# IRM
+# Buildings
+
+
+# Sector Administration
+building_sector_administration = {
+	base_buildtime = 360
+	planet_unique = yes
+	level = 1
+	
+	cost = {
+		minerals = 250
+	}
+
+	potential = {
+		planet = {
+			sector_controlled = yes
+			has_modifier = "sector_capital"
+		}	
+	}
+
+	allow = {
+		custom_tooltip = {
+			fail_text = "requires_building_capital_1"
+			planet = {
+				or = {
+					has_building = "building_capital_1"
+					has_building = "building_capital_2"
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = "requires_building_capital_adjacent"
+			tile = {
+				any_neighboring_tile = {
+					or = {
+						has_building = "building_capital_1"
+						has_building = "building_capital_2"
+					}
+				}
+			}
+		}
+	}
+
+	# OUTPUT
+	produced_resources = {
+		unity = 1
+	}
+
+	# EDICTS
+
+	# Capital
+	triggered_planet_modifier = {
+		key = "sector_screen.ui.block.edi.edict_capital"
+		potential = { exists = sector sector = { sector_has_edict_capital = yes } }
+		modifier = {
+			pop_resource_output = 0.10
+			pop_happiness = 0.10
+		}
+	}
+
+	# Mining
+	triggered_planet_modifier = {
+		key = "sector_screen.ui.block.edi.edict_mining"
+		potential = { exists = sector sector = { sector_has_edict_mining = yes } }
+		modifier = { planet_resource_minerals_add = 1 }
+	}		
+	triggered_planet_modifier = {
+		potential = { exists = sector sector = { sector_has_edict_mining = yes sector_mines_terraform_gases = yes } }
+		modifier = { planet_resource_sr_terraform_gases_add = 1 }
+	}
+	triggered_planet_modifier = {
+		potential = { exists = sector sector = { sector_has_edict_mining = yes sector_mines_terraform_liquids = yes } }
+		modifier = { planet_resource_sr_terraform_liquids_add = 1 }
+	}
+	triggered_planet_modifier = {
+		potential = { exists = sector sector = { sector_has_edict_mining = yes sector_mines_garanthium = yes } }
+		modifier = { planet_resource_sr_garanthium_add = 1 }
+	}
+	triggered_planet_modifier = {
+		potential = { exists = sector sector = { sector_has_edict_mining = yes sector_mines_lythuric = yes } }
+		modifier = { planet_resource_sr_lythuric_add = 1 }
+	}
+	triggered_planet_modifier = {
+		potential = { exists = sector sector = { sector_has_edict_mining = yes sector_mines_teldar = yes } }
+		modifier = { planet_resource_sr_teldar_add = 1 }
+	}
+	triggered_planet_modifier = {
+		potential = { exists = sector sector = { sector_has_edict_mining = yes sector_mines_yuranic = yes } }
+		modifier = { planet_resource_sr_yuranic_add = 1 }
+	}
+	triggered_planet_modifier = {
+		potential = { exists = sector sector = { sector_has_edict_mining = yes sector_mines_orillium = yes } }
+		modifier = { planet_resource_sr_orillium_add = 1 }
+	}
+	triggered_planet_modifier = {
+		potential = { exists = sector sector = { sector_has_edict_mining = yes sector_mines_pitharan = yes } }
+		modifier = { planet_resource_sr_pitharan_add = 1 }
+	}
+	triggered_planet_modifier = {
+		potential = { exists = sector sector = { sector_has_edict_mining = yes sector_mines_engos = yes } }
+		modifier = { planet_resource_sr_engos_add = 1 }
+	}
+	triggered_planet_modifier = {
+		potential = { exists = sector sector = { sector_has_edict_mining = yes sector_mines_neutronium = yes } }
+		modifier = { planet_resource_sr_neutronium_add = 1 }
+	}
+	triggered_planet_modifier = {
+		potential = { exists = sector sector = { sector_has_edict_mining = yes sector_mines_living_metal = yes } }
+		modifier = { planet_resource_sr_living_metal_add = 1 }
+	}
+	triggered_planet_modifier = {
+		potential = { exists = sector sector = { sector_has_edict_mining = yes sector_mines_zro = yes } }
+		modifier = { planet_resource_sr_zro_add = 1 }
+	}
+	triggered_planet_modifier = {
+		potential = { exists = sector sector = { sector_has_edict_mining = yes sector_mines_dark_matter = yes } }
+		modifier = { planet_resource_sr_dark_matter_add = 1 }
+	}
+	triggered_planet_modifier = {
+		potential = { exists = sector sector = { sector_has_edict_mining = yes sector_mines_satramene = yes } }
+		modifier = { planet_resource_sr_satramene_add = 1 }
+	}
+
+	# Trade
+	triggered_planet_modifier = {
+		key = "sector_screen.ui.block.edi.edict_trade"
+		potential = { exists = sector sector = { sector_has_edict_trade = yes } }
+		modifier = { planet_resource_bm_trade_add = 5 }
+	}
+
+	# Education
+	triggered_planet_modifier = {
+		key = "sector_screen.ui.block.edi.edict_leadership"
+		potential = { exists = sector sector = { sector_has_edict_leadership = yes } }
+		modifier = { planet_resource_bm_pool_add = 1 }
+	}
+
+	# Anti Piracy
+	triggered_planet_modifier = {
+		key = "sector_screen.ui.block.edi.edict_piracy"
+		potential = { exists = sector sector = { sector_has_edict_piracy = yes } }
+		modifier = { planet_resource_bm_piracy_add = 1 }
+	}
+
+	# EFFECTS
+
+	# Influence from satisfied faction
+	triggered_planet_modifier = {
+		key = "bm_loyal_faction"
+		potential = {
+			exists = owner
+			owner = {
+				count_pop_factions = {
+					count > 0
+					limit = {
+						is_pop_faction_type = "regionalist"
+						check_pop_faction_parameter = { which = sector value = prev.sector }
+						pop_percentage = {
+							percentage > 0.95
+							limit = { happiness > 0.59 }
+						}
+					}
+				}			
+			}
+		}
+		modifier = { planet_resource_influence_add = 1 }
+	}
+
+	# Just a row for additional sector systems
+	planet_modifier_with_pop_trigger = {
+		key = building_sector_administration
+		potential = { planet = { has_planet_flag = "just_a_placeholder" } }
+		modifier = { pop_happiness = -0.01 }
+	}
+
+	destroy_if = {
+		planet = {
+			not = {
+				sector_controlled = yes
+				has_modifier = "sector_capital"
+				or = {
+					has_building = "building_capital_1"
+					has_building = "building_capital_2"
+				}				
+			}
+		}
+	}
+
+	upgrades = {
+		#building_sector_capital
+	}
+
+	ai_replace = no
+}

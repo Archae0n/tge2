@@ -1,0 +1,4 @@
+﻿l_english:
+    
+    habitat.1.name:0 "[This.GetName] Expanded"
+    habitat.1.desc:0 "The renovations on the [This.GetName] are now complete and the new sections are ready for habitation and development."

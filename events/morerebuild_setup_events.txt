@@ -1,0 +1,25 @@
+namespace = morerebuild_setup
+
+country_event = {
+	id = morerebuild_setup.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		if = { limit = { has_civic = civic_spiritual_harmony } 
+			give_technology = { message = no tech = tech_psionic_theory }
+		}
+	}
+}
+
+country_event = {
+	id = morerebuild_setup.2
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		if = { limit = { has_civic = civic_terraforming } 
+			give_technology = { message = no tech = tech_terrestrial_sculpting }
+		}
+	}
+}

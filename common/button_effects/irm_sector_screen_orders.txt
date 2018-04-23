@@ -1,0 +1,511 @@
+# IRM
+# Fleet order buttons
+
+
+# Order - Patrol Sector
+ui_cb_mission_patrol_sector_on = {
+	potential = {
+		exists = event_target:uiSectorCapital
+		exists = event_target:uiSectorMilFleet
+		event_target:uiSectorMilFleet = { fleet_has_mission_patrol_sector = no }
+	}
+	allow = {
+	}
+	effect = {
+		custom_tooltip = "sector_screen.ui.block.mission.patrol_sector.desc"
+		hidden_effect = {
+			event_target:uiSectorMilFleet = {
+				fleet_clear_orders = yes
+				set_timed_fleet_flag = { flag = @sMissionPatrolSector days = @nOrderLong  }
+				fleet_event = { id = irm_sector.401 }
+			}
+		}
+	}
+}
+ui_cb_mission_patrol_sector_off = {
+	potential = {
+		exists = event_target:uiSectorCapital
+		exists = event_target:uiSectorMilFleet
+		event_target:uiSectorMilFleet = { fleet_has_mission_patrol_sector = yes }
+	}
+	allow = {
+	}
+	effect = {
+		custom_tooltip = "sector_screen.ui.block.mission.patrol_sector.desc"
+		hidden_effect = {
+			event_target:uiSectorMilFleet = {
+				remove_fleet_flag = @sMissionPatrolSector
+			}
+		}
+	}	
+}
+
+# Order - Patrol Cores
+ui_cb_mission_patrol_cores_on = {
+	potential = {
+		exists = event_target:uiSectorCapital
+		exists = event_target:uiSectorMilFleet
+		event_target:uiSectorMilFleet = { fleet_has_mission_patrol_cores = no }
+	}
+	allow = {
+	}
+	effect = {
+		custom_tooltip = "sector_screen.ui.block.mission.patrol_cores.desc"
+		hidden_effect = {
+			random_pop_faction = {
+				limit = {
+					is_pop_faction_type = regionalist
+					check_pop_faction_parameter = { which = sector value = event_target:uiSectorCapital.sector }
+				}
+				if = { 	limit = { root = { not = { has_ethic = "ethic_gestalt_consciousness" } } }
+							faction_set_mod_interference = yes }
+			}			
+			event_target:uiSectorMilFleet = {
+				fleet_clear_orders = yes
+				set_timed_fleet_flag = { flag = @sMissionPatrolCores days = @nOrderLong  }
+				fleet_event = { id = irm_sector.401 }
+			}
+		}
+	}
+}
+ui_cb_mission_patrol_cores_off = {
+	potential = {
+		exists = event_target:uiSectorCapital
+		exists = event_target:uiSectorMilFleet
+		event_target:uiSectorMilFleet = { fleet_has_mission_patrol_cores = yes }
+	}
+	allow = {
+	}
+	effect = {
+		custom_tooltip = "sector_screen.ui.block.mission.patrol_cores.desc"
+		hidden_effect = {
+			event_target:uiSectorMilFleet = {
+				remove_fleet_flag = @sMissionPatrolCores
+			}
+		}
+	}	
+}
+
+# Order - Defend Capital
+ui_cb_mission_defend_capital_on = {
+	potential = {
+		exists = event_target:uiSectorCapital
+		exists = event_target:uiSectorMilFleet
+		event_target:uiSectorMilFleet = { fleet_has_mission_defend_capital = no }
+	}
+	allow = {
+	}
+	effect = {
+		custom_tooltip = "sector_screen.ui.block.mission.defend_capital.desc"
+		hidden_effect = {
+			random_pop_faction = {
+				limit = {
+					is_pop_faction_type = regionalist
+					check_pop_faction_parameter = { which = sector value = event_target:uiSectorCapital.sector }
+				}
+				if = { 	limit = { root = { not = { has_ethic = "ethic_gestalt_consciousness" } } }
+							faction_set_mod_interference = yes }
+			}			
+			event_target:uiSectorMilFleet = {
+				fleet_clear_orders = yes
+				set_timed_fleet_flag = { flag = @sMissionDefendCapital days = @nOrderLong }
+				fleet_event = { id = irm_sector.401 }
+			}
+		}
+	}
+}
+ui_cb_mission_defend_capital_off = {
+	potential = {
+		exists = event_target:uiSectorCapital
+		exists = event_target:uiSectorMilFleet
+		event_target:uiSectorMilFleet = { fleet_has_mission_defend_capital = yes }
+	}
+	allow = {
+	}
+	effect = {
+		custom_tooltip = "sector_screen.ui.block.mission.defend_capital.desc"
+		hidden_effect = {
+			event_target:uiSectorMilFleet = {
+				remove_fleet_flag = @sMissionDefendCapital
+			}
+		}
+	}	
+}
+
+# Order - Follow Fleet
+ui_cb_mission_follow_fleet_on = {
+	potential = {
+		exists = event_target:uiSectorCapital
+		exists = event_target:uiSectorMilFleet
+		event_target:uiSectorMilFleet = { fleet_has_mission_follow_fleet = no }
+	}
+	allow = {
+		custom_tooltip = {
+			fail_text = "sector_screen.ui.block.mission.follow_fleet.fail"
+			exists = event_target:uiSectorMilFleet.solar_system
+			event_target:uiSectorMilFleet.solar_system = {
+				any_country = {
+					nor = {
+						is_same_empire = event_target:uiSectorMilFleet.owner 
+						is_hostile = event_target:uiSectorMilFleet.owner 
+						is_at_war_with = event_target:uiSectorMilFleet.owner 						
+					}
+					any_owned_fleet = {
+						is_ship_class = shipclass_military
+						exists = solar_system
+						solar_system = { is_same_value = event_target:uiSectorMilFleet.solar_system }
+					}
+				}
+			}			
+		}
+	}
+	effect = {
+		custom_tooltip = "sector_screen.ui.block.mission.follow_fleet.desc"
+		hidden_effect = {
+			random_pop_faction = {
+				limit = {
+					is_pop_faction_type = regionalist
+					check_pop_faction_parameter = { which = sector value = event_target:uiSectorCapital.sector }
+				}
+				if = { 	limit = { root = { not = { has_ethic = "ethic_gestalt_consciousness" } } }
+							faction_set_mod_interference = yes }
+			}			
+			event_target:uiSectorMilFleet = {
+				fleet_clear_orders = yes
+				set_timed_fleet_flag = { flag = @sMissionFollowFleet days = @nOrderAverage }
+				# Select target fleet
+				solar_system = {
+					random_fleet_in_system = {
+						limit = {
+							is_ship_class = shipclass_military
+							exists = owner
+							owner = {
+								nor = {
+									is_same_empire = event_target:uiSectorMilFleet.owner 
+									is_hostile = event_target:uiSectorMilFleet.owner 
+									is_at_war_with = event_target:uiSectorMilFleet.owner 						
+								}								
+							}
+						}
+						event_target:uiSectorMilFleet = {
+							set_timed_fleet_flag = { flag = target_id_@prev days = @nOrderAverage }
+							fleet_event = { id = irm_sector.401 }
+						}
+					}
+				}
+			}
+		}
+	}
+}
+ui_cb_mission_follow_fleet_off = {
+	potential = {
+		exists = event_target:uiSectorCapital
+		exists = event_target:uiSectorMilFleet
+		event_target:uiSectorMilFleet = { fleet_has_mission_follow_fleet = yes }
+	}
+	allow = {
+	}
+	effect = {
+		custom_tooltip = "sector_screen.ui.block.order.follow_fleet.desc"
+		hidden_effect = {
+			event_target:uiSectorMilFleet = {
+				remove_fleet_flag = @sMissionFollowFleet
+			}
+		}
+	}	
+}
+
+# Order - War Goals
+ui_cb_order_war_goals_on = {
+	potential = {
+		exists = event_target:uiSectorCapital
+		exists = event_target:uiSectorMilFleet
+		event_target:uiSectorMilFleet = { fleet_has_order_war_goals = no }
+	}
+	allow = {
+		always = no
+	}
+	effect = {
+		custom_tooltip = "sector_screen.ui.block.order.war_goals.desc"
+		hidden_effect = {
+			random_pop_faction = {
+				limit = {
+					is_pop_faction_type = regionalist
+					check_pop_faction_parameter = { which = sector value = event_target:uiSectorCapital.sector }
+				}
+				if = { 	limit = { root = { not = { has_ethic = "ethic_gestalt_consciousness" } } }
+							faction_set_mod_interference = yes }
+			}			
+			event_target:uiSectorMilFleet = {
+				fleet_clear_orders = yes
+				set_timed_fleet_flag = { flag = @sOrderWarGoals days = @nOrderAverage }
+				fleet_event = { id = irm_sector.401 }
+			}
+		}
+	}
+}
+ui_cb_order_war_goals_off = {
+	potential = {
+		exists = event_target:uiSectorCapital
+		exists = event_target:uiSectorMilFleet
+		event_target:uiSectorMilFleet = { fleet_has_order_war_goals = yes }
+	}
+	allow = {
+	}
+	effect = {
+		custom_tooltip = "sector_screen.ui.block.order.war_goals.desc"
+		hidden_effect = {
+			event_target:uiSectorMilFleet = {
+				remove_fleet_flag = @sOrderWarGoals
+			}
+		}
+	}	
+}
+
+# Order - Attack Hostile
+ui_cb_mission_attack_hostile_on = {
+	potential = {
+		exists = event_target:uiSectorCapital
+		exists = event_target:uiSectorMilFleet
+		event_target:uiSectorMilFleet = { fleet_has_mission_attack_hostile = no }
+	}
+	allow = {
+		custom_tooltip = {
+			fail_text = "sector_screen.ui.block.mission.attack_hostile.fail"
+			any_system_within_border = {
+				exists = sector
+				sector = { is_same_value = event_target:uiSectorCapital.sector }
+				any_ship_in_system = {
+					exists = owner
+					owner = {
+						or = {
+							is_hostile = event_target:uiSectorCapital.owner
+							is_at_war_with = event_target:uiSectorCapital.owner	
+						}
+					}
+				}
+			}
+		}
+	}
+	effect = {
+		custom_tooltip = "sector_screen.ui.block.mission.attack_hostile.desc"
+		hidden_effect = {
+			random_pop_faction = {
+				limit = {
+					is_pop_faction_type = regionalist
+					check_pop_faction_parameter = { which = sector value = event_target:uiSectorCapital.sector }
+				}
+				if = { 	limit = { root = { not = { has_ethic = "ethic_gestalt_consciousness" } } }
+							faction_set_mod_interference = yes }
+			}			
+			event_target:uiSectorMilFleet = {
+				fleet_clear_orders = yes
+				set_timed_fleet_flag = { flag = @sMissionAttackHostile days = @nOrderShort }
+				fleet_event = { id = irm_sector.401 }
+			}
+		}
+	}
+}
+ui_cb_mission_attack_hostile_off = {
+	potential = {
+		exists = event_target:uiSectorCapital
+		exists = event_target:uiSectorMilFleet
+		event_target:uiSectorMilFleet = { fleet_has_mission_attack_hostile = yes }
+	}
+	allow = {
+	}
+	effect = {
+		custom_tooltip = "sector_screen.ui.block.mission.attack_hostile.desc"
+		hidden_effect = {
+			event_target:uiSectorMilFleet = {
+				remove_fleet_flag = @sMissionAttackHostile
+			}
+		}
+	}	
+}
+
+# Order - Return Home
+ui_cb_mission_return_home_on = {
+	potential = {
+		exists = event_target:uiSectorCapital
+		exists = event_target:uiSectorMilFleet
+		event_target:uiSectorMilFleet = { fleet_has_mission_return_home = no }
+	}
+	allow = {
+		custom_tooltip = {
+			fail_text = "sector_screen.ui.block.missions.return_home.none"
+			any_planet_within_border = { event_target:uiSectorMilFleet = { has_fleet_flag = home_id_@prev } }
+		}
+	}
+	effect = {
+		custom_tooltip = "sector_screen.ui.block.missions.return_home.desc"
+		hidden_effect = {
+			random_pop_faction = {
+				limit = {
+					is_pop_faction_type = regionalist
+					check_pop_faction_parameter = { which = sector value = event_target:uiSectorCapital.sector }
+				}
+				if = { 	limit = { root = { not = { has_ethic = "ethic_gestalt_consciousness" } } }
+							faction_set_mod_interference = yes }
+			}			
+			event_target:uiSectorMilFleet = {
+				fleet_clear_orders = yes
+				set_timed_fleet_flag = { flag = @sMissionReturnHome days = @nOrderLong }
+				fleet_event = { id = irm_sector.401 }
+			}
+		}
+	}
+}
+ui_cb_mission_return_home_off = {
+	potential = {
+		exists = event_target:uiSectorCapital
+		exists = event_target:uiSectorMilFleet
+		event_target:uiSectorMilFleet = { fleet_has_mission_return_home = yes }
+	}
+	allow = {
+	}
+	effect = {
+		custom_tooltip = "sector_screen.ui.block.missions.return_home.desc"
+		hidden_effect = {
+			event_target:uiSectorMilFleet = {
+				remove_fleet_flag = @sMissionReturnHome
+			}
+		}
+	}	
+}
+
+# Order - Repair Fleet
+ui_cb_mission_repair_fleet_on = {
+	potential = {
+		exists = event_target:uiSectorCapital
+		exists = event_target:uiSectorMilFleet
+		event_target:uiSectorMilFleet = { fleet_has_mission_repair_fleet = no }
+	}
+	allow = {
+		custom_tooltip = {
+			fail_text = "sector_screen.ui.block.mission.repair_fleet.fail"
+			any_owned_starbase = { has_starbase_module = shipyard }
+		}
+		custom_tooltip = {
+			fail_text = "sector_screen.ui.block.mission.repair_fleet.healthy"
+			event_target:uiSectorMilFleet = { has_hp_percentage < 1.00 }
+		}		
+	}
+	effect = {
+		custom_tooltip = "sector_screen.ui.block.mission.repair_fleet.desc"
+		hidden_effect = {
+			random_pop_faction = {
+				limit = {
+					is_pop_faction_type = regionalist
+					check_pop_faction_parameter = { which = sector value = event_target:uiSectorCapital.sector }
+				}
+				if = { 	limit = { root = { not = { has_ethic = "ethic_gestalt_consciousness" } } }
+							faction_set_mod_interference = yes }
+			}			
+			event_target:uiSectorMilFleet = {
+				fleet_clear_orders = yes
+				set_timed_fleet_flag = { flag = @sMissionRepairFleet days = @nOrderLong }
+				fleet_event = { id = irm_sector.401 }
+			}
+		}
+	}
+}
+ui_cb_mission_repair_fleet_off = {
+	potential = {
+		exists = event_target:uiSectorCapital
+		exists = event_target:uiSectorMilFleet
+		event_target:uiSectorMilFleet = { fleet_has_mission_repair_fleet = yes }
+	}
+	allow = {
+	}
+	effect = {
+		custom_tooltip = "sector_screen.ui.block.mission.repair_fleet.desc"
+		hidden_effect = {
+			event_target:uiSectorMilFleet = {
+				remove_fleet_flag = @sMissionRepairFleet
+			}
+		}
+	}	
+}
+
+# Order - Upgrade Fleet
+ui_cb_mission_upgrade_fleet_on = {
+	potential = {
+		exists = event_target:uiSectorCapital
+		exists = event_target:uiSectorMilFleet
+		event_target:uiSectorMilFleet = { fleet_has_mission_upgrade_fleet = no }
+	}
+	allow = {
+		custom_tooltip = {
+			fail_text = "sector_screen.ui.block.mission.repair_fleet.fail"
+			any_owned_starbase = { has_starbase_module = shipyard }
+		}		
+	}
+	effect = {
+		custom_tooltip = "sector_screen.ui.block.mission.upgrade_fleet.desc"
+		hidden_effect = {
+			random_pop_faction = {
+				limit = {
+					is_pop_faction_type = regionalist
+					check_pop_faction_parameter = { which = sector value = event_target:uiSectorCapital.sector }
+				}
+				if = { 	limit = { root = { not = { has_ethic = "ethic_gestalt_consciousness" } } }
+							faction_set_mod_interference = yes }
+			}			
+			event_target:uiSectorMilFleet = {
+				fleet_clear_orders = yes
+				set_timed_fleet_flag = { flag = @sMissionUpgradeFleet days = @nOrderLong }
+				fleet_event = { id = irm_sector.401 }
+			}
+		}
+	}
+}
+ui_cb_mission_upgrade_fleet_off = {
+	potential = {
+		exists = event_target:uiSectorCapital
+		exists = event_target:uiSectorMilFleet
+		event_target:uiSectorMilFleet = { fleet_has_mission_upgrade_fleet = yes }
+	}
+	allow = {
+	}
+	effect = {
+		custom_tooltip = "sector_screen.ui.block.mission.upgrade_fleet.desc"
+		hidden_effect = {
+			event_target:uiSectorMilFleet = {
+				remove_fleet_flag = @sMissionUpgradeFleet
+			}
+		}
+	}	
+}
+
+# Order - Cancel All
+ui_cb_order_cancel_all_on = {
+	potential = {
+		exists = event_target:uiSectorCapital
+		exists = event_target:uiSectorMilFleet
+	}
+	allow = {
+		custom_tooltip = {
+			fail_text = "sector_screen.ui.block.mission.cancel_all.fail"
+			event_target:uiSectorMilFleet = { fleet_has_mission = yes }
+		}
+	}
+	effect = {
+		custom_tooltip = "sector_screen.ui.block.mission.cancel_all.desc"
+		hidden_effect = {
+			random_pop_faction = {
+				limit = {
+					is_pop_faction_type = regionalist
+					check_pop_faction_parameter = { which = sector value = event_target:uiSectorCapital.sector }
+				}
+				if = { 	limit = { root = { not = { has_ethic = "ethic_gestalt_consciousness" } } }
+							faction_set_mod_interference = yes }
+			}			
+			event_target:uiSectorMilFleet = {
+				fleet_clear_orders = yes
+				clear_fleet_actions = this
+				remove_auto_move_target = yes
+			}
+		}
+	}
+}

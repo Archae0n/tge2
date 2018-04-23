@@ -1,0 +1,146 @@
+gai_has_growth_building = {
+	OR = {
+		AND = {
+			owner = {
+				OR = {
+					has_technology = tech_frontier_health
+					has_technology = tech_modular_components
+				}
+			}
+			planet= {
+				OR = {
+					has_building = building_clinic
+					has_building = building_hospital
+					has_building = building_spare_parts_depot
+					has_building = building_unit_assembly_plant
+					has_building = building_eutab_automation_sector
+					has_building = building_eutab_hive_nursery
+					has_building = building_eutab_hive_juvenile
+				}
+			}
+		}
+		owner = {
+			NOR = {
+				has_technology = tech_frontier_health
+				has_technology = tech_modular_components
+			}
+		}
+	}
+}
+
+gai_has_dome = {
+	OR = {
+		AND = {
+			owner = {
+				has_non_swapped_tradition = tr_harmony_utopian_dream
+			}
+			OR = {
+				planet= {
+					has_building = building_paradise_dome
+					has_building = building_eutab_gaia_district
+				}
+			}
+		}
+		NOT = { owner = { has_non_swapped_tradition = tr_harmony_utopian_dream	} }
+	}
+}
+
+gai_has_pur = {
+	OR = {
+		AND = {
+			owner = {
+				has_swapped_tradition = tr_purity_symbol_purity
+			}
+			OR = {
+				planet= {
+					has_building = building_symbol_purity
+					has_building = building_eutab_monument_purity
+				}
+			}
+		}
+		NOT = { 
+			owner = {
+				has_swapped_tradition = tr_purity_symbol_purity
+			}
+		}
+	}
+}
+
+gai_important_building = {
+	tile = {
+		AND = {
+			has_building = building_capital_1
+			has_building = building_capital_2
+			has_building = building_capital_3
+			has_building = building_mineral_processing_plant_1
+			has_building = building_mineral_processing_plant_2
+			has_building = building_symbol_purity
+			has_building = building_clinic
+			has_building = building_hospital
+			has_building = building_spare_parts_depot
+			has_building = building_unit_assembly_plant
+			has_building = building_paradise_dome
+			has_building = building_power_hub_1
+			has_building = building_power_hub_2
+			has_building = building_akx_worm_1
+			has_building = building_slave_processing
+			has_building = building_citadel_of_faith
+			has_building = building_temple
+			has_building = building_holotemple
+			has_building = building_sacred_nexus
+			has_building = building_autocurating_vault
+			has_building = building_hypercomms_forum
+			has_building = building_heritage_site
+			has_building = building_autochthon_monument
+			has_building = building_uplink_node
+			has_building = building_network_junction
+			has_building = building_system_conflux
+			has_building = building_alpha_hub
+			has_building = building_eutab_automation_sector
+			has_building = building_eutab_hive_nursery
+			has_building = building_eutab_hive_juvenile
+			has_building = building_eutab_dev_district
+			has_building = building_eutab_governors_district
+			has_building = building_eutab_planetary_parliament
+			has_building = building_eutab_wargame
+			has_building = building_eutab_eco_preserve
+			has_building = building_eutab_arcology
+			has_building = building_eutab_monument_unity
+			has_building = building_eutab_support_lab
+			has_building = building_eutab_support_nexus
+			has_building = building_eutab_battle_praxeum
+			has_building = building_eutab_gaia_district
+			has_building = building_eutab_foundation_institute
+			has_building = building_eutab_home_territories
+			has_building = building_eutab_ports_authority
+			has_building = building_eutab_off_naval_intel
+			has_building = building_eutab_masters_hall
+			has_building = building_eutab_moral_codes
+			has_building = building_eutab_adaptation_lab
+			has_building = building_eutab_frontier_adaptation
+			has_building = building_eutab_frontier_adaptation_ipp
+			has_building = building_eutab_xeno_adaptation
+			has_building = building_eutab_purity_centre
+			has_building = building_eutab_monument_purity
+			has_building = building_eutab_xeno_sub_ins
+			has_building = building_eutab_xeno_district
+			has_building = building_eutab_ins_exo_design
+			has_building = building_eutab_medigel_cultivator
+			has_building = building_eutab_wargame
+			has_building = building_eutab_warlink_colosseum
+			has_building = building_eutab_genetic_data_vault
+			has_building = building_eutab_afterlife_vault
+			has_building = building_eutab_disease_control
+			has_building = building_eutab_adv_clone_vats
+			has_building = building_eutab_comp_arcology
+			has_building = building_eutab_planet_sci
+			has_building = building_eutab_grand_academy
+			has_building = building_eutab_hive_neuron_cluster
+			has_building = building_eutab_biointergration_stabiliser
+			has_building = building_eutab_food_replicator_facility
+			has_building = building_eutab_fortress_factory
+			has_building = building_eutab_control_center
+			has_building = building_eutab_cultural_command
+			has_building = building_eutab_cultural_command_2
+	}
+}

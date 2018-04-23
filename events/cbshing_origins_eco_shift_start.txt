@@ -1,0 +1,24 @@
+namespace = cbshing_origins_eco_shift_start
+# by cbshing
+
+### Hidden Game Start Event
+planet_event = {
+	id = cbshing_origins_eco_shift_start.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = { 
+				owner = { is_cbshing_eco_shift_country = yes }
+				is_capital = yes
+			}
+			owner = { set_country_flag = "origins_eco_shift_country" }
+			owner = { set_country_flag = "origins_restore_homeworld_needed" }
+			cbshing_origins_change_planet_type_to_non_preference_vanilla = yes
+			cbshing_origins_add_vanilla_tile_blockers = yes
+			cbshing_origins_remove_food_resources = yes
+			owner = { add_minerals = 250 }
+		}
+	}
+}

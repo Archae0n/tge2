@@ -1,0 +1,26 @@
+namespace = ai_fixmod_flag
+
+event = {
+	id = ai_fixmod_flag.1	
+	hide_window = yes
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	immediate = {
+		set_global_flag = "ai_fixmod_flag"
+		every_country = {
+			limit = {
+				AND = {
+					is_ai = yes
+					is_country_type = "default"
+				}
+			}
+			#give_technology = {
+				#tech = tech_im_an_ai_tech
+				#message = no
+			#}
+		}
+	}
+}
+
+

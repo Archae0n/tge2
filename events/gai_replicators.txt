@@ -1,0 +1,76 @@
+#event from dpe_diplo_events
+namespace = gai_replicators
+
+#Replicators dont get built ever in 2.0.2 for the AI this fixes that
+planet_event = {
+	id = gai_replicators.1
+	hide_window = yes
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	trigger = {
+		has_owner = yes
+		NOT = { has_global_flag = disable_gai_replicators }
+		not = { owner = { has_country_flag = new_replicator } }
+		planet = {
+			OR = {
+				has_building = "building_capital_2"
+				has_building = "building_capital_3"
+				has_building = "building_hab_capital"
+			}
+		}
+		owner = { has_technology = tech_matter_generator }
+		planet = {
+			count_tile = {
+				limit = {
+					has_building = building_replicator
+				}
+				count < 2					
+			}
+		}
+		planet = { has_building_construction = no }
+		exists = owner
+		owner = { is_ai = yes }
+		owner = {
+			and = {
+				is_country_type = default
+				has_monthly_income = {
+					resource = energy
+					value > 200
+				}
+			}
+		}
+		any_tile = {
+			has_building = no
+			OR = {
+				gai_is_blank = yes 
+				gai_build_on_food_okay = yes
+			}
+		}
+	}
+
+	immediate = {
+		random_tile = {
+			limit = {
+				AND = {
+					has_building = no
+					OR = {
+						gai_is_blank = yes 
+						gai_build_on_food_okay = yes
+					}
+				}
+			}
+			planet = {
+				owner = {
+					set_timed_country_flag = {
+						flag = new_replicator
+						days = 50
+					}
+				}
+			}
+			add_building_construction = building_replicator
+		}
+	}
+}
+

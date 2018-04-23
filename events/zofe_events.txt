@@ -1,0 +1,303 @@
+###########################################
+#      			ZoFE Events
+#		  		  By Kolyn
+###########################################
+
+namespace = zofe
+
+
+#Create Preserve World
+country_event = {
+	id = zofe.1
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = {
+				any_planet_within_border = {
+					is_planet_class = pc_gaia
+					planet_size > 20
+					num_species > 8
+					free_building_tiles > 0
+				}
+			}
+			random_planet_within_border = {
+				limit = {
+					is_planet_class = pc_gaia
+					planet_size > 20
+					num_species > 8
+					free_building_tiles > 0
+				}
+				save_event_target_as = preserve_world
+			}
+			country_event = { id = zofe.2 }
+			else = {
+				country_event = { id = zofe.201 }
+			}			
+		}	
+	}
+}
+
+# Make World Holy
+country_event = {
+	id = zofe.2
+	title = zofe.2.name
+	desc = zofe.2.desc
+	picture = GFX_evt_alien_ruins
+	show_sound = event_alien_nature
+	location = event_target:preserve_world
+
+	is_triggered_only = yes
+
+
+	option = { 
+		name = zofe.2.a
+		add_modifier = {
+			modifier = has_preserve_world_planet
+			days = -1
+		}
+		event_target:preserve_world = {
+			set_planet_name = "The Preserve"
+			random_tile = {
+				limit = { has_building = no }
+				set_building =  building_fe_xeno_zoo
+			}
+			hidden_effect = {
+				add_modifier = {
+					modifier = the_preserve
+					days = -1
+				}
+			}
+		}
+	}
+	
+	after = {
+		remove_country_flag = search_for_preserve_world
+	}
+}
+
+# Did not find a world worthy to be The Preserve
+country_event = {
+	id = zofe.201
+	title = zofe.201.name
+	desc = zofe.201.desc
+	picture = GFX_evt_throne_room
+	location = capital_scope
+
+	is_triggered_only = yes
+
+	option = {
+		name = UNFORTUNATE
+		custom_tooltip = zofe.201.a.tooltip
+		hidden_effect = {
+			add_influence = 300
+		}
+	}
+	
+	after = {
+		remove_country_flag = search_for_preserve_world
+	}
+}
+
+# Lost holy world
+# fired by on_planet_transfer and on_colonization_started
+# planet_transfer might not work because:
+# a) planet is not technically owned
+# b) old owner is not retained;
+# let us hope it is fired early before ownership updated?
+# TODO TEMP [DM] revisit and get coder confirmation on this
+# ideally we want an "on system/starbase ownership flipped" on-action
+planet_event = {
+	id = zofe.202
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_modifier = the_preserve
+		NOT = { is_planet_class = pc_gaia }
+	}
+
+	immediate = {
+		remove_modifier = the_preserve
+		space_owner = { remove_modifier = has_preserve_world_planet }
+	}
+}
+
+
+# Ascended Empire Decadence Edict Unlock
+country_event = {
+	id = zofe.3
+	title = zofe.3.name
+	desc = zofe.3.desc
+	picture = GFX_evt_fallen_empire
+	
+	trigger = {	
+		is_country_type = ascended_empire
+		has_modifier = awakened_empire_decadence
+		is_at_war = no
+		NOT = { has_country_flag = decadence_edict_gained }
+	}		
+
+	option = {
+		name = zofe.3.a
+		custom_tooltip = enable_decadence_edict 
+		hidden_effect = {
+			set_country_flag = decadence_edict_gained
+		}
+		
+		ai_chance = {										# AI chance
+			factor = 1000
+		}
+	}	
+}
+
+# Ascended Empire Rejuvenation Notification
+country_event = {
+	id = zofe.4
+	title = zofe.4.name
+	desc = zofe.4.desc
+	picture = GFX_evt_fallen_empire
+	
+	is_triggered_only = yes
+
+	option = {
+		name = zofe.4.a
+		
+		ai_chance = {										# AI chance
+			factor = 1000
+		}
+	}	
+}
+
+# Devouring Swarm Conquer Planet
+country_event = {
+	id = zofe.5
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_country_type = "ascended_empire"
+		has_valid_civic = civic_hive_devouring_swarm
+	}
+	
+	immediate = {
+		FROMFROM = {
+			add_threat = { who = root amount = 2 }
+			set_controller = root
+			purge = yes
+		}
+	}
+}
+
+# Devouring Swarm Loses Planet
+country_event = {
+	id = zofe.6
+	title = "zofe.6.name"
+	desc = "zofe.6.desc"
+	picture = GFX_evt_ground_combat
+	show_sound = event_ground_battle
+	location = fromfrom
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		from = {
+			is_country_type = ascended_empire
+			has_valid_civic = civic_hive_devouring_swarm
+		}
+	}
+	
+	immediate = {
+		FROMFROM = {
+			every_owned_pop = { kill_pop = yes } # Kill Custodians
+		}
+	}
+
+	option = {
+		name = zofe.6.a
+		fromfrom = { 
+			destroy_colony = yes
+		}
+	}
+}
+
+# Eating Complete
+planet_event = {
+	id = zofe.7
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		num_pops = 1 # Last Pop is still alive when this event is fired
+		controller = {
+			is_country_type = ascended_empire
+			has_valid_civic = civic_hive_devouring_swarm
+		}
+	}
+	
+	immediate = {
+		controller = { save_event_target_as = eater }
+		set_owner = controller
+		best_tile_for_pop = {
+			create_pop = { species = owner_main_species }
+		}
+		best_tile_for_pop = {
+			create_pop = { species = owner_main_species }
+		}
+		best_tile_for_pop = {
+			create_pop = { species = owner_main_species }
+		}
+		create_army = {
+			owner = event_target:eater
+			type = "defense_army"
+		}
+		create_army = {
+			owner = event_target:eater
+			type = "defense_army"
+		}
+		create_army = {
+			owner = event_target:eater
+			type = "defense_army"
+		}
+		create_army = {
+			owner = event_target:eater
+			type = "defense_army"
+		}
+		create_army = {
+			owner = event_target:eater
+			type = "defense_army"
+		}
+	}
+}
+
+# Eating Ends
+country_event = {
+	id = zofe.8
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = {
+			is_country_type = ascended_empire
+			has_valid_civic = civic_hive_devouring_swarm
+		}	
+		fromfrom = {
+			controller = {
+				is_country_type = ascended_empire
+				has_valid_civic = civic_hive_devouring_swarm
+			}					
+		}
+	}
+	
+	immediate = {
+		FROMFROM = {
+			purge = no
+		}
+	}
+}

@@ -1,0 +1,373 @@
+# IRM
+# Sector Events
+
+
+namespace = irm_sector
+
+# ON ACTIONS
+
+# This = Ship
+# Edict: Assets Optimization
+# Applies mining & research station upkeep modifiers
+ship_event = {
+	id = irm_sector.223
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		from = {
+			exists = space_owner
+			space_owner = {
+				is_ai = no
+				any_sector = {
+					is_core_sector = no
+					any_planet = { is_same_value = prevprevprev }
+					sector_has_edict_assets = yes
+				}
+			}
+		}
+	}
+
+	immediate = { 
+		from = {
+			if = {
+				limit = { has_mining_station = yes }
+					random_mining_station = {
+						add_modifier = { modifier = "mining_station_optimised" days = @standardEdictLength }
+					}
+			}
+			if = {
+				limit = { has_mining_station = yes }
+					random_research_station = {
+						add_modifier = { modifier = "research_station_optimised" days = @standardEdictLength }
+					}
+			}					
+		}
+	}
+
+}		
+
+# This = Planet
+# Edict: Internal Colonization
+# Settles additional pops according to sector edict
+@fNewPops = 0.5
+planet_event = {
+	id = irm_sector.224
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		exists = owner
+		owner = { is_ai = no }
+		exists = sector
+		sector = {
+			is_core_sector = no
+			sector_has_edict_colony = yes
+		}
+	}
+
+	immediate = {
+		# How many colonists we're going to receive
+		sector = {
+			sector_estimate_colonies = yes
+			random_country = {
+				limit = { is_sector_db = yes }
+					while = {
+						count = nSectorColonies
+						root = { change_variable = { which = fNewPops value = @fNewPops } }
+					}
+			}
+		}
+		# Pick up existing population to "clone" species
+		random_owned_pop = { species = { save_global_event_target_as = scpColonySpecies } }
+		# Settle new pops
+		while = {
+			count = fNewPops
+			best_tile_for_pop = {
+				create_pop = {
+					species = event_target:scpColonySpecies
+					ethos = root.owner
+				}						
+			}
+		}
+		# Clean up
+		clear_global_event_target = scpColonySpecies
+		set_variable = { which = fNewPops value = 0 }
+	}
+}
+
+# This = Ship
+# Edict: Military Training
+# Adds specific amount of xp for recently constructed ship
+ship_event = {
+	id = irm_sector.229
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		from = {
+			exists = space_owner
+			space_owner = {
+				is_ai = no
+				any_sector = {
+					is_core_sector = no
+					any_planet = { is_same_value = prevprevprev }
+					sector_has_edict_training = yes
+				}
+			}
+		}
+	}
+
+	immediate = { 
+		add_modifier = { modifier = "ship_trained" days = -1 }
+	}
+}
+
+
+# CALLED
+
+# This = Planet
+# Tracks planet ownership changes, used to set claims
+planet_event = {
+	id = irm_sector.301
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		exists = owner
+		owner = { is_ai = no }
+	}
+
+	immediate = {
+		solar_system = {
+			if = {
+				limit = { not = { has_star_flag = mark_id_@sector } }
+					set_timed_star_flag = { flag = mark_id_@sector days = @nKeepYearly }
+			}
+		}		
+	}
+}
+
+# This = Ship
+# Mark all civil ships built within the sector
+ship_event = {
+	id = irm_sector.302
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		# Only for civil ships
+		or = {
+			is_ship_size = constructor
+			is_ship_size = colonizer
+		}
+		# And only for sector planets
+		from = {
+			exists = sector
+			sector = { is_core_sector = no }
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = { exists = fleet }
+				fleet = { set_fleet_flag = sector_id_@from.sector }
+		}		
+	}
+}
+
+# This = Country (db_fleet)
+# From = Leader (Dead sector admiral)
+# Creates a new admiral for empty sector fleet
+country_event = {
+	id = irm_sector.303
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_country_type = db_fleet
+		any_country = {
+			is_allowed_country = yes
+			any_sector = {
+				from = {
+					leader_class = admiral
+					has_leader_flag = sector_id_@prev
+				}
+			}
+		}
+	}
+
+	# Create new sector admiral
+	immediate = {
+		# Save real ofwner's scope of sectors
+		random_country = {
+			limit = {
+				is_allowed_country = yes
+				any_sector = { from = { has_leader_flag = sector_id_@prev } }
+			}
+			save_event_target_as = scpRealOwner
+		}
+		# Create and assign
+		random_owned_fleet = {
+			root = {
+				create_leader = {
+					type = admiral
+					species = event_target:scpRealOwner.owner_species
+					name = random
+					skill = 0
+				}
+				last_created_leader = {
+					recruitable = no
+					leader_add_custom_traits = yes
+					event_target:scpRealOwner = {
+						random_sector = {
+							limit = { from = { has_leader_flag = sector_id_@prev } }
+								prevprev = { set_leader_flag = sector_id_@prev }
+						}
+					}
+				}								
+			}
+			assign_leader = last_created_leader
+		}
+	}
+
+}
+
+# This = Country (Sector Fleet)
+# From = Fleet
+# Turn sector fleet into pirates
+country_event = {
+	id = irm_sector.3041
+	title = event.fleet.disband.pirate
+	desc  = event.fleet.disband.pirate.desc		
+	location = from.solar_system
+	picture = GFX_evt_pirate_armada
+	show_sound = event_space_battle
+
+	is_triggered_only = yes
+
+	immediate = { 
+
+		# Create new pirate country
+		create_country = {
+			type = pirate
+			species = root.owner_species
+			name_list = root
+			flag = {
+				background = { category = "backgrounds" file = "00_solid.dds" }
+				colors = { "black" "black" "null" "null" }
+			}
+			effect = {
+				# Name this country, according to sector
+				if = {
+					# If related sector still exists
+					limit = { root = { any_sector = { from = { has_fleet_flag = sector_id_@prev } } } }
+						root = {
+							random_sector = {
+								limit = { from = { has_fleet_flag = sector_id_@prev } }
+									prevprev = { set_name = "country.sector.pirates.sector" }
+							}
+						}
+					# In other case just give the general name
+					else = {
+						set_name = "country.sector.pirates.normal"
+					}
+				}
+				# Give similar tech, generate flag, establish contact
+				copy_techs_from = { target = root }
+				randomize_flag_symbol = "pirate"
+				establish_communications_no_message = root
+			}
+		}
+
+		# Transfer fleet to new pirate country
+		from = {
+			set_owner = last_created_country
+			# Set aggressive
+			set_fleet_stance = aggressive
+			set_aggro_range_measure_from = self
+			set_aggro_range = @nStanceAggroRange
+			set_fleet_bombardment_stance = selective			
+		}	
+	}
+
+	option = {
+		name = "country.sector.pirates.response"
+	}
+
+}
+
+# This = Country (true owner)
+# Checks diplo actions and sets standings for sector fleet against others
+country_event = {
+	id = irm_sector.305
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = { is_ai = no }
+
+	immediate = {
+		every_country = {
+			limit = {
+				is_country_type = @dbCountryFleet
+				any_owned_fleet = { is_ship_class = shipclass_military }
+			}
+			random_owned_fleet = {
+				limit = { is_ship_class = shipclass_military }
+					fleet_update_standings = yes
+			}
+		}
+	}
+
+}
+
+	# Case of 305
+	country_event = {
+		id = irm_sector.3051
+		hide_window = yes
+		is_triggered_only = yes
+
+		immediate = {
+			if = { 	limit = { root = { is_ai = no } }
+					root = { country_event = { id = irm_sector.305 } } }
+			if = { 	limit = { from = { is_ai = no } }
+					from = { country_event = { id = irm_sector.305 } } }
+		}
+
+	}
+
+
+# This = Fleet
+# Launch fleet order based on existing flag. "Gatekeeper" event.
+# Event is used for more comfortable scripting of fleet actions,
+# It's better to have some set scopes like from or root.
+fleet_event = {
+	id = irm_sector.401
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		exists = owner
+		owner = { is_country_type = @dbCountryFleet }
+	}
+
+	immediate = {
+		# Save the "fake" owner of sector fleet
+		random_country = {
+			limit = { any_sector = { root = { has_fleet_flag = sector_id_@prev } } }
+				save_event_target_as = scpSectorOwner
+		}
+		# Assign and launch mission for sector fleet
+		switch = {
+			trigger = has_fleet_flag
+				mission_patrol_sector 	= { mission_patrol_sector = yes }
+				mission_patrol_cores 	= { mission_patrol_cores = yes }
+				mission_defend_capital 	= { mission_defend_capital = yes }
+				mission_follow_fleet 	= { mission_follow_fleet = yes }
+				mission_attack_hostile 	= { mission_attack_hostile = yes }
+				mission_return_home 	= { mission_return_home = yes }
+				mission_repair_fleet 	= { mission_repair_fleet = yes }
+				mission_upgrade_fleet 	= { mission_upgrade_fleet = yes }
+		}
+	}
+}

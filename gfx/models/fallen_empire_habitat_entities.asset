@@ -1,0 +1,83 @@
+entity = {
+	name = "fallen_empire_01_orbital_habitat_entity"
+	pdxmesh = "fallen_empire_01_outpost_mesh"	
+
+	scale = 2.0
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle"
+		event = { time = 0 node = "light_locator_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "light_locator_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "top" particle = "energy_core_effect" keep_particle = yes trigger_once = yes }	
+		event = { time = 0 node = "bottom" particle = "energy_core_effect" keep_particle = yes trigger_once = yes }	
+		start_event = { trigger_once = yes sound = { soundeffect = "amb_fallen_empire_station_01" } }
+	}
+	
+	game_data = {
+		shader_type = ship
+		emissive_recolor_crunch = 5.0
+	}
+}
+
+entity = {
+	name = "fallen_empire_02_orbital_habitat_entity"
+	pdxmesh = "fallen_empire_02_outpost_mesh"	
+
+	scale = 2.0
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle"
+		event = { time = 0 node = "light_locator_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "light_locator_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "top" particle = "energy_core_effect" keep_particle = yes trigger_once = yes }	
+		event = { time = 0 node = "bottom" particle = "energy_core_effect" keep_particle = yes trigger_once = yes }	
+		start_event = { trigger_once = yes sound = { soundeffect = "amb_fallen_empire_station_01" } }
+	}
+	
+	game_data = {
+		shader_type = ship
+		emissive_recolor_crunch = 5.0
+	}
+}
+
+entity = {
+	name = "fallen_empire_03_orbital_habitat_entity"
+	pdxmesh = "fallen_empire_03_outpost_mesh"	
+
+	scale = 2.0
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle"
+		event = { time = 0 node = "light_locator_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "light_locator_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "top" particle = "energy_core_effect" keep_particle = yes trigger_once = yes }	
+		event = { time = 0 node = "bottom" particle = "energy_core_effect" keep_particle = yes trigger_once = yes }	
+		start_event = { trigger_once = yes sound = { soundeffect = "amb_fallen_empire_station_01" } }
+	}
+	
+	game_data = {
+		shader_type = ship
+		emissive_recolor_crunch = 5.0
+	}
+}
+
+entity = {
+	name = "fallen_empire_04_orbital_habitat_entity"
+	pdxmesh = "fallen_empire_04_outpost_mesh"	
+
+	scale = 2.0
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle"
+		event = { time = 0 node = "light_locator_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "light_locator_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "top" particle = "energy_core_effect" keep_particle = yes trigger_once = yes }	
+		event = { time = 0 node = "bottom" particle = "energy_core_effect" keep_particle = yes trigger_once = yes }	
+		start_event = { trigger_once = yes sound = { soundeffect = "amb_fallen_empire_station_01" } }
+	}
+	
+	game_data = {
+		shader_type = ship
+		emissive_recolor_crunch = 5.0
+	}
+}

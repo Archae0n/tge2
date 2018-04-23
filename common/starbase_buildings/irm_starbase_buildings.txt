@@ -1,0 +1,45 @@
+# IRM
+# Spaceport buildings
+
+# System Administration
+system_administration = {
+	icon = "GFX_starbase_anchorage"
+	construction_days = 720
+	#replaceable = no
+
+	potential = {}
+	
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_starport"
+			has_starbase_size >= starbase_starport
+		}
+		custom_tooltip = {
+			fail_text = "requires_colonized_planet"
+			solar_system = {
+				any_planet = {
+					is_colony = yes
+				}
+			}
+		}
+	}
+
+	cost = {
+		minerals = 500
+	}
+	
+	upkeep_resources = {}
+	
+	system_modifier = {
+		pop_government_ethic_attraction = 0.10
+		pop_happiness = 0.05
+	}
+	
+	#show_in_tech = "tech_living_state"
+	
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = {
+		weight = 150
+	}
+}

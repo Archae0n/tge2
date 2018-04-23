@@ -1,0 +1,5 @@
+NGameplay = {
+ASCENSION_PERKS_SLOTS = 43
+COMMAND_LIMIT_MAX										= 2000		
+NAVAL_CAPACITY_MAX										= 10000	
+}

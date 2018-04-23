@@ -1,0 +1,27 @@
+namespace = ai_fixmod_plasma
+
+country_event = {
+	id = ai_fixmod_plasma.1	
+	hide_window = yes
+	fire_only_once = yes
+	trigger = {
+		is_ai = yes
+		has_technology = tech_energy_lance_1
+		is_country_type = "default"
+		not = { has_country_flag = ai_fixmod_arc_emitters }
+	}
+	mean_time_to_happen = {
+		months = 40
+	}
+	
+	
+	immediate = {
+	set_country_flag = "ai_fixmod_arc_emitters"
+		give_technology = {
+			tech = tech_arc_emitter_1
+			message = no
+		}
+	}
+}
+
+

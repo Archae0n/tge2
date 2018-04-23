@@ -1,0 +1,1376 @@
+# IRM
+# Sector single screen
+
+guiTypes = {
+
+	@SCREEN_W = 760	# window general width
+	@SCREEN_H = 550 # window general height
+	@SCREEN_Xo = 30 # offset from widnow's left side
+
+	@BLOCK_Xo = 370
+	@BLOCK_Yo = 140
+	@BLOCK_Y2 = 220
+	@BLOCK_HEADER_COLOR = "W"
+
+	@ROW_Yo = 40
+	@ROW_W = 330
+	@ROW_H = 28
+	@ROW_TEXT_Xo = 10
+	@ROW_TEXT_Yo = 5
+	@BLOCK_OPTION_COLOR = "H"
+
+	@ROW_Y1 = 0
+	@ROW_Y2 = 32
+	@ROW_Y3 = 64
+	@ROW_Y4 = 96
+	@ROW_Y5 = 128
+	@ROW_Y6 = 160
+
+	# Close button
+	containerWindowType = {
+		name = "irm_option_sector_close"
+		position = { x = 0 y = 0 }
+		size = { width = 40 height = 40 }
+		moveable = no
+		
+		buttonType = {
+			name = "option_button"
+			quadTextureSprite = "GFX_close" 
+			position = { x = 686 y = 16 }
+			Orientation = "UPPER_LEFT"
+		}
+
+	}
+
+	# Values
+	@BLOCK_1_Xo = 0
+	@BLOCK_1_Yo = 140
+	@BLOCK_2_Yo = -20
+	@BLOCK_3_Yo = 40
+	@BLOCK_4_Yo = -56
+
+	# Block 1 - Development
+	containerWindowType = {
+		name = "irm_sector_screen_option_b1"
+		position = { x = 0 y = 0 }
+		size = { width = 330 height = 32 }
+		orientation = upper_left
+		
+		containerWindowType = {
+			name = "tt10"
+			position = { x = 0 y = 140 }
+			size = { width = @ROW_W height = @ROW_H }
+			background = { name = "tt1b" spriteType = "GFX_black_box_bg" }
+		}
+
+		buttonType = {
+			name = "option_button"
+			quadTextureSprite = "GFX_tiled_window_transparent" 
+			position = { x = 0 y = @BLOCK_1_Yo }
+			size = { x = 320 y = @ROW_H }
+			font = "cg_16b"
+			format = right
+		}
+	}
+	# Block 2 - Infrastructure
+	containerWindowType = {
+		name = "irm_sector_screen_option_b2"
+		position = { x = 0 y = 0 }
+		size = { width = @ROW_W height = 32 }
+		orientation = upper_left
+		
+		containerWindowType = {
+			name = "tt10"
+			position = { x = 370 y = @BLOCK_2_Yo }
+			size = { width = 330 height = @ROW_H }
+			background = { name = "tt1b" spriteType = "GFX_tiled_window_transparent" }
+		}
+
+		buttonType = {
+			name = "option_button"
+			quadTextureSprite = "GFX_tiled_window_transparent" 
+			position = { x = 370 y = @BLOCK_2_Yo }
+			size = { x = 320 y = @ROW_H }
+			font = "cg_16b"
+			format = right
+		}
+	}
+	# Block 3 - Politics
+	containerWindowType = {
+		name = "irm_sector_screen_option_b3"
+		position = { x = 0 y = 0 }
+		size = { width = @ROW_W height = 32 }
+		orientation = upper_left
+		
+		containerWindowType = {
+			name = "tt10"
+			position = { x = 0 y = @BLOCK_3_Yo }
+			size = { width = @ROW_W height = @ROW_H }
+			background = { name = "tt1b" spriteType = "GFX_black_box_bg" }
+		}
+
+		buttonType = {
+			name = "option_button"
+			quadTextureSprite = "GFX_tiled_window_transparent" 
+			position = { x = 0 y = @BLOCK_3_Yo }
+			size = { x = 320 y = @ROW_H }
+			font = "cg_16b"
+			format = right
+		}
+	}
+	# Block 4 - Warfare
+	containerWindowType = {
+		name = "irm_sector_screen_option_b4"
+		position = { x = 0 y = 0 }
+		size = { width = @ROW_W height = 32 }
+		orientation = upper_left
+		
+		containerWindowType = {
+			name = "tt10"
+			position = { x = 370 y = @BLOCK_4_Yo }
+			size = { width = @ROW_W height = @ROW_H }
+			background = { name = "tt1b" spriteType = "GFX_black_box_bg" }
+		}
+
+		buttonType = {
+			name = "option_button"
+			quadTextureSprite = "GFX_tiled_window_transparent" 
+			position = { x = 370 y = @BLOCK_4_Yo }
+			size = { x = 320 y = @ROW_H }
+			font = "cg_16b"
+			format = right
+		}
+	}
+
+	# General screen
+	containerWindowType = {
+		name = "irm_view_sector_screen"
+		orientation = center
+		origo = center
+		moveable = yes
+		size = { width = @SCREEN_W height = @SCREEN_H }
+
+		background = { name = "background" quadTextureSprite = "GFX_tile_outliner_bg" }
+
+		iconType = { name = "hex_bg" spriteType = "GFX_hex_bg" position = { x = -10 y = -14 } alwaysTransparent = yes }
+		iconType = { name = "empire_header_line" quadTextureSprite = "GFX_line_long" position = { x = 6 y = 22 } alwaysTransparent = yes }
+
+		# Custom header
+		instantTextBoxType = {
+			name = "irm_some_header"
+			font = "malgun_goth_24"
+			position = { x = 20 y = 5 }
+			maxWidth = 543
+			maxHeight = 22
+			fixedSize = yes
+			alwaysTransparent = yes
+			text = "sector_screen.name" # header text
+		}
+
+		### ALL OF THIS IS HIDDEN OR DISPLACED ! ###
+
+		buttonType = { name = "close" quadTextureSprite = "GFX_close" position = { x = -1111 y = -1111 } }
+		instantTextBoxType = { name = "heading" font = "malgun_goth_24" position = { x = -1120 y = -115 } } # hidden
+		buttonType = { name = "alien_message_background" size = { x = 0 y = 0 } position = { x = -1110 y = -11430 } spriteType = "GFX_tiles_dark_area_cut_8" } # hidden
+		buttonType = { name = "confirm_button" quadTextureSprite = "GFX_standard_button_142_34_button" } # hidden
+		containerWindowType = {
+			name = "portrait_background"
+			position = { x = -1117 y = -1145 }
+			size = { width = 0 height = 0 }		# hide portrait window
+			iconType = { name = "event_picture" spriteType = "GFX_diplomacy_portrait_frame" } # hidden
+			iconType = { name = "portrait" spriteType = "GFX_portrait_character" } # hidden
+		}
+		containerWindowType = {
+			name = "portrait"
+			position = { x = -1117 y = -1145 }
+			size = { width = 0 height = 0 } # hide portrait window
+			iconType = { name = "portrait" spriteType = "GFX_portrait_gamesetup_mask"  } # hidden
+			iconType = { name = "black_frame" spriteType = "GFX_diplomacy_portrait_shadow_frame" } # hidden
+			iconType = { name = "stripes_1" spriteType = "GFX_diplomacy_stripes_2" } # hidden
+			iconType = { name = "city_frame" spriteType = "GFX_diplomacy_portrait_frame" } # hidden
+		}
+		iconType = { name = "empire_info_bg" spriteType = "GFX_diplomacy_dark_fade_bg" } # hidden
+		instantTextBoxType = { name = "empire_name" font = "malgun_goth_24" } # hidden 
+		instantTextBoxType = { name = "empire_government_type" font = "cg_16b" } # hidden
+		instantTextBoxType = { name = "empire_personality_type" font = "cg_16b" } # hidden
+		OverlappingElementsBoxType = { name = "empire_ethics_icons" position = { x = -1145 y = -11138 } } # hidden
+		buttonType = { name = "empire_flag" quadTextureSprite = "GFX_empire_flag_128_trader" position = { x = 25 y = 240 } orientation = UPPER_LEFT }
+		containerWindowType = {
+			name = "leader_details"
+			position = { x = -1125 y = -1175 }
+			containerWindowType = { name = "empire_traits_box" } # hidden
+			instantTextBoxType = { name = "empire_traits_label" font = "cg_16b" } # hidden
+			overlappingElementsBoxType = { name = "leader_traits" } # hidden
+			instantTextBoxType = { name = "leader_name" font = "cg_16b" } # hidden
+			instantTextBoxType = { name = "leader_species" font = "cg_16b" } # hidden
+		}
+		containerWindowType = {
+			name = "opinion_window"
+			position = { x = -1127 y = -11110 }
+			size = { width = 94 height = 30 }
+			iconType = { name = "their_opinion_icon" spriteType = "GFX_diplomacy_opinion" } # hidden
+			instantTextBoxType = { name = "their_opinion" font = "cg_16b" }
+		}
+
+		### EVENT DIPLO ###
+		
+		containerWindowType = {
+			name = "EVENT_DIPLO"
+			position = { x = 0 y = 0 }
+			size = { width = @SCREEN_W height = @SCREEN_H }
+			orientation = UPPER_LEFT
+			moveable = no
+			
+			# Sector Name
+			# sector_screen.ui.sector.name
+			instantTextBoxType = {
+				name = "action_title"
+				position = { x = @SCREEN_Xo y = 60 }
+				maxWidth = 800
+				alwaysTransparent = yes
+				format = left
+				text_color_code = "H"				
+				font = "large_title_font"
+			}
+			
+			# Sector description
+			instantTextBoxType = {
+				name = "irm_sector_desc"
+				position = { x = @SCREEN_Xo y = 100 }
+				maxWidth = 800
+				font = "cg_16b"
+				format = left
+				text_color_code = "H"				
+				text = "sector_screen.ui.sector.desc"
+			}
+			
+			instantTextBoxType = {
+				name = "action_desc"
+				font = "malgun_goth_24"
+				position = { x = -1111 y = -1111 }
+				Orientation = "UPPER_LEFT"
+				format = center
+				alwaysTransparent = yes
+				text_color_code = "H"
+			}
+
+			# Custom buttons & text
+			# This block is used for all row's values
+			listboxType = {
+				name = "option_list"
+				position = { x = @SCREEN_Xo y = 0 }
+				size = { x = @SCREEN_W y = @SCREEN_H }
+				orientation = "UPPER_LEFT"
+				backGround = ""
+			}
+
+		}
+
+		# GENERAL CONTENT
+
+		# Backframe
+		containerWindowType = {
+			name = "irm_view_sector_screen_backframe"
+			position = { x = @SCREEN_Xo y = @BLOCK_Yo }
+			size = { width = @SCREEN_W height = @SCREEN_H }
+			orientation = upper_left
+			moveable = no
+
+			# BALANCE
+			containerWindowType = {
+				name = "irm_view_sector_screen_inf"
+				position = { x = @BLOCK_Xo y = 0 }
+				orientation = upper_left
+				moveable = no
+
+				# Title
+				instantTextBoxType = {
+					name = "bal_title"
+					position = { x = 0 y = 0 }
+					alwaysTransparent = yes		
+					font = "malgun_goth_24"
+					format = left
+					text_color_code = @BLOCK_HEADER_COLOR	
+					text = "sector_screen.ui.block.infrastructure"
+				}
+
+				# Information
+				@PB_Yo = 10
+				containerWindowType = {
+					name = "inf_info"
+					position = { x = 0 y = @ROW_Yo }
+					orientation = upper_left
+					moveable = no
+
+					# Food Balance
+					containerWindowType = {
+						name = "bal_food"
+						position = { x = 0 y = @ROW_Y1 }
+						size = { width = @ROW_W height = @ROW_H }
+						background = { name = "bg" spriteType = "GFX_tiled_window_transparent" pdx_tooltip = "sector_screen.ui.option.food.desc" }
+
+						# Empty bar
+						iconType = {
+							name = "pb_f_empty_10"
+							spriteType = "GFX_bar_empty"
+							position = { x = 0 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_f_empty_20"
+							spriteType = "GFX_bar_empty"
+							position = { x = 26 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_f_empty_30"
+							spriteType = "GFX_bar_empty"
+							position = { x = 52 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_f_empty_40"
+							spriteType = "GFX_bar_empty"
+							position = { x = 78 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_f_empty_50"
+							spriteType = "GFX_bar_empty"
+							position = { x = 104 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_f_empty_60"
+							spriteType = "GFX_bar_empty"
+							position = { x = 130 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_f_empty_70"
+							spriteType = "GFX_bar_empty"
+							position = { x = 156 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_f_empty_80"
+							spriteType = "GFX_bar_empty"
+							position = { x = 182 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_f_empty_90"
+							spriteType = "GFX_bar_empty"
+							position = { x = 208 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_f_empty_100"
+							spriteType = "GFX_bar_empty"
+							position = { x = 234 y = @PB_Yo }
+						}
+
+						# Dynamic bar
+						effectButtonType = {
+							id = "pb_f_green_10"
+							name = "pb_f_green_10"
+							quadTextureSprite = "GFX_bar_green"
+							position = { x = 0 y = @PB_Yo }
+							effect = "ui_bar_food_10"
+						}
+						effectButtonType = {
+							id = "pb_f_green_20"
+							name = "pb_f_green_20"
+							quadTextureSprite = "GFX_bar_green"
+							position = { x = 26 y = @PB_Yo }
+							effect = "ui_bar_food_20"
+						}
+						effectButtonType = {
+							id = "pb_f_green_30"
+							name = "pb_f_green_30"
+							quadTextureSprite = "GFX_bar_green"
+							position = { x = 52 y = @PB_Yo }
+							effect = "ui_bar_food_30"
+						}
+						effectButtonType = {
+							id = "pb_f_green_40"
+							name = "pb_f_green_40"
+							quadTextureSprite = "GFX_bar_green"
+							position = { x = 78 y = @PB_Yo }
+							effect = "ui_bar_food_40"
+						}
+						effectButtonType = {
+							id = "pb_f_green_50"
+							name = "pb_f_green_50"
+							quadTextureSprite = "GFX_bar_green"
+							position = { x = 104 y = @PB_Yo }
+							effect = "ui_bar_food_50"
+						}
+						effectButtonType = {
+							id = "pb_f_green_60"
+							name = "pb_f_green_60"
+							quadTextureSprite = "GFX_bar_green"
+							position = { x = 130 y = @PB_Yo }
+							effect = "ui_bar_food_60"
+						}
+						effectButtonType = {
+							id = "pb_f_green_70"
+							name = "pb_f_green_70"
+							quadTextureSprite = "GFX_bar_green"
+							position = { x = 156 y = @PB_Yo }
+							effect = "ui_bar_food_70"
+						}
+						effectButtonType = {
+							id = "pb_f_green_80"
+							name = "pb_f_green_80"
+							quadTextureSprite = "GFX_bar_green"
+							position = { x = 182 y = @PB_Yo }
+							effect = "ui_bar_food_80"
+						}
+						effectButtonType = {
+							id = "pb_f_green_90"
+							name = "pb_f_green_90"
+							quadTextureSprite = "GFX_bar_green"
+							position = { x = 208 y = @PB_Yo }
+							effect = "ui_bar_food_90"
+						}
+						effectButtonType = {
+							id = "pb_f_green_100"
+							name = "pb_f_green_100"
+							quadTextureSprite = "GFX_bar_green"
+							position = { x = 234 y = @PB_Yo }
+							effect = "ui_bar_food_100"
+						}											
+					}
+
+					# Energy Balance
+					containerWindowType = {
+						name = "bal_energy"
+						position = { x = 0 y = @ROW_Y2 }
+						size = { width = @ROW_W height = @ROW_H }
+						background = { name = "bg" spriteType = "GFX_tiled_window_transparent" pdx_tooltip = "sector_screen.ui.option.energy.desc" }
+
+						# Empty bar
+						iconType = {
+							name = "pb_e_empty_10"
+							spriteType = "GFX_bar_empty"
+							position = { x = 0 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_e_empty_20"
+							spriteType = "GFX_bar_empty"
+							position = { x = 26 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_e_empty_30"
+							spriteType = "GFX_bar_empty"
+							position = { x = 52 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_e_empty_40"
+							spriteType = "GFX_bar_empty"
+							position = { x = 78 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_e_empty_50"
+							spriteType = "GFX_bar_empty"
+							position = { x = 104 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_e_empty_60"
+							spriteType = "GFX_bar_empty"
+							position = { x = 130 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_e_empty_70"
+							spriteType = "GFX_bar_empty"
+							position = { x = 156 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_e_empty_80"
+							spriteType = "GFX_bar_empty"
+							position = { x = 182 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_e_empty_90"
+							spriteType = "GFX_bar_empty"
+							position = { x = 208 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_e_empty_100"
+							spriteType = "GFX_bar_empty"
+							position = { x = 234 y = @PB_Yo }
+						}
+
+						# Dynamic bar
+						effectButtonType = {
+							id = "pb_e_yellow_10"
+							name = "pb_e_yellow_10"
+							quadTextureSprite = "GFX_bar_yellow"
+							position = { x = 0 y = @PB_Yo }
+							effect = "ui_bar_energy_10"
+						}
+						effectButtonType = {
+							id = "pb_e_yellow_20"
+							name = "pb_e_yellow_20"
+							quadTextureSprite = "GFX_bar_yellow"
+							position = { x = 26 y = @PB_Yo }
+							effect = "ui_bar_energy_20"
+						}
+						effectButtonType = {
+							id = "pb_e_yellow_30"
+							name = "pb_e_yellow_30"
+							quadTextureSprite = "GFX_bar_yellow"
+							position = { x = 52 y = @PB_Yo }
+							effect = "ui_bar_energy_30"
+						}
+						effectButtonType = {
+							id = "pb_e_yellow_40"
+							name = "pb_e_yellow_40"
+							quadTextureSprite = "GFX_bar_yellow"
+							position = { x = 78 y = @PB_Yo }
+							effect = "ui_bar_energy_40"
+						}
+						effectButtonType = {
+							id = "pb_e_yellow_50"
+							name = "pb_e_yellow_50"
+							quadTextureSprite = "GFX_bar_yellow"
+							position = { x = 104 y = @PB_Yo }
+							effect = "ui_bar_energy_50"
+						}
+						effectButtonType = {
+							id = "pb_e_yellow_60"
+							name = "pb_e_yellow_60"
+							quadTextureSprite = "GFX_bar_yellow"
+							position = { x = 130 y = @PB_Yo }
+							effect = "ui_bar_energy_60"
+						}
+						effectButtonType = {
+							id = "pb_e_yellow_70"
+							name = "pb_e_yellow_70"
+							quadTextureSprite = "GFX_bar_yellow"
+							position = { x = 156 y = @PB_Yo }
+							effect = "ui_bar_energy_70"
+						}
+						effectButtonType = {
+							id = "pb_e_yellow_80"
+							name = "pb_e_yellow_80"
+							quadTextureSprite = "GFX_bar_yellow"
+							position = { x = 182 y = @PB_Yo }
+							effect = "ui_bar_energy_80"
+						}
+						effectButtonType = {
+							id = "pb_e_yellow_90"
+							name = "pb_e_yellow_90"
+							quadTextureSprite = "GFX_bar_yellow"
+							position = { x = 208 y = @PB_Yo }
+							effect = "ui_bar_energy_90"
+						}
+						effectButtonType = {
+							id = "pb_e_yellow_100"
+							name = "pb_e_yellow_100"
+							quadTextureSprite = "GFX_bar_yellow"
+							position = { x = 234 y = @PB_Yo }
+							effect = "ui_bar_energy_100"
+						}						
+
+					}
+
+					# Minerals balance
+					containerWindowType = {
+						name = "bal_minerals"
+						position = { x = 0 y = @ROW_Y3 }
+						size = { width = @ROW_W height = @ROW_H }
+						background = { name = "bg" spriteType = "GFX_tiled_window_transparent" pdx_tooltip = "sector_screen.ui.option.minerals.desc" }
+
+						# Empty bar
+						iconType = {
+							name = "pb_m_empty_10"
+							spriteType = "GFX_bar_empty"
+							position = { x = 0 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_m_empty_20"
+							spriteType = "GFX_bar_empty"
+							position = { x = 26 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_m_empty_30"
+							spriteType = "GFX_bar_empty"
+							position = { x = 52 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_m_empty_40"
+							spriteType = "GFX_bar_empty"
+							position = { x = 78 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_m_empty_50"
+							spriteType = "GFX_bar_empty"
+							position = { x = 104 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_m_empty_60"
+							spriteType = "GFX_bar_empty"
+							position = { x = 130 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_m_empty_70"
+							spriteType = "GFX_bar_empty"
+							position = { x = 156 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_m_empty_80"
+							spriteType = "GFX_bar_empty"
+							position = { x = 182 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_m_empty_90"
+							spriteType = "GFX_bar_empty"
+							position = { x = 208 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_m_empty_100"
+							spriteType = "GFX_bar_empty"
+							position = { x = 234 y = @PB_Yo }
+						}
+
+						# Dynamic bar
+						effectButtonType = {
+							id = "pb_m_red_10"
+							name = "pb_m_red_10"
+							quadTextureSprite = "GFX_bar_red"
+							position = { x = 0 y = @PB_Yo }
+							effect = "ui_bar_minerals_10"
+						}
+						effectButtonType = {
+							id = "pb_m_red_20"
+							name = "pb_m_red_20"
+							quadTextureSprite = "GFX_bar_red"
+							position = { x = 26 y = @PB_Yo }
+							effect = "ui_bar_minerals_20"
+						}
+						effectButtonType = {
+							id = "pb_m_red_30"
+							name = "pb_m_red_30"
+							quadTextureSprite = "GFX_bar_red"
+							position = { x = 52 y = @PB_Yo }
+							effect = "ui_bar_minerals_30"
+						}
+						effectButtonType = {
+							id = "pb_m_red_40"
+							name = "pb_m_red_40"
+							quadTextureSprite = "GFX_bar_red"
+							position = { x = 78 y = @PB_Yo }
+							effect = "ui_bar_minerals_40"
+						}
+						effectButtonType = {
+							id = "pb_m_red_50"
+							name = "pb_m_red_50"
+							quadTextureSprite = "GFX_bar_red"
+							position = { x = 104 y = @PB_Yo }
+							effect = "ui_bar_minerals_50"
+						}
+						effectButtonType = {
+							id = "pb_m_red_60"
+							name = "pb_m_red_60"
+							quadTextureSprite = "GFX_bar_red"
+							position = { x = 130 y = @PB_Yo }
+							effect = "ui_bar_minerals_60"
+						}
+						effectButtonType = {
+							id = "pb_m_red_70"
+							name = "pb_m_red_70"
+							quadTextureSprite = "GFX_bar_red"
+							position = { x = 156 y = @PB_Yo }
+							effect = "ui_bar_minerals_70"
+						}
+						effectButtonType = {
+							id = "pb_m_red_80"
+							name = "pb_m_red_80"
+							quadTextureSprite = "GFX_bar_red"
+							position = { x = 182 y = @PB_Yo }
+							effect = "ui_bar_minerals_80"
+						}
+						effectButtonType = {
+							id = "pb_m_red_90"
+							name = "pb_m_red_90"
+							quadTextureSprite = "GFX_bar_red"
+							position = { x = 208 y = @PB_Yo }
+							effect = "ui_bar_minerals_90"
+						}
+						effectButtonType = {
+							id = "pb_m_red_100"
+							name = "pb_m_red_100"
+							quadTextureSprite = "GFX_bar_red"
+							position = { x = 234 y = @PB_Yo }
+							effect = "ui_bar_minerals_100"
+						}											
+	
+					}
+
+					# Research balance
+					containerWindowType = {
+						name = "bal_research"
+						position = { x = 0 y = @ROW_Y4 }
+						size = { width = @ROW_W height = @ROW_H }
+						background = { name = "bg" spriteType = "GFX_tiled_window_transparent" pdx_tooltip = "sector_screen.ui.option.research.desc" }
+
+						# Empty bar
+						iconType = {
+							name = "pb_r_empty_10"
+							spriteType = "GFX_bar_empty"
+							position = { x = 0 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_r_empty_20"
+							spriteType = "GFX_bar_empty"
+							position = { x = 26 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_r_empty_30"
+							spriteType = "GFX_bar_empty"
+							position = { x = 52 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_r_empty_40"
+							spriteType = "GFX_bar_empty"
+							position = { x = 78 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_r_empty_50"
+							spriteType = "GFX_bar_empty"
+							position = { x = 104 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_r_empty_60"
+							spriteType = "GFX_bar_empty"
+							position = { x = 130 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_r_empty_70"
+							spriteType = "GFX_bar_empty"
+							position = { x = 156 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_r_empty_80"
+							spriteType = "GFX_bar_empty"
+							position = { x = 182 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_r_empty_90"
+							spriteType = "GFX_bar_empty"
+							position = { x = 208 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_r_empty_100"
+							spriteType = "GFX_bar_empty"
+							position = { x = 234 y = @PB_Yo }
+						}
+
+						# Dynamic bar
+						effectButtonType = {
+							id = "pb_r_blue_10"
+							name = "pb_r_blue_10"
+							quadTextureSprite = "GFX_bar_blue"
+							position = { x = 0 y = @PB_Yo }
+							effect = "ui_bar_research_10"
+						}
+						effectButtonType = {
+							id = "pb_r_blue_20"
+							name = "pb_r_blue_20"
+							quadTextureSprite = "GFX_bar_blue"
+							position = { x = 26 y = @PB_Yo }
+							effect = "ui_bar_research_20"
+						}
+						effectButtonType = {
+							id = "pb_r_blue_30"
+							name = "pb_r_blue_30"
+							quadTextureSprite = "GFX_bar_blue"
+							position = { x = 52 y = @PB_Yo }
+							effect = "ui_bar_research_30"
+						}
+						effectButtonType = {
+							id = "pb_r_blue_40"
+							name = "pb_r_blue_40"
+							quadTextureSprite = "GFX_bar_blue"
+							position = { x = 78 y = @PB_Yo }
+							effect = "ui_bar_research_40"
+						}
+						effectButtonType = {
+							id = "pb_r_blue_50"
+							name = "pb_r_blue_50"
+							quadTextureSprite = "GFX_bar_blue"
+							position = { x = 104 y = @PB_Yo }
+							effect = "ui_bar_research_50"
+						}
+						effectButtonType = {
+							id = "pb_r_blue_60"
+							name = "pb_r_blue_60"
+							quadTextureSprite = "GFX_bar_blue"
+							position = { x = 130 y = @PB_Yo }
+							effect = "ui_bar_research_60"
+						}
+						effectButtonType = {
+							id = "pb_r_blue_70"
+							name = "pb_r_blue_70"
+							quadTextureSprite = "GFX_bar_blue"
+							position = { x = 156 y = @PB_Yo }
+							effect = "ui_bar_research_70"
+						}
+						effectButtonType = {
+							id = "pb_r_blue_80"
+							name = "pb_r_blue_80"
+							quadTextureSprite = "GFX_bar_blue"
+							position = { x = 182 y = @PB_Yo }
+							effect = "ui_bar_research_80"
+						}
+						effectButtonType = {
+							id = "pb_r_blue_90"
+							name = "pb_r_blue_90"
+							quadTextureSprite = "GFX_bar_blue"
+							position = { x = 208 y = @PB_Yo }
+							effect = "ui_bar_research_90"
+						}
+						effectButtonType = {
+							id = "pb_r_blue_100"
+							name = "pb_r_blue_100"
+							quadTextureSprite = "GFX_bar_blue"
+							position = { x = 234 y = @PB_Yo }
+							effect = "ui_bar_research_100"
+						}						
+	
+					}
+
+					# Other's balance
+					containerWindowType = {
+						name = "bal_other"
+						position = { x = 0 y = @ROW_Y5 }
+						size = { width = @ROW_W height = @ROW_H }
+						background = { name = "bg" spriteType = "GFX_tiled_window_transparent" pdx_tooltip = "sector_screen.ui.option.other.desc" }
+
+						# Empty bar
+						iconType = {
+							name = "pb_o_empty_10"
+							spriteType = "GFX_bar_empty"
+							position = { x = 0 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_o_empty_20"
+							spriteType = "GFX_bar_empty"
+							position = { x = 26 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_o_empty_30"
+							spriteType = "GFX_bar_empty"
+							position = { x = 52 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_o_empty_40"
+							spriteType = "GFX_bar_empty"
+							position = { x = 78 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_o_empty_50"
+							spriteType = "GFX_bar_empty"
+							position = { x = 104 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_o_empty_60"
+							spriteType = "GFX_bar_empty"
+							position = { x = 130 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_o_empty_70"
+							spriteType = "GFX_bar_empty"
+							position = { x = 156 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_o_empty_80"
+							spriteType = "GFX_bar_empty"
+							position = { x = 182 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_o_empty_90"
+							spriteType = "GFX_bar_empty"
+							position = { x = 208 y = @PB_Yo }
+						}
+						iconType = {
+							name = "pb_o_empty_100"
+							spriteType = "GFX_bar_empty"
+							position = { x = 234 y = @PB_Yo }
+						}
+
+						# Dynamic bar
+						effectButtonType = {
+							id = "pb_o_grey_10"
+							name = "pb_o_grey_10"
+							quadTextureSprite = "GFX_bar_grey"
+							position = { x = 0 y = @PB_Yo }
+							effect = "ui_bar_other_10"
+						}
+						effectButtonType = {
+							id = "pb_o_grey_20"
+							name = "pb_o_grey_20"
+							quadTextureSprite = "GFX_bar_grey"
+							position = { x = 26 y = @PB_Yo }
+							effect = "ui_bar_other_20"
+						}
+						effectButtonType = {
+							id = "pb_o_grey_30"
+							name = "pb_o_grey_30"
+							quadTextureSprite = "GFX_bar_grey"
+							position = { x = 52 y = @PB_Yo }
+							effect = "ui_bar_other_30"
+						}
+						effectButtonType = {
+							id = "pb_o_grey_40"
+							name = "pb_o_grey_40"
+							quadTextureSprite = "GFX_bar_grey"
+							position = { x = 78 y = @PB_Yo }
+							effect = "ui_bar_other_40"
+						}
+						effectButtonType = {
+							id = "pb_o_grey_50"
+							name = "pb_o_grey_50"
+							quadTextureSprite = "GFX_bar_grey"
+							position = { x = 104 y = @PB_Yo }
+							effect = "ui_bar_other_50"
+						}
+						effectButtonType = {
+							id = "pb_o_grey_60"
+							name = "pb_o_grey_60"
+							quadTextureSprite = "GFX_bar_grey"
+							position = { x = 130 y = @PB_Yo }
+							effect = "ui_bar_other_60"
+						}
+						effectButtonType = {
+							id = "pb_o_grey_70"
+							name = "pb_o_grey_70"
+							quadTextureSprite = "GFX_bar_grey"
+							position = { x = 156 y = @PB_Yo }
+							effect = "ui_bar_other_70"
+						}
+						effectButtonType = {
+							id = "pb_o_grey_80"
+							name = "pb_o_grey_80"
+							quadTextureSprite = "GFX_bar_grey"
+							position = { x = 182 y = @PB_Yo }
+							effect = "ui_bar_other_80"
+						}
+						effectButtonType = {
+							id = "pb_o_grey_90"
+							name = "pb_o_grey_90"
+							quadTextureSprite = "GFX_bar_grey"
+							position = { x = 208 y = @PB_Yo }
+							effect = "ui_bar_other_90"
+						}
+						effectButtonType = {
+							id = "pb_o_grey_100"
+							name = "pb_o_grey_100"
+							quadTextureSprite = "GFX_bar_grey"
+							position = { x = 234 y = @PB_Yo }
+							effect = "ui_bar_other_100"
+						}						
+	
+					}
+
+				}
+
+			} #b
+
+			# DEVELOPMENT
+			containerWindowType = {
+				name = "irm_view_sector_screen_dev"
+				position = { x = 0 y = 0 }
+				orientation = upper_left
+				moveable = no
+
+				# Title
+				instantTextBoxType = {
+					name = "dev_title"
+					position = { x = 0 y = 0 }
+					alwaysTransparent = yes		
+					font = "malgun_goth_24"
+					format = left
+					text_color_code = @BLOCK_HEADER_COLOR	
+					text = "sector_screen.ui.block.dev"
+				}
+
+				# Information
+				containerWindowType = {
+					name = "dev_info"
+					position = { x = 0 y = @ROW_Yo }
+					orientation = upper_left
+					moveable = no
+
+					# Sector Capital
+					containerWindowType = {
+						name = "dev_info_capital"
+						position = { x = 0 y = @ROW_Y1 }
+						size = { width = @ROW_W height = @ROW_H }
+						background = { name = "bg" spriteType = "GFX_tiled_window_transparent" pdx_tooltip = "sector_screen.ui.option.capital.desc" }				
+
+						instantTextBoxType = {
+							name = "dev_info_text"
+							position = { x = @ROW_TEXT_Xo y = @ROW_TEXT_Yo }
+							maxWidth = @ROW_W
+							alwaysTransparent = yes
+							text_color_code = "E"				
+							format = left
+							font = "cg_16b"
+							text = "sector_screen.ui.block.dev.capital"
+						}	
+					}
+
+					# Inhabited Systems
+					containerWindowType = {
+						name = "dev_info_systems"
+						position = { x = 0 y = @ROW_Y2 }
+						size = { width = @ROW_W height = @ROW_H }
+						#background = { name = "bg" spriteType = "GFX_tiled_window_transparent" pdx_tooltip = "sector_screen.ui.option.systems.desc" }			
+
+						instantTextBoxType = {
+							name = "dev_info_text"
+							position = { x = @ROW_TEXT_Xo y = @ROW_TEXT_Yo }
+							maxWidth = @ROW_W
+							alwaysTransparent = yes
+							text_color_code = "E"				
+							format = left
+							font = "cg_16b"
+							text = "sector_screen.ui.block.dev.systems"
+						}
+
+							effectButtonType = {
+								name = "sys_cap_tooltip"
+								quadTextureSprite = "GFX_tiled_window_transparent"
+								Orientation = "UPPER_LEFT"
+								position = { x = @ROW_TEXT_Xo y = 0 }
+								size = { x = @ROW_W y = @ROW_H }
+								effect = "ui_tt_sector_cap"
+							}
+
+					}
+
+					# Autonomy
+					containerWindowType = {
+						name = "dev_info_autonomy"
+						position = { x = 0 y = @ROW_Y3 }
+						size = { width = @ROW_W height = @ROW_H }
+						background = { name = "bg" spriteType = "GFX_tiled_window_transparent" pdx_tooltip = "sector_screen.ui.option.autonomy.desc" }				
+
+						instantTextBoxType = {
+							name = "dev_info_text"
+							position = { x = @ROW_TEXT_Xo y = @ROW_TEXT_Yo }
+							maxWidth = @ROW_W
+							alwaysTransparent = yes
+							text_color_code = "E"				
+							format = left
+							font = "cg_16b"
+							text = "sector_screen.ui.block.dev.autonomy"
+						}	
+					}
+
+					# Development Plan
+					containerWindowType = {
+						name = "dev_info_plan"
+						position = { x = 0 y = @ROW_Y4 }
+						size = { width = @ROW_W height = @ROW_H }
+						background = { name = "bg" spriteType = "GFX_tiled_window_transparent" pdx_tooltip = "sector_screen.ui.option.plan.desc" }			
+
+						instantTextBoxType = {
+							name = "dev_info_text"
+							position = { x = @ROW_TEXT_Xo y = @ROW_TEXT_Yo }
+							maxWidth = @ROW_W
+							alwaysTransparent = yes
+							text_color_code = "E"				
+							format = left
+							font = "cg_16b"
+							text = "sector_screen.ui.block.dev.plan"
+						}	
+					}
+
+					# Development Index
+					containerWindowType = {
+						name = "dev_info_index"
+						position = { x = 0 y = @ROW_Y5 }
+						size = { width = @ROW_W height = @ROW_H }
+						background = { name = "bg" spriteType = "GFX_tiled_window_transparent" pdx_tooltip = "sector_screen.ui.option.index.desc" }			
+
+						instantTextBoxType = {
+							name = "dev_info_text"
+							position = { x = @ROW_TEXT_Xo y = @ROW_TEXT_Yo }
+							maxWidth = @ROW_W
+							alwaysTransparent = yes
+							text_color_code = "E"				
+							format = left
+							font = "cg_16b"
+							text = "sector_screen.ui.block.dev.index"
+						}	
+					}
+
+				}
+
+			} #b
+
+			# POLITICS
+			containerWindowType = {
+				name = "irm_view_sector_screen_pol"
+				position = { x = 0 y = @BLOCK_Y2 }
+				orientation = upper_left
+				moveable = no
+
+				# Title
+				instantTextBoxType = {
+					name = "pol_title"
+					position = { x = 0 y = 0 }
+					alwaysTransparent = yes		
+					font = "malgun_goth_24"
+					format = left
+					text_color_code = @BLOCK_HEADER_COLOR	
+					text = "sector_screen.ui.block.pol"
+				}
+
+				# Information
+				containerWindowType = {
+					name = "pol_info"
+					position = { x = 0 y = @ROW_Yo }
+					orientation = upper_left
+					moveable = no
+
+					# Species
+					containerWindowType = {
+						name = "pol_info_species"
+						position = { x = 0 y = @ROW_Y1 }
+						size = { width = @ROW_W height = @ROW_H }
+						background = { name = "bg" spriteType = "GFX_tiled_window_transparent" pdx_tooltip = "sector_screen.ui.option.species.desc" }					
+
+						instantTextBoxType = {
+							name = "pol_info_text"
+							position = { x = @ROW_TEXT_Xo y = @ROW_TEXT_Yo }
+							maxWidth = @ROW_W
+							alwaysTransparent = yes
+							text_color_code = "E"				
+							format = left
+							font = "cg_16b"
+							text = "sector_screen.ui.block.pol.species"
+						}	
+					}
+
+					# Regionalism
+					containerWindowType = {
+						name = "pol_info_regionalism"
+						position = { x = 0 y = @ROW_Y2 }
+						size = { width = @ROW_W height = @ROW_H }
+						background = { name = "bg" spriteType = "GFX_tiled_window_transparent" pdx_tooltip = "sector_screen.ui.option.regionalism.desc" }					
+
+						instantTextBoxType = {
+							name = "pol_info_text"
+							position = { x = @ROW_TEXT_Xo y = @ROW_TEXT_Yo }
+							maxWidth = @ROW_W
+							alwaysTransparent = yes
+							text_color_code = "E"				
+							format = left
+							font = "cg_16b"
+							text = "sector_screen.ui.block.pol.regionalism"
+						}	
+					}
+
+					# Unrest
+					containerWindowType = {
+						name = "pol_info_unrest"
+						position = { x = 0 y = @ROW_Y3 }
+						size = { width = @ROW_W height = @ROW_H }
+						background = { name = "bg" spriteType = "GFX_tiled_window_transparent" pdx_tooltip = "sector_screen.ui.option.unrest.desc" }					
+
+						instantTextBoxType = {
+							name = "pol_info_text"
+							position = { x = @ROW_TEXT_Xo y = @ROW_TEXT_Yo }
+							maxWidth = @ROW_W
+							alwaysTransparent = yes
+							text_color_code = "E"				
+							format = left
+							font = "cg_16b"
+							text = "sector_screen.ui.block.pol.unrest"
+						}	
+					}
+
+				}
+
+			} #b
+
+			# WARFARE
+			containerWindowType = {
+				name = "irm_view_sector_screen_mil"
+				position = { x = @BLOCK_Xo y = @BLOCK_Y2 }
+				orientation = upper_left
+				moveable = no
+
+				# Title
+				instantTextBoxType = {
+					name = "mil_title"
+					position = { x = 0 y = 0 }
+					alwaysTransparent = yes		
+					font = "malgun_goth_24"
+					format = left
+					text_color_code = @BLOCK_HEADER_COLOR	
+					text = "sector_screen.ui.block.war"
+				}
+
+				# Information
+				containerWindowType = {
+					name = "war_info"
+					position = { x = 0 y = @ROW_Yo }
+					orientation = upper_left
+					moveable = no
+
+					# Troops
+					containerWindowType = {
+						name = "war_info_species"
+						position = { x = 0 y = @ROW_Y1 }
+						size = { width = @ROW_W height = @ROW_H }
+						background = { name = "bg" spriteType = "GFX_tiled_window_transparent" pdx_tooltip = "sector_screen.ui.option.troops.desc" }
+
+						instantTextBoxType = {
+							name = "war_info_text"
+							position = { x = @ROW_TEXT_Xo y = @ROW_TEXT_Yo }
+							maxWidth = @ROW_W
+							alwaysTransparent = yes
+							text_color_code = "E"				
+							format = left
+							font = "cg_16b"
+							text = "sector_screen.ui.block.war.troops"
+						}	
+					}
+
+					# Naval Capacity
+					containerWindowType = {
+						name = "war_info_regionalism"
+						position = { x = 0 y = @ROW_Y2 }
+						size = { width = @ROW_W height = @ROW_H }
+						background = { name = "bg" spriteType = "GFX_tiled_window_transparent" pdx_tooltip = "sector_screen.ui.option.naval.desc" }				
+
+						instantTextBoxType = {
+							name = "war_info_text"
+							position = { x = @ROW_TEXT_Xo y = @ROW_TEXT_Yo }
+							maxWidth = @ROW_W
+							alwaysTransparent = yes
+							text_color_code = "E"				
+							format = left
+							font = "cg_16b"
+							text = "sector_screen.ui.block.war.naval"
+						}
+
+							# Sector Fleets Tooltip
+							effectButtonType = {
+								name = "sector_naval_tooltip"
+								quadTextureSprite = "GFX_tiled_window_transparent"
+								Orientation = "UPPER_LEFT"
+								position = { x = @ROW_TEXT_Xo y = 0 }
+								size = { x = @ROW_W y = @ROW_H }
+								effect = "ui_tt_sector_naval"
+							}
+
+					}
+
+					# Fleets
+					containerWindowType = {
+						name = "war_info_unrest"
+						position = { x = 0 y = @ROW_Y3 }
+						size = { width = @ROW_W height = @ROW_H }
+						background = { name = "bg" spriteType = "GFX_tiled_window_transparent" pdx_tooltip = "sector_screen.ui.option.fleets.desc" }			
+
+						instantTextBoxType = {
+							name = "war_info_text"
+							position = { x = @ROW_TEXT_Xo y = @ROW_TEXT_Yo }
+							maxWidth = @ROW_W
+							alwaysTransparent = yes
+							text_color_code = "E"				
+							format = left
+							font = "cg_16b"
+							text = "sector_screen.ui.block.war.fleets"
+						}
+
+							# Sector Fleets Tooltip
+							effectButtonType = {
+								name = "sector_fleets_tooltip"
+								quadTextureSprite = "GFX_tiled_window_transparent"
+								Orientation = "UPPER_LEFT"
+								position = { x = @ROW_TEXT_Xo y = 0 }
+								size = { x = @ROW_W y = @ROW_H }
+								effect = "ui_tt_sector_fleets"
+							}
+
+					}
+
+				}
+
+			} #b
+
+			# BUTTONS
+
+			# Sector Edicts
+			effectButtonType = {
+				name = "button_dev_edicts"
+				position = { x = 278 y = 5 }
+				quadTextureSprite = "GFX_topbar_policies_button"
+				scale = 0.70
+				effect = "ui_b_sector_overview_edicts"
+			}
+
+			# Sector Development
+			effectButtonType = {
+				name = "button_dev_section"
+				quadTextureSprite = "GFX_button_settings_1"
+				position = { x = 306 y = 6 }
+				effect = "ui_b_sector_overview_development"
+			}
+
+			# Sector Infrastructure
+			effectButtonType = {
+				name = "button_inf_section"
+				quadTextureSprite = "GFX_modifier_unknown"
+				position = { x = 676 y = 4 }
+				scale = 0.75
+				effect = "ui_b_sector_overview_infrastructure"
+			}
+
+			# Sector Politics
+			effectButtonType = {
+				name = "button_pol_section"
+				quadTextureSprite = "GFX_button_settings_1"
+				position = { x = 306 y = 224 }
+				effect = "ui_b_sector_overview_politics"
+			}
+
+			# Sector Fleet Orders
+			effectButtonType = {
+				name = "button_ord_section"
+				quadTextureSprite = "GFX_sector_fleet"
+				position = { x = 642 y = 216 }
+				scale = 0.75
+				effect = "ui_b_sector_overview_orders"
+			}
+
+			# Sector Warfare
+			effectButtonType = {
+				name = "button_war_section"
+				quadTextureSprite = "GFX_button_settings_1"
+				position = { x = 676 y = 224 }
+				effect = "ui_b_sector_overview_warfare"
+			}			
+
+		}
+
+		# Description Section
+		instantTextBoxType = {
+			name = "alien_message"
+			font = "cg_16b"
+			position = { x = -1111 y = -1111 }
+			format = left
+			scrollbartype = "standardtext_slider"
+		}
+
+		# Focus on Sector Capital
+		buttonType = {
+			name = "focus_button"
+			position = { x = 680 y = 16 }
+			spriteType = "GFX_fleetview_focus"
+		}
+
+	}
+
+}
+
+

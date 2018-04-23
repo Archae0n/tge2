@@ -1,0 +1,13 @@
+on_yearly_pulse = {
+	events = {
+		ai_fixmod_flag.1
+		gai_edict.1	
+		no_starbase_defense.1
+	}
+}
+
+on_game_start = {
+    events = {
+        ai_fixmod_flag.1
+    }
+}

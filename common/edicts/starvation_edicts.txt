@@ -1,0 +1,29 @@
+##########################################################################
+# Empire edicts
+##########################################################################
+
+country_edict = {
+	name = "starvation_edict"
+	length = 1800
+	cost = { influence = 100 }
+	
+	modifier = {
+		pop_food_req_mult = -0.5
+		pop_growth_speed = -1.0
+		biological_pop_happiness = -0.1
+	}
+	
+	potential = {
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+	}
+	
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+			NOT = {
+				has_country_flag = starvation_flag
+			}
+		}		
+	}	
+}

@@ -1,0 +1,264 @@
+# by cbshing
+#	Example:
+#
+#	example_effect = {
+#		add_energy = -100
+#	}
+#
+#
+#	In a script file:
+#
+#	effect = {
+#		example_effect = yes
+#	}
+#
+
+# give dyson engineers technologies
+# Scope: Country
+cbshing_origins_give_dyson_engineers_technologies = {
+	give_technology = { tech = "tech_powered_exoskeletons" message = no }
+	#give_technology = { tech = "tech_robotic_workers" message = no }
+	#give_technology = { tech = "tech_droid_workers" message = no }
+	give_technology = { tech = "tech_mining_network_2" message = no }
+	give_technology = { tech = "tech_mining_network_3" message = no }
+	give_technology = { tech = "tech_mineral_processing_1" message = no }
+	give_technology = { tech = "tech_engineering_lab_1" message = no }
+	give_technology = { tech = "tech_engineering_lab_2" message = no }
+	#give_technology = { tech = "tech_engineering_lab_3" message = no }
+}
+cbshing_origins_give_dyson_engineers_starbase_technologies = {
+	give_technology = { tech = "tech_starbase_5" message = no }
+	give_technology = { tech = "tech_starbase_4" message = no }
+	give_technology = { tech = "tech_starbase_3" message = no }
+}
+cbshing_origins_give_dyson_engineers_ship_technologies  = {
+	give_technology = { tech = "tech_battleships" message = no }
+	give_technology = { tech = "tech_cruisers" message = no }
+	give_technology = { tech = "tech_destroyers" message = no }
+}
+cbshing_origins_give_dyson_engineers_robots_technologies = {
+	give_technology = { tech = "tech_powered_exoskeletons" message = no }
+	give_technology = { tech = "tech_robotic_workers" message = no }
+	give_technology = { tech = "tech_droid_workers" message = no }
+}
+cbshing_origins_give_dyson_engineers_mining_technologies = {
+	give_technology = { tech = "tech_mining_network_4" message = no }
+	give_technology = { tech = "tech_mining_network_3" message = no }
+	give_technology = { tech = "tech_mining_network_2" message = no }
+}
+cbshing_origins_give_dyson_engineers_armor_technologies = {
+	give_technology = { tech = "tech_ship_armor_4" message = no }
+	give_technology = { tech = "tech_ship_armor_3" message = no }
+	give_technology = { tech = "tech_ship_armor_2" message = no }
+}
+cbshing_origins_give_dyson_engineers_random_technology_1 = {
+	give_technology = { tech = "tech_corvette_build_speed" message = no }
+	give_technology = { tech = "tech_corvette_hull_1" message = no }
+	#give_technology = { tech = "tech_corvette_hull_2" message = no }
+	#give_technology = { tech = "tech_strike_craft_1" message = no }
+	#give_technology = { tech = "tech_strike_craft_2" message = no }
+	#give_technology = { tech = "tech_ship_armor_2" message = no }
+}
+cbshing_origins_give_dyson_engineers_random_technology_2 = {
+	give_technology = { tech = "tech_destroyers" message = no }
+	#give_technology = { tech = "tech_destroyer_build_speed" message = no }
+	#give_technology = { tech = "tech_destroyer_hull_1" message = no }
+	#give_technology = { tech = "tech_strike_craft_1" message = no }
+	#give_technology = { tech = "tech_ship_armor_2" message = no }
+}
+cbshing_origins_give_dyson_engineers_random_technology_3 = {
+	#give_technology = { tech = "tech_starbase_3" message = no }
+	give_technology = { tech = "tech_strike_craft_1" message = no }
+	give_technology = { tech = "tech_strike_craft_2" message = no }
+	#give_technology = { tech = "tech_ship_armor_2" message = no }
+}
+
+cbshing_origins_make_dyson_physicist_genius = {
+	random_owned_leader = {
+		limit = {
+			is_researching_area = physics
+		}
+		if = {
+			limit = {
+				NOT = { has_trait = leader_trait_spark_of_genius }
+			}
+			add_trait = leader_trait_spark_of_genius 
+		}	
+	}
+}
+
+cbshing_origins_setup_dyson_sphere_homeworld = {
+	every_tile = {
+		limit = { has_building = no }
+
+		if = {
+			limit = {
+				has_building = no
+				planet = {
+					is_capital = yes
+					NOT = { is_planet_class = pc_habitat }
+				}
+				has_resource = minerals
+			}
+			remove_blocker = yes
+			set_building = building_mining_network_1
+		}
+		
+		if = {
+			limit = {
+				has_building = no
+				planet = {
+					is_capital = yes
+					NOT = { is_planet_class = pc_habitat }
+					count_tile = {
+						count < 3
+						limit = { has_building = building_hydroponics_farm_1 }
+					}
+				}
+				has_resource = food
+			}
+			remove_blocker = yes
+			set_building = building_hydroponics_farm_1
+		}
+		
+		if = {
+			limit = {
+				has_building = no
+				planet = {
+					is_capital = yes
+					is_planet_class = pc_habitat
+					count_tile = {
+						count < 3
+						limit = { has_building = building_hab_astro_mining_facility }
+					}
+				}
+			}
+			remove_blocker = yes
+			set_building = building_hab_astro_mining_facility
+		}
+
+		if = {
+			limit = {
+				has_building = no
+				planet = {
+					is_capital = yes
+					is_planet_class = pc_habitat
+					count_tile = {
+						count < 3
+						limit = { has_building = building_hab_agri_bay }
+					}
+				}
+			}
+			remove_blocker = yes
+			set_building = building_hab_agri_bay
+		}
+	}
+	
+	every_tile = {
+		limit = { has_building = yes }
+		if = {
+			limit = {
+				has_building = building_power_plant_1
+				planet = {
+					is_capital = yes
+					NOT = { is_planet_class = pc_habitat }
+				}
+			}
+			remove_blocker = yes
+			remove_building = yes
+			set_building = building_mining_network_1
+		}
+		if = {
+			limit = {
+				has_building = building_hab_solar_power_processor
+				planet = {
+					is_capital = yes
+					is_planet_class = pc_habitat
+				}
+			}
+			remove_blocker = yes
+			remove_building = yes
+			set_building = building_hab_astro_mining_facility
+		}
+	}
+	
+	if = { limit = { is_capital = yes }
+		# 2-4 extra pops on capital planet
+		create_pop = { species = owner_main_species }
+		create_pop = { species = owner_main_species }
+		random_list = {
+			1 = {
+			}
+			1 = {
+				create_pop = { species = owner_main_species }
+			}
+			1 = {
+				create_pop = { species = owner_main_species }
+				create_pop = { species = owner_main_species }
+			}
+		}
+	}
+}
+
+remove_dyson_neighbor_hyperlanes = {
+	this = { save_event_target_as = dyson_home_star }
+	every_neighbor_system = { 
+		ignore_hyperlanes = no
+		remove_hyperlane = { from = this to = event_target:dyson_home_star }
+	}
+}
+
+add_dyson_neighbor_hyperlane = {
+	this = { save_event_target_as = dyson_home_star }
+	random_neighbor_system = { 
+		ignore_hyperlanes = yes
+		limit = { NOT = { has_star_flag = dyson_hyperlane_star } }
+		add_hyperlane = { from = this to = event_target:dyson_home_star }
+		set_star_flag = dyson_hyperlane_star
+	}
+}
+
+add_gateway_construction_option = {
+	add_seen_bypass_type = gateway
+	set_country_flag = encountered_first_gateway
+	give_technology = { tech = "tech_gateway_activation" message = no }
+	give_technology = { tech = "tech_gateway_construction" message = no }
+}
+
+add_wormhole_construction_option = {
+	add_seen_bypass_type = wormhole
+	set_country_flag = encountered_first_wormhole
+	give_technology = { tech = "tech_wormhole_stabilization" message = no }
+}
+
+spawn_origins_artificial_wormhole = {
+	set_star_flag = has_artificial_wormhole
+	random_system = {
+		limit = {
+			NOR = {
+				has_natural_wormhole = yes
+				starting_system = yes
+				has_megastructure = gateway_0 
+				has_megastructure = gateway_final 
+				has_megastructure = gateway_ruined  
+				has_megastructure = gateway_restored  
+			}
+			distance = {
+				source = prev
+				min_distance = 50
+				max_distance = 100
+			}
+		}
+		prev = { # done this way to ensure we don't spawn "orphan" wormholes (wormholes that aren't linked to anything)
+				spawn_natural_wormhole = {
+				random_pos = yes
+				orbit_angle = 360
+			}
+		}
+		spawn_natural_wormhole = {
+			random_pos = yes
+			orbit_angle = 360
+		}
+		link_wormholes = prev
+	}
+}

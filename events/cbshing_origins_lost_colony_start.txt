@@ -1,0 +1,518 @@
+namespace = cbshing_origins_lost_colony_start
+# by cbshing
+
+### Hidden Game Start Event
+event = {
+	id = cbshing_origins_lost_colony_start.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		every_country = {
+			limit = { 
+				is_cbshing_lost_colony_country = yes 
+				NOT = { has_country_flag = country_homeworld_created }
+			}
+			
+			#give a custom start screen
+			set_country_flag = custom_start_screen
+			
+			# check if there is an existing "homeworld" species for this country
+			owner_species = { save_event_target_as = lost_colony_species }
+			every_country = {
+				limit = { 
+					is_valid_cbshing_lost_colony_home_country = yes
+					is_same_species = event_target:lost_colony_species
+				}
+				if = { 
+					limit = { capital_scope = { solar_system = { has_star_flag = sol} } }
+					set_global_flag = origins_sol_system_used
+				}
+				this.capital_scope = { save_event_target_as = lost_colony_homeplanet }
+				set_country_flag = "lost_colony_home_empire"
+				random_owned_pop = {
+					limit = { is_same_species = owner }
+					owner.capital_scope = { save_event_target_as = lost_colony_homeplanet }
+					create_species = {
+						is_mod = no
+						name = this
+						namelist = this
+						plural = this
+						class = this
+						portrait = this
+						traits = this
+						homeworld = owner.capital_scope
+					}
+				}
+				every_owned_pop = {
+					limit = { is_same_species = owner }
+					change_species = last_created
+				} 
+				every_owned_leader = {
+					limit = { is_same_species = owner }
+					change_species = last_created
+				}
+				every_pool_leader = {
+					limit = { is_same_species = owner }
+					change_species = last_created
+				}
+				change_dominant_species = { species = last_created }
+				every_country = {
+					limit = { 
+						is_cbshing_lost_colony_country = yes 
+						is_same_species = event_target:lost_colony_species
+					}
+					set_country_flag = "country_homeworld_created" 
+					every_owned_pop = {
+						limit = { is_same_species = event_target:lost_colony_species }
+						change_species = last_created
+					} 
+					every_owned_leader = {
+						limit = { is_same_species = event_target:lost_colony_species }
+						change_species = last_created
+					}
+					every_pool_leader = {
+						limit = { is_same_species = event_target:lost_colony_species }
+						change_species = last_created
+					}
+					change_dominant_species = { species = last_created }
+					if = { 
+						limit = { has_global_flag = origins_sol_system_used }
+						set_country_flag = origins_lost_colony_sol
+					}
+				}
+			}
+			# check if human species to create a random "sol" origin
+			if = { 
+				limit = { 
+					has_country_flag = human_2
+					NOT = { has_country_flag = country_homeworld_created }
+				}
+				set_country_flag = "origins_lost_colony_sol"
+				#set_country_flag = "country_homeworld_created" 
+			}
+			# check if non-human species to create a random origin
+			if = { 
+				limit = { 
+					NOT = { has_country_flag = human_2 }
+					NOT = { has_country_flag = country_homeworld_created }
+				}
+				random_list = {
+					25 = { set_country_flag = "origins_lost_colony_01" }
+					25 = { set_country_flag = "origins_lost_colony_02" }
+					25 = { set_country_flag = "origins_lost_colony_03" }
+					25 = { set_country_flag = "origins_lost_colony_04" }
+				}
+				#set_country_flag = "country_homeworld_created" 
+			}
+			country_event = { id = cbshing_origins_lost_colony_start.2 } 
+		}
+		#nuclear start on action replacement
+		#fix the create homeworld event changing planet preference
+		every_country = {
+			limit = { 
+				is_cbshing_nuclear_civics_country = yes 
+			}
+			country_event = { id = cbshing_origins_nuclear_start.2 } 
+			country_event = { id = cbshing_origins_nuclear_start.3 }
+			random_owned_planet = {
+				limit = { is_homeworld = yes }
+				planet_event = { id = cbshing_origins_nuclear_start.6 }
+			}
+		}
+		#eco shift on action replacement
+		#fix the create homeworld event changing planet preference
+		every_country = {
+			limit = { 
+				is_cbshing_eco_shift_country = yes 
+			}
+			random_owned_planet = {
+				limit = { is_homeworld = yes }
+				planet_event = { id = cbshing_origins_eco_shift_start.1 }
+			}
+		}
+	}
+}
+
+country_event = {
+	id = cbshing_origins_lost_colony_start.2
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { 
+				is_cbshing_lost_colony_country = yes 
+				is_ai = no
+				NOT = { has_country_flag = "country_homeworld_created" }
+			}
+			if = { limit = { has_country_flag = origins_lost_colony_01 }
+				random_system = { spawn_system = { initializer = "origins_lost_colony_homeworld_01" } }
+			}
+			if = { limit = { has_country_flag = origins_lost_colony_02 }
+				random_system = { spawn_system = { initializer = "origins_lost_colony_homeworld_02" } }
+			}
+			if = { limit = { has_country_flag = origins_lost_colony_03 }
+				random_system = { spawn_system = { initializer = "origins_lost_colony_homeworld_03" } }
+			}
+			if = { limit = { has_country_flag = origins_lost_colony_04 }
+				random_system = { spawn_system = { initializer = "origins_lost_colony_homeworld_04" } }
+			}
+			if = { 
+				limit = { 
+					has_country_flag = origins_lost_colony_sol
+					NOT = { any_system = { has_star_flag = sol } }
+				}
+				random_system = { spawn_system = { initializer = "origins_lost_colony_sol_system" } }
+				else = {
+					set_country_flag = country_homeworld_created
+				}
+			}
+			#need a random system to be the last system
+			random_system = { spawn_system = { initializer = "basic_init_04" } }
+			every_planet = {
+				limit = { 
+					#has_planet_flag = lost_colony_homeworld
+					is_cbshing_lost_colony_home_planet = yes 
+					NOT = { has_planet_flag = lost_colony_selected }
+				}
+				planet_event = { id = cbshing_origins_lost_colony_start.3 } 
+			}
+		}
+	}
+}
+
+# create homeworld country
+planet_event = {
+	id = cbshing_origins_lost_colony_start.3
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = {
+				is_cbshing_lost_colony_home_planet = yes 
+				NOT = { has_planet_flag = lost_colony_selected }
+				NOT = { has_planet_flag = planet_earth }
+			}
+			set_planet_flag = lost_colony_selected
+		
+			random_country = {
+				limit = {
+					is_cbshing_lost_colony_country = yes 
+					is_ai = no
+					#NOT = { owner_species = { species_portrait = human } }
+					NOT = { has_country_flag = country_homeworld_created }
+				}
+				set_country_flag = country_homeworld_created
+				owner_species = { save_event_target_as = lost_colony_species }
+			}
+			create_country = {
+				name = random
+				authority = random
+				civics = random
+				species = event_target:lost_colony_species
+				name_list = event_target:lost_colony_species
+				ethos = random
+				type = default
+				flag = random
+				effect = { set_country_flag = lost_colony_home_empire }
+				effect = { save_event_target_as = npc_lost_colony_home_empire }
+			}
+			while = {
+				count = 8
+				random_tile = {
+					limit = {
+						has_blocker = no
+						has_grown_pop = no
+						has_growing_pop = no
+						has_building = yes
+					}
+					create_pop = {
+						species = event_target:lost_colony_species
+					}
+				}
+			}
+			set_owner = last_created_country
+			cbshing_origins_change_planet_type_to_match_preference_vanilla = yes
+			cbshing_origins_add_vanilla_tile_blockers = yes
+			set_name = random
+			
+			last_created_country.capital_scope.solar_system = {
+				create_starbase = {
+					size = starbase_starport
+					module = shipyard
+					owner = event_target:npc_lost_colony_home_empire
+				}
+			}
+			
+			#science
+			create_fleet = {
+				effect = {
+					set_owner = last_created_country
+
+					create_ship = {
+						name = random
+						random_existing_design = science
+					}
+
+					set_fleet_stance = evasive				
+					set_location = last_created_country.capital_scope.star
+					
+					owner = {
+						create_leader = {
+							type = scientist
+							sub_type = survey
+							name = random
+							species = owner_main_species
+						}
+					}
+					set_leader = last_created_leader
+				}			
+			}
+				
+			#constructor
+			create_fleet = {
+				effect = {
+					set_owner = last_created_country
+					
+					create_ship = {
+						name = random
+						random_existing_design = constructor
+					}
+					
+					set_fleet_stance = evasive
+					set_location = last_created_country.capital_scope.star
+				}
+			}
+
+			#military
+			create_fleet = {
+				set_take_point = yes
+				effect = {
+					set_owner = last_created_country
+					
+					while = {
+						count = 3
+						create_ship = {
+							name = random
+							random_existing_design = corvette
+						}
+					}
+					
+					set_location = last_created_country.capital_scope.star
+				}
+			}
+			last_created_country = { add_minerals = 300 }
+			planet_event = { id = cbshing_origins_lost_colony_start.4 }
+		}	
+		if = {
+			limit = {
+				is_cbshing_lost_colony_home_planet = yes 
+				NOT = { has_planet_flag = lost_colony_selected }
+				has_planet_flag = planet_earth
+			}
+			set_planet_flag = lost_colony_selected
+		
+			random_country = {
+				limit = {
+					is_cbshing_lost_colony_country = yes 
+					is_ai = no
+					owner_species = { species_portrait = human }
+					NOT = { has_country_flag = country_homeworld_created }
+				}
+				set_country_flag = country_homeworld_created
+				owner_species = { save_event_target_as = lost_colony_human_species }
+			}
+			create_country = {
+				name = "NAME_United_Nations_of_Earth"
+				authority = auth_democratic
+				civics = {
+					civic = civic_beacon_of_liberty
+					civic = civic_idealistic_foundation
+				}
+				species = event_target:lost_colony_human_species
+				name_list = "HUMAN1"
+				ethos = {
+					ethic = "ethic_xenophile"
+					ethic = "ethic_fanatic_egalitarian"
+				}
+				flag = {
+					icon = {
+						category = "human"
+						file = "flag_human_9.dds"
+					}
+					background = {
+						category = "backgrounds"
+						file = "00_solid.dds"
+					}
+					colors = {
+						"blue"
+						"black"
+						"null"
+						"null"
+					}
+				}
+				type = default
+				effect = { set_country_flag = lost_colony_home_human_empire }
+				effect = { save_event_target_as = npc_lost_colony_home_human_empire }
+			}
+			while = {
+				count = 8
+				random_tile = {
+					limit = {
+						has_blocker = no
+						has_grown_pop = no
+						has_growing_pop = no
+						has_building = yes
+					}
+					create_pop = {
+						species = event_target:lost_colony_human_species
+					}
+				}
+			}
+			set_owner = last_created_country
+			cbshing_origins_change_planet_type_to_match_preference_vanilla = yes
+			cbshing_origins_add_vanilla_tile_blockers = yes
+			
+			last_created_country.capital_scope.solar_system = {
+				create_starbase = {
+					size = starbase_starport
+					module = shipyard
+					owner = event_target:npc_lost_colony_home_human_empire
+				}
+			}
+			
+			#science
+			create_fleet = {
+				effect = {
+					set_owner = last_created_country
+
+					create_ship = {
+						name = random
+						random_existing_design = science
+					}
+
+					set_fleet_stance = evasive				
+					set_location = last_created_country.capital_scope.star
+					
+					owner = {
+						create_leader = {
+							type = scientist
+							sub_type = survey
+							name = random
+							species = owner_main_species
+						}
+					}
+					set_leader = last_created_leader
+				}			
+			}
+				
+			#constructor
+			create_fleet = {
+				effect = {
+					set_owner = last_created_country
+					
+					create_ship = {
+						name = random
+						random_existing_design = constructor
+					}
+					
+					set_fleet_stance = evasive
+					set_location = last_created_country.capital_scope.star
+				}
+			}
+
+			#military
+			create_fleet = {
+				set_take_point = yes
+				effect = {
+					set_owner = last_created_country
+					
+					while = {
+						count = 3
+						create_ship = {
+							name = random
+							random_existing_design = corvette
+						}
+					}
+					
+					set_location = last_created_country.capital_scope.star
+				}
+			}
+			last_created_country = { add_minerals = 300 add_energy = 600 }
+			planet_event = { id = cbshing_origins_lost_colony_start.4 }
+		}
+	}
+}
+
+planet_event = {
+	id = cbshing_origins_lost_colony_start.4
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = {
+				is_cbshing_lost_colony_home_planet = yes 
+				has_planet_flag = lost_colony_selected
+			}
+			
+			random_owned_pop = {
+				species = {
+					save_event_target_as = origin_changing_species
+
+					create_species = {
+						is_mod = no
+						name = this
+						namelist = this
+						plural = this
+						class = this
+						portrait = this
+						traits = this
+						homeworld = prevprev
+					}
+				}
+			}
+			
+			every_country = {
+				limit = { 
+					is_cbshing_lost_colony_country = yes 
+					is_same_species = event_target:origin_changing_species
+				}
+				set_country_flag = "country_homeworld_created" 
+				every_owned_pop = {
+					limit = { is_same_species = event_target:origin_changing_species }
+					change_species = last_created
+				}
+				every_owned_leader = {
+					limit = { is_same_species = event_target:origin_changing_species }
+					change_species = last_created
+				}
+				every_pool_leader = {
+					limit = { is_same_species = event_target:origin_changing_species }
+					change_species = last_created
+				}
+				change_dominant_species = { species = last_created }
+				if = { 
+					limit = { has_global_flag = origins_sol_system_used }
+					set_country_flag = origins_lost_colony_sol
+				}
+			}
+			
+			every_tile = {
+				limit = {
+					has_blocker = no
+					has_pop = yes
+				}
+				kill_pop = yes
+				create_pop = {
+					species = last_created
+					ethos = random
+				}
+			}
+			set_owner = owner
+			owner = { change_dominant_species = { species = last_created } }
+		}
+	}
+}

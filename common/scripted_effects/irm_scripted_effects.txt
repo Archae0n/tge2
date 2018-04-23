@@ -1,0 +1,2085 @@
+# IRM
+# Scripted Effects
+
+
+# DB # --------------------------------------------------------------------------------------------
+
+# This = Country (db, db_fleet)
+# Prev = Country (Player)
+# Checks if database country has related sector
+database_check_link = {
+	if = {
+		limit = {
+			prev = {
+				not = {
+					any_sector = {
+						prevprev = { has_country_flag = sector_id_@prev }
+					}
+				}
+			}
+		}
+		log = "(IRM): [This.GetName] has been deleted"
+		destroy_country = yes
+	}
+}
+
+# This = Country (db)
+# Prev = Country (Player)
+# Updates remaining time for sector edicts
+database_update_edicts = {
+	if = { 	limit = { check_variable = { which = nEdictCapital value > 0 } }
+			subtract_variable = { which = nEdictCapital value = 1 } }
+	if = { 	limit = { check_variable = { which = nEdictMining value > 0 } }
+			subtract_variable = { which = nEdictMining value = 1 } }
+	if = { 	limit = { check_variable = { which = nEdictAssets value > 0 } }
+			subtract_variable = { which = nEdictAssets value = 1 } }
+	if = { 	limit = { check_variable = { which = nEdictColony value > 0 } }
+			subtract_variable = { which = nEdictColony value = 1 } }
+	if = { 	limit = { check_variable = { which = nEdictTrade value > 0 } }
+			subtract_variable = { which = nEdictTrade value = 1 } }	
+	if = { 	limit = { check_variable = { which = nEdictLeadership value > 0 } }
+			subtract_variable = { which = nEdictLeadership value = 1 } }	
+	if = { 	limit = { check_variable = { which = nEdictPropaganda value > 0 } }
+			subtract_variable = { which = nEdictPropaganda value = 1 } }	
+	if = { 	limit = { check_variable = { which = nEdictFaction value > 0 } }
+			subtract_variable = { which = nEdictFaction value = 1 } }	
+	if = { 	limit = { check_variable = { which = nEdictTraining value > 0 } }
+			subtract_variable = { which = nEdictTraining value = 1 } }	
+	if = { 	limit = { check_variable = { which = nEdictPiracy value > 0 } }
+			subtract_variable = { which = nEdictPiracy value = 1 } }		
+}
+
+# This = Country (db_fleet)
+# Prev = Country (Player)
+# Updates all required sector fleet data, makes some decisions
+database_update_fleets = {
+	if = {
+		limit = { any_owned_fleet = { is_ship_class = shipclass_military } }
+			every_owned_fleet = {
+				fleet_estimate_navcap = yes
+				fleet_update_name = yes
+				fleet_update_missions = yes
+				fleet_update_standings = yes
+				fleet_update_technologies = yes
+			}
+	}
+}
+
+# This = Country (db)
+# Prev = Country (Player)
+# Updates remaining time for sector policies
+database_update_policies = {
+	if = { 	limit = { check_variable = { which = nPolicyNofleet value > 0 } }
+			subtract_variable = { which = nPolicyNofleet value = 1 } }		
+}
+
+
+
+# COUNTRY # ---------------------------------------------------------------------------------------
+
+
+# This = Country
+# Checks if all sectors have been disallowed to keep their fleets
+# and apply empire-wide policy
+country_check_fleet_policy = {
+	if = {
+		limit = {
+			sectors > 0
+			not = {
+				any_sector = {
+					is_core_sector = no
+					sector_pol_nofleet = no
+				}
+			}
+		}
+		if = {
+			limit = {
+				not = { check_variable = { which = fSectorNavalCap value > 0.109 } }
+			}
+			set_policy = { policy = sector_fleets_10 option = sector_fleet_disallow cooldown = no }
+		}
+		if = {
+			limit = {
+				check_variable = { which = fSectorNavalCap value > 0.109 }
+				not = { check_variable = { which = fSectorNavalCap value > 0.209 } }
+			}
+			set_policy = { policy = sector_fleets_20 option = sector_fleet_disallow cooldown = no }
+		}
+		if = {
+			limit = {
+				check_variable = { which = fSectorNavalCap value > 0.209 }
+				not = { check_variable = { which = fSectorNavalCap value > 0.309 } }
+			}
+			set_policy = { policy = sector_fleets_30 option = sector_fleet_disallow cooldown = no }
+		}
+		if = {
+			limit = {
+				check_variable = { which = fSectorNavalCap value > 0.309 }
+				not = { check_variable = { which = fSectorNavalCap value > 0.409 } }
+			}
+			set_policy = { policy = sector_fleets_40 option = sector_fleet_disallow cooldown = no }
+		}
+		if = {
+			limit = {
+				check_variable = { which = fSectorNavalCap value > 0.409 }
+				not = { check_variable = { which = fSectorNavalCap value > 0.509 } }
+			}
+			set_policy = { policy = sector_fleets_50 option = sector_fleet_disallow cooldown = no }
+		}
+		if = {
+			limit = {
+				check_variable = { which = fSectorNavalCap value > 0.509 }
+				not = { check_variable = { which = fSectorNavalCap value > 0.609 } }
+			}
+			set_policy = { policy = sector_fleets_60 option = sector_fleet_disallow cooldown = no }
+		}
+		if = {
+			limit = {
+				check_variable = { which = fSectorNavalCap value > 0.609 }
+				not = { check_variable = { which = fSectorNavalCap value > 0.709 } }
+			}
+			set_policy = { policy = sector_fleets_70 option = sector_fleet_disallow cooldown = no }
+		}
+		if = {
+			limit = {
+				check_variable = { which = fSectorNavalCap value > 0.709 }
+				not = { check_variable = { which = fSectorNavalCap value > 0.809 } }
+			}
+			set_policy = { policy = sector_fleets_80 option = sector_fleet_disallow cooldown = no }
+		}
+		if = {
+			limit = {
+				check_variable = { which = fSectorNavalCap value > 0.809 }
+				not = { check_variable = { which = fSectorNavalCap value > 0.909 } }
+			}
+			set_policy = { policy = sector_fleets_90 option = sector_fleet_disallow cooldown = no }
+		}
+		if = {
+			limit = {
+				check_variable = { which = fSectorNavalCap value > 0.909 }
+				not = { check_variable = { which = fSectorNavalCap value > 1.09 } }
+			}
+			set_policy = { policy = sector_fleets_100 option = sector_fleet_disallow cooldown = no }
+		}					
+	}
+}
+
+# This = Country
+# Estimates total naval capacity and used fraction
+country_estimate_naval_cap = {
+
+	# We have to define the exact value of empire nav cap.
+	# As this value could be too big for regular estimations,
+	# we have to calculate it from estimated fleet capcity and
+	# the used fleet fraction.
+
+	set_variable = { which = nNavalCap value = 0 }
+	set_variable = { which = nNavalCapTrue value = 0 }
+	set_variable = { which = nUsedNavalCap value = 0 }
+	set_variable = { which = fUsedNavalCap value = 0 }
+
+	# Let's estimate used nav cap
+	every_owned_ship = {
+		limit = { is_ship_class = shipclass_military }
+			switch = {
+				trigger = is_ship_size
+					corvette 	= { prev = { change_variable = { which = nUsedNavalCap value = @nCapCorvette } } }
+					destroyer 	= { prev = { change_variable = { which = nUsedNavalCap value = @nCapDestroyer } } }
+					cruiser 	= { prev = { change_variable = { which = nUsedNavalCap value = @nCapCruiser } } }
+					battleship 	= { prev = { change_variable = { which = nUsedNavalCap value = @nCapBattleship } } }
+					titan 		= { prev = { change_variable = { which = nUsedNavalCap value = @nCapTitan } } }
+			}
+	}
+
+	# Return used fraction to variable
+	country_get_used_naval_fraction = yes
+
+	set_variable = { which = nNavalCap value = nUsedNavalCap }
+	divide_variable = { which = nNavalCap value = fUsedNavalCap }
+
+	# We have to take into account that there is already set penalty from sector fleets.
+	# In this case we have to calculate the real country naval capacity.
+	if = {
+		limit = { check_variable = { which = fSectorNavalCap value < 0.010 } }
+			set_variable = { which = nNavalCapTrue value = nNavalCap }
+		else = {
+
+			subtract_variable = { which = fSectorNavalCap value = 1 }
+			multiply_variable = { which = fSectorNavalCap value = -1 }
+
+			set_variable = { which = nNavalCapTrue value = nNavalCap }
+			divide_variable = { which = nNavalCapTrue value = fSectorNavalCap }
+			change_variable = { which = nNavalCapTrue value = 0.05 } # reducing some inaccuracy effects
+
+		}
+	}
+
+}
+
+# This = Country
+# Estimates total sector naval capacity and sector used fraction
+country_estimate_naval_cap_sector = {
+
+	# Get data from existing sector fleets.
+	# Summarize each sector fleet's navcap to a signle variable.
+	# Find a fraction for sector fleet from the country TRUE navcap.
+
+	set_variable = { which = nSectorNavalCap value = 0 }
+	set_variable = { which = fSectorNavalCap value = 0 }
+
+	every_country = {
+		limit = {
+			is_country_type = @dbCountryFleet
+			any_owned_fleet = {
+				is_ship_class = shipclass_military
+				prevprev = { # root country
+					any_sector = {
+						prevprev = { has_fleet_flag = sector_id_@prev }
+					}
+				}
+			}
+		}
+		# Transfer navcap value to the country scope for each fleet
+		every_owned_fleet = {
+			limit = {
+				is_ship_class = shipclass_military
+				prevprev = { # root country
+					any_sector = {
+						prevprev = { has_fleet_flag = sector_id_@prev }
+					}
+				}				
+			}
+			prevprev = { change_variable = { which = nSectorNavalCap value = prev } }
+		}
+	}
+
+	# Estimate sector fleets fraction
+   	set_variable = { which = fSectorNavalCap value = nSectorNavalCap }
+   	divide_variable = { which = fSectorNavalCap value = nNavalCapTrue }
+	# Apply naval maintenance modifiers
+	multiply_variable = { which = fSectorNavalCap value = @fSectorNavMod  }    
+
+}
+
+# This = Country
+# Performs some actions for the country policy
+country_policy_sector_fleet_allow = {
+	every_country = {
+		limit = {
+			is_country_type = @dbCountry
+			root = { any_sector = { prevprev = { has_country_flag = sector_id_@prev	} } }
+		}
+		set_variable = { which = bPolicyNofleet value = 0 }
+		set_variable = { which = nPolicyNofleet value = @monthsPolicyLength }
+	}
+}
+country_policy_sector_fleet_disallow = {
+	# Set cooldown
+	every_country = {
+		limit = {
+			is_country_type = @dbCountry
+			root = { any_sector = { prevprev = { has_country_flag = sector_id_@prev	} } }
+		}
+		set_variable = { which = bPolicyNofleet value = 1 }
+		set_variable = { which = nPolicyNofleet value = @monthsPolicyLength }
+	}
+	# Try to disband every sector fleet
+	every_country = {
+		limit = {
+			is_country_type = @dbCountryFleet 
+			any_owned_fleet = {
+				is_ship_class = shipclass_military
+				root = { any_sector = { prevprev = { has_fleet_flag = sector_id_@prev } } }
+			}
+		}
+		every_owned_fleet = {
+			limit = { is_ship_class = shipclass_military }						
+				fleet_do_disband = yes
+		}
+	}
+}
+
+
+
+# FACTION # ---------------------------------------------------------------------------------------
+
+
+# This = Pop faction
+# Suppresses factions
+faction_do_suppression = {
+	random_owned_pop = {
+		limit = {
+			exists = pop_faction
+			pop_faction  = { is_same_value = prevprev }
+		}
+		# So, there are some chances to suppress this pop
+		# Chances are bigger on core worlds
+		random_list = {
+			25 = {
+				modifier = {
+					add = 10
+					exists = planet
+					planet = { sector_controlled = no }
+				}						
+				if = {
+					limit = { not = { has_modifier = "pop_suppressed" } }
+						add_modifier = { modifier = "pop_suppressed" days = 3600 }
+				}
+				# Suppress pop
+				pop_suppress_ethic = yes						
+			}
+			65 = {
+				# nothing happens
+			}
+		}				
+	}
+}
+
+# This = Pop faction
+# Create and assign a new leader for faction
+faction_set_leader = {
+	owner = {
+		random_sector = {
+			limit = {
+				is_core_sector = no
+				prevprev = { check_pop_faction_parameter = { which = sector value = prev } }
+			}
+			random_planet = {
+				limit = { is_sector_planet = yes }
+					random_pop = {
+						limit = { pop_can_politics = yes }
+							owner = {
+								# Generate specific leader
+								create_leader = {
+									name = random
+									species = prev.species
+									type = governor
+									skill = 0
+									traits = {}
+								}
+								# Set leaders properties
+								last_created_leader = {
+									recruitable = no
+									set_leader_flag = "faction_leader"
+									set_leader_flag = planet_id_@prevprevprev
+								}														
+							}
+					}
+			}
+		}
+	}
+	# Assign created leader
+	assign_leader = last_created_leader
+}
+
+# This = Pop faction
+# Sets specific name to chosen faction
+faction_set_name = {
+	parameter:sector = {
+		# Generate different nametype for sector faction
+		root = { faction_generate_name = yes }
+	}
+}
+
+# This = Pop faction
+# Updates name to match it with related sector
+faction_update_name = {
+	owner = {
+		random_sector = {
+			limit = { prevprev = { check_pop_faction_parameter = { which = sector value = prev } } }
+				prevprev = {
+					switch = {
+						trigger = has_pop_faction_flag
+							nametype_league = { set_name = "pft_regionalist_name_league" }
+							nametype_front = { set_name = "pft_regionalist_name_front" }
+							nametype_council = { set_name = "pft_regionalist_name_council" }
+							nametype_guild = { set_name = "pft_regionalist_name_guild" }
+							nametype_community = { set_name = "pft_regionalist_name_community" }
+							nametype_union = { set_name = "pft_regionalist_name_union" }
+							nametype_corporation = { set_name = "pft_regionalist_name_corporation" }
+							nametype_house = { set_name = "pft_regionalist_name_house" }
+							nametype_conclave = { set_name = "pft_regionalist_name_conclave" }
+							nametype_alliance = { set_name = "pft_regionalist_name_alliance" }
+							nametype_group = { set_name = "pft_regionalist_name_group" }
+							nametype_holders = { set_name = "pft_regionalist_name_holders" }
+					}
+				}
+		}
+	}	
+}
+
+
+
+# FLEET # -----------------------------------------------------------------------------------------
+# Mostly related to sector fleets
+
+
+# This Fleet
+# Clear all fleet orders
+fleet_clear_orders = {
+	# Remove existing flags
+	remove_fleet_flag = @sMissionPatrolSector
+	remove_fleet_flag = @sMissionPatrolCores
+	remove_fleet_flag = @sMissionDefendCapital
+	remove_fleet_flag = @sMissionFollowFleet
+	remove_fleet_flag = @sOrderWarGoals
+	remove_fleet_flag = @sMissionAttackHostile
+	remove_fleet_flag = @sMissionReturnHome
+	remove_fleet_flag = @sMissionRepairFleet
+	remove_fleet_flag = @sMissionUpgradeFleet
+}
+
+# This = Fleet
+# Tries to disband sector fleet with possible negative aftermath
+fleet_do_disband = {
+	switch = {
+		trigger = num_ships
+			10 < {
+				random_list = {
+					10 = {
+						random_country = {
+							limit = {
+								is_allowed_country = yes
+								any_sector = { prevprev = { has_fleet_flag = sector_id_@prev } }
+							}
+							country_event = { id = irm_sector.3041 scopes = { from = prev } }
+						}						
+					}
+					90 = { delete_fleet = this }
+				}
+			}
+			10 >= {
+				random_list = {
+					# just disband fleet
+					60 = {
+						modifier = {
+							add = -5
+							num_ships >= 15
+						}
+						modifier = {
+							add = -10
+							num_ships >= 25
+						}
+						modifier = {
+							add = -15
+							num_ships >= 50
+						}																		
+						delete_fleet = this
+					}
+					# turn to pitates
+					20 = {
+						modifier = {
+							add = 5
+							num_ships >= 15
+						}
+						modifier = {
+							add = 10
+							num_ships >= 25
+						}
+						modifier = {
+							add = 15
+							num_ships >= 50
+						}
+						random_country = {
+							limit = {
+								is_allowed_country = yes
+								any_sector = { prevprev = { has_fleet_flag = sector_id_@prev } }
+							}
+							country_event = { id = irm_sector.3041 scopes = { from = prev } }
+						}
+					}
+					# turn to rebels
+					10 = {
+						##############
+						# replace to full-scale rebellion
+						random_country = {
+							limit = {
+								is_allowed_country = yes
+								any_sector = { prevprev = { has_fleet_flag = sector_id_@prev } }
+							}
+							country_event = { id = irm_sector.3041 scopes = { from = prev } }
+						}						
+					}
+					# turn to nomads
+					10 = {
+						modifier = {
+							factor = 0
+							not = { exists = event_target:nomad01_country }
+						}
+						modifier = {
+							add = 10
+							exists = event_target:nomad01_country
+						}
+						if = {
+							limit = { exists = event_target:nomad01_country }
+								#fleet_event = { id = irm_sector.3042 }
+							#else = {
+							#	# create
+							#}	
+						}											
+					}
+				} #r
+			}
+	}
+}
+
+# This = Fleet
+# Calculates fleet naval capacity
+fleet_estimate_navcap = {
+	set_variable = { which = nFleetShips value = 0 }
+	set_variable = { which = nSectorNavalCap value = 0 }
+	every_ship = {
+		limit = {
+			exists = owner
+			owner = { is_same_empire = prevprev.owner }
+			exists = fleet
+			fleet = { is_same_value = prevprev }
+		}
+		prev = { change_variable = { which = nFleetShips value = 1 } }
+		switch = {
+			trigger = is_ship_size
+				corvette = { prev = { change_variable = { which = nSectorNavalCap value = @nCapCorvette } } }
+				destroyer = { prev = { change_variable = { which = nSectorNavalCap value = @nCapDestroyer } } }
+				cruiser = { prev = { change_variable = { which = nSectorNavalCap value = @nCapCruiser } } }
+				battleship = { prev = { change_variable = { which = nSectorNavalCap value = @nCapBattleship } } }
+				titan = { prev = { change_variable = { which = nSectorNavalCap value = @nCapTitan } } }
+		}							
+	}
+
+	# Transfer naval data to sector database
+	random_country = {
+		limit = {
+			is_country_type = @dbCountry
+			has_country_flag = sector_id_@prev
+		}
+		set_variable = { which = nFleetShips value = prev }
+		set_variable = { which = nSectorNavalCap value = prev }			
+	}
+
+}
+
+# This = Fleet
+# Returns fleet home location if exists
+fleet_get_home = {
+	random_country = {
+		limit = {
+			is_allowed_country = yes
+			any_sector = { prevprev = { has_fleet_flag = sector_id_@prev } }
+		}
+		random_planet = {
+			limit = {
+				#exists = space_owner
+				#space_owner = { is_same_empire = prevprev }
+				#exists = sector
+				#sector = { prevprevprev = { has_fleet_flag = sector_id_@prev } }
+				prevprev = { has_fleet_flag = home_id_@prev }
+			}
+			if = {	limit = { exists = this }
+					# Clean possible existing location
+					if = {	limit = { exists = event_target:uiFleetHome }
+							clear_global_event_target = uiFleetHome }
+					# Set a new one
+					save_global_event_target_as = uiFleetHome }
+		}
+	}
+}
+
+
+# This = Fleet
+# Get last fleet order
+fleet_get_order = {
+	switch = {
+		trigger = has_fleet_order
+			#aggressive_stance_fleet_order = {}
+			analyze_ftl_trail_order = {}
+			assist_research_order = {}
+			auto_explore_order = {}
+			build_orbital_station_order = {}
+			build_space_station_order = {}
+			collect_data_fleet_order = {}
+			colonize_planet_order = {}
+			combat_order = {}
+			evade_hostiles_order = {}
+			fleet_cancel_order = {}
+			follow_order = {}
+			land_armies_order = {}
+			merge_fleet_order = {}
+			move_to_system_point_order = {}
+			orbit_planet_order = {}
+			rally_point_fleet_order = {}
+			repair_ship_fleet_order = {}
+			research_anomaly_order = {}
+			research_discovery_order = {}
+			return_fleet_order = {}
+			survey_planet_order = {}
+			upgrade_design_fleet_order = {}
+	}
+}
+
+# This = Fleet
+# Renames fleet to match it with related sector
+fleet_update_name = {
+	random_country = {
+		limit = {
+			is_allowed_country = yes
+			any_sector = {
+				is_core_sector = no
+				prevprev = { # fleet
+					has_fleet_flag = sector_id_@prev
+				}
+			}
+		}
+		random_sector = {
+			limit = {
+				is_core_sector = no
+				prevprev = { # fleet
+					has_fleet_flag = sector_id_@prev
+				}
+			}
+			prevprev = { # fleet
+				set_name = "sector.fleet.upd"
+			}
+		}
+	}
+}
+
+# This = Fleet
+# Updates fleet orders and missions
+fleet_update_missions = {
+	if = {
+		limit = { fleet_has_mission = no }
+			clear_fleet_actions = this
+			set_timed_fleet_flag = { flag = @sMissionPatrolSector days = @nOrderLong  }
+			fleet_event = { id = irm_sector.401 }		
+	}
+}
+
+# This = Fleet
+# Update fleet db country standings to known empires
+fleet_update_standings = {
+	random_country = {
+		limit = {
+			is_allowed_country = yes
+			any_sector = {
+				is_core_sector = no
+				prevprev = { # fleet
+					has_fleet_flag = sector_id_@prev
+				}
+			}
+		}
+		# Go through all known countries and share them with db fleet
+		every_relation = {
+			limit = {
+				has_communications = prev
+				or = {
+					is_country_type = default
+					is_country_type = primitive
+					is_country_type = neutral_faction
+					is_country_type = enclave
+					is_country_type = nomad
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+			}
+			establish_communications_no_message = prevprev.owner
+			prevprev.owner = { # db fleet
+				# Enemies
+				if = {
+					# prev = relation
+					# prevprev = player country
+					# checks relationship of prev against prevprev
+					limit = {
+						prev = {
+							or = {
+								is_hostile = prev
+								is_at_war_with = prev
+							}
+						}
+					}
+					set_faction_hostility = { target = prev set_hostile = yes set_neutral = no set_friendly = no }
+				}
+				# Neutral
+				if = {
+					limit = {
+						prev = {
+							is_neutral_to = prev
+						}
+					}
+					set_faction_hostility = { target = prev set_hostile = no set_neutral = yes set_friendly = no }
+				}
+				# Allies
+				if = {
+					limit = {
+						prev = {
+							or = {
+								is_in_federation_with = prev
+								has_association_status = prev
+								has_defensive_pact = prev
+							}
+						}
+					}
+					set_faction_hostility = { target = prev set_hostile = no set_neutral = no set_friendly = yes }
+				}
+				# Vassality relations
+				if = {
+					limit = {
+						or = {
+							prev = { is_overlord_to = prev }
+							prev = { prev = { is_overlord_to = prev } }
+						}
+					}
+					set_faction_hostility = { target = prev set_hostile = no set_neutral = no set_friendly = yes }
+				}
+			}
+		}
+	}	
+}
+
+# This = Fleet
+# Updates fleet available technologies, taken from "true" owner
+fleet_update_technologies = {
+	random_country = {
+		limit = {
+			is_allowed_country = yes
+			any_sector = {
+				is_core_sector = no
+				prevprev = { has_fleet_flag = sector_id_@prev }
+			}
+		}
+		prev.owner = {
+			copy_techs_from = { target = prev }
+		}
+	}	
+}
+
+# PLANET # ----------------------------------------------------------------------------------------
+
+
+# This = Planet
+# Tracks the state of sector capital status for selected planet
+planet_check_capital = {
+	switch = {
+		trigger = sector_controlled
+			# Just remove for core planets
+			no = { planet_remove_sector_capital = yes }
+			yes = {
+				if = {
+					# Remove if this planet no longer connect as a capital
+					limit = { not = { has_planet_flag = sector_id_@sector } }
+						planet_remove_sector_capital = yes
+					else = {
+						# Otherwise update the link id
+						set_timed_planet_flag = { flag = sector_id_@sector days = @nKeepMonthly }								
+					}
+				}
+			}
+	}	
+}
+
+# This = Planet
+# Clears capital, applying former status
+planet_remove_sector_capital = {
+	if = {
+		limit = { has_modifier = "sector_capital" not = { has_modifier = "former_capital" } }
+			add_modifier = { modifier = "former_capital" days = @nKeepYearly }
+	}
+	remove_modifier = "sector_capital"
+}
+
+# This = Planet
+# Sets planet as a new Sector Capital
+planet_set_sector_capital = {
+	# Set capital status
+	if = {
+		limit = { not = { has_modifier = "sector_capital" } }
+			add_modifier = { modifier = "sector_capital" days = -1 }
+	}
+	# Кemove possible former status, rearrange planet modifiers
+	remove_modifier = "former_capital"
+	planet_arrange_modifiers = yes
+	sector = {
+		# Reshape sector
+		sector_do_reshape = yes
+		#log = "(IRM): [This.GetName] sector has established capital on [Prev.GetName]"
+	}
+	# Set related sector ID
+	set_timed_planet_flag = { flag = sector_id_@sector days = @nKeepMonthly }
+
+	# Boost faction creation
+	owner = { enable_faction_of_type = "regionalist" }
+	random_owned_pop = {
+		limit = { is_planet_pop = yes }
+			set_pop_flag = "faction_founder"
+			force_faction_evaluation = yes
+	}
+}
+
+
+
+# LEADER # ----------------------------------------------------------------------------------------
+
+
+# This = Leader
+# Removes all traits from chosen leader
+leader_clean_traits = {
+	switch = {
+		trigger = leader_class
+			admiral = {
+				# default traits
+				remove_trait = "leader_trait_trickster"
+				remove_trait = "leader_trait_fleet_logistician"
+				remove_trait = "leader_trait_engineer"
+				remove_trait = "leader_trait_aggressive"
+				remove_trait = "leader_trait_cautious"
+				remove_trait = "leader_trait_scout"
+				remove_trait = "leader_trait_unyielding"
+				remove_trait = "leader_trait_gale_speed"
+				remove_trait = "leader_trait_lethargic"
+				remove_trait = "leader_trait_sentinel"
+				remove_trait = "leader_trait_hive_affinity"
+				remove_trait = "leader_trait_void_swimmer"
+				remove_trait = "leader_trait_ethereal"
+				remove_trait = "leader_trait_dimensional_stutter"
+				remove_trait = "leader_trait_dragonslayer"
+				#remove_trait = "leader_trait_admiral_cyborg"
+				#remove_trait = "leader_trait_admiral_synthetic"
+				#remove_trait = "leader_trait_admiral_psionic"
+				remove_trait = "leader_trait_admiral_chosen"
+				remove_trait = "leader_trait_cybrex"
+				remove_trait = "leader_trait_mercenary_warrior"
+				remove_trait = "leader_trait_great_khan"
+			}
+			governor = {}
+	}
+}
+
+# This = Leader
+# Adds some custm traits based on predefined rules.
+# Also, there is some changes that it will keep default ones
+leader_add_custom_traits = {
+	random_list = {
+		35 = {
+			switch = {
+				trigger = leader_class
+					admiral = {
+						leader_clean_traits = yes
+						random_list = {
+							50 = { add_trait = "admiral_sector_defender" }
+							50 = { add_trait = "admiral_sector_slayer" }
+						}
+					}
+					governor = {}
+			}
+		} 
+		65 = { } # do nothing, keep old traits
+	}
+}
+
+
+
+# SECTOR # ----------------------------------------------------------------------------------------
+
+
+# Each sector has it's own database, a specific country type.
+# This country is used as a general storage for all sector variables and settings.
+# The connection with database is permanent and breaks only when sector disappears.
+# @flag helps me to connect sector and db country by sector id, like sector_id_@<sector>
+
+# This = Sector
+# Checks connection with related database and updates it
+sector_check_db = {
+	if = {
+		# If there is no any related sector db
+		limit = { sector_has_db = no }
+			# Set database country as a special utility storage
+			# Name it and link with sector through flag id
+			create_country = {
+				name = "Database"
+				type = @dbCountry
+				effect = { copy_techs_from = { target = prev.owner } }
+			}
+			# Rename and make a message
+			last_created_country = {
+				set_name = "db_sector.name"
+				set_timed_country_flag = { flag = sector_id_@prev days = @nKeepDaily }
+				log = "(IRM): [This.GetName] has been created"
+			}
+		# Otherwise, update sector_id and name to match it with related sector
+		else = {
+			random_country = {
+				limit = { is_sector_db = yes }
+					set_timed_country_flag = { flag = sector_id_@prev days = @nKeepDaily }
+					set_name = "db_sector.name"
+			}
+		}
+	}
+}
+
+# This = Sector
+# Checks connection with related database and updates it
+sector_check_db_fleet = {
+	if = {
+		# If there is no any related sector fleet db
+		limit = { sector_has_db_fleet = no }
+			create_country = {
+				name = "db_fleet"
+				type = db_fleet
+				ignore_initial_colony_error = yes
+				species = root.owner.owner_species
+				name_list = root.owner
+				flag = {
+					icon = { category = "special" file = "abandoned.dds" }
+					background = { category = "backgrounds" file = "00_solid.dds" }
+					colors ={ "dark_blue" "dark_blue" "null" "null" }
+				}			
+				effect = {
+					copy_techs_from = { target = prev.owner }
+					set_faction_hostility = { target = prev.owner set_hostile = no set_neutral = no set_friendly = yes }			
+				}			
+			}
+			last_created_country = {
+				set_name = "db_fleet.name"
+				set_timed_country_flag = { flag = sector_id_@prev days = @nKeepDaily }
+				#log = "(IRM): [This.GetName] has been created"
+			}	
+		# Otherwise, update sector_id and name to match it with related sector
+		else = {
+			random_country = {
+				limit = { is_sector_db_fleet = yes }
+					set_timed_country_flag = { flag = sector_id_@prev days = @nKeepDaily }
+					set_name = "db_fleet.name"
+			}
+		}
+	}
+}
+
+# This = Sector
+# Tracks sectors and establishes new capitLals when it's necessary
+sector_check_capital = {
+	if = {
+		limit = { not = { any_planet = { is_sector_capital = yes } } }
+			sector_choose_capital = yes
+	}
+}
+
+# This = Sector
+# Checks the existance and state of the fleet. Makes updates.
+sector_check_fleet = {
+	if = {
+		limit = { sector_has_fleet = no }
+			# Inititate fleet, if sector is allowed to
+			if = {	limit = { sector_pol_nofleet = no }
+					sector_create_fleet = yes }
+		else = {
+			# Estimate available naval capacity
+			sector_estimate_naval_capacity = yes
+			sector_estimates_fleet_cap = yes
+			sector_do_build_ships = yes
+		}
+	}
+}
+
+# This = Sector
+# Sector will choose the first planet in a list.
+# In most cases, that was the first planet from which sector started.
+sector_choose_capital = {
+	owner = {
+		every_owned_planet = {
+			limit = {
+				exists = sector
+				sector = { is_same_value = prevprevprev }
+			}
+			planet_set_sector_capital = yes
+			break = yes # to stop the script after the first found planet
+		}
+					
+	}
+}
+
+# This = Sector
+# Creates inital fleet for sector
+sector_create_fleet = {
+	# Pick sector capital as fleet home
+	owner = {
+		random_owned_planet = {
+			limit = {
+				exists = sector
+				sector = { is_same_value = prevprevprev }
+				has_modifier = "sector_capital"
+			}
+			save_global_event_target_as = "scpFleetHome"
+		}
+	}
+	if = {
+		limit = { exists = event_target:scpFleetHome }
+			# Create sector fleet
+			random_country = {
+				limit = { is_sector_db_fleet = yes }
+					# Create Sector Fleet
+					create_fleet = {
+						name = "sector.fleet"
+						effect = {
+							set_owner = prev
+							while = {
+								count = 1
+								create_ship = {
+									name = random
+									random_existing_design = corvette
+									graphical_culture = event_target:scpFleetHome.owner
+								}
+							}
+							set_location = event_target:scpFleetHome
+							# Set default fleet bahaviour
+							set_variable = { which = nFleetStance value = @nStanceAggressive } # aggressive stance
+							set_fleet_stance = aggressive
+							set_aggro_range_measure_from = self
+							set_aggro_range = @nStanceAggroRange							
+							set_variable = { which = bBombardment value = 0 } # no bombardment
+							set_fleet_bombardment_stance = disabled
+						}
+						settings = { 
+						   can_disband = no
+						   can_change_composition = no 
+						   can_change_leader = no
+						   uses_naval_capacity = no
+						   #garrison = yes
+						}
+					}
+					# Create Admiral
+					create_leader = {
+						type = admiral
+						species = prev.owner.owner_species
+						name = random
+						skill = 0
+					}
+					last_created_leader = {
+						recruitable = no
+						set_leader_flag = sector_id_@prevprev
+						leader_add_custom_traits = yes
+					}				
+					last_created_fleet = {
+						set_name = "sector.fleet"
+						set_fleet_flag = sector_id_@prevprev
+						#log = "(IRM): [This.GetName] has been initiated"
+						assign_leader = last_created_leader
+						# Set sector capital as initial fleet home base
+						set_fleet_flag = home_id_@event_target:scpFleetHome
+					}
+			}
+			# Clean up
+			clear_global_event_target = scpFleetHome
+	}
+}
+
+# This = Sector
+# Sector simulates building of new ships for fleet
+sector_do_build_ships = {
+	random_country = {
+		limit = {
+			is_sector_db_fleet = yes
+			any_owned_fleet = {
+				is_ship_class = shipclass_military
+				has_fleet_flag = sector_id_@prevprev				
+			}
+		}
+		if = {
+			limit = {
+				prev = {
+					any_country = {
+						is_sector_db = yes
+						check_variable = { which = nSectorNavalCap value < nSectorNavalLim }
+					}
+				}
+			}
+			# Build ships
+			random_owned_fleet = {
+				limit = {
+					is_ship_class = shipclass_military
+					has_fleet_flag = sector_id_@prevprev
+				}
+				random_list = {
+					# Corvettes
+					40 = {
+						modifier = {
+							add = 30
+							not = { owner = { has_technology = tech_destroyers } }
+						}						
+						modifier = {
+							add = 10
+							not = { owner = { has_technology = tech_cruisers } }
+						}						
+						modifier = {
+							add = 2.5
+							not = { owner = { has_technology = tech_battleships } }
+						}
+						create_ship = {
+							name = random
+							random_existing_design = corvette
+							graphical_culture = prevprev.owner
+						}						
+					}
+					# Destroyers
+					30 = {
+						modifier = {
+							factor = 0
+							not = { owner = { has_technology = tech_destroyers } }
+						}
+						modifier = {
+							add = 10
+							not = { owner = { has_technology = tech_cruisers } }
+						}
+						modifier = {
+							add = 2.5
+							not = { owner = { has_technology = tech_battleships } }
+						}												
+						create_ship = {
+							name = random
+							random_existing_design = destroyer
+							graphical_culture = prevprev.owner
+						}						
+					}
+					# Cruisers
+					20 = {
+						modifier = {
+							factor = 0
+							not = { owner = { has_technology = tech_cruisers } }
+						}
+						modifier = {
+							add = 2.5
+							not = { owner = { has_technology = tech_battleships } }
+						}						
+						create_ship = {
+							name = random
+							random_existing_design = cruiser
+							graphical_culture = prevprev.owner
+						}						
+					}
+					# Battleships
+					10 = {
+						modifier = {
+							factor = 0
+							not = { owner = { has_technology = tech_battleships } }
+						}
+						modifier = {
+							factor = 5
+							fleet_size > 50
+						}						
+						create_ship = {
+							name = random
+							random_existing_design = battleship
+							graphical_culture = prevprev.owner
+						}						
+					}
+				}
+			}			
+		}
+	}
+}
+
+# This = Sector
+# Prev = Planet
+# Reshape sector space according to new capital. Changes an ownership for sector colonies.
+# Will force it to shift the capital to the last planet within sector borders.
+sector_do_reshape = {
+	# Prepare fake owner
+	create_country = {
+		name = "dummy_country"
+		type = rebel
+		ignore_initial_colony_error = yes
+		effect = {
+			establish_communications_no_message = prev.owner
+			set_subject_of = { who = prev.owner subject_type = vassal }
+		}
+	}
+	# Run
+	owner = {
+
+		# PREPARATION
+		# Some settings to avoid different cases related to ownership changes
+		if = { # land appropriation
+			limit = { has_policy_flag = "appropriation_allowed" }
+				set_timed_country_flag = { flag = "appropriation_was_allowed" days = 1 }
+				set_policy = { policy = appropriation option = appropriation_not_allowed cooldown = no }			
+		}
+
+		# MARKUP
+		every_owned_planet = {
+			limit = {
+				exists = sector
+				sector = { is_same_value = prevprevprev }
+				not = { is_planet = prevprevprev }
+			}
+			solar_system = {
+				set_timed_star_flag = { flag = "temp_keepstar" days = 1 }
+				# It's necessary to keep sector "linked" to current system, cuz in other case it will disappear
+				random_system_planet = {
+					limit = { is_star = yes }
+						set_owner = prevprev.owner
+				}				
+			}
+			set_timed_planet_flag = { flag = "temp_planet" days = 1 }
+			planet_remove_sector_capital = yes # clean up all possible capital statuses
+			# Mark this planet, if was previosly conquered
+			if = {
+				limit = {
+					any_owned_pop = {
+						exists = planet
+						planet = { is_same_value = prevprev }
+						has_modifier = "pop_recently_conquered"
+					}
+				}
+				set_timed_planet_flag = { flag = "temp_planet_conquered" days = 1 }
+			}
+			set_owner = last_created_country
+		}
+
+		# ACT
+		# We should use while to simulate continuous reowning process, where the last
+		# planet will be the proper capital, this will rearrange the sector
+		while = {
+			limit = { any_system_within_border = { has_star_flag = "temp_keepstar" } }
+				random_system_within_border = {
+					limit = { has_star_flag = "temp_keepstar" }
+						every_system_planet = {
+							limit = { has_planet_flag = "temp_planet" }
+								set_owner = prevprev
+								remove_planet_flag = "temp_planet"
+								# FIX
+								every_owned_pop = {
+									# Clean some ownership issues
+									limit = { planet = { is_same_value = prevprev } }
+										remove_modifier = "lost_owned_pop_lesser"
+										if = {
+											# If planet was conquered
+											limit = {
+												prev = { has_planet_flag = "temp_planet_conquered" }
+												not = { has_modifier = "pop_recently_conquered" }
+											}
+											add_modifier = { modifier = "pop_recently_conquered" days = 3600 }
+										}
+								}
+								remove_planet_flag = "temp_planet_conquered"
+						}
+						random_system_planet = {
+							limit = { is_star = yes }
+								set_owner = last_created_country							
+						}
+						remove_star_flag = "temp_keepstar"
+				}
+		}
+
+		# FINALIZATION
+		# Restore Settings
+		if = { # land appropriation
+			limit = { has_country_flag = "appropriation_was_allowed" }
+				remove_country_flag = "appropriation_not_allowed"
+				set_policy = { policy = appropriation option = appropriation_allowed cooldown = no }			
+		}		
+	}
+
+	# Destroy fake country
+	last_created_country = { destroy_country = yes }
+
+}
+
+# This = Sector
+# Activates edict in general (i.e, spends some influence)
+sector_do_edict = {
+	random_country = {
+		limit = { is_sector_db = yes }
+			# Basic value
+			prev.owner = { add_influence = -50 }
+			while = {
+				count = nSectorColonies
+				prev.owner = { add_influence = -25 }
+			}	
+	}
+}
+
+# Sector estimations
+
+# This = Sector
+# Estimates infrastructure balance for this sector
+sector_estimate_balance = {
+	sector_estimate_buildings = yes
+	sector_estimate_balance_food = yes
+	sector_estimate_balance_energy = yes
+	sector_estimate_balance_minerals = yes
+	sector_estimate_balance_research = yes
+	sector_estimate_balance_other = yes
+}
+
+# This = Sector
+# Estimates the amount of buildings producing food
+sector_estimate_balance_food = {
+	random_country = {
+		limit = { is_sector_db = yes }
+			set_variable = { which = nFoodBuildings value = 0 } # default reset
+	}	
+	# Count tiles with food output
+	every_planet = {
+		limit = { is_sector_planet = yes }
+			every_tile = {
+				limit = { has_building_food = yes }
+				random_country = {
+					limit = {
+						is_country_type = @dbCountry
+						has_country_flag = sector_id_@prevprevprev						
+					}
+					change_variable = { which = nFoodBuildings value = 1 } 
+				}
+			}
+	}
+	# Final calculations
+	random_country = {
+		limit = { is_sector_db = yes }
+
+			set_variable = { which = pFood value = nFoodBuildings }
+			divide_variable = { which = pFood value = nSectorBuildings }
+			multiply_variable = { which = pFood value = 100 }
+	}
+}
+
+# This = Sector
+# Estimates the amount of buildings producing energy
+sector_estimate_balance_energy = {
+	random_country = {
+		limit = { is_sector_db = yes }
+			set_variable = { which = nEnergyBuildings value = 0 } # default reset
+	}	
+	# Count tiles with energy output
+	every_planet = {
+		limit = { is_sector_planet = yes }
+			every_tile = {
+				limit = { has_building_energy = yes }
+					random_country = {
+						limit = {
+							is_country_type = @dbCountry
+							has_country_flag = sector_id_@prevprevprev						
+						}
+						change_variable = { which = nEnergyBuildings value = 1 } 
+					}				
+			}
+	}
+	# Final calculations
+	random_country = {
+		limit = { is_sector_db = yes }
+
+			set_variable = { which = pEnergy value = nEnergyBuildings }
+			divide_variable = { which = pEnergy value = nSectorBuildings }
+			multiply_variable = { which = pEnergy value = 100 }
+	}		
+}
+
+# This = Sector
+# Estimates the amount of buildings producing minerals
+sector_estimate_balance_minerals = {
+	random_country = {
+		limit = { is_sector_db = yes }
+			set_variable = { which = nMineralBuildings value = 0 } # default reset
+	}		
+	# Count tiles with minerals output
+	every_planet = {
+		limit = { is_sector_planet = yes }
+			every_tile = {
+				limit = { has_building_minerals = yes }
+					random_country = {
+						limit = {
+							is_country_type = @dbCountry
+							has_country_flag = sector_id_@prevprevprev						
+						}
+						change_variable = { which = nMineralBuildings value = 1 } 
+					}				
+			}
+	}
+	# Final calculations
+	random_country = {
+		limit = { is_sector_db = yes }
+
+			set_variable = { which = pMinerals value = nMineralBuildings }
+			divide_variable = { which = pMinerals value = nSectorBuildings }
+			multiply_variable = { which = pMinerals value = 100 }
+	}		
+}
+
+# This = Sector
+# Estimates the amount of buildings producing research
+sector_estimate_balance_research = {
+	random_country = {
+		limit = { is_sector_db = yes }
+			set_variable = { which = nResearchBuildings value = 0 } # default reset
+	}		
+	# Count tiles with minerals output
+	every_planet = {
+		limit = { is_sector_planet = yes }
+			every_tile = {
+				limit = { has_building_research = yes }
+					random_country = {
+						limit = {
+							is_country_type = @dbCountry
+							has_country_flag = sector_id_@prevprevprev						
+						}
+						change_variable = { which = nResearchBuildings value = 1 } 
+					}				
+			}
+	}
+	# Final calculations
+	random_country = {
+		limit = { is_sector_db = yes }
+
+			set_variable = { which = pResearch value = nResearchBuildings }
+			divide_variable = { which = pResearch value = nSectorBuildings }
+			multiply_variable = { which = pResearch value = 100 }
+	}		
+}
+
+# This = Sector
+# Estimates the amount of buildings producing research
+sector_estimate_balance_other = {
+	random_country = {
+		limit = { is_sector_db = yes }
+
+			set_variable = { which = pOther value = 100 }
+
+			subtract_variable = { which = pOther value = pFood }
+			subtract_variable = { which = pOther value = pEnergy }
+			subtract_variable = { which = pOther value = pMinerals }
+			subtract_variable = { which = pOther value = pResearch }
+	}
+}
+
+# This = Sector
+# Estimates the total amount of construted buildings
+sector_estimate_buildings = {
+	random_country = {
+		limit = { is_sector_db = yes }
+			set_variable = { which = nSectorBuildings value = 0 } # default reset
+	}	
+	# Count all constructed buildings
+	every_planet = {
+		limit = { is_sector_planet = yes }
+			every_tile = {
+				limit = { has_building = yes }
+					random_country = {
+						limit = {
+							is_country_type = @dbCountry
+							has_country_flag = sector_id_@prevprevprev							
+						}
+						change_variable = { which = nSectorBuildings value = 1 }
+					}
+			}
+	}
+}
+
+# This = Sector
+# Counts sector controlled planets
+sector_estimate_colonies = {
+	random_country = {
+		limit = { is_sector_db = yes }
+			set_variable = { which = nSectorColonies value = 0 }
+		prev = {
+			every_planet = {
+				limit = {
+					is_sector_planet = yes
+					is_colony = yes
+				}
+				prevprev = { change_variable = { which = nSectorColonies value = 1 } }		
+			}			
+		}
+	}	
+}
+
+# This = Sector
+# Estimates the overall percent of developed tiles
+sector_estimate_devidx = {
+	sector_estimate_buildings = yes
+	sector_estimate_tiles = yes
+	# Final Calculations
+	random_country = {
+		limit = { is_sector_db = yes }
+
+			set_variable = { which = pDevIdx value = nSectorBuildings }
+			divide_variable = { which = pDevIdx value = nSectorTiles }
+			multiply_variable = { which = pDevIdx value = 100 }
+	}		
+}
+
+# This = Sector
+# Estimates edict cost for this sector
+sector_estimate_edict_cost = {
+	random_country = {
+		limit = { is_sector_db = yes }
+
+			set_variable = { which = nEdictCost value = 25 } # default value
+			set_variable = { which = nEdictCostPlanets value = nSectorColonies }
+			multiply_variable = { which = nEdictCostPlanets value = 25 }
+			change_variable = { which = nEdictCost value = nEdictCostPlanets }
+	}
+}
+
+# This = Sector
+# Counts number of different active effects within the sector (edicts, events etc)
+sector_estimate_effects = {
+	random_country = {
+		limit = { is_sector_db = yes }
+			set_variable = { which = nSectorEffects value = 0 }
+			# Check active edicts
+			if = { 	limit = { check_variable = { which = nEdictCapital value > 0 } }
+					change_variable = { which = nSectorEffects value = 1 }
+			}
+			if = { 	limit = { check_variable = { which = nEdictMining value > 0 } }
+					change_variable = { which = nSectorEffects value = 1 }
+			}
+			if = { 	limit = { check_variable = { which = nEdictAssets value > 0 } }
+					change_variable = { which = nSectorEffects value = 1 }
+			}
+			if = { 	limit = { check_variable = { which = nEdictColony value > 0 } }
+					change_variable = { which = nSectorEffects value = 1 }
+			}
+			if = { 	limit = { check_variable = { which = nEdictTrade value > 0 } }
+					change_variable = { which = nSectorEffects value = 1 }
+			}
+			if = { 	limit = { check_variable = { which = nEdictLeadership value > 0 } }
+					change_variable = { which = nSectorEffects value = 1 }
+			}
+			if = { 	limit = { check_variable = { which = nEdictPropaganda value > 0 } }
+					change_variable = { which = nSectorEffects value = 1 }
+			}
+			if = { 	limit = { check_variable = { which = nEdictFaction value > 0 } }
+					change_variable = { which = nSectorEffects value = 1 }
+			}
+			if = { 	limit = { check_variable = { which = nEdictTraining value > 0 } }
+					change_variable = { which = nSectorEffects value = 1 }
+			}
+			if = { 	limit = { check_variable = { which = nEdictPiracy value > 0 } }
+					change_variable = { which = nSectorEffects value = 1 }
+			}						
+	}
+}
+
+# This = Sector
+# Estimates all existing sector civil & military fleets
+sector_estimate_fleet = {
+	random_country = {
+		limit = { is_sector_db = yes }
+			set_variable = { which = nCivilFleets value = 0 }
+			prev.owner = {
+				# Get all sector constructors
+				while = {
+					limit = {
+						any_owned_fleet = {
+							is_ship_size = constructor
+							sector_controlled = yes
+							has_fleet_flag = sector_id_@prevprevprev
+							not = { has_fleet_flag = "temp_mark" }							
+						}
+					}
+					random_owned_fleet = {
+						limit = {
+							is_ship_size = constructor
+							sector_controlled = yes
+							has_fleet_flag = sector_id_@prevprevprev
+							not = { has_fleet_flag = "temp_mark" }	
+						}
+						prevprev = { change_variable = { which = nCivilFleets value = 1 } }
+						set_timed_fleet_flag = { flag = "temp_mark" days = 1 }
+						save_sector_civfleet_slots = yes
+					}					
+				}
+				# Get all sector colony ships
+				while = {
+					limit = {
+						any_owned_fleet = {
+							is_ship_size = colonizer
+							sector_controlled = yes
+							has_fleet_flag = sector_id_@prevprevprev
+							not = { has_fleet_flag = "temp_mark" }							
+						}
+					}
+					random_owned_fleet = {
+						limit = {
+							is_ship_size = colonizer
+							sector_controlled = yes
+							has_fleet_flag = sector_id_@prevprevprev
+							not = { has_fleet_flag = "temp_mark" }	
+						}
+						prevprev = { change_variable = { which = nCivilFleets value = 1 } }
+						set_timed_fleet_flag = { flag = "temp_mark" days = 1 }
+						save_sector_civfleet_slots = yes
+					}					
+				}
+				# Cleap temporary marks
+				every_owned_fleet = {
+					limit = {
+						has_fleet_flag = sector_id_@prevprevprev
+						has_fleet_flag = "temp_mark"					
+					}
+					remove_fleet_flag = "temp_mark"
+				}				
+			}			
+	}
+	# Get sector military fleet
+	if = {
+		limit = { sector_has_fleet = yes }
+			random_country = {
+				limit = { is_sector_db_fleet = yes }
+					random_owned_fleet = {
+						limit = {
+							has_fleet_flag = sector_id_@prevprev
+							is_ship_class = shipclass_military
+						}
+						save_global_event_target_as = uiSectorMilFleet
+						fleet_estimate_navcap = yes
+					}				
+			}
+	}
+	# Process received fleet data
+	sector_estimate_fleet_data = yes
+}
+
+# This = Sector
+# Estimates sector fleet naval capacity
+sector_estimates_fleet_cap = {
+	random_country = {
+		limit = {
+			is_sector_db_fleet = yes
+			any_owned_fleet = {
+				is_ship_class = shipclass_military
+				has_fleet_flag = sector_id_@prevprev
+			}
+		}
+		random_owned_fleet = {
+			limit = {
+				is_ship_class = shipclass_military
+				has_fleet_flag = sector_id_@prevprev			
+			}
+			fleet_estimate_navcap = yes
+		}
+	}
+}
+
+# This = Sector
+# Estimates some related fleet data, like fraction of navcap or so
+sector_estimate_fleet_data = {
+	# If there is no entries for country naval cap
+	owner = {
+		if = {	limit = { check_variable = { which = nNavalCapTrue value = 0 } }
+				country_estimate_naval_cap = yes }
+	}
+	random_country = {
+		limit = { is_sector_db = yes }
+
+			set_variable = { which = nNavalCapTrue value = prev.owner }
+			set_variable = { which = fSectorNavalCap value = nSectorNavalCap }
+			divide_variable = { which = fSectorNavalCap value = nNavalCapTrue }
+			multiply_variable = { which = fSectorNavalCap value = 100 }
+
+
+			# Applying naval capacity modifiers
+			set_variable = { which = fSectorActualCap value = fSectorNavalCap }
+			multiply_variable = { which = fSectorActualCap value = @fSectorNavMod }
+	}
+}
+
+# This = Sector
+# Estimates naval limit for the sector
+@nSectorNavBase = 10
+@nSectorNavColony = 5
+@nSectorNavPop = 0.2
+sector_estimate_naval_capacity = {
+	random_country = {
+		limit = { is_sector_db = yes }
+			set_variable = { which = nSectorNavalLim value = @nSectorNavBase }
+			set_variable = { which = nSectorNavalLimColony value = 0 }
+			set_variable = { which = nSectorNavalLimPop value = 0 }
+	}
+	owner = {
+		every_owned_planet = {
+			limit = {
+				is_colony = yes
+				exists = sector
+				sector = { is_same_value = prevprevprev }
+			}
+			random_country = {
+				limit = {
+					is_country_type = @dbCountry
+					has_country_flag = sector_id_@prevprevprev
+				}
+				change_variable = { which = nSectorNavalLim value = @nSectorNavColony }
+				change_variable = { which = nSectorNavalLimColony value = @nSectorNavColony }
+			}
+			every_owned_pop = {
+				limit = {
+					is_growing = no
+					exists = planet
+					planet = { is_same_value = prevprev }
+				}
+				random_country = {
+					limit = {
+						is_country_type = @dbCountry
+						has_country_flag = sector_id_@prevprevprevprev
+					}
+					change_variable = { which = nSectorNavalLim value = @nSectorNavPop }
+					change_variable = { which = nSectorNavalLimPop value = @nSectorNavPop }
+				}				
+			}			
+		}
+	}	
+}
+
+# This = Sector
+# Calculates the amount of sector's population
+sector_estimate_population = {
+	random_country = {
+		limit = { is_sector_db = yes }
+			set_variable = { which = nSectorPops value = 0 }
+	}
+	owner = {
+		# Count population
+		every_owned_pop = {
+			limit = {
+				is_growing = no
+				exists = planet
+				planet = {
+					exists = sector
+					sector = { is_same_value = prevprevprevprev }
+				}				
+			}
+			random_country = {
+				limit = {
+					is_country_type = @dbCountry
+					has_country_flag = sector_id_@prevprevprev
+				}
+				change_variable = { which = nSectorPops value = 1 }
+			}
+		}
+	}
+}
+
+# This = Sector
+# Estimates regionalist percent within this sector
+sector_estimate_regionalism = {
+	# Count sector pops
+	sector_estimate_population = yes
+	random_country = {
+		limit = { is_sector_db = yes }
+			set_variable = { which = nSectorPopsReg value = 0 } # default reset
+	}
+	owner = {
+		# Count population
+		every_owned_pop = {
+			limit = {
+				is_growing = no
+				exists = pop_faction
+				pop_faction = {
+					is_pop_faction_type = "regionalist"
+					check_pop_faction_parameter = { which = sector value = prevprevprev }
+				}
+			}
+			random_country = {
+				limit = {
+					is_country_type = @dbCountry
+					has_country_flag = sector_id_@prevprevprev
+				}
+				change_variable = { which = nSectorPopsReg value = 1 }
+			}
+		}		
+	}
+	# Make some final calculations
+	random_country = {
+		limit = { is_sector_db = yes }
+
+			set_variable = { which = pSectorRegionalism value = nSectorPopsReg }
+			divide_variable = { which = pSectorRegionalism value = nSectorPops }
+			multiply_variable = { which = pSectorRegionalism value = 100 }		
+	}	
+}
+
+# This = Sector
+# Estimates total amount of unique species
+sector_estimate_species = {
+	random_country = {
+		limit = { is_sector_db = yes }
+			set_variable = { which = nSectorSpecies value = 0 }
+	}	
+	owner = {
+		every_owned_pop_species = {
+			limit = { is_sector_species = yes }
+				random_country = {
+					limit = {
+						is_country_type = @dbCountry
+						has_country_flag = sector_id_@prevprevprev
+					}
+					change_variable = { which = nSectorSpecies value = 1 }
+				}
+		}
+	}
+}
+
+# This = Sector
+# Counts all starbases within a sector
+sector_estimate_starbases = {
+	random_country = {
+		limit = { is_sector_db = yes }
+			set_variable = { which = nSectorStarbases value = 0 }
+			prev.owner = {
+				every_system_within_border = {
+					limit = {
+						exists = sector
+						sector = { is_same_value = prevprevprevprev }
+					}
+					# Don't count basic outposts
+					starbase = {
+						if = {
+							limit = { has_starbase_size >= starbase_starport }
+								prevprevprev = { set_variable = { which = nSectorStarbases value = 1 } }
+						}
+					}
+				}
+			}		
+	}	
+}
+
+# This = Sector
+# Estimates the max system capacity for sector
+sector_estimate_system_cap = {
+	random_country = {
+		limit = { is_sector_db = yes }
+			set_variable = { which = nSectorSystemsCap value = @nBaseSystemCap }
+			prev = {
+				# From Leader
+				if = {
+					limit = {
+						exists = leader
+					}
+					prev = { change_variable = { which = nSectorSystemsCap value = 1 } }
+				}
+				# From Sector Capital
+				if = {
+					limit = {
+						any_planet = {
+							is_sector_capital = yes
+							has_building = "building_sector_administration"
+						}
+					}
+					prev = { change_variable = { which = nSectorSystemsCap value = 1 } }
+				}
+			}
+	}
+}
+
+# This = Sector
+# Estimates the number of sector core (inhabited) systems
+sector_estimate_system_num = {
+	random_country = {
+		limit = { is_sector_db = yes }
+			set_variable = { which = nSectorSystems value = 0 }
+	}
+	owner = {
+		every_system_within_border = {
+			limit = {
+				any_planet = {
+					exists = sector
+					sector = { is_same_value = prevprevprevprev }
+				}
+				star = {
+					prevprevprev = { # sector
+						any_planet = {
+							is_star = yes
+							is_same_value = prevprev
+						}
+					}
+				}
+			}
+			random_country = {
+				limit = {
+					is_country_type = @dbCountry
+					has_country_flag = sector_id_@prevprevprev
+				}
+				change_variable = { which = nSectorSystems value = 1 }
+			}			
+		}
+	}
+}
+
+# This = Sector
+# Estimates the total amount of tiles among all sector planets
+sector_estimate_tiles = {
+	random_country = {
+		limit = { is_sector_db = yes }
+			set_variable = { which = nSectorTiles value = 0 }
+	}	
+	# Count all possible tiles
+	every_planet = {
+		limit = { is_sector_planet = yes }
+			every_tile = {
+				random_country = {
+					limit = {
+						is_country_type = @dbCountry
+						has_country_flag = sector_id_@prevprevprev						
+					}
+					change_variable = { which = nSectorTiles value = 1 }
+				}
+			}
+	}
+}
+
+# This = Sector
+# Counts sector deployed troops
+sector_estimate_troops = {
+	random_country = {
+		limit = { is_sector_db = yes }
+			set_variable = { which = nSectorTroops value = 0 }
+	}	
+	every_planet = {
+		limit = { is_sector_planet = yes }
+			every_planet_army = {
+				random_country = {
+					limit = {
+						is_country_type = @dbCountry
+						has_country_flag = sector_id_@prevprevprev						
+					}
+					change_variable = { which = nSectorTroops value = 1 }
+				}				
+			}
+	}
+}
+
+# This = Sector
+sector_estimate_unrest = {
+	random_country = {
+		limit = { is_sector_db = yes }
+			set_variable = { which = nSectorUnrest value = 0 }
+			prev = {
+				every_planet = {
+					limit = {
+						is_sector_planet = yes
+						unrest > 0
+					}
+					# Estimate planet unrest
+					planet_get_unrest = yes
+				}
+			}
+	}	
+	# Final Calculations
+	sector_estimate_colonies = yes
+	random_country = {
+		limit = { is_sector_db = yes }
+
+			multiply_variable = { which = nPossibleUnrest value = nSectorColonies }
+			divide_variable = { which = pSectorUnrest value = nPossibleUnrest }
+			multiply_variable = { which = pSectorUnrest value = 100 }
+
+	}	
+}
+
+
+# This = Sector
+# UI Stuff
+# Estimates sector's fleet naval size
+sector_ui_estimate_naval_size = {
+	random_country = {
+		limit = { is_sector_db = yes }	
+			set_variable = { which = nSectorNavalCap value = 0 }
+	}
+	random_country = {
+		limit = { is_sector_db_fleet = yes }
+			random_owned_fleet = {
+				limit = { is_ship_class = shipclass_military }
+					every_ship = {
+						limit = {
+							exists = owner
+							owner = { is_same_empire = prevprevprev }
+							exists = fleet
+							fleet = { is_same_value = prevprev }
+						}
+						switch = {
+							trigger = is_ship_size
+								corvette = {
+									random_country = {
+										limit = {
+											is_country_type = @dbCountry
+											has_country_flag = sector_id_@prevprevprevprev
+										}
+										change_variable = { which = nUsedNavalCap value = @nCapCorvette }	
+									}
+								}
+								destroyer = {
+									random_country = {
+										limit = {
+											is_country_type = @dbCountry
+											has_country_flag = sector_id_@prevprevprevprev
+										}
+										change_variable = { which = nUsedNavalCap value = @nCapDestroyer }	
+									}
+								}
+								cruiser = {
+									random_country = {
+										limit = {
+											is_country_type = @dbCountry
+											has_country_flag = sector_id_@prevprevprevprev
+										}
+										change_variable = { which = nUsedNavalCap value = @nCapCruiser }	
+									}
+								}
+								battleship = {
+									random_country = {
+										limit = {
+											is_country_type = @dbCountry
+											has_country_flag = sector_id_@prevprevprevprev
+										}
+										change_variable = { which = nUsedNavalCap value = @nCapBattleship }	
+									}
+								}
+								titan = {
+									random_country = {
+										limit = {
+											is_country_type = @dbCountry
+											has_country_flag = sector_id_@prevprevprevprev
+										}
+										change_variable = { which = nUsedNavalCap value = @nCapTitan }	
+									}
+								}
+						}						
+					}
+			}
+	}
+}
+
+
+# STAR / SYSTEM # ---------------------------------------------------------------------------------
+
+
+# This = Planet (Star)
+# Adds claim for sector systems if it's not specified
+star_system_update_mark = {
+	if = {
+		limit = { not = { has_star_flag = mark_id_@sector } }
+			set_timed_star_flag = { flag = mark_id_@sector days = @nKeepYearly }
+	}	
+}
+
+# This = Planet (Star)
+# Sets a new claims for sectors within their borders
+star_system_set_mark = {
+	set_timed_star_flag = { flag = mark_id_@sector days = @nKeepYearly }
+}
+
+
+
+# UI / TOOLTIPS # ---------------------------------------------------------------------------------
+
+
+# This = Sector
+# Prev = Planet (Sector Capital)
+# Makes tooltip for each row in Sector Control screen
+ui_tt_sector_control_row = {
+	custom_tooltip = "sector_control.ui.option.0.tooltip"
+}
+
+# This = Sector
+# Prev = Planet (Sector Capital)
+# Makes tooltip for effects column
+ui_tt_sector_control_effects = {
+	custom_tooltip = "sector_control.ui.option.0.effects.tooltip"
+}

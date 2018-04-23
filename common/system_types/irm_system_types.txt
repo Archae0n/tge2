@@ -1,0 +1,38 @@
+# IRM
+# System Types
+
+
+# Core System
+sys_core = {
+	potential = {
+		exists = owner
+		any_planet = {
+			is_colony = yes
+			is_owned_by = root.owner
+			exists = sector
+			sector = { is_core_sector = yes }
+		}
+	}
+
+	weight_modifier = {
+		base = 250
+	}
+}
+
+# Sector Capital
+sys_sector = {
+	potential = {
+		exists = owner
+		any_planet = {
+			is_colony = yes
+			is_owned_by = root.owner
+			has_modifier = "sector_capital"
+			exists = sector
+			sector = { is_core_sector = no }
+		}
+	}
+
+	weight_modifier = {
+		base = 750
+	}
+}

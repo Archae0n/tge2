@@ -1,0 +1,25 @@
+############################
+#
+# Expanded Traits on_actions
+# by Scarecrow
+#
+############################
+
+on_game_start = {
+	events = {
+		expanded_traits.1
+	}
+}
+
+on_species_modified = {
+	events = {
+		expanded_traits.1
+		expanded_traits.2
+	}
+}
+
+on_yearly_pulse = {
+	events = {
+		expanded_traits.3
+	}
+}

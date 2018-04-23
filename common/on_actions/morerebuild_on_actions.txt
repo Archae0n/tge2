@@ -1,0 +1,6 @@
+empire_init_add_technologies = {
+	events = {
+		morerebuild_setup.1
+		morerebuild_setup.2
+	}
+}

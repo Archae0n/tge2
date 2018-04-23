@@ -1,0 +1,108 @@
+@cost = 56
+
+tr_plentiful_order_adopt = {
+	cost = { unity = @cost }
+	modifier = {
+		ship_speed_mult = 0.10
+		ship_emergency_ftl_mult = -0.25
+	}
+	
+	ai_weight = {
+		factor = 10
+		modifier = {
+			factor = 1
+			has_ethic = ethic_authoritarian
+		}
+		modifier = {
+			factor = 2
+			has_ethic = ethic_fanatic_authoritarian
+		}
+		modifier = {
+			factor = 2
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 3
+			has_ethic = ethic_fanatic_militarist
+		}
+	}
+}
+
+tr_plentiful_order_finish = {
+	modifier = {
+		country_government_civic_points_add = 1
+		mod_megastructure_build_cost_mult = -0.15
+		ascension_perks_add = 1
+	}
+}
+
+tr_plentiful_order_1 = {
+	cost = { unity = @cost }
+	modifier = {
+#		ship_shield_regen_mult = 0.1
+		ship_shield_hp_mult = 0.15
+		starbase_defense_platform_capacity_add = 2
+		
+	}
+	
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+tr_plentiful_order_2 = {
+	cost = { unity = @cost }
+	modifier = {
+		ship_armor_mult = 0.1
+		ship_hitpoints_mult = 0.1
+	}
+	
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+tr_plentiful_order_3 = {
+	cost = { unity = @cost }
+	
+	modifier = {
+		country_starbase_influence_cost_mult = -0.10
+		starbase_upgrade_cost_mult = -0.10
+		country_starbase_capacity_add = 2
+	}
+	
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+tr_plentiful_order_4 = {
+	cost = { unity = @cost }
+	possible = {
+		has_tradition = tr_plentiful_order_1
+		has_tradition = tr_plentiful_order_2
+	}
+	modifier = {
+		starbase_ship_build_speed_mult = 0.15
+		category_statecraft_research_speed_mult = 0.15
+	}
+	
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+tr_plentiful_order_5 = {
+	cost = { unity = @cost }
+	possible = {
+		has_tradition = tr_plentiful_order_3
+		has_tradition = tr_plentiful_order_2
+	}
+	modifier = {
+		megastructure_build_speed_mult = 0.25
+	}
+	
+	ai_weight = {
+		factor = 1000
+	}
+}

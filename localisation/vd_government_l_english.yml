@@ -1,0 +1,25 @@
+﻿l_english:
+
+ civic_void_dwellers:0 "Void Dwellers"
+ civic_void_dwellers_desc:0 "This society has abandoned its planetary roots, and wholly embraced life in space."
+ civic_tooltip_void_dwellers_effects:1 "Cannot colonize §HPlanets§!\n§Y$MOD_COUNTRY_STARBASE_CAPACITY_MULT$§! increased by §G+33%§!\n§Y$MOD_COUNTRY_STARBASE_INFLUENCE_COST_MULT$§! reduced by §G-40%§!\n§Y$MOD_STARBASE_UPGRADE_COST_MULT$§! reduced by §G-25%§!\n§Y$MOD_SHIP_UPKEEP_MULT$§! reduced by §G-10%§!\nStarts with the §Y$tech_starbase_3$§! technology already unlocked\n§HUnlocks Megastructure:§! Void Dwelling"
+
+ RT_KHAN:0 "Khan"
+ RT_KHATUN:0 "Khatun"
+ RT_GRAND_ADMIRAL:0 "Grand Admiral"
+ RT_GRAND_ADMIRAL_FEMALE:0 "$RT_GRAND_ADMIRAL$"
+ RT_RECTOR:0 "Rector"
+ RT_RECTOR_FEMALE:0 "$RT_RECTOR$"
+ RT_HEGEMON:0 "Hegemon"
+ RT_HEGEMON_FEMALE:0 "$RT_HEGEMON$"
+ 
+ gov_nomadic_khanate:0 "Nomadic Khanate"
+ gov_nomadic_khanate_desc:0 "TODO"
+ gov_despoiler_khanate:0 "Marauder Khanate"
+ gov_despoiler_khanate_desc:0 "TODO"
+ gov_admiralty:0 "Admiralty Board"
+ gov_admiralty_desc:0 "This government is composed of a board of admirals who govern the military and civilian affairs of the nation."
+ gov_maritime_republic:0 "Maritime Republic"
+ gov_maritime_republic_desc:0 "TODO"
+ gov_stellar_hegemony:0 "Stellar Hegemony"
+ gov_stellar_hegemony_desc:0 "TODO"

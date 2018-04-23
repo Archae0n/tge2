@@ -1,0 +1,67 @@
+#event from dpe_diplo_events
+namespace = gai_starvation
+
+#Feed the people.
+planet_event = {
+	id = gai_starvation.1
+	hide_window = yes
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	trigger = {
+		has_owner = yes
+		not = {
+			is_planet_class = pc_habitat
+		}
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		not = {
+			has_building = building_colony_shelter
+		}
+		NOT = { has_global_flag = disable_gai_starvation }
+		has_building_construction = no
+		exists = owner
+		owner = {
+			and = {
+				is_ai = yes
+				is_country_type = default
+				food < 150
+				has_monthly_income = {
+					resource = food
+					value < 0
+				}
+			}
+		}
+		any_tile = {
+			gai_is_blank = yes 
+			NOT = { gai_important_building = yes }
+		}
+	}
+
+	immediate = {
+		random_tile = {
+			limit = {
+				NOT = {
+					owner = { has_authority = auth_machine_intelligence }
+				}
+				AND = {
+					OR = {
+						AND = {
+							gai_is_blank = yes 
+							gai_has_sr = no
+						}
+						AND = {
+							gai_has_food = yes
+							gai_has_sr = no
+						}
+					}
+					gai_food_okay_to_replace = yes
+				}
+			}
+			add_building_construction = building_hydroponics_farm_1
+		}
+	}
+}
+

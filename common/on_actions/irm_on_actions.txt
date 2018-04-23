@@ -1,0 +1,142 @@
+# IRM
+# On actions
+
+
+# No scope, like on_game_start
+on_monthly_pulse = {
+	events = {
+		irm.3
+	}
+}
+
+# No scope, like on_game_start
+on_yearly_pulse = {
+	events = {
+		irm.4
+	}
+}
+
+# No scope, like on_game_start
+on_decade_pulse = {
+	events = {
+		irm.7
+	}
+}
+
+# Executed as a leader has died
+# This = Country
+# From = Leader
+on_leader_death = {
+	events = {
+		irm_faction.301	# make new leader for faction
+		irm_sector.303	# make new admiral for sector fleet
+	}
+}
+
+# A planets controller becomes a country not the same as the owner.
+# Root = Planet
+# From = Planet Owner
+# FromFrom = Planet Controller (the one occupying)
+on_planet_occupied = {
+	events = {
+		irm_sector.301	# mark diff issues
+	}
+}
+
+#From = Country scope
+#This = Planet scope
+on_planet_ownerless = {
+	events = {
+		irm_sector.301 	# mark diff issues
+	}
+}
+
+#Fired whenever a new owner is set for a planet,
+#be it after a war or through a trade
+#From = Country scope (new owner)
+#This = Planet scope
+on_planet_transfer = {
+	events = {
+		irm_sector.301	# mark diff issues
+	}
+}
+
+# This = construction ship
+# From = planet it is built on
+# Fires when construction is complete,
+# immediately before station is created
+on_building_mining_station = {
+	events = {
+		irm_sector.223 # station upkeep via edict
+	}
+}
+
+# This = construction ship
+# From = planet it is built on
+# Fires when construction is complete,
+# immediately before station is created
+on_building_research_station = {
+	events = {
+		irm_sector.223 # station upkeep via edict
+	}
+}
+
+# A planet has been colonized.
+# Scope = Planet
+on_colonized = {
+	events = {
+		irm_sector.224 # internal colonization
+	}
+}
+
+# A ship has been built
+# Root = Ship
+# From = Planet
+on_ship_built = {
+	events = {
+		irm_sector.229 # trained by edict
+		irm_sector.302 # mark sector built ships
+	}
+}
+
+
+
+#This = Country scope
+on_join_alliance = {
+	events = {
+		irm_sector.305 # update sector fleet standings
+	}
+}
+
+#This = Country scope
+on_leave_alliance = {
+	events = {
+		irm_sector.305 # update sector fleet standings
+	}
+}
+
+# A war is beginning, executed for every country in the war.
+# Root = Country
+# From = War
+on_war_beginning = {
+	events = {
+		irm_sector.305 # update sector fleet standings
+	}
+}
+
+# This = country
+# From = opponent war leader
+on_entering_war = {
+	events = {
+		irm_sector.305 # update sector fleet standings
+	}
+}
+
+# A war has ended
+# Root = Loser
+# From = Main Winner
+on_war_ended = {
+	events = {
+		irm_sector.3051 # update sector fleet standings
+	}
+}

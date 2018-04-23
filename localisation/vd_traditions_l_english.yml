@@ -1,0 +1,31 @@
+﻿l_english:
+
+ tr_expansion_voyagers:0 "Interstellar Voyagers"
+    tr_expansion_voyagers_desc:0 "Gain £unity  §YUnity§! equal to §Y3§! months of production whenever an §YOutpost§! is built. In addition, we will gain the £physics  §Y$tech_wormhole_stabilization$§! technology."
+    tr_expansion_voyagers_delayed:0 "We are driven by wanderlust. The stars beckon, and we will follow."
+ 
+ tr_expansion_migrant_fleets:0 "Migrant Fleets"
+    tr_expansion_migrant_fleets_desc:0 "§YMigration Speed§! increased by §G+50%§! and §YResettlement Cost§! reduced by §G-25%§!. In addition, §YAnchorages§! produce §Y1§! additional §YNaval Capacity§!."
+    tr_expansion_migrant_fleets_delayed:0 "Our navy is the backbone of our society. It holds our far flung systems together, both demographically and militarily. It is our strength."
+     
+ tr_expansion_subspace_ansibles:0 "Subspace Ansibles"
+    tr_expansion_subspace_ansibles_desc:0 "The effect on increased §Y$TRADITION_COST$§! caused by number of systems is reduced by §G100%§!."
+    tr_expansion_subspace_ansibles_delayed:0 "The development of high-bandwidth subspace ansibles allows for much more efficient communication between systems."
+    
+ tr_expansion_adopt_void_dwellers:0 "$tr_expansion_adopt$"
+ tr_expansion_adopt_void_dwellers_desc:0 "$tradition_expansion_desc$\n\n$tr_expansion_adopt_void_dwellers_effect$\n\n$tr_expansion_finish_void_dwellers_effect$"
+ tr_expansion_adopt_void_dwellers_effect:0 "§E$TRADITIONS_ADOPT$:§!\n§Y$shipsize_starbase_outpost_build_cost_mult$§! reduced by §G20%§!."
+ tr_expansion_finish_void_dwellers_effect:0 "§E$TRADITIONS_FINISH$:§!\nAdopting all $tr_expansion_adopt_void_dwellers$ reduces the £influence  §YInfluence§! cost of §YVoid Dwellings§! by §G20%§!."
+ 
+ tr_prosperity_adopt_void_dwellers:0 "$tr_prosperity_adopt$"
+ tr_prosperity_adopt_void_dwellers_desc:0 "$tradition_prosperity_desc$\n\n$tr_prosperity_adopt_void_dwellers_effect$\n\n$tr_prosperity_finish_void_dwellers_effect$"
+ tr_prosperity_adopt_void_dwellers_effect:0 "§E$TRADITIONS_ADOPT$:§!\n§Y$MOD_STARBASE_SHIPYARD_BUILD_COST_MULT$§! and §Y$MOD_COUNTRY_MINING_STATION_COST_MULT$§! reduced by §G15%§!."
+ tr_prosperity_finish_void_dwellers_effect:0 "§E$TRADITIONS_FINISH$:§!\nAdopting all $tr_prosperity_adopt$ reduces §Y$shipsize_mining_station_upkeep_mult$§! by §G25%§!."
+ 
+ tr_diplomacy_adaptive_aquaponics:0 "Adaptive Aquaponics"
+    tr_diplomacy_adaptive_aquaponics_desc:0 "§Y£food  Food Output§! increased by §G+10%§!. In addition, §YHydroponics Bays§! produce §Y3§! additional £food  Food."
+    tr_diplomacy_adaptive_aquaponics_delayed:0 "By creating a closed-loop ecological system to recycle surplus biomass into useful nutrients, the efficiency of our hydroponics units can be greatly increased."
+    
+ tr_diplomacy_port_authorities:0 "Port Authorities"
+    tr_diplomacy_port_authorities_desc:0 "§HUnlocks Building:§! $building_port_authority$"
+    tr_diplomacy_port_authorities_delayed:0 "The establishment of semi-independent organizations dedicated to operating our ports has the potential to improve transport efficiency."

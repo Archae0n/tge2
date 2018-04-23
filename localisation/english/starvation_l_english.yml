@@ -1,0 +1,6 @@
+﻿l_english:
+  ####################################
+ # Policies
+ ####################################
+ edict_starvation_edict:0 "Food Rationing"
+ edict_starvation_edict_desc:0 "This Edict implements careful rationing of food to prevent widespread starvation."

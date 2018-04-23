@@ -1,0 +1,821 @@
+﻿l_spanish:
+###RULER_LEVEL_SYSTEM#######################
+#English (Translate Improved by Peterowsky)#
+#######################################################
+#Ignore Chinese words if you are not CN/TW/HK Players,#
+#they are used to translate.###########################
+#######################################################
+
+########################################################
+#MAIN MENU, PRESS Ctrl+F TO FIND string quickly#
+################################################
+########
+#Edicts#
+########
+#Ruler edicts is potato
+#(Copy "#Ruler edicts is potato", then find it with Ctrl+F)
+############
+#4/11 added#
+############
+#My ruler please stop being stupid
+
+################
+#HOBBIES EVENTS#
+################
+#MAKE SPACE GREAT M8
+
+####################################
+###Please Translate these three, somehow Paradox forgot to translate them.###
+ country_resource_physics_research_add:0 "Monthly Physics Research"
+ country_resource_society_research_add:0 "Monthly Society Research"
+ country_resource_engineering_research_add:0 "Monthly Engineering Research"
+###ALSO TRANSLATE THESE
+ country_resource_physics_research_mult:0 "Empire Physics Output"
+ country_resource_society_research_mult:0 "Empire Society Output"
+ country_resource_engineering_research_mult:0 "Empire Engineering Output"
+ 
+ play_as_ruler.3.name:0 "The thought of §H[Root.GetRulerName]§!"
+ play_as_ruler.3.desc_01:0 "As the §Y[Root.GetRulerTitle]§! of the §H[Root.GetName]§!, it is my duty to advance the nation beyond mediocrity. Therefore, I have compiled some directions worth investigating."
+ play_as_ruler.3.desc_02:0 "It's time for me to guide the §H[Root.GetName]§!."
+ 
+###Don't Translate below, won't place in mod###
+#play_as_ruler.3.desc_fleet_1000:0 "Our fleet power is minuscule. There is extreme danger involved, if even the weakest of our enemies would dare attack
+#play_as_ruler.3.desc_fleet_5000:0 "§H[Root.GetName]§! is somewhat militarised, yet we are still merely small animals in the jungle."
+#play_as_ruler.3.desc_fleet_10000:0 "§H[Root.GetName]§! has over §Y5,000§! fleet power; it would be a good time to pay attention to our upkeep."
+#play_as_ruler.3.desc_fleet_30000:0 "§H[Root.GetName]§! has some decent fleets, over §Y10,000§! fleet power. It might be time to turn our attention someplace else."
+#play_as_ruler.3.desc_fleet_100000:0 "We have over §Y30,000§! fleet power now; surely, the other empires will not dare disrespect us now!"
+#play_as_ruler.3.desc_fleet_above:0 "Tremble before our might! No superpower may pose a threat to §H[Root.GetName]§!."
+###Don't Translate above, won't place in mod###
+ play_as_ruler.3.a:0 "Forget that, until next time."
+
+ play_as_ruler.3.a_01:0 "Let's not do these now."
+
+ play_as_ruler.3.a_02:0 "Not a good time."
+
+ play_as_ruler.3.a_03:0 "Away it goes."
+
+ play_as_ruler.3.tooltip.a:0 "§Y[Root.GetRulerName]§! won't be able to conceive another set of directions for §H[Root.GetName]§! for at least the next 2 years."
+ play_as_ruler.3.desc_endline:0 "Every actions outlined will give the §H[Root.GetName]§! a direction to follow. However, some of them have §RDrawbacks§!.\n\nIt would be unwise to make a rash decision..."
+ play_as_ruler.3.desc_endline_firsttime:0 "When my sovereignty has enough £influence  §GInfluence§!, I can select a direction for the people. Each decision I have listed can give the §H[Root.GetName]§! a benefit. Of course some of them have §RDrawbacks§!.\n\nI should think about these carefully..."
+
+###Hive mind###
+ play_as_ruler.5.name:0 "The Voice of §H[Root.GetName]§!"
+ play_as_ruler.5.desc:0 "We need direction for our future's good.\n\n$play_as_ruler.3.desc_endline$"
+
+ play_as_ruler.5.tooltip.a:0 "We won't be able to conceive another set of directions for §H[Root.GetName]§! for at least the next 3 years." 
+ 
+
+ #PHILOSOPHER KING#
+ play_as_ruler.20.name:0 "Philosopher King"
+ #哲♂學♂之王
+ play_as_ruler.20.desc:0 "§H[Root.GetRulerName]§! is the Ruler of the §H[Root.GetName]§!, may [ruler.GetSheHe] lead us to prosperity."
+ play_as_ruler.20.a:0 "To our [Root.GetRulerTitle]!"
+ play_as_ruler.20.tooltip:0 "§LEvery time a new Ruler ascends, if your civilization has §H"Philosopher King"§! Civic, They start at Level §G4§!.§!"
+ #P.S：等級改成4了。
+ #10 EXP REACHED#
+ ###RULER SHIP COOLDOWN OVER###
+ play_as_ruler.31.name:0 "Ruler Ship Availible"
+ play_as_ruler.31.desc:0 "The cooldown for §H[ruler.GetName]§! to build ship in [ruler.GetHerHis] name is over, we can build another one now."
+ play_as_ruler.31.tooltip:0 "§YNote: You need to re-design one of your military fleet in Ship Designer to build another one."
+ play_as_ruler.33.name:0 "Ruler Station Availible"
+ play_as_ruler.33.desc:0 "The cooldown for §H[ruler.GetName]§! to build station in [ruler.GetHerHis] name is over, we can build another one now."
+ 
+ ###CAMPAIGN LEVEL UP###
+ play_as_ruler.50.name:0 "Campaign Improved"
+ play_as_ruler.50.desc:0 "After several times of holding campaign, we have improved the following campaign:"
+ play_as_ruler.51.desc:0 "$play_as_ruler.50.desc$ §B$ruler_build_focus_1$§!"
+ play_as_ruler.52.desc:0 "$play_as_ruler.50.desc$ §B$ruler_clean_tile_focus_1$§!"
+ play_as_ruler.53.desc:0 "$play_as_ruler.50.desc$ §B$ruler_ftl_focus_1$§!"
+ play_as_ruler.54.desc:0 "$play_as_ruler.50.desc$ §B$ruler_ship_build_focus_1$§!"
+ play_as_ruler.55.desc:0 "$play_as_ruler.50.desc$ §B$ruler_ship_cost_focus_1$§!"
+ play_as_ruler.56.desc:0 "$play_as_ruler.50.desc$ §B$ruler_ship_combat_focus_1$§!"
+ play_as_ruler.57.desc:0 "$play_as_ruler.50.desc$ §B$ruler_ship_power_focus_1$§!"
+ play_as_ruler.58.desc:0 "$play_as_ruler.50.desc$ §B$ruler_trade_focus_1$§!"
+ play_as_ruler.59.desc:0 "$play_as_ruler.50.desc$ §B$ruler_trust_focus_1$§!"
+ play_as_ruler.60.desc:0 "$play_as_ruler.50.desc$ §B$ruler_survey_focus_1$§!"
+ play_as_ruler.61.desc:0 "$play_as_ruler.50.desc$ §B$ruler_speed_focus_1$§!"
+ play_as_ruler.62.desc:0 "$play_as_ruler.50.desc$ §B$ruler_colonize_focus_1$§!"
+ play_as_ruler.63.desc:0 "$play_as_ruler.50.desc$ §B$ruler_happy_focus_1$§!"
+ play_as_ruler.64.desc:0 "$play_as_ruler.50.desc$ §B$ruler_edict_focus_1$§!"
+ 
+ play_as_ruler.51.tooltip:0 "§B$ruler_build_focus_1$§! has been improved to be more efficient."
+ play_as_ruler.52.tooltip:0 "§B$ruler_clean_tile_focus_1$§! has been improved to be more efficient."
+ play_as_ruler.53.tooltip:0 "§B$ruler_ftl_focus_1$§! has been improved to be more efficient."
+ play_as_ruler.54.tooltip:0 "§B$ruler_ship_build_focus_1$§! has been improved to be more efficient."
+ play_as_ruler.55.tooltip:0 "§B$ruler_ship_cost_focus_1$§! has been improved to be more efficient."
+ play_as_ruler.56.tooltip:0 "§B$ruler_ship_combat_focus_1$§! has been improved to be more efficient."
+ play_as_ruler.57.tooltip:0 "§B$ruler_ship_power_focus_1$§! has been improved to be more efficient."
+ play_as_ruler.58.tooltip:0 "§B$ruler_trade_focus_1$§! has been improved to be more efficient."
+ play_as_ruler.59.tooltip:0 "§B$ruler_trust_focus_1$§! has been improved to be more efficient."
+ play_as_ruler.60.tooltip:0 "§B$ruler_survey_focus_1$§! has been improved to be more efficient."
+ play_as_ruler.61.tooltip:0 "§B$ruler_speed_focus_1$§! has been improved to be more efficient."
+ play_as_ruler.62.tooltip:0 "§B$ruler_colonize_focus_1$§! has been improved to be more efficient."
+ play_as_ruler.63.tooltip:0 "§B$ruler_happy_focus_1$§! has been improved to be more efficient."
+ play_as_ruler.64.tooltip:0 "§B$ruler_edict_focus_1$§! has been improved to be more efficient."
+ 
+ play_as_ruler.8994.name:0 "Ruler Celebration!"
+ play_as_ruler.8994.desc:0 "To thank §H[ruler.GetName]§! for making every effort to the [root.GetName], our Empire's Loyalists hold a Celebration to [ruler.GetHerHim]."
+ 
+ #####RULER SHIP & STATION####
+ play_as_ruler_ruler_ship_cooldown:0 "Ruler Ship Built"
+ play_as_ruler_ruler_ship_cooldown_desc:0 "We recently had built a ship in our Ruler's name, when cooldown is over, we can build another one."
+ play_as_ruler_ruler_station_cooldown:0 "Ruler Station Built"
+ play_as_ruler_ruler_station_cooldown_desc:0 "We recently had built a station in our Ruler's name, when cooldown is over, we can build another one."
+ play_as_ruler_ruler_army_cooldown:0 "Elite Guard Recruited"
+ play_as_ruler_ruler_army_cooldown_desc:0 "We recently had recruited a group of elite army of our Ruler, when cooldown is over, we can recruit another one."
+ #LEVELUP#
+ play_as_ruler.9001.name:0 "Ruler Level Up"
+ play_as_ruler.9001.desc:0 "§H[Root.GetRulerName]§! has leveled up to §G2§!."
+ play_as_ruler.9002.desc:0 "§H[Root.GetRulerName]§! has leveled up to §G3§!."
+ play_as_ruler.9003.desc:0 "§H[Root.GetRulerName]§! has leveled up to §G4§!."
+ play_as_ruler.9004.desc:0 "§H[Root.GetRulerName]§! has leveled up to §G5§!."
+ play_as_ruler.9005.desc:0 "§H[Root.GetRulerName]§! has leveled up to §G6§!."
+ play_as_ruler.9006.desc:0 "§H[Root.GetRulerName]§! has leveled up to §G7§!."
+ play_as_ruler.9007.desc:0 "§H[Root.GetRulerName]§! has leveled up to §G8§!."
+ play_as_ruler.9008.desc:0 "§H[Root.GetRulerName]§! has leveled up to §G9§!."
+ play_as_ruler.9009.desc:0 "§H[Root.GetRulerName]§! has leveled up to §GMax Level§!."
+ play_as_ruler.9000.a:0 "Good to know."
+#HOBBIES#
+ play_as_ruler.gethobby:0 "Ruler gained a hobby"
+ play_as_ruler.9011.desc:0 "§H[Root.GetRulerName]§! now has §GAgrarian§! hobby."
+ play_as_ruler.9012.desc:0 "§H[Root.GetRulerName]§! now has §GConstructor§! hobby."
+ play_as_ruler.9013.desc:0 "§H[Root.GetRulerName]§! now has §GShip Builder§! hobby."
+ play_as_ruler.9014.desc:0 "§H[Root.GetRulerName]§! now has §GCredit Investor§! hobby."
+ play_as_ruler.9015.desc:0 "§H[Root.GetRulerName]§! now has §GLogistician§! hobby."
+ play_as_ruler.9016.desc:0 "§H[Root.GetRulerName]§! now has §GMiner§! hobby."
+ play_as_ruler.9017.desc:0 "§H[Root.GetRulerName]§! now has §GResearcher§! hobby."
+ play_as_ruler.9018.desc:0 "§H[Root.GetRulerName]§! now has §GGaining Influence§! hobby."
+ play_as_ruler.9019.desc:0 "§H[Root.GetRulerName]§! now has §GFlavor Edicts§! hobby."
+ play_as_ruler.9021.desc:0 "§H[Root.GetRulerName]§! now has §GPhysics Research§! hobby."
+ play_as_ruler.9022.desc:0 "§H[Root.GetRulerName]§! now has §GSocial Research§! hobby."
+ play_as_ruler.9023.desc:0 "§H[Root.GetRulerName]§! now has §GEngineering Research§! hobby."
+ play_as_ruler.9024.desc:0 "§H[Root.GetRulerName]§! now has §GResource Recycling§! hobby."
+ play_as_ruler.9025.desc:0 "§H[Root.GetRulerName]§! now has §GPower Unity§! hobby."
+
+ yaya_energy_exchange_1:0 "§LInvest Our £energy  Energy Credits.§!"
+ yaya_energy_exchange_2:0 "§LBorrow £energy  Energy Credits.§!"
+ yaya_minerals_exchange_1:0 "§LInvest Our £minerals  Minerals income.§!"
+ yaya_minerals_exchange_2:0 "§LBorrow £minerals  Minerals for good.§!"
+ yaya_research_exchange_1:0 "§LBoost our £physics £society £engineering  Research Points immediately.§!"
+ yaya_research_focus:0 "§LLet's improve our empire's £physics £society £engineering  Science Research.§!"
+ yaya_mineral_focus:0 "§LFocus on Mining £minerals  minerals.§!"
+ yaya_energy_focus:0 "§LFocus on £energy  Energy income.§!"
+ yaya_food_focus:0 "§LGive our empire's £food  Food production a boost.§!"
+ yaya_build_focus:0 "§HHeighten the £building  infrastructure levels.§!"
+ yaya_clean_tile_focus:0 "§HRid our planets of the £blocker  irregularities.§!"
+ yaya_ftl_focus:0 "§HImprove our ships' FTL capabilities.§!"
+ yaya_ship_build_focus:0 "§HImprove the £ship_stats_build_time  construction rate of our ships.§!"
+ yaya_ship_cost_focus:0 "§HConserve the amount of resources spent on £ship_stats_maintenance  ship upkeep.§!"
+ yaya_ship_combat_focus:0 "§HOptimise our ships' £ship_stats_evasion  accuracy and combat capabilities.§!"
+ yaya_ship_power_focus:0 "§HAllocate more £military_power  power to the weapons of our fleets.§!"
+ yaya_trade_focus:0 "§HPerhaps some trade with other powers would do us well.§!"
+ yaya_trust_focus:0 "§HSend diplomats to improve our £opinion  standing in the universe.§!"
+ yaya_survey_focus:0 "§HEncourage £system  exploration initiatives of our £science_ship  science ships.§!"
+ yaya_speed_focus:0 "§HEnsure our ships £ship_stats_speed  travel as quickly as possible within star systems.§!"
+ yaya_colonize_focus:0 "§HInitialise the £colony_ship  colonisation campaigns.§!"
+ yaya_happy_focus:0 "§HAllocate more goods for ensuring the £happiness  satisfaction of our citizens.§!"
+ yaya_edict_focus:0 "§HMake our edicts more flexible.§!"
+ yaya_militarist_focus:0 "§YOur £military_power  military must be able to claim superiority.§!"
+ yaya_pacifist_focus:0 "§YTeach our people about harmony and philosophy.§!"
+ yaya_materialist_focus:0 "§YDeploy more resources for advancing science and innovation.§!"
+ yaya_spiritualist_focus:0 "§YEducate the people about the importance of spirituality.§!"
+ yaya_collectivist_focus:0 "§YLet us gain strength through unity.§!"
+ yaya_individualist_focus:0 "§YEmphasise the role of the individual in our society.§!"
+ yaya_xenophobe_focus:0 "§YSecuring our Nation's safety is necessary.§!"
+ yaya_xenophile_focus:0 "§YEmbrace the outside influences which will advance our own species.§!"
+###ethic and government rebuild only###
+ yaya_capitalism_focus:0 "§YFocus on £energy  Energy Credits will do us good.§!"
+ yaya_socialism_focus:0 "§YSharing £food  Food is fundamental in our Empire.§!"
+ yaya_industrial_focus:0 "§YOur £minerals  Minerals must be collected in efficient way.§!"
+ yaya_ecologist_focus:0 "§YEnhance natural environment of our planets.§!"
+ yaya_elitist_focus:0 "§YEvery elite has their way to lead our people.§!"
+ yaya_pluralist_focus:0 "§YDiscovering our leaders' talent is essential.§!"
+#YAYA THATS TONS OF CAMPAIGN MODIFIERS
+###meme### 
+ yaya_elitist_focus_meme:0 "§YOur citizens are still young, they need Elders to guide them.§!"
+ yaya_elitist_focus.meme:0 ""Too young too simple, sometimes naive!"\n - §HPresident Jiang§!\n--------------"
+ yaya_elitist_focus.meme2:0 "Don't forget to give your one second life to elder.\n--------------"
+ #哎呀！你的壽命已經-1s；快來幫長者續個命，+1s
+#REAL PHRASE IN CHINA, DON'T FORGET GIVE YOUR 1S TO ELDER
+
+ ruler_campaign_edicts_desc:0 "§LFrom our ruler's thought.\nEmpire edicts unique.§!"
+ ruler_militarist_focus_1:0 "Military Power"
+ ruler_militarist_focus_1_desc:0 "$ruler_campaign_edicts_desc$"
+ ruler_pacifist_focus_1:0 "Harmony and Philosophy"
+ ruler_pacifist_focus_1_desc:0 "$ruler_campaign_edicts_desc$"
+ ruler_materialist_focus_1:0 "Explore the Unknown"
+ ruler_materialist_focus_1_desc:0 "$ruler_campaign_edicts_desc$"
+ ruler_spiritualist_focus_1:0 "The Only True Path"
+ ruler_spiritualist_focus_1_desc:0 "$ruler_campaign_edicts_desc$"
+ ruler_collectivist_focus_1:0 "Power of Unity"
+ ruler_collectivist_focus_1_desc:0 "$ruler_campaign_edicts_desc$"
+ ruler_individualist_focus_1:0 "Independence and Invidualism"
+ ruler_individualist_focus_1_desc:0 "$ruler_campaign_edicts_desc$"
+ ruler_xenophobe_focus_1:0 "Maintaining Purity"
+ ruler_xenophobe_focus_1_desc:0 "$ruler_campaign_edicts_desc$"
+ ruler_xenophile_focus_1:0 "Galactic Companions Campaign"
+ ruler_xenophile_focus_1_desc:0 "$ruler_campaign_edicts_desc$"
+###ethic and government rebuild only###
+ ruler_capitalism_focus_1:0 "Planetary Energy Campaign"
+ ruler_capitalism_focus_1_desc:0 "$ruler_campaign_edicts_desc$"
+ ruler_socialism_focus_1:0 "Galactic Native Food Share"
+ ruler_socialism_focus_1_desc:0 "$ruler_campaign_edicts_desc$"
+ ruler_industrial_focus_1:0 "The Great Mining"
+ ruler_industrial_focus_1_desc:0 "$ruler_campaign_edicts_desc$"
+ ruler_ecologist_focus_1:0 "Environment Embracement"
+ ruler_ecologist_focus_1_desc:0 "$ruler_campaign_edicts_desc$"
+ ruler_elitist_focus_1:0 "Elite of the Elites"
+ ruler_elitist_focus_1_desc:0 "$ruler_campaign_edicts_desc$"
+ ruler_pluralist_focus_1:0 "The Voices of People"
+ ruler_pluralist_focus_1_desc:0 "$ruler_campaign_edicts_desc$"
+#####################
+ ruler_campaign_desc:0 "§LFrom our ruler's thought.§!"
+ 
+ ruler_minerals_focus_1:0 "Mining Campaign"
+ ruler_minerals_focus_1_desc:0 "$ruler_campaign_desc$"
+ ruler_energy_focus_1:0 "Energy Initiatives"
+ ruler_energy_focus_1_desc:0 "$ruler_campaign_desc$"
+ ruler_food_focus_1:0 "Harvest Plan"
+ ruler_food_focus_1_desc:0 "$ruler_campaign_desc$"
+ ruler_research_focus_1:0 "Research Focus"
+ ruler_research_focus_1_desc:0 "$ruler_campaign_desc$"
+ ruler_build_focus_1:0 "Infrastructure Advancements"
+ ruler_build_focus_1_desc:0 "$ruler_campaign_desc$"
+ ruler_clean_tile_focus_1:0 "Preparation of Land"
+ ruler_clean_tile_focus_1_desc:0 "$ruler_campaign_desc$"
+ ruler_ftl_focus_1:0 "Interstellar Voyage"
+ ruler_ftl_focus_1_desc:0 "$ruler_campaign_desc$"
+ ruler_ship_build_focus_1:0 "Hastening Ship Construction"
+ ruler_ship_build_focus_1_desc:0 "$ruler_campaign_desc$"
+ ruler_ship_cost_focus_1:0 "Ship Upkeep Administration"
+ ruler_ship_cost_focus_1_desc:0 "$ruler_campaign_desc$"
+ ruler_ship_combat_focus_1:0 "Fleet Capability Advancements"
+ ruler_ship_combat_focus_1_desc:0 "$ruler_campaign_desc$"
+ ruler_ship_power_focus_1:0 "Damage Output Optimisation"
+ ruler_ship_power_focus_1_desc:0 "$ruler_campaign_desc$"
+ ruler_trade_focus_1:0 "Xeno Trade Measures"
+ ruler_trade_focus_1_desc:0 "$ruler_campaign_desc$"
+ ruler_trust_focus_1:0 "Trustworthy Partners"
+ ruler_trust_focus_1_desc:0 "$ruler_campaign_desc$"
+ ruler_survey_focus_1:0 "Exploration Incentives"
+ ruler_survey_focus_1_desc:0 "$ruler_campaign_desc$"
+ ruler_speed_focus_1:0 "Sub-light Speed Innovations"
+ ruler_speed_focus_1_desc:0 "$ruler_campaign_desc$"
+ ruler_colonize_focus_1:0 "Brand New World"
+ ruler_colonize_focus_1_desc:0 "$ruler_campaign_desc$"
+ ruler_happy_focus_1:0 "Local Welfare Allocation"
+ ruler_happy_focus_1_desc:0 "$ruler_campaign_desc$"
+ ruler_edict_focus_1:0 "Flexible Ethics"
+ ruler_edict_focus_1_desc:0 "$ruler_campaign_desc$"
+ ##BETTER###
+ ruler_build_focus_2:0 "$ruler_build_focus_1$ §B(Improved)§!"
+ ruler_build_focus_2_desc:0 "$ruler_campaign_desc$"
+ ruler_clean_tile_focus_2:0 "$ruler_clean_tile_focus_1$ §B(Improved)§!"
+ ruler_clean_tile_focus_2_desc:0 "$ruler_campaign_desc$"
+ ruler_ftl_focus_2:0 "$ruler_ftl_focus_1$ §B(Improved)§!"
+ ruler_ftl_focus_2_desc:0 "$ruler_campaign_desc$"
+ ruler_ship_build_focus_2:0 "$ruler_ship_build_focus_1$ §B(Improved)§!"
+ ruler_ship_build_focus_2_desc:0 "$ruler_campaign_desc$"
+ ruler_ship_cost_focus_2:0 "$ruler_ship_cost_focus_1$ §B(Improved)§!"
+ ruler_ship_cost_focus_2_desc:0 "$ruler_campaign_desc$"
+ ruler_ship_combat_focus_2:0 "$ruler_ship_combat_focus_1$ §B(Improved)§!"
+ ruler_ship_combat_focus_2_desc:0 "$ruler_campaign_desc$"
+ ruler_ship_power_focus_2:0 "$ruler_ship_power_focus_1$ §B(Improved)§!"
+ ruler_ship_power_focus_2_desc:0 "$ruler_campaign_desc$"
+ ruler_trade_focus_2:0 "$ruler_trade_focus_1$ §B(Improved)§!"
+ ruler_trade_focus_2_desc:0 "$ruler_campaign_desc$"
+ ruler_trust_focus_2:0 "$ruler_trust_focus_1$ §B(Improved)§!"
+ ruler_trust_focus_2_desc:0 "$ruler_campaign_desc$"
+ ruler_survey_focus_2:0 "$ruler_survey_focus_1$ §B(Improved)§!"
+ ruler_survey_focus_2_desc:0 "$ruler_campaign_desc$"
+ ruler_speed_focus_2:0 "$ruler_speed_focus_1$ §B(Improved)§!"
+ ruler_speed_focus_2_desc:0 "$ruler_campaign_desc$"
+ ruler_colonize_focus_2:0 "$ruler_colonize_focus_1$ §B(Improved)§!"
+ ruler_colonize_focus_2_desc:0 "$ruler_campaign_desc$"
+ ruler_happy_focus_2:0 "$ruler_happy_focus_1$ §B(Improved)§!"
+ ruler_happy_focus_2_desc:0 "$ruler_campaign_desc$"
+ ruler_edict_focus_2:0 "$ruler_edict_focus_1$ §B(Improved)§!"
+ ruler_edict_focus_2_desc:0 "$ruler_campaign_desc$"
+
+####OPTIONAL CAMPAIGN, ONLY UNLOCK FROM TIME TO TIME, AND ONLY APPEAR ONE OF THE TIME
+ 
+ 
+ ruler_energy_exchange_1:0 "Energy Credits Investing"
+ ruler_energy_exchange_1_desc:0 "§LFrom our ruler's thought.§!"
+ ruler_energy_exchange_2:0 "Energy Credits Borrowing"
+ ruler_energy_exchange_2_desc:0 "§LFrom our ruler's thought.§!"
+ ruler_minerals_exchange_1:0 "Minerals Investing"
+ ruler_minerals_exchange_1_desc:0 "§LFrom our ruler's thought.§!"
+ ruler_minerals_exchange_2:0 "Minerals Borrowing"
+ ruler_minerals_exchange_2_desc:0 "§LFrom our ruler's thought.§!"
+#HOBBIES ICON NAME
+ trait_ruler_hobby_agrarian:0 "§LRuler Hobby : §BAgrarian§!§!"
+ trait_ruler_hobby_builder:0 "§LRuler Hobby : §BConstructor§!§!"
+ trait_ruler_hobby_fleet:0 "§LRuler Hobby : §BShip Builder§!§!"
+ trait_ruler_hobby_investor:0 "§LRuler Hobby : §BInvestor§!§!"
+ trait_ruler_hobby_logistician:0 "§LRuler Hobby : §BLogistician§!§!"
+ trait_ruler_hobby_miner:0 "§LRuler Hobby : §BMiner§!§!"
+ trait_ruler_hobby_research:0 "§LRuler Hobby : §BResearcher§!§!"
+ trait_ruler_hobby_physic:0 "§LRuler Hobby : §BPhysics Research§!§!"
+ trait_ruler_hobby_social:0 "§LRuler Hobby : §BSocial Research§!§!"
+ trait_ruler_hobby_engineering:0 "§LRuler Hobby : §BEngineering Research§!§!"
+ trait_ruler_hobby_influence:0 "§LRuler Hobby : §BGaining Influence§!§!"
+ trait_ruler_hobby_edict:0 "§LRuler Hobby : §BFlavor Edicts§!§!"
+ trait_ruler_hobby_recycle:0 "§LRuler Hobby : §BResource Recycling§!§!"
+ trait_ruler_hobby_unity:0 "§LRuler Hobby : §BPower Unity§!§!"
+ 
+ trait_ruler_hobby_agrarian_experienced:0 "§LRuler Hobby : §BAgrarian§!§G (Experienced)§!§!"
+ trait_ruler_hobby_builder_experienced:0 "§LRuler Hobby : §BConstructor§!§G (Experienced)§!§!"
+ trait_ruler_hobby_fleet_experienced:0 "§LRuler Hobby : §BShip Builder§!§G (Experienced)§!§!"
+ trait_ruler_hobby_investor_experienced:0 "§LRuler Hobby : §BInvestor§!§G (Experienced)§!§!"
+ trait_ruler_hobby_logistician_experienced:0 "§LRuler Hobby : §BLogistician§!§G (Experienced)§!§!"
+ trait_ruler_hobby_miner_experienced:0 "§LRuler Hobby : §BMiner§!§G (Experienced)§!§!"
+ trait_ruler_hobby_research_experienced:0 "§LRuler Hobby : §BResearcher§!§G (Experienced)§!§!"
+ trait_ruler_hobby_physic_experienced:0 "§LRuler Hobby : §BPhysics Research§!§G (Experienced)§!§!"
+ trait_ruler_hobby_social_experienced:0 "§LRuler Hobby : §BSocial Research§!§G (Experienced)§!§!"
+ trait_ruler_hobby_engineering_experienced:0 "§LRuler Hobby : §BEngineering Research§!§G (Experienced)§!§!"
+ trait_ruler_hobby_influence_experienced:0 "§LRuler Hobby : §BGaining Influence§!§G (Experienced)§!§!"
+ trait_ruler_hobby_edict_experienced:0 "§LRuler Hobby : §BFlavor Edicts§!§G (Experienced)§!§!"
+ trait_ruler_hobby_recycle_experienced:0 "§LRuler Hobby : §BResource Recycling§!§G (Experienced)§!§!"
+ trait_ruler_hobby_unity_experienced:0 "§LRuler Hobby : §BPower Unity§!§G (Experienced)§!§!"
+ 
+ trait_ruler_hobby_agrarian_expert:0 "§LRuler Hobby : §BAgrarian§!§Y (Expert)§!§!"
+ trait_ruler_hobby_builder_expert:0 "§LRuler Hobby : §BConstructor§!§Y (Expert)§!§!"
+ trait_ruler_hobby_fleet_expert:0 "§LRuler Hobby : §BShip Builder§!§Y (Expert)§!§!"
+ trait_ruler_hobby_investor_expert:0 "§LRuler Hobby : §BInvestor§!§Y (Expert)§!§!"
+ trait_ruler_hobby_logistician_expert:0 "§LRuler Hobby : §BLogistician§!§Y (Expert)§!§!"
+ trait_ruler_hobby_miner_expert:0 "§LRuler Hobby : §BMiner§!§Y (Expert)§!§!"
+ trait_ruler_hobby_research_expert:0 "§LRuler Hobby : §BResearcher§!§Y (Expert)§!§!"
+ trait_ruler_hobby_physic_expert:0 "§LRuler Hobby : §BPhysics Research§!§Y (Expert)§!§!"
+ trait_ruler_hobby_social_expert:0 "§LRuler Hobby : §BSocial Research§!§Y (Expert)§!§!"
+ trait_ruler_hobby_engineering_expert:0 "§LRuler Hobby : §BEngineering Research§!§Y (Expert)§!§!"
+ trait_ruler_hobby_influence_expert:0 "§LRuler Hobby : §BGaining Influence§!§Y (Expert)§!§!"
+ trait_ruler_hobby_edict_expert:0 "§LRuler Hobby : §BFlavor Edicts§!§Y (Expert)§!§!"
+ trait_ruler_hobby_recycle_expert:0 "§LRuler Hobby : §BResource Recycling§!§Y (Expert)§!§!"
+ trait_ruler_hobby_unity_expert:0 "§LRuler Hobby : §BPower Unity§!§Y (Expert)§!§!"
+####HIVE####
+ trait_ruler_hobby_hive:0 "§LFocus: None§!"
+ trait_ruler_hobby_hive_growth:0 "§LFocus: §BGrowth§!§!"
+ trait_ruler_hobby_hive_ecomony:0 "§LFocus: §BEcomony§!§!"
+ trait_ruler_hobby_hive_military:0 "§LFocus: §BMilitary§!§!"
+ trait_ruler_hobby_hive_influence:0 "§LFocus: §BInfluence§!§!"
+ trait_ruler_hobby_hive_research:0 "§LFocus: §BResearch§!§!"
+####
+ trait_ruler_hobby_tooltip_and_stuff:0 "§LEach Ruler can only have one random Hobby at a time. Ruler's Hobby will give our nation a temporary bonus to certain aspects. \nEvery Hobby will last for at least 5 years.§!"
+
+ trait_ruler_hobby_agrarian_desc:0 "This Ruler spend time on their own garden, planting any edible food.\n$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_builder_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_fleet_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_investor_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_logistician_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_miner_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_research_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_physic_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_social_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_engineering_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_influence_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_edict_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_recycle_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_unity_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ 
+ trait_ruler_hobby_agrarian_experienced_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_builder_experienced_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_fleet_experienced_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_investor_experienced_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_logistician_experienced_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_miner_experienced_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_research_experienced_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_physic_experienced_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_social_experienced_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_engineering_experienced_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_influence_experienced_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_edict_experienced_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_recycle_experienced_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_unity_experienced_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ 
+ trait_ruler_hobby_agrarian_expert_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_builder_expert_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_fleet_expert_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_investor_expert_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_logistician_expert_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_miner_expert_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_research_expert_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_physic_expert_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_social_expert_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_engineering_expert_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_influence_expert_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_edict_expert_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_recycle_expert_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+ trait_ruler_hobby_unity_expert_desc:0 "$trait_ruler_hobby_tooltip_and_stuff$"
+####HIVE####
+ ruler_hive_mind_has_something_to_say:0 "The Voice of Collective is making every effort"
+ trait_ruler_hobby_hive_desc:0 "§PThis is a placeholder for not selecting focus.\nThe Voice of Collective should choose one of the focus for the empire.§!"
+ trait_ruler_hobby_hive_growth_desc:0 "§L$ruler_hive_mind_has_something_to_say$ on pop growth.§!"
+ trait_ruler_hobby_hive_ecomony_desc:0 "§L$ruler_hive_mind_has_something_to_say$ in ecomony.§!"
+ trait_ruler_hobby_hive_military_desc:0 "§L$ruler_hive_mind_has_something_to_say$ in expanding military power.§!"
+ trait_ruler_hobby_hive_influence_desc:0 "§L$ruler_hive_mind_has_something_to_say$ in gaining influence, also §G+15§! other Empire's opinion.§!"
+ trait_ruler_hobby_hive_research_desc:0 "§L$ruler_hive_mind_has_something_to_say$ in research area.§!"
+####
+ trait_ruler_hobby_tooltip:0 "Every Ruler §L( Except the Hive Mind )§! can have one random Hobby at a time. Hobbies temporarily improve the nation's capabilities in a certain direction. Each hobby can last 5 years."
+ #RULER LEVEL BAR
+ trait_witness_ruler_lv1:0 "§LRuler Level : §G1§!§!"
+ trait_witness_ruler_lv2:0 "§LRuler Level : §G2§!§!"
+ trait_witness_ruler_lv3:0 "§LRuler Level : §G3§!§!"
+ trait_witness_ruler_lv4:0 "§LRuler Level : §G4§!§!"
+ trait_witness_ruler_lv5:0 "§LRuler Level : §G5§!§!"
+ trait_witness_ruler_lv6:0 "§LRuler Level : §G6§!§!"
+ trait_witness_ruler_lv7:0 "§LRuler Level : §G7§!§!"
+ trait_witness_ruler_lv8:0 "§LRuler Level : §G8§!§!"
+ trait_witness_ruler_lv9:0 "§LRuler Level : §G9§!§!"
+ trait_witness_ruler_lv10:0 "§LRuler Level : §G10§!§!"
+ 
+ trait_witness_ruler_lv1_desc:0 "§L§YRuler Level Bar§! determined the Empire Ruler's Experience. \nBy §YHolding Campaigns§! or §YLong term of Empire Managing§! will have a chance to increase Ruler's Level. \nThe higher Ruler's Level, the more benefit they can get.§!"
+ trait_witness_ruler_lv2_desc:0 "$trait_witness_ruler_lv1_desc$"
+ trait_witness_ruler_lv3_desc:0 "$trait_witness_ruler_lv1_desc$"
+ trait_witness_ruler_lv4_desc:0 "$trait_witness_ruler_lv1_desc$"
+ trait_witness_ruler_lv5_desc:0 "$trait_witness_ruler_lv1_desc$"
+ trait_witness_ruler_lv6_desc:0 "$trait_witness_ruler_lv1_desc$"
+ trait_witness_ruler_lv7_desc:0 "$trait_witness_ruler_lv1_desc$"
+ trait_witness_ruler_lv8_desc:0 "$trait_witness_ruler_lv1_desc$"
+ trait_witness_ruler_lv9_desc:0 "$trait_witness_ruler_lv1_desc$"
+ trait_witness_ruler_lv10_desc:0 "§LThis Ruler has reached §YMax Level§!.§! \n$trait_witness_ruler_lv1_desc$"
+ 
+ play_as_ruler.consider_expert:0 "Considerations of §H[ruler.GetName]§!"
+ play_as_ruler.consider_firsttime:0 "\nWhen §H[ruler.GetName]§! undertakes a certain Hobby several times, [ruler.GetSheHe] can determine [ruler.GetHerHim]self whether to truly become an expert in that area. \n\nPlease notice, §H[ruler.GetName]§! can have only one expert Hobby for [ruler.GetHerHis] period of governance."
+ play_as_ruler.consider_yes:0 "Of course!"
+ ruler_consider_yes_tooltip:0 "§LOnce selected, §H[ruler.GetName]§! will become Expert of this Hobby, and won't be able to reach expertise in other Hobbies.§!"
+ play_as_ruler.consider_no:0 "On the second thought, I'm not actually happy with that."
+ play_as_ruler.consider_no_meme:0 "No, this is Potato."
+ #Potato: To describe something is very bad, literally trash.
+ ruler_consider_tooltip:0 "§L"Fair enough, it sure is Potato."§!\n    - §H[ruler.GetName]§!"
+ 
+ play_as_ruler.9031.desc:0 "My extremely long time spent in the garden has paid off. I am now an expert in §GAgrarian§!..."
+ play_as_ruler.9032.desc:0 "I've supervised construction and even designed many buildings myself. I am now an expert §GConstructor§!..."
+ play_as_ruler.9033.desc:0 "My ship designs are revered across the nation. I now consider myself an expert of §GShip Builder§!..."
+ play_as_ruler.9034.desc:0 "My energy investments have paid off repeatedly. I am considering myself an expert of §GCredit Investor§!..."
+ play_as_ruler.9035.desc:0 "My measures to decrease maintenence costs saved a lot of resources. I am considering myself an expert §GLogistician§!..."
+ play_as_ruler.9036.desc:0 "After continuously pressing the workers to dig out more minerals, I now consider myself an expert §GMiner§!..."
+ play_as_ruler.9037.desc:0 "I've toiled to bring scientific advancements to my people. I am now an expert §GResearcher§!..."
+ play_as_ruler.9038.desc:0 "After countless hours spent studying physics within the laboratories, I have become an expert in §GPhysics Research§!..."
+ play_as_ruler.9039.desc:0 "My consistent confrontations with the people under my protection, of the upper and lower classes, have led me to become an expert in §GSocial Research§!..."
+ play_as_ruler.9040.desc:0 "Days spent in the foundry learning about materials have paid off. I am now an expert in §GEngineering Research§!..."
+ play_as_ruler.9041.desc:0 "It appears that people cannot resist but to do what I say. I have bcome an expert in §GGaining Influence§!..."
+ play_as_ruler.9042.desc:0 "My political opponents cannot handle the genius of my numerous edicts. I have become an expert of §GFlavor Edicts§!..."
+ play_as_ruler.9043.desc:0 "Efficiency requires that nothing goes to waste. I have become an expert in  §GResource Recycle§!..."
+ play_as_ruler.9044.desc:0 "It appears that nobody can unite people in their purpose as well as I can. I have become an expert in §GPower Unity§!..."
+###EDICTS###
+#Ruler edicts is potato
+ edict_play_as_ruler_get_more_idea:0 "§LRuler's Idea Encouraged§!"
+ edict_play_as_ruler_get_more_idea_desc:0 "Encourage your Ruler to ponder regarding more directions the nation could take, if possible.\n\nRuler Campaign Require Time: §G-50%§!\n§E( 0.5 - §G5§!>§G2.5§! years )§!"
+ edict_play_as_ruler_slow_down_idea:0 "§LRuler's Idea Discouraged§!"
+ edict_play_as_ruler_slow_down_idea_desc:0 "Tell your Ruler to take it down a notch, and provide fewer options.\n\nRuler Campaign Require Time: §R+100%§!\n§E( §R0.5§!>§R1§! - §R5§!>§R10§! years )§!"
+ edict_play_as_ruler_no_idea:0 "§LRuler's Idea Disable§!"
+ edict_play_as_ruler_no_idea_desc:0 "Tell your Ruler that their Campaign is Potato.\n\n§RDisable Ruler ability for Holding Campaign when selected.§!"
+ edict_play_as_ruler_no_idea_hive:0 "§LRuler's Idea Disable§!"
+ edict_play_as_ruler_no_idea_hive_desc:0 "The Voice of Collective itself is Potato.\n\n§RDisable ability for Holding Campaign when selected.§!"
+ edict_play_as_ruler_hobby_longer:0 "§LRuler's Hobby Extended§!"
+ edict_play_as_ruler_hobby_longer_desc:0 "Tell your Ruler that they can do their Hobby a little longer.\n\nRuler Hobby Last Time: §Y+100%§!\n\n§REnable this will slow down Ruler expertising Hobby progress. Cannot affect ongoing Hobbies.§!"
+
+ #Ruler Campaign Require Time:統治者活動所需時間
+############################################################
+#THE ABOVE ARE IMPROVED BY Peterowsky ( most of them )     #
+############################################################
+###The following were added by Mod Author since 4/11###
+###RULER HOBBIES FOCUS#################################
+#My ruler please stop being stupid
+ policy_aplay_as_ruler_hobby_focus:0 "Ruler Hobby Focus"
+ policy_aplay_as_ruler_hobby_focus_desc:0 "Here you can determine Ruler about Hobbies.\n§EEvery Ruler can have one random Hobby at a time. Hobbies temporarily improve the nation's capabilities in a certain direction. Each hobby can last 5 years. \n§EIt is recommanded for Ruler to focus certain area if they want to expertise them for better civilization.§!\n"
+ play_as_ruler_hobby_focus_random_choose:0 "Random Hobby"
+ play_as_ruler_hobby_focus_random_choose_name:0 "Random Hobby"
+ play_as_ruler_hobby_focus_random_choose_desc:0 "Let your Ruler select Hobbies as their wish."
+ 
+ play_as_ruler_hobby_focus_ecomony:0 "§HEnvironment Focus§!"
+ play_as_ruler_hobby_focus_ecomony_name:0 "§LEnvironment Focus§!"
+ play_as_ruler_hobby_focus_ecomony_desc:0 "§LTell your Ruler that Environment need to be done.§!\n§EPossible Hobbies:\n§BAgrarian§!, §BConstructor§!, §BSocial Research§!, §BResource Recycle§!§!"
+ 
+ play_as_ruler_hobby_focus_product:0 "§HProduction Focus§!"
+ play_as_ruler_hobby_focus_product_name:0 "§LProduction Focus§!"
+ play_as_ruler_hobby_focus_product_desc:0 "§LTell your Ruler that more raw minerals and energy are needed.§!\n§EPossible Hobbies:\n§BCredit Investor§!, §BConstructor§!, §BMiner§!, §BEngineering Research§!§!"
+ 
+ play_as_ruler_hobby_focus_research:0 "§HResearch Focus§!"
+ play_as_ruler_hobby_focus_research_name:0 "§LResearch Focus§!"
+ play_as_ruler_hobby_focus_research_desc:0 "§LTell your Ruler trying to boost our Empire science output.§!\n§EPossible Hobbies:\n§BResearcher§!, §BPhysics Research§!, §BSocial Research§!, §BEngineering Research§!§!"
+ 
+ play_as_ruler_hobby_focus_influence:0 "§HRenown Focus§!"
+ play_as_ruler_hobby_focus_influence_name:0 "§LRenown Focus§!"
+ play_as_ruler_hobby_focus_influence_desc:0 "§LTell your Ruler that we're running out of Influence stuff.§!\n§EPossible Hobbies:\n§BGaining Influence§!, §BFlavor edicts§!, §BPower Unity§!§!"
+ 
+ play_as_ruler_hobby_focus_ship:0 "§HFleet Focus§!"
+ play_as_ruler_hobby_focus_ship_name:0 "§LFleet Focus§!"
+ play_as_ruler_hobby_focus_ship_desc:0 "§LTell your Ruler that they need a mightly military fleet for their enemy.§!\n§EPossible Hobbies:\n§BShip Builder§!, §BLogistician§!, §BPhysics Research§!§!"
+###HIVE####
+ policy_aplay_as_ruler_hobby_focus_hive:0 "Hive-Mind Ruler Focus"
+ policy_aplay_as_ruler_hobby_focus_hive_desc:0 "The Voice of Collective should choose one of the focus for benefit the empire.\n\n§EWe can hold any campaign every 3-5 years.§!"
+ 
+ play_as_ruler_hobby_focus_hive_placeholder:0 "None"
+ play_as_ruler_hobby_focus_hive_placeholder_name:0 "None"
+ play_as_ruler_hobby_focus_hive_placeholder_desc:0 "§PThis is a placeholder for not selecting focus.\n\n§RYou should select one instand of this.§!§!"
+ 
+ play_as_ruler_hobby_focus_hive_growth:0 "§HGrowth Focus§!"
+ play_as_ruler_hobby_focus_hive_growth_name:0 "§LGrowth Focus§!"
+ play_as_ruler_hobby_focus_hive_growth_desc:0 "§LThe Voice of the Collective will focus on Population growth.§!"
+ 
+ play_as_ruler_hobby_focus_hive_ecomony:0 "§HEcomony Focus§!"
+ play_as_ruler_hobby_focus_hive_ecomony_name:0 "§LEcomony Focus§!"
+ play_as_ruler_hobby_focus_hive_ecomony_desc:0 "§LThe Voice of the Collective will focus on Production income.§!"
+ 
+ play_as_ruler_hobby_focus_hive_military:0 "§HMilitary Focus§!"
+ play_as_ruler_hobby_focus_hive_military_name:0 "§LMilitary Focus§!"
+ play_as_ruler_hobby_focus_hive_military_desc:0 "§LThe Voice of the Collective will focus on Military power.§!"
+ 
+ play_as_ruler_hobby_focus_hive_influence:0 "§HRenown Focus§!"
+ play_as_ruler_hobby_focus_hive_influence_name:0 "§LRenown Focus§!"
+ play_as_ruler_hobby_focus_hive_influence_desc:0 "§LThe Voice of the Collective will focus on Influence and Unity.\n§G+15§! other Empire's opinion.§!"
+ 
+ play_as_ruler_hobby_focus_hive_research:0 "§HResearch Focus§!"
+ play_as_ruler_hobby_focus_hive_research_name:0 "§LResearch Focus§!"
+ play_as_ruler_hobby_focus_hive_research_desc:0 "§LThe Voice of the Collective will focus on Research.§!"
+####
+ 
+ play_as_ruler.9499.name:0 "Ruler Hobby Focus Available"
+ play_as_ruler.9499.desc:0 "Currectly §H[ruler.GetName]§! will choose one random Hobby as [ruler.GetHerHis] wish.\n\nYou can instruct [ruler.GetHerHim] to focus on certain Hobby area in Empire §HPolicies and Edicts§! Tab."
+ play_as_ruler.9499.desc_hive:0 "Currectly §H[ruler.GetName]§! does not have any Focus.\n\nThe Voice of Collective should select one of the Focus for Empire, which can find in Empire §HPolicies and Edicts§! Tab."
+ play_as_ruler.9499.a:0 "Noted."
+ play_as_ruler.9499.tooltip:0 "You can find Ruler Hobby Focus Policy in Empire §HPolicies and Edicts§! tab."
+############################
+#MAKE SPACE GREAT M8
+
+####################################
+ play_as_ruler.10000.name:0 "§HRLS Author Need some Ideas§!"
+ play_as_ruler.10000.desc:0 "§HHello there, I'm Author of Ruler Level System. Thank you for using this mod:D§!\n\nCurrectly I'm making Hobby related events, I feel like they should be more than just a leader trait. But my Brain is a Toaster - I don't have much of ideas about these Hobbies events.\n\nIt will be helpful if you guys can provide some instresting ideas for them, and I will try my best to make them happen, thank you!"
+ play_as_ruler.10000.a:0 "Okay!"
+ play_as_ruler.10000.tooltip:0 "If you want to provide Hobbies Event idea, go to RLS mod page and provide some advice, thank you!"
+
+ play_as_ruler.hobby.reward.name:0 "Ruler Hobby Progress"
+ play_as_ruler.hobby.reward.good_01:0 "Job well done."
+ play_as_ruler.hobby.reward.good_02:0 "Superb."
+ play_as_ruler.hobby.reward.good_03:0 "This is better than expected."
+ play_as_ruler.hobby.reward.good_04:0 "It's nothing."
+ play_as_ruler.hobby.reward.good_05:0 "Excellent work."
+ play_as_ruler.hobby.reward.good_06:0 "Eggcellent."
+ play_as_ruler.hobby.reward.bad_01:0 "Better luck next time."
+ play_as_ruler.hobby.reward.bad_02:0 "It won't happen again."
+ play_as_ruler.hobby.reward.bad_03:0 "I made a mistake."
+ play_as_ruler.hobby.reward.bad_04:0 "That's too bad."
+ play_as_ruler.hobby.reward.bad_05:0 "Damn to my Potato idea!"
+ play_as_ruler.hobby.reward.bad_06:0 "Alas!"
+ 
+ play_as_ruler.hobby.exp.increase.tooltip:0 "§H[ruler.GetName]§!'s Hobby Experience increased!"
+ play_as_ruler.hobby.exp.decrease.tooltip:0 "§H[ruler.GetName]§!'s Hobby Experience hindened."
+###########################
+#HOBBIES EVENTS
+ play_as_ruler.hobby.exp.highenough.tooltip:0 "This option is availible due to §H[ruler.GetName]§! has enough Hobby Experience."
+
+
+ play_as_ruler.2999.desc.good:0 "The recent Hobby §H[ruler.GetName]§! taken had a great progress, better then expected, providing [ruler.GetHerHim] much of experience."
+ play_as_ruler.2999.desc.normal:0 "The Hobby §H[ruler.GetName]§! recently taken had a decent progress, thus [ruler.GetSheHe] had gained some experience."
+ play_as_ruler.2999.desc.bad:0 "The Hobby §H[ruler.GetName]§! recently taken turned out was less than expected."
+##########
+#ARGARIAN
+#Chauser67
+#You attempt to convince colonists on your settled planets to try food native food types rather than just eating sources introduced from your homeworld. Could have a chance of going horribly wrong and causing a nasty effect to a planet's population. Alternately could be you trying to introduce colonial food sources into high society on your capital world.
+ play_as_ruler.3000.name:0 "Native Food"
+ play_as_ruler.3001.desc:0 "§H[ruler.GetName]§! is attempting to convince colonists on §H[planet.GetName]§! to try native food types, rather than just eating sources introduced from §H[homeplanet.GetName]§!. \n\nSurely, it could have a chance of going horribly wrong, and causing a nasty effect to §H[planet.GetName]§!'s population.\n\nAlternately, §H[ruler.GetName]§! could trying to introduce colonial food sources into high society on §H[capitalplanet.GetName]§!."
+ play_as_ruler.3001.a:0 "§Y[capitalplanet.GetName] will know [planet.GetName] has such a food.§!"
+ play_as_ruler.3001.b:0 "§YConvince colonists that those food are far better than imagined.§!"
+ play_as_ruler.3001.c:0 "Introduce [planet.GetName]'s native food to [capitalplanet.GetName]."
+ play_as_ruler.3001.d:0 "Try to convince colonists eating [planet.GetName]'s native food."
+ play_as_ruler.3002.name:0 "Native Food: Introduce"
+ play_as_ruler.3002.desc:0 "At first, food from §H[planet.GetName]§! made §H[capitalplanet.GetName]§! people hesitate a bit.\n\nAfter several tests from Scientists, proving the food has very high nutrition value to §H[Root.GetSpeciesNamePlural]§! people, §H[planet.GetName]§! has become popular food output world. Cook recipe about it spread like wildfire.\n\nThis made §H[planet.GetName]§! became popular among our world."
+ play_as_ruler.3003.desc:0 ""§H[planet.GetName]'s Potato food§!" headline spread out from §H[capitalplanet.GetName]§!.\n\nScientists said that these Potato from §H[planet.GetName]§! has less value than §H[homeplanet.GetName]§! one due to its absurd looks, they also mentioned that eating too much of this food might cause disgust effect to [Root.GetName].\n\nSuch a food won't be best among our people."
+ play_as_ruler.3004.name:0 "Native Food: Convince"
+ play_as_ruler.3004.desc:0 "After §H[ruler.GetName]§! instructed §H[planet.GetName]§! of native food, the way how to make them a good diet, the colonists quickly accepted such a good meal.\n\nSuch a success will surely give §H[planet.GetName]§! a population boost."
+ play_as_ruler.3005.desc:0 "Unfortunately, despite the food tastes good, it also cause major food poisoning to [Root.GetSpeciesNamePlural] people. Local news also reported that one of the colonist accidently burn the entire building, making several resource lost."
+ play_as_ruler.3005.a:0 "What a mushroom."
+#藍瘦香菇。
+##########
+#MINER
+#Chauser67
+#You become obsessed over what you suspect is a motherlode of resources underneath your residence. What follows is you increasingly tearing up the land around it (including some parks and other public spaces) in an increasingly desperate search for it. As for whether you do strike it, well...
+ play_as_ruler.3100.name:0 "Mineral Rush"
+ play_as_ruler.3101.desc:0 "Recently, §H[ruler.GetName]§! cannot help but thinking there is a motherlode of resources underneath §H[planet.GetName]§!. Selected the possible area, [ruler.GetSheHe] planning to send a group to discover potental gold mine.\n\nHowever, the area itself had included parks and other public spaces, should anything go wrong might occur building collapse and stuff..."
+ play_as_ruler.3101.a:0 "§YThey will be found nice and gently.§!"
+ play_as_ruler.3101.b:0 "They will be mined at all!"
+ play_as_ruler.3101.c:0 "Search the area, try to mine them out with safety."
+ play_as_ruler.3101.d:0 "On the second thought, that's kind of absurd idea."
+ play_as_ruler.3102.name:0 "Mineral Rush: Wasting Time"
+ play_as_ruler.3102.desc:0 "Sadly, despite couple of days for searching and digging, nothing interesting can be found at §H[planet.GetName]§!, all they dug out were dirt and ashes."
+ play_as_ruler.3103.name:0 "Mineral Rush: Landslide"
+ play_as_ruler.3103.desc:0 "During digging progress, one of the crew somehow made the land crust started to fall. News also reported that the digging progress cause some building in §H[planet.GetName]§! collapse, causing countless lost."
+ play_as_ruler.3104.name:0 "Mineral Rush: The Next Step"
+ play_as_ruler.3104.desc:0 "In the progress of mining site, the crew are agruing about whether should they continue the mining, since there's giantic stone in their way. If they dig it out directly might occur rockfall.\n\nThey are awaiting §H[ruler.GetName]§!'s next direction."
+ play_as_ruler.3104.a:0 "§YThere's a way to dig them out without any problem.§!"
+ play_as_ruler.3104.b:0 "Try dig them out nice and slow."
+ play_as_ruler.3104.c:0 "Don't risk it, dig to another place."
+ play_as_ruler.3105.name:0 "Mineral Rush: Raw Minerals"
+ play_as_ruler.3105.desc:0 "After days of digging and mining, the Crew found some raw minerals. Although the numbers are not many, these minerals still can put into a good use."
+ play_as_ruler.3106.name:0 "Mineral Rush: Rare Minerals"
+ play_as_ruler.3106.desc:0 "After days of digging and mining, the Crew finally found some rare minerals! The quanity is extemely great, these will put into a good use."
+ play_as_ruler.3107.name:0 "Mineral Rush: Interesting Rock"
+ play_as_ruler.3107.desc:0 "After days of digging and mining, the Crew found a ... rock.\n\nBut it's not a ordinary rock, it has some interesting carving, one of the crew mentioned that we can keep it, or we can sell it to museum of [planet.GetName]."
+ play_as_ruler.3107.a:0 "Keep it."
+ play_as_ruler.3107.b:0 "Sell it."
+############
+#Logistician
+#Chauser67
+# A crackdown on petty corruption! You confront one of your admirals over suspected kickbacks from overcharging supply and maintainence. 
+#YO ONE OF DE ADMIRER IS STEALING YOUR GOOD, SHOULDN'T YOU NOSCOPE THAT SCRUB?
+ play_as_ruler.3200.name:0 "Missing Supply"
+ play_as_ruler.3201.desc:0 "During one standard ship maintaining check, one of the [Root.GetName]'s fleet upkeep became unusually high, however there's no record from the check list.\n\nCould it be someone stealing them for propose?"
+ play_as_ruler.3201.a:0 "Why the supplies suddenly disappeared overnight?"
+ play_as_ruler.3201.tooltip:0 "§H[ruler.GetName]§! began [ruler.GetHerHis] search."
+ play_as_ruler.3202.name:0 "Missing Supply: The Suspect"
+ play_as_ruler.3202.desc:0 "With §H[ruler.GetName]§!'s effort, [ruler.GetSheHe] caught the suspect whom stealing supplies.\n\nThe suspect, §H[admiral.GetName]§!, seems to use the stolen for something.\n\nWe should continue observe what §H[admiral.GetName]§! have in [admiral.GetHerHis] mind. Or, we can force [admiral.GetHerHim] to retire from admiral seat, since §H[ruler.GetName]§! caught §H[admiral.GetName]§! acting corruption to [ruler.GetHerHim], no one will have opinion."
+ play_as_ruler.3202.a:0 "Let's see what [admiral.GetName] is trying to do with them."
+ play_as_ruler.3202.b:0 "[admiral.GetName] is so fired from [admiral.GetHerHis] admiral seat!"
+ play_as_ruler.3202.tooltip:0 "§H[admiral.GetName]§! is fired from [Root.GetName]."
+ play_as_ruler.3202.c:0 "Whoever wrote this should stop writing immediately." 
+ play_as_ruler.3202.meme:0 "Hi, I think Chinese words can solve your problem!\n\n有些作者沒有點子，而有些作者沒有文采。要是哪裡有問題，社群該提供意見或幫助才是。\n\nOh, §H[admiral.GetName]§! is still get fired, anyway."
+ play_as_ruler.3203.name:0 "Missing Supply: The Reason"
+ play_as_ruler.3203.desc:0 "Several days later, in one of the regular ship checking, §H[admiral.GetName]§! appeared in the corner, carring one of the goods.\n\nBut §H[ruler.GetName]§! apperance completely caught [admiral.GetHerHim] off guard. The stolen supplies are safe and sound. When explaining, §H[admiral.GetName]§! said that [admiral.GetSheHe] is experimenting to maintain the supply lines efficiently, and hope §H[ruler.GetName]§! can give [admiral.GetHerHim] time for experiment the measure."
+ play_as_ruler.3203.a:0 "§YIf you want to, I can teach you a thing or two.§!"
+ play_as_ruler.3203.tooltip:0 "§H[ruler.GetName]§! will teach §H[admiral.GetName]§! how to maintain supplies."
+ play_as_ruler.3203.b:0 "Let [admiral.GetHerHim] do what [admiral.GetSheHe] wants."
+ play_as_ruler.3203.c:0 "No, arrest [admiral.GetHerHim]. Take all the supplies [admiral.GetSheHe] had stolen."
+ play_as_ruler.3203.c.tooltip:0 "§H[admiral.GetName]§! is arrested and fired from [Root.GetName]."
+ play_as_ruler.3204.name:0 "Missing Supply: The Result"
+ play_as_ruler.3204.desc_01:0 "With §H[ruler.GetName]§!'s advice, §H[admiral.GetName]§! managed to maintain supplies lines without any problem. Also, [admiral.GetSheHe] is thanking §H[ruler.GetName]§! for teaching [admiral.GetHerHim] such a good attempt.\n\n§H[admiral.GetName]§! also promised that the supplies will return to us."
+ play_as_ruler.3204.desc_02:0 "With enough measures and experiments, §H[admiral.GetName]§! managed to maintain supplies lines without any problem. Also, [admiral.GetSheHe] is thanking §H[ruler.GetName]§! for giving [admiral.GetHerHim] enough time for such of attempt.\n\n§H[admiral.GetName]§! also promised that the supplies will return to us."
+ play_as_ruler.3204.desc_03:0 "Unfortunately, despite §H[admiral.GetName]§! effort, the experiment didn't work out. The supplies [admiral.GetSheHe] used are wasted."
+ play_as_ruler.3204.a:0 "That's good, [admiral.GetName]!"
+ play_as_ruler.3204.b:0 "Hopefully [admiral.GetName] will know how to maintain the goods."
+ play_as_ruler.3204.c:0 "Disappointed, but understandable."
+ play_as_ruler.3205.name:0 "Missing Supply: Found"
+ play_as_ruler.3205.desc:0 "With the disappearance of §H[admiral.GetName]§!, we managed to found what [admiral.GetSheHe] had stolen. Whatever §H[admiral.GetName]§! was trying to do with supplies, they are safe and sound now."
+
+###########
+#Flavor Edicts
+#Chauser67
+#You hire a professional speech expert to teach you how to speech confidently in your addresses to the empire.
+#LOL if you are the chosen one, speecher might 2 spooky 4 teaching u and the result will usually fail XDDDDDDD
+ play_as_ruler.3300.name:0 "Teaching to Play"
+ play_as_ruler.3301.desc:0 "As the Ruler of the [root.GetName], §H[ruler.GetName]§! has idea in mind about whether should [ruler.GetSheHe] hire a professional speech expert, to improve speeching confidently in [ruler.GetHerHis] addresses to the [root.GetName]..."
+ play_as_ruler.3301.desc_psionic:0 "But many religion priests suggested that the [root.GetRulerTitle] won't be needed for such a thing, since [ruler.GetSheHe] is already the powerful Psionics among our [root.GetSpeciesNamePlural] people."
+ play_as_ruler.3301.a:0 "Yes, I will hire an expert to improve my speech."
+ play_as_ruler.3311.a.tooltip:0 "Hire an Expert Speecher to improve §H[ruler.GetName]§! confidence."
+ play_as_ruler.3301.b:0 "No, I don't need one."
+ play_as_ruler.3301.c:0 "This is fine, you can always learn things from an expert."
+ play_as_ruler.3311.c.tooltip:0 "Hire an Expert speecher to have a nice couple of tea with §H[ruler.GetName]§!."
+ play_as_ruler.3301.d:0 "Of course not, [Root.GetSpeciesNamePlural] people already knew my appearence."
+ play_as_ruler.3302.name:0 "Teaching to Play: Meeting"
+ play_as_ruler.3302.desc_01:0 "Using the influence of [root.GetName], The Speecher had arrived to [planet.GetName] Capital."
+ play_as_ruler.3302.desc_02:0 "The Speecher met §H[ruler.GetName]§!, making a short introduction. After knowing that Ruler of [root.GetName] would like to know the tips about speeching confidence, he started to teach lesson for the [root.GetRulerTitle]."
+ play_as_ruler.3302.desc_psionic_01:0 "At first, the speecher seems kind of shock, he never thought that he will meet the [root.GetRulerTitle] [ruler.GetHerHim]self in front of his own eyes."
+ play_as_ruler.3302.desc_psionic_02:0 "Still, the Speecher made a short introduction. After knowing that §H[ruler.GetName]§! would like to know the tips about speeching confidence, he started to teach lesson for the [root.GetRulerTitle]."
+ play_as_ruler.3302.a:0 "Good to see you."
+ play_as_ruler.3302.b:0 "Make yourself comfortable."
+ play_as_ruler.3303.name:0 "Teaching to Play: The Lesson"
+ play_as_ruler.3303.desc:0 "In the progress of the Lesson, The Speecher suggested that in addition of the lesson itself, they can have a chat without [root.GetName] routine, just the Speecher and §H[ruler.GetName]§! [ruler.GetHerHim]self. This also can help the confidence grow.\n\nThe two started to have a conversation talk."
+ play_as_ruler.3303.a:0 "Would you be interested in..."
+ play_as_ruler.3303.b:0 "Let's have a nice couple of..."
+ play_as_ruler.3303.c:0 "Please notify me should something..."
+ play_as_ruler.3303.d:0 "How about I add your Spacebook..."
+ play_as_ruler.3304.name:0 "Teaching to Play: The Result"
+ play_as_ruler.3304.desc_01:0 "After almost a month of lesson, §H[ruler.GetName]§! had finished the lesson about speech."
+ play_as_ruler.3304.desc_02:0 "The speecher believed that with the lesson, §H[ruler.GetName]§! had improved [ruler.GetHerHis] confidence."
+ play_as_ruler.3304.desc_03:0 "Sadly, the Lesson itself doesn't seem to do §H[ruler.GetName]§! any favor."
+ play_as_ruler.3304.desc_psionic_01:0 "But due to [ruler.GetSheHe] is the Powerful Psionics, The Speecher believed that the Psionic already improved §H[ruler.GetName]§! is already a professional of speecher."
+ play_as_ruler.3304.desc_psionic_02:0 "Although §H[ruler.GetName]§! didn't make any speeching progress, but the two somehow became close friends, not to mention [ruler.GetSheHe] added The Speecher to [ruler.GetHerHis] Spacebook."
+ play_as_ruler.3304.a:0 "It's nice to have a friend to talk with."
+ play_as_ruler.3304.b:0 "I have learned a lot."
+ play_as_ruler.3304.c:0 "What a shame."
+#Velth
+#your ruler decided to change the way he is leading the empire, change one of his traits (or agenda)
+ play_as_ruler.3310.name:0 "For the better Road"
+ play_as_ruler.3311.desc:0 "It is true for §H[ruler.GetName]§! being the [root.GetRulerTitle] of the [root.GetName], perhaps it would be more better if [ruler.GetSheHe] can make [ruler.GetHerHim]self even more - To change [ruler.GetHerHis] special skills."
+ play_as_ruler.3311.a:0 "Time to make a change."
+ play_as_ruler.3311.tooltip:0 "§H[ruler.GetName]§! will take a look for [ruler.GetHerHis] own Traits, special Traits not included."
+ play_as_ruler.3311.b:0 "I'm satisfied with myself for now."
+ play_as_ruler.3312.name:0 "For the better Road: The Choice"
+ play_as_ruler.3312.desc:0 "§H[ruler.GetName]§! has confirmed [ruler.GetHerHis] skills, [ruler.GetHerHis] traits, everything [ruler.GetSheHe] got in [ruler.GetHerHis] mind.\n\nThe next step is to remove a unwanted Trait and try to get a new one...\n\n§LNote: §H[ruler.GetName]§! might gain the same trait in the end.§!"
+ play_as_ruler.3312.a:0 "On the second thought, I'm satisfied with myself."
+ play_as_ruler.3312.b:0 "Try to get rid of this one."
+ play_as_ruler.3313.name:0 "For the better Road: The Result"
+ play_as_ruler.3313.desc_ok:0 "Over days and weeks, §H[ruler.GetName]§! managed to remove [ruler.GetHerHis] previous trait, and gained a new one."
+ play_as_ruler.3313.desc_bad:0 "Sadly, with days and weeks of trying, §H[ruler.GetName]§! didn't manage to remove [ruler.GetHerHis] previous trait."
+###########
+#Researcher
+#MinerSebas
+#Your Leader has a sudden inspiration for a new technologie. Now you can always research this specific Tech, as if you scanned it from shipwrecks.
+#this is kind of unbanlanced issue, thus only research points.
+ play_as_ruler.3400.name:0 "Technology Boost"
+ play_as_ruler.3401.desc:0 "It appears that §H[ruler.GetName]§!'s works on Science research had encountered an obstacle, [ruler.GetSheHe] can ask people or help, or just try to solve the problem by [ruler.GetHerHim]self."
+ play_as_ruler.3401.a:0 "Perhaps [scientist1.GetName] knows the answer."
+ play_as_ruler.3401.b:0 "Perhaps [scientist2.GetName] knows the answer."
+ play_as_ruler.3401.c:0 "Perhaps [scientist3.GetName] knows the answer."
+ play_as_ruler.3401.d:0 "I perfer doing it by myself."
+ play_as_ruler.3402.name:0 "Technology Boost: Success"
+ play_as_ruler.3402.desc_01:0 "With the help of §H[scientist.GetName]§!, the research test itself is successful. Both of them have gained some experience from it."
+ play_as_ruler.3402.desc_02:0 "The research test itself was successful. Our ruler has gained some experience from it."
+ play_as_ruler.3403.name:0 "Technology Boost: Failure"
+ play_as_ruler.3403.desc:0 "Despite any attempt had been made, the research test itself had failed. Thus we didn't manage to boost our research progress."
+##########
+#OBSERVED ONE SYSTEM
+ play_as_ruler.3405.name:0 "Observed System"
+ play_as_ruler.3405.desc:0 "During the research in star observing area, §H[ruler.GetName]§! managed to discover one distant star system called §H[distancestar.GetName]§!. After months of observing, the [root.GetRulerTitle] painted the recent discovered one on our star chart."
+########
+#OLD Tech
+#IF YOUR GAME YEAR OVER 30 AND STILL HAVEN'T HAVE THAT LV1 TECH RESEARCHED
+ play_as_ruler.3410.name:0 "Basic but Useful"
+ play_as_ruler.3410.desc:0 "Over the years of technology advancements, §H[ruler.GetName]§! cannot help but notice some of the primitive techs yet to be researched, which none of the [Root.GetSpeciesNamePlural] scientists had done these before. The [root.GetRulerTitle] planned to issue some of the resources for scientists to research the very old primitive techs."
+ play_as_ruler.3410.a:0 "Issues primitive techs campaign."
+ play_as_ruler.3410.b:0 "No, we don't need to do so."
+ play_as_ruler.3410.a.tooltip:0 "§H[ruler.GetName]§! will try to discover the society basic techs we don't have."
+ play_as_ruler.3410.b.tooltip:0 "§H[ruler.GetName]§! will try to discover the engineering basic techs we don't have."
+ play_as_ruler.3410.c.tooltip:0 "§H[ruler.GetName]§! will try to discover the physics basic techs we don't have."
+ play_as_ruler.3411.desc:0 "After few months of campaign, the [Root.GetSpeciesNamePlural] scientists had propose the primitive techs theory, some of the very basic yet must have technologies has been added to our Empire's research tabs."
+#Velth
+#your leader dug through lost archives / noticed strange signal from space; begin chain event in which you send science ship to investigate some systems (or maybe some conversations with neighboring empires which can give you + or - opinion), during the time of the events empire research capacity is slightly lowered, becouse he is using them to fuel his project;
+#after event is finished gain either research, energy, minerals, discover ship or new solar system with something unique. Or receive messege 'it was all in vain'.
+ play_as_ruler.3420.name:0 "The lightless system"
+###########
+#Resource Recycle
+#MinerSebas
+#The Leader may have the idea to use the dead bodies of its citizens as food (Soylent Green). This different from the livstock slavery, that your pops still produce normaly, but also give a small food bonus. 
+#If you are not Authoritarien and it is revealed to the general puplic, it will cause massive happiness debuffs and unrest.
+ play_as_ruler.3500.name:0 "Ashes to dust"
+ play_as_ruler.3500.name:0 "Ashes to dust"
+###########
+#Unity
+#Velth
+#your leader calls empire wide meeting for province governors, as a result 1 or 2 of them can receive trait (maybe depending on your choices in flavor 'couching' dialogue).
+ play_as_ruler.3600.name:0 "Polishless Diamond"
+###########
+#Influence
+#Velth 
+#become leader of one of the existing political factions + receive some timed bonuses. Or disband one of factions.
+ play_as_ruler.3700.name:0 "Polishless Diamond"
+##########
+#Contructor
+#why this area has such a high price?
+ play_as_ruler.3800.name:0 "Cut the Corner"
+##########
+#Investor
+#
+ play_as_ruler.3900.name:0 "Planetary Energy"
+ play_as_ruler.3900.desc:0 "§H[planet.GetName]§! has known as "Power Horse" by its energy production in our empire. §H[governor.GetName]§!, the currect planet governor, [governor.GetSheHe] has a suggest that if we invest §H[planet.GetName]§! with credits currectly we have, the planet itself can produce more energy.\n\nThere are two ways of require amounts, we can invest higher or lower credits to improve §H[planet.GetName]§!'s energy output. But §H[governor.GetName]§! also mention that the investment might have a chance to fail, we should think twice before acting."
+ play_as_ruler.3900.a:0 "§YGo with the high one, the investment itself won't go wrong.§!"
+ play_as_ruler.3900.b:0 "Go with higher credits."
+ play_as_ruler.3900.c:0 "Go with lower credits."
+ play_as_ruler.3900.d:0 "No, leave [planet.GetName] be."
+ play_as_ruler.3901.name:0 "Planetary Energy: Success"
+ play_as_ruler.3901.desc_high:0 "With high amount of credits, §H[governor.GetName]§! made a bold move, [governor.GetSheHe] put all the credits into one of the power plant. The investment itself was succeed, this should made §H[planet.GetName]§! output even more credits."
+ play_as_ruler.3901.desc_low:0 "With an amount of credits, §H[governor.GetName]§! put the credits into the good use. This surely will improve §H[planet.GetName]§!'s energy output."
+ play_as_ruler.3902.name:0 "Planetary Energy: Failure"
+ play_as_ruler.3902.desc:0 "Sadly, the investment didn't make §H[planet.GetName]§! any change, the credits which used were wasted."
+####4500~5000####
+#JUST FOR BETTER NOTICE#
+#THE SHROUD#
+ play_as_ruler.4500.name:0 "Recovered from Expedition"
+ play_as_ruler.4500.desc:0 "With the last time of expedition into the Shroud, §H[ruler.GetName]§! managed to make The Conclave of Telepaths members recover faster from the exploration. After couple of months, they are ready for another expedition now."
+ play_as_ruler.4500.a:0 "Hopefully they will find the better result."
+ play_as_ruler.4500.tooltip:0 "The Shroud is availible to visit now."
+# play_as_ruler.4503.name:0 "The Shroud Available"
+# play_as_ruler.4503.desc:0 "The Conclave of Telepaths members has recovered from the last time of expedition into the Shroud. They are ready for it now."
+ 
+###MAP MODE###
+ play_as_ruler_map_mode:0 "Ruler Level Map Mode"
+ play_as_ruler_map_mode_desc:0 "Display the currect Level of Empire Rulers."
+ play_as_ruler_map_mode_crisis:0 "§ROur sensor makes no sense to §Y[This.GetName]§! currect Ruler status!§!"
+ play_as_ruler_map_mode_lv1:0 "§H[This.GetName]§!\n[This.GetRulerTitle] §Y[This.GetRulerName]§! is Level §G1§!."
+ play_as_ruler_map_mode_lv2:0 "§H[This.GetName]§!\n[This.GetRulerTitle] §Y[This.GetRulerName]§! is Level §G2§!."
+ play_as_ruler_map_mode_lv3:0 "§H[This.GetName]§!\n[This.GetRulerTitle] §Y[This.GetRulerName]§! is Level §G3§!."
+ play_as_ruler_map_mode_lv4:0 "§H[This.GetName]§!\n[This.GetRulerTitle] §Y[This.GetRulerName]§! is Level §G4§!."
+ play_as_ruler_map_mode_lv5:0 "§H[This.GetName]§!\n[This.GetRulerTitle] §Y[This.GetRulerName]§! is Level §G5§!."
+ play_as_ruler_map_mode_lv6:0 "§H[This.GetName]§!\n[This.GetRulerTitle] §Y[This.GetRulerName]§! is Level §G6§!."
+ play_as_ruler_map_mode_lv7:0 "§H[This.GetName]§!\n[This.GetRulerTitle] §Y[This.GetRulerName]§! is Level §G7§!."
+ play_as_ruler_map_mode_lv8:0 "§H[This.GetName]§!\n[This.GetRulerTitle] §Y[This.GetRulerName]§! is Level §G8§!."
+ play_as_ruler_map_mode_lv9:0 "§H[This.GetName]§!\n[This.GetRulerTitle] §Y[This.GetRulerName]§! is Level §G9§!."
+ play_as_ruler_map_mode_lv10:0 "§H[This.GetName]§!\n[This.GetRulerTitle] §Y[This.GetRulerName]§! is Level §G10§!."
+ 
+
+ ####PLANET_EVENT######
+
+ ruler_planet_agrarian_good1:0 "Native Food Thrive"
+ ruler_planet_agrarian_good1_desc:0 "This planet's food has high value among any species."
+ ruler_planet_agrarian_good2:0 "Native Food Thrive"
+ ruler_planet_agrarian_good2_desc:0 "This planet's food has high value among any species."
+ ruler_planet_agrarian_bad1:0 "Native Food Impact"
+ ruler_planet_agrarian_bad1_desc:0 "Unfortunately, due to recently food event, this planet is suffering from its impact."
+ ruler_planet_agrarian_bad2:0 "Native Food Impact"
+ ruler_planet_agrarian_bad2_desc:0 "Unfortunately, due to recently food event, this planet is suffering from its impact."
+####HOBBY EVENT MODIFIERS####
+ ruler_teaching_to_play:0 "Teached Confidence"
+ ruler_teaching_to_play_desc:0 "This Empire had hired a professional speecher to improve the Ruler's confidence."
+ ###OPINION MODIFIER###
+ opinion_ruler_campaign_trade:0 "Xeno Trade Measures"
+ opinion_ruler_campaign_trust:0 "Trustworthy Partners"
+ opinion_ruler_campaign_trade2:0 "$opinion_ruler_campaign_trade$"
+ opinion_ruler_campaign_trust2:0 "$opinion_ruler_campaign_trust$"
+ opinion_ruler_campaign_xenophile:0 "Galactic Companions Campaign"
+ opinion_ruler_campaign_hive_mind_influence:0 "Trustful Hive Mind"

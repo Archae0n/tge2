@@ -1,0 +1,323 @@
+namespace = gai_edict
+event = {
+	id = gai_edict.1
+	hide_window = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+		every_country = {
+			limit = {
+				is_ai = yes
+				is_at_war = no
+				is_country_type = "default"
+				NOT = { has_global_flag = disable_gai_edict }
+				OR = {
+					influence > 500
+					AND = {
+						energy > 1000
+						has_monthly_income = {
+							resource = energy
+							value > 25
+						}
+					}
+				}
+			}
+			country_event = { id = gai_edict.2 }
+		}
+	}
+}
+
+country_event = {
+	id = gai_edict.2
+	hide_window = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { 
+				is_ai = yes
+				is_country_type = default
+				has_technology = tech_power_hub_1
+				NOT = { has_global_flag = disable_gai_edict }
+				NOT = { has_modifier = ai_capacity_overload_edict }
+				influence > 500
+			}
+			add_influence = -300
+			add_modifier = { 
+				modifier = ai_capacity_overload_edict
+				days = 3600
+			}
+		}
+		if = {
+			limit = { 
+				is_ai = yes
+				is_country_type = default
+				has_valid_civic = civic_fanatic_purifiers
+			}
+			add_modifier = { 
+				modifier = ai_purifier
+				days = -1
+			}
+		}
+		if = {
+			limit = { 
+				is_ai = yes
+				is_country_type = default
+				has_technology = tech_colonial_centralization
+				NOT = { has_global_flag = disable_gai_edict }
+				NOT = { has_modifier = ai_production_targets_edict }
+				has_modifier = ai_capacity_overload_edict
+				influence > 600
+			}
+			add_influence = -300
+			add_modifier = { 
+				modifier = ai_production_targets_edict
+				days = 3600
+			}
+		}
+		if = {
+			limit = { 
+				is_ai = yes
+				is_country_type = default
+				is_materialist = yes
+				NOT = { has_global_flag = disable_gai_edict }
+				NOT = { has_modifier = ai_research_focus_edict }
+				has_modifier = ai_capacity_overload_edict
+				influence > 700
+			}
+			add_influence = -300
+			add_modifier = { 
+				modifier = ai_research_focus_edict
+				days = 3600
+			}
+		}
+		if = {
+			limit = { 
+				is_ai = yes
+				is_country_type = default
+				has_technology = tech_planetary_unification
+				NOT = { has_global_flag = disable_gai_edict }
+				NOT = { has_modifier = ai_healthcare_campaign }
+				NOT = { has_authority = auth_machine_intelligence}
+				energy > 1000
+				has_monthly_income = {
+					resource = energy
+					value > 25
+				}
+			}
+			add_energy = -1000
+			add_modifier = { 
+				modifier = ai_healthcare_campaign
+				days = 3600
+			}
+		}
+		if = {
+			limit = { 
+				is_ai = yes
+				is_country_type = default
+				has_technology = tech_planetary_unification
+				NOT = { has_global_flag = disable_gai_edict }
+				NOT = { has_modifier = ai_robot_campaign }
+				has_authority = auth_machine_intelligence
+				energy > 1500
+				has_monthly_income = {
+					resource = energy
+					value > 25
+				}
+			}
+			add_energy = -1000
+			add_modifier = { 
+				modifier = ai_robot_campaign
+				days = 3600
+			}
+		}
+		if = {
+			limit = { 
+				is_ai = yes
+				is_country_type = default
+				has_technology = tech_planetary_unification
+				NOT = { has_global_flag = disable_gai_edict }
+				NOT = { has_modifier = ai_recycling_campaign }
+				has_authority = auth_machine_intelligence
+				energy > 1700
+				has_monthly_income = {
+					resource = energy
+					value > 25
+				}
+			}
+			add_energy = -1000
+			add_modifier = { 
+				modifier = ai_recycling_campaign
+				days = 3600
+			}
+		}
+		if = {
+			limit = { 
+				is_ai = yes
+				is_country_type = default
+				NOT = { has_valid_civic = civic_fanatic_purifiers }
+				NOT = { has_valid_civic = civic_machine_terminator }
+				NOT = { has_valid_civic = civic_machine_assimilator }
+				NOT = { has_valid_civic = civic_hive_devouring_swarm }
+				is_ai = yes
+				any_relation = {
+					has_government = gov_artist_enclave 
+				}
+				energy > 4800
+				has_monthly_income = {
+					resource = energy
+					value > 25
+				}
+			}
+			add_energy = -4000
+			add_modifier = { 
+				modifier = ai_simulate_enclave_artist_patron
+				days = 3600
+			}
+		}
+		if = {
+			limit = { 
+				is_ai = yes
+				is_country_type = default
+				NOT = { has_valid_civic = civic_fanatic_purifiers }
+				NOT = { has_valid_civic = civic_machine_terminator }
+				NOT = { has_valid_civic = civic_machine_assimilator }
+				NOT = { has_valid_civic = civic_hive_devouring_swarm }
+				NOT = { has_modifier = ai_simulate_min_trade_1 }
+				any_relation = {
+					has_government = gov_trader_enclave 
+				}
+				energy > 2800
+				energy < 7000
+				has_monthly_income = {
+					resource = energy
+					value > 10
+				}
+			}
+			add_energy = -2400
+			add_modifier = { 
+				modifier = ai_simulate_min_trade_1
+				days = 3600
+			}
+		}
+		if = {
+			limit = { 
+				is_ai = yes
+				is_country_type = default
+				NOT = { has_valid_civic = civic_fanatic_purifiers }
+				NOT = { has_valid_civic = civic_machine_terminator }
+				NOT = { has_valid_civic = civic_machine_assimilator }
+				NOT = { has_valid_civic = civic_hive_devouring_swarm }
+				NOT = { has_modifier = ai_simulate_min_trade_2 }
+				any_relation = {
+					has_government = gov_trader_enclave 
+				}
+				energy > 7000
+				energy < 12000
+				has_monthly_income = {
+					resource = energy
+					value > 10
+				}
+			}
+			add_energy = -6000
+			add_modifier = { 
+				modifier = ai_simulate_min_trade_2
+				days = 3600
+			}
+		}
+		if = {
+			limit = { 
+				is_ai = yes
+				is_country_type = default
+				NOT = { has_valid_civic = civic_fanatic_purifiers }
+				NOT = { has_valid_civic = civic_machine_terminator }
+				NOT = { has_valid_civic = civic_machine_assimilator }
+				NOT = { has_valid_civic = civic_hive_devouring_swarm }
+				NOT = { has_modifier = ai_simulate_min_trade_3 }
+				any_relation = {
+					has_government = gov_trader_enclave 
+				}
+				energy > 13000
+				has_monthly_income = {
+					resource = energy
+					value > 10
+				}
+			}
+			add_energy = -12000
+			add_modifier = { 
+				modifier = ai_simulate_min_trade_3
+				days = 3600
+			}
+		}
+		if = {
+			limit = { 
+				is_ai = yes
+				is_country_type = default
+				NOT = { has_valid_civic = civic_fanatic_purifiers }
+				NOT = { has_valid_civic = civic_machine_terminator }
+				NOT = { has_valid_civic = civic_machine_assimilator }
+				NOT = { has_valid_civic = civic_hive_devouring_swarm }
+				NOT = { has_modifier = ai_simulate_enclave_artist_patron }
+				AND = {
+					any_relation = {
+						has_government = gov_trader_enclave
+					}
+					OR = {
+						has_modifier = ai_simulate_min_trade_1
+						has_modifier = ai_simulate_min_trade_2
+						has_modifier = ai_simulate_min_trade_3
+					}
+				}
+				any_relation = {
+					has_government = gov_artist_enclave 
+				}
+				energy > 6000
+				has_monthly_income = {
+					resource = energy
+					value > 25
+				}
+			}
+			add_energy = -5000
+			add_modifier = { 
+				modifier = ai_simulate_enclave_artist_patron
+				days = 3600
+			}
+		}
+		if = {
+			limit = { 
+				is_ai = yes
+				is_country_type = default
+				NOT = { has_valid_civic = civic_fanatic_purifiers }
+				NOT = { has_valid_civic = civic_machine_terminator }
+				NOT = { has_valid_civic = civic_machine_assimilator }
+				NOT = { has_valid_civic = civic_hive_devouring_swarm }
+				NOT = { has_modifier = curator_insight }
+				AND = {
+					any_relation = {
+						has_government = gov_trader_enclave
+					}
+					OR = {
+						has_modifier = ai_simulate_min_trade_1
+						has_modifier = ai_simulate_min_trade_2
+						has_modifier = ai_simulate_min_trade_3
+					}
+				}
+				any_relation = {
+					has_government = gov_curator_enclave 
+				}
+				energy > 6000
+				has_monthly_income = {
+					resource = energy
+					value > 25
+				}
+			}
+			add_energy = -5000
+			add_modifier = { 
+				modifier = curator_insight
+				days = 3600
+			}
+		}
+	}
+}

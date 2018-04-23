@@ -1,0 +1,41 @@
+﻿l_english:
+
+### ENGLISH LOCALIZATION
+
+########################################
+###   Enigmatic Energy Discharger    ###
+########################################
+
+NHSC_ENIGMATIC_CANNON: "Enigmatic Energy Discharger"
+NHSC_ENIGMATIC_CANNON_DESC: "A powerful weapon that uses the enigmatic technology."
+
+########################################
+###      Enigmatic Energy Lash       ###
+########################################
+
+NHSC_ENIGMATIC_LASH: "Enigmatic Energy Lash"
+NHSC_ENIGMATIC_LASH_DESC: "An enigmatic-technology weapon that fries targets with energy discharges."
+
+########################################
+###   Enigmatic Energy Autocannon    ###
+########################################
+
+NHSC_ENIGMATIC_AUTOCANNON: "Enigmatic Energy Autocannon"
+NHSC_ENIGMATIC_AUTOCANNON_DESC: "An enigmatic-technology rapid-fire energy cannon."
+
+########################################
+###      Enigmatic Energy Lance      ###
+########################################
+
+NHSC_ENIGMATIC_LANCE: "Enigmatic Energy Lance"
+NHSC_ENIGMATIC_LANCE_DESC: "An enigmatic-technology particle lance."
+NHSC_ENIGMATIC_LANCE_TITANIC: "$NHSC_ENIGMATIC_LANCE$"
+NHSC_ENIGMATIC_LANCE_TITANIC_DESC: "$NHSC_ENIGMATIC_LANCE_DESC$"
+
+########################################
+###      Extradimensional Spike      ###
+########################################
+
+NHSC_EXTRADIMENSIONAL_PD: "Extradimensional Spike"
+NHSC_EXTRADIMENSIONAL_PD_DESC: "A weapon reverse-engineered from the Dimensional Horror. Hits an enemy with a spike thrust through a portal."
+

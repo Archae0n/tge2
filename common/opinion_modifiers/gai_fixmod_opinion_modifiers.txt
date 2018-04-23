@@ -1,0 +1,31 @@
+# Rivalry opinion modifier
+opinion_rivalry = {
+	opinion = {
+		base = -250
+		modifier = {
+			add = -100
+			OR = {
+				is_country_type = fallen_empire
+				is_country_type = awakened_fallen_empire
+			}
+		}		
+	}
+	
+	unique = yes
+}
+
+# Declared rival opinion modifier
+opinion_declared_rival = {
+	opinion = {
+		base = -250
+		modifier = {
+			add = -100
+			OR = {
+				is_country_type = fallen_empire
+				is_country_type = awakened_fallen_empire
+			}
+		}		
+	}
+	
+	unique = yes
+}

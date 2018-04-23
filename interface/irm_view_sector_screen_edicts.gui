@@ -1,0 +1,585 @@
+# IRM
+# Sector edicts screen
+
+guiTypes = {
+
+	@SCREEN_W = 370	# window general width
+	@SCREEN_H = 500 # window general height
+	@SCREEN_Xo = 20 # offset from widnow's left side
+
+	@BLOCK_Xo = 370
+	@BLOCK_Yo = 60
+	@BLOCK_Y2 = 220
+	@BLOCK_HEADER_COLOR = "W"
+
+	@ROW_Yo = 40
+	@ROW_W = 330
+	@ROW_H = 32
+	@ROW_TEXT_Xo = 38
+	@ROW_TEXT_Yo = 7
+
+	@ROW_Y1 = 0
+	@ROW_Y2 = 36
+	@ROW_Y3 = 72
+	@ROW_Y4 = 108
+	@ROW_Y5 = 144
+	@ROW_Y6 = 180
+	@ROW_Y7 = 216
+	@ROW_Y8 = 252
+	@ROW_Y9 = 288
+	@ROW_Y10= 324
+
+	# Close button
+	containerWindowType = {
+		name = "irm_option_sector_close_s"
+		position = { x = 0 y = 0 }
+		size = { width = 40 height = 40 }
+		moveable = no
+		
+		buttonType = {
+			name = "option_button"
+			quadTextureSprite = "GFX_close" 
+			position = { x = 6 y = 16 }
+			Orientation = "UPPER_LEFT"
+		}
+
+	}
+
+	# Edics
+	containerWindowType = {
+		name = "irm_option_edict_row"
+		position = { x = 0 y = 0 }
+		size = { width = 40 height = 36 }
+		orientation = UPPER_RIGHT
+		moveable = no
+		
+		buttonType = {
+			name = "option_button"
+			quadTextureSprite = "GFX_tiled_window_transparent"
+			position = { x = -80 y = 40 }
+			size = { x = 60 y = @ROW_H }
+			Orientation = "UPPER_RIGHT"
+			format = right		
+			font = "cg_16b"	
+		}
+	}
+
+	# General screen
+	containerWindowType = {
+		name = "irm_view_sector_screen_edicts"
+		orientation = center
+		origo = center
+		moveable = yes
+		size = { width = @SCREEN_W height = @SCREEN_H }
+
+		background = { name = "background" quadTextureSprite = "GFX_tile_outliner_bg" }
+
+		iconType = { name = "hex_bg" spriteType = "GFX_hex_bg" position = { x = -10 y = -14 } alwaysTransparent = yes }
+		iconType = { name = "empire_header_line" quadTextureSprite = "GFX_line" position = { x = 6 y = 22 } alwaysTransparent = yes }
+		
+		# Custom header
+		instantTextBoxType = {
+			name = "irm_some_header"
+			font = "malgun_goth_24"
+			position = { x = 20 y = 5 }
+			maxWidth = 543
+			maxHeight = 22
+			fixedSize = yes
+			alwaysTransparent = yes
+			text = "sector_screen.ui.block.edi" # header text
+		}
+
+		### ALL OF THIS IS HIDDEN OR DISPLACED ! ###
+
+		buttonType = { name = "focus_button" position = { x = -1111 y = -1111 } spriteType = "GFX_fleetview_focus" }
+		buttonType = { name = "close" quadTextureSprite = "GFX_close" position = { x = -1111 y = -1111 } }
+		instantTextBoxType = { name = "heading" font = "malgun_goth_24" position = { x = -1120 y = -115 } } # hidden
+		buttonType = { name = "alien_message_background" size = { x = 0 y = 0 } position = { x = -1110 y = -11430 } spriteType = "GFX_tiles_dark_area_cut_8" } # hidden
+		buttonType = { name = "confirm_button" quadTextureSprite = "GFX_standard_button_142_34_button" } # hidden
+		containerWindowType = {
+			name = "portrait_background"
+			position = { x = -1117 y = -1145 }
+			size = { width = 0 height = 0 }		# hide portrait window
+			iconType = { name = "event_picture" spriteType = "GFX_diplomacy_portrait_frame" } # hidden
+			iconType = { name = "portrait" spriteType = "GFX_portrait_character" } # hidden
+		}
+		containerWindowType = {
+			name = "portrait"
+			position = { x = -1117 y = -1145 }
+			size = { width = 0 height = 0 } # hide portrait window
+			iconType = { name = "portrait" spriteType = "GFX_portrait_gamesetup_mask"  } # hidden
+			iconType = { name = "black_frame" spriteType = "GFX_diplomacy_portrait_shadow_frame" } # hidden
+			iconType = { name = "stripes_1" spriteType = "GFX_diplomacy_stripes_2" } # hidden
+			iconType = { name = "city_frame" spriteType = "GFX_diplomacy_portrait_frame" } # hidden
+		}
+		iconType = { name = "empire_info_bg" spriteType = "GFX_diplomacy_dark_fade_bg" } # hidden
+		instantTextBoxType = { name = "empire_name" font = "malgun_goth_24" } # hidden 
+		instantTextBoxType = { name = "empire_government_type" font = "cg_16b" } # hidden
+		instantTextBoxType = { name = "empire_personality_type" font = "cg_16b" } # hidden
+		OverlappingElementsBoxType = { name = "empire_ethics_icons" position = { x = -1145 y = -11138 } } # hidden
+		buttonType = { name = "empire_flag" quadTextureSprite = "GFX_empire_flag_128_trader" position = { x = 25 y = 240 } orientation = UPPER_LEFT }
+		containerWindowType = {
+			name = "leader_details"
+			position = { x = -1125 y = -1175 }
+			containerWindowType = { name = "empire_traits_box" } # hidden
+			instantTextBoxType = { name = "empire_traits_label" font = "cg_16b" } # hidden
+			overlappingElementsBoxType = { name = "leader_traits" } # hidden
+			instantTextBoxType = { name = "leader_name" font = "cg_16b" } # hidden
+			instantTextBoxType = { name = "leader_species" font = "cg_16b" } # hidden
+		}
+		containerWindowType = {
+			name = "opinion_window"
+			position = { x = -1127 y = -11110 }
+			size = { width = 94 height = 30 }
+			iconType = { name = "their_opinion_icon" spriteType = "GFX_diplomacy_opinion" } # hidden
+			instantTextBoxType = { name = "their_opinion" font = "cg_16b" }
+		}
+
+
+		# GENERAL CONTENT
+
+		# Backframe
+		containerWindowType = {
+			name = "irm_view_sector_screen_backframe"
+			position = { x = @SCREEN_Xo y = @BLOCK_Yo }
+			size = { width = @SCREEN_W height = @SCREEN_H }
+			orientation = upper_left
+			moveable = no
+
+			@CBOX_Xo = 3
+			@CBOX_Yo = 0
+
+			# Edicts
+			containerWindowType = {
+				name = "sector_edicts"
+				position = { x = 0 y = 20 }
+				orientation = upper_left
+				moveable = no
+
+				# Capital
+				containerWindowType = {
+					name = "sector_edict_capital"
+					position = { x = 0 y = @ROW_Y1 }
+					size = { width = @ROW_W height = @ROW_H }
+					background = { name = "bg" spriteType = "GFX_black_box_bg" pdx_tooltip = "sector_screen.ui.block.edi.edict_capital.desc" }				
+
+					effectButtonType = {
+						name = "on"
+						position = { x = @CBOX_Xo y = @CBOX_Yo }
+						quadTextureSprite = "GFX_checkbox_20_20_01"
+						oversound = menu_over_01
+						effect = "ui_cb_edict_capital_on"
+					}
+					effectButtonType = {
+						name = "off"
+						position = { x = @CBOX_Xo y = @CBOX_Yo }
+						quadTextureSprite = "GFX_checkbox_20_20_01"
+						oversound = menu_over_01
+						effect = "ui_cb_edict_capital_off"
+						frame = 2
+					}
+					instantTextBoxType = {
+						name = "txt"
+						position = { x = @ROW_TEXT_Xo y = @ROW_TEXT_Yo }
+						maxWidth = @ROW_W
+						alwaysTransparent = yes
+						text_color_code = "E"				
+						format = left
+						font = "cg_16b"
+						text = "sector_screen.ui.block.edi.edict_capital"
+					}					
+
+				} #e
+
+				# Mining (strategic resources)
+				containerWindowType = {
+					name = "sector_edict_mining"
+					position = { x = 0 y = @ROW_Y2 }
+					size = { width = @ROW_W height = @ROW_H }
+					background = { name = "bg" spriteType = "GFX_black_box_bg" pdx_tooltip = "sector_screen.ui.block.edi.edict_mining.desc" }				
+
+					effectButtonType = {
+						name = "on"
+						position = { x = @CBOX_Xo y = @CBOX_Yo }
+						quadTextureSprite = "GFX_checkbox_20_20_01"
+						oversound = menu_over_01
+						effect = "ui_cb_edict_mining_on"
+					}
+					effectButtonType = {
+						name = "off"
+						position = { x = @CBOX_Xo y = @CBOX_Yo }
+						quadTextureSprite = "GFX_checkbox_20_20_01"
+						oversound = menu_over_01
+						effect = "ui_cb_edict_mining_off"
+						frame = 2
+					}
+					instantTextBoxType = {
+						name = "txt"
+						position = { x = @ROW_TEXT_Xo y = @ROW_TEXT_Yo }
+						maxWidth = @ROW_W
+						alwaysTransparent = yes
+						text_color_code = "E"				
+						format = left
+						font = "cg_16b"
+						text = "sector_screen.ui.block.edi.edict_mining"
+					}					
+
+				} #e				
+
+				# Assets (Upkeep for mining & research stations)
+				containerWindowType = {
+					name = "sector_edict_assets"
+					position = { x = 0 y = @ROW_Y3 }
+					size = { width = @ROW_W height = @ROW_H }
+					background = { name = "bg" spriteType = "GFX_black_box_bg" pdx_tooltip = "sector_screen.ui.block.edi.edict_assets.desc" }				
+
+					effectButtonType = {
+						name = "on"
+						position = { x = @CBOX_Xo y = @CBOX_Yo }
+						quadTextureSprite = "GFX_checkbox_20_20_01"
+						oversound = menu_over_01
+						effect = "ui_cb_edict_assets_on"
+					}
+					effectButtonType = {
+						name = "off"
+						position = { x = @CBOX_Xo y = @CBOX_Yo }
+						quadTextureSprite = "GFX_checkbox_20_20_01"
+						oversound = menu_over_01
+						effect = "ui_cb_edict_assets_off"
+						frame = 2
+					}
+					instantTextBoxType = {
+						name = "txt"
+						position = { x = @ROW_TEXT_Xo y = @ROW_TEXT_Yo }
+						maxWidth = @ROW_W
+						alwaysTransparent = yes
+						text_color_code = "E"				
+						format = left
+						font = "cg_16b"
+						text = "sector_screen.ui.block.edi.edict_assets"
+					}					
+
+				} #e
+
+				# Internal Colonization
+				containerWindowType = {
+					name = "sector_edict_colony"
+					position = { x = 0 y = @ROW_Y4 }
+					size = { width = @ROW_W height = @ROW_H }
+					background = { name = "bg" spriteType = "GFX_black_box_bg" pdx_tooltip = "sector_screen.ui.block.edi.edict_colony.desc" }				
+
+					effectButtonType = {
+						name = "on"
+						position = { x = @CBOX_Xo y = @CBOX_Yo }
+						quadTextureSprite = "GFX_checkbox_20_20_01"
+						oversound = menu_over_01
+						effect = "ui_cb_edict_colony_on"
+					}
+					effectButtonType = {
+						name = "off"
+						position = { x = @CBOX_Xo y = @CBOX_Yo }
+						quadTextureSprite = "GFX_checkbox_20_20_01"
+						oversound = menu_over_01
+						effect = "ui_cb_edict_colony_off"
+						frame = 2
+					}
+					instantTextBoxType = {
+						name = "txt"
+						position = { x = @ROW_TEXT_Xo y = @ROW_TEXT_Yo }
+						maxWidth = @ROW_W
+						alwaysTransparent = yes
+						text_color_code = "E"				
+						format = left
+						font = "cg_16b"
+						text = "sector_screen.ui.block.edi.edict_colony"
+					}					
+
+				} #e
+
+				# Trade Support
+				containerWindowType = {
+					name = "sector_edict_trade"
+					position = { x = 0 y = @ROW_Y5 }
+					size = { width = @ROW_W height = @ROW_H }
+					background = { name = "bg" spriteType = "GFX_black_box_bg" pdx_tooltip = "sector_screen.ui.block.edi.edict_trade.desc" }				
+
+					effectButtonType = {
+						name = "on"
+						position = { x = @CBOX_Xo y = @CBOX_Yo }
+						quadTextureSprite = "GFX_checkbox_20_20_01"
+						oversound = menu_over_01
+						effect = "ui_cb_edict_trade_on"
+					}
+					effectButtonType = {
+						name = "off"
+						position = { x = @CBOX_Xo y = @CBOX_Yo }
+						quadTextureSprite = "GFX_checkbox_20_20_01"
+						oversound = menu_over_01
+						effect = "ui_cb_edict_trade_off"
+						frame = 2
+					}
+					instantTextBoxType = {
+						name = "txt"
+						position = { x = @ROW_TEXT_Xo y = @ROW_TEXT_Yo }
+						maxWidth = @ROW_W
+						alwaysTransparent = yes
+						text_color_code = "E"				
+						format = left
+						font = "cg_16b"
+						text = "sector_screen.ui.block.edi.edict_trade"
+					}					
+
+				} #e
+
+				# Leadership Education
+				containerWindowType = {
+					name = "sector_edict_leadership"
+					position = { x = 0 y = @ROW_Y6 }
+					size = { width = @ROW_W height = @ROW_H }
+					background = { name = "bg" spriteType = "GFX_black_box_bg" pdx_tooltip = "sector_screen.ui.block.edi.edict_leadership.desc" }				
+
+					effectButtonType = {
+						name = "on"
+						position = { x = @CBOX_Xo y = @CBOX_Yo }
+						quadTextureSprite = "GFX_checkbox_20_20_01"
+						oversound = menu_over_01
+						effect = "ui_cb_edict_leadership_on"
+					}
+					effectButtonType = {
+						name = "off"
+						position = { x = @CBOX_Xo y = @CBOX_Yo }
+						quadTextureSprite = "GFX_checkbox_20_20_01"
+						oversound = menu_over_01
+						effect = "ui_cb_edict_leadership_off"
+						frame = 2
+					}
+					instantTextBoxType = {
+						name = "txt"
+						position = { x = @ROW_TEXT_Xo y = @ROW_TEXT_Yo }
+						maxWidth = @ROW_W
+						alwaysTransparent = yes
+						text_color_code = "E"				
+						format = left
+						font = "cg_16b"
+						text = "sector_screen.ui.block.edi.edict_leadership"
+					}					
+
+				} #e
+
+				# Regionalism Reduction
+				containerWindowType = {
+					name = "sector_edict_propaganda"
+					position = { x = 0 y = @ROW_Y7 }
+					size = { width = @ROW_W height = @ROW_H }
+					background = { name = "bg" spriteType = "GFX_black_box_bg" pdx_tooltip = "sector_screen.ui.block.edi.edict_propaganda.desc" }				
+
+					effectButtonType = {
+						name = "on"
+						position = { x = @CBOX_Xo y = @CBOX_Yo }
+						quadTextureSprite = "GFX_checkbox_20_20_01"
+						oversound = menu_over_01
+						effect = "ui_cb_edict_propaganda_on"
+					}
+					effectButtonType = {
+						name = "off"
+						position = { x = @CBOX_Xo y = @CBOX_Yo }
+						quadTextureSprite = "GFX_checkbox_20_20_01"
+						oversound = menu_over_01
+						effect = "ui_cb_edict_propaganda_off"
+						frame = 2
+					}
+					instantTextBoxType = {
+						name = "txt"
+						position = { x = @ROW_TEXT_Xo y = @ROW_TEXT_Yo }
+						maxWidth = @ROW_W
+						alwaysTransparent = yes
+						text_color_code = "E"				
+						format = left
+						font = "cg_16b"
+						text = "sector_screen.ui.block.edi.edict_propaganda"
+					}					
+
+				} #e
+
+				# Faction Happiness
+				containerWindowType = {
+					name = "sector_edict_faction"
+					position = { x = 0 y = @ROW_Y8 }
+					size = { width = @ROW_W height = @ROW_H }
+					background = { name = "bg" spriteType = "GFX_black_box_bg" pdx_tooltip = "sector_screen.ui.block.edi.edict_faction.desc" }				
+
+					effectButtonType = {
+						name = "on"
+						position = { x = @CBOX_Xo y = @CBOX_Yo }
+						quadTextureSprite = "GFX_checkbox_20_20_01"
+						oversound = menu_over_01
+						effect = "ui_cb_edict_faction_on"
+					}
+					effectButtonType = {
+						name = "off"
+						position = { x = @CBOX_Xo y = @CBOX_Yo }
+						quadTextureSprite = "GFX_checkbox_20_20_01"
+						oversound = menu_over_01
+						effect = "ui_cb_edict_faction_off"
+						frame = 2
+					}
+					instantTextBoxType = {
+						name = "txt"
+						position = { x = @ROW_TEXT_Xo y = @ROW_TEXT_Yo }
+						maxWidth = @ROW_W
+						alwaysTransparent = yes
+						text_color_code = "E"				
+						format = left
+						font = "cg_16b"
+						text = "sector_screen.ui.block.edi.edict_faction"
+					}					
+
+				} #e				
+
+
+				# Military Training
+				containerWindowType = {
+					name = "sector_edict_training"
+					position = { x = 0 y = @ROW_Y9 }
+					size = { width = @ROW_W height = @ROW_H }
+					background = { name = "bg" spriteType = "GFX_black_box_bg" pdx_tooltip = "sector_screen.ui.block.edi.edict_training.desc" }				
+
+					effectButtonType = {
+						name = "on"
+						position = { x = @CBOX_Xo y = @CBOX_Yo }
+						quadTextureSprite = "GFX_checkbox_20_20_01"
+						oversound = menu_over_01
+						effect = "ui_cb_edict_training_on"
+					}
+					effectButtonType = {
+						name = "off"
+						position = { x = @CBOX_Xo y = @CBOX_Yo }
+						quadTextureSprite = "GFX_checkbox_20_20_01"
+						oversound = menu_over_01
+						effect = "ui_cb_edict_training_off"
+						frame = 2
+					}
+					instantTextBoxType = {
+						name = "txt"
+						position = { x = @ROW_TEXT_Xo y = @ROW_TEXT_Yo }
+						maxWidth = @ROW_W
+						alwaysTransparent = yes
+						text_color_code = "E"				
+						format = left
+						font = "cg_16b"
+						text = "sector_screen.ui.block.edi.edict_training"
+					}					
+
+				} #e
+
+
+				# Anti Piracy
+				containerWindowType = {
+					name = "sector_edict_piracy"
+					position = { x = 0 y = @ROW_Y10 }
+					size = { width = @ROW_W height = @ROW_H }
+					background = { name = "bg" spriteType = "GFX_black_box_bg" pdx_tooltip = "sector_screen.ui.block.edi.edict_piracy.desc" }				
+
+					effectButtonType = {
+						name = "on"
+						position = { x = @CBOX_Xo y = @CBOX_Yo }
+						quadTextureSprite = "GFX_checkbox_20_20_01"
+						oversound = menu_over_01
+						effect = "ui_cb_edict_piracy_on"
+					}
+					effectButtonType = {
+						name = "off"
+						position = { x = @CBOX_Xo y = @CBOX_Yo }
+						quadTextureSprite = "GFX_checkbox_20_20_01"
+						oversound = menu_over_01
+						effect = "ui_cb_edict_piracy_off"
+						frame = 2
+					}
+					instantTextBoxType = {
+						name = "txt"
+						position = { x = @ROW_TEXT_Xo y = @ROW_TEXT_Yo }
+						maxWidth = @ROW_W
+						alwaysTransparent = yes
+						text_color_code = "E"				
+						format = left
+						font = "cg_16b"
+						text = "sector_screen.ui.block.edi.edict_piracy"
+					}					
+
+				} #e
+
+			}
+
+		}
+
+
+		### EVENT DIPLO ###
+		
+		containerWindowType = {
+			name = "EVENT_DIPLO"
+			position = { x = 300 y = 0 }
+			size = { width = 50 height = @SCREEN_H }
+			orientation = UPPER_LEFT
+			moveable = no
+			
+			# Sector Name
+			# sector_screen.ui.sector.name
+			instantTextBoxType = {
+				name = "action_title"
+				position = { x = -1111 y = -1111 }
+				maxWidth = 800
+				alwaysTransparent = yes
+				format = left
+				text_color_code = "E"				
+				font = "large_title_font"
+			}
+			
+			instantTextBoxType = {
+				name = "action_desc"
+				font = "malgun_goth_24"
+				position = { x = -1111 y = -1111 }
+				Orientation = "UPPER_LEFT"
+				format = center
+				alwaysTransparent = yes
+				text_color_code = "H"
+			}
+
+			# Custom buttons & text
+			# This block is used for all row's values
+			listboxType = {
+				name = "option_list"
+				position = { x = @SCREEN_Xo y = 0 }
+				size = { x = 50 y = @SCREEN_H }
+				orientation = "UPPER_LEFT"
+				backGround = ""
+			}
+
+		}
+
+		# Description Section
+		instantTextBoxType = {
+			name = "alien_message"
+			font = "cg_16b"
+			position = { x = -1111 y = -1111 }
+			format = left
+			scrollbartype = "standardtext_slider"
+		}
+
+		# TOOLTIPS
+
+		# Global edict cost tooltip
+		effectButtonType = {
+			name = "edict_cost_tooltip"
+			position = { x = 290 y = 84 }
+			size = { x = 60 y = 344 }
+			quadTextureSprite = "GFX_tiled_window_transparent"
+			oversound = menu_over_01
+			effect = "ui_tt_edict_cost"
+		}
+
+
+	}
+
+}
+
+

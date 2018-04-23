@@ -1,0 +1,65 @@
+FE_Spiritualist= {
+	
+	randomized = no
+
+	portraits = {
+	}
+
+	graphical_culture = fe_spiritualist
+	move_pop_sound_effect = "moving_pop_confirmation"
+}
+
+FE_Materialist = {
+	
+	randomized = no
+
+	portraits = {
+	}
+
+	graphical_culture = fe_materialist
+	move_pop_sound_effect = "moving_pop_confirmation"
+}
+
+FE_Xenophile = {
+	
+	randomized = no
+
+	portraits = {
+	}
+
+	graphical_culture = fe_xenophile
+	move_pop_sound_effect = "moving_pop_confirmation"
+}
+
+FE_Xenophobe = {
+	
+	randomized = no
+
+	portraits = {
+	}
+
+	graphical_culture = fe_xenophobe
+	move_pop_sound_effect = "moving_pop_confirmation"
+}
+
+FE_Mechanical = {
+	
+	randomized = no
+
+	portraits = {
+	}
+
+	graphical_culture = fe_mechanical
+	move_pop_sound_effect = "moving_pop_confirmation"
+}
+
+FE_National = {
+	
+	randomized = no
+
+	portraits = {
+	}
+
+	graphical_culture = fe_national
+	move_pop_sound_effect = "moving_pop_confirmation"
+}

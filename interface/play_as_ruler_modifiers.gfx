@@ -1,0 +1,71 @@
+spriteTypes = {	
+	### PLACEHOLDER
+	spriteType = {
+		name = "GFX_country_resource_unity_add"
+		texturefile = "gfx/interface/icons/modifiers/unknown.dds"
+	}
+	spriteType = {
+		name = "GFX_country_resource_physics_research_add"
+		texturefile = "gfx/interface/icons/modifiers/unknown.dds"
+	}
+	spriteType = {
+		name = "GFX_country_resource_society_research_add"
+		texturefile = "gfx/interface/icons/modifiers/unknown.dds"
+	}
+	spriteType = {
+		name = "GFX_country_resource_engineering_research_add"
+		texturefile = "gfx/interface/icons/modifiers/unknown.dds"
+	}
+	spriteType = {
+		name = "GFX_mod_ship_windup_mult"
+		texturefile = "gfx/interface/icons/modifiers/unknown.dds"
+	}
+	spriteType = {
+		name = "GFX_mod_ship_winddown_mult"
+		texturefile = "gfx/interface/icons/modifiers/unknown.dds"
+	}
+	spriteType = {
+		name = "GFX_mod_ship_interstellar_speed_mult"
+		texturefile = "gfx/interface/icons/modifiers/unknown.dds"
+	}
+	spriteType = {
+		name = "GFX_mod_ship_ftl_wormhole_speed_mult"
+		texturefile = "gfx/interface/icons/modifiers/unknown.dds"
+	}
+	spriteType = {
+		name = "GFX_mod_ship_emergency_ftl"
+		texturefile = "gfx/interface/icons/modifiers/unknown.dds"
+	}
+	spriteType = {
+		name = "GFX_mod_ship_accuracy_add"
+		texturefile = "gfx/interface/icons/modifiers/unknown.dds"
+	}
+	spriteType = {
+		name = "GFX_mod_ship_evasion_add"
+		texturefile = "gfx/interface/icons/modifiers/unknown.dds"
+	}
+	spriteType = {
+		name = "GFX_mod_ship_sensor_range_mult"
+		texturefile = "gfx/interface/icons/modifiers/unknown.dds"
+	}
+	spriteType = {
+		name = "GFX_mod_country_trust_cap_add"
+		texturefile = "gfx/interface/icons/modifiers/unknown.dds"
+	}
+	spriteType = {
+		name = "GFX_mod_country_diplomacy_influence_cost"
+		texturefile = "gfx/interface/icons/modifiers/unknown.dds"
+	}
+	spriteType = {
+		name = "GFX_mod_planet_colony_development_speed_mult"
+		texturefile = "gfx/interface/icons/modifiers/unknown.dds"
+	}
+	spriteType = {
+		name = "GFX_mod_country_faction_influence_mult"
+		texturefile = "gfx/interface/icons/modifiers/unknown.dds"
+	}
+	spriteType = {
+		name = "GFX_mod_country_rivalry_influence_gain"
+		texturefile = "gfx/interface/icons/modifiers/unknown.dds"
+	}
+}

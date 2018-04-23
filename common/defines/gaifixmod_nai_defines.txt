@@ -1,0 +1,238 @@
+
+	NGameplay = {
+		MAX_FRICTION 						= 125	# Max friction (total)
+		FRICTION_FROM_BORDERING_SYSTEM 		= 4	# Friction for each bordering system
+	}
+
+	NAI = {
+		TRADE_VALUE_STRATEGIC_RESOURCE_POP = 0.001 # Extra strategic resource value per pop
+		
+		THRESHOLD_DISBAND_SHIPS = 25
+		
+		TRADE_MIN_RESOURCE_STOCKPILE = 1000
+		TRADE_RESOURCE_STOCKPILE_UNDER = 0.25	# AI will want to trade one resource for another if stockpile is this low (fraction of max storage)
+		TRADE_RESOURCE_STOCKPILE_OVER = 0.50	# AI will want to trade one resource for another if stockpile is over this (fraction of max storage)
+
+		CAPITAL_RESOURCE_IMPORTANCE = 0 	# How important is it for the AI to place its colonial capital on suitable resources?
+		CAPITAL_WRONG_RESOURCE_IMPORTANCE = 5 	# How important is it for the AI to avoid placing its colonial capital on non-suitable resources?
+		CAPITAL_STRATEGIC_RESOURCE_IMPORTANCE = 20 # How important is it for the AI to not put its capital on strategic resources?
+		CAPITAL_ADJACENCY_IMPORTANCE = 10 # How important is it for the AI to place the capital so that it has numerous adjacent tiles
+		CAPITAL_ADJACENCY_BLOCKER_IMPORTANCE = 0 # How important is it for the AI to place the capital so that it isn't surrounded by tile blockers
+		
+		MAX_SHIPS_BUILD_PER_WEEK = 25
+		MAX_SHIPS_DISBAND_PER_WEEK = 1
+		
+		TERRAFORM_SAVE_CREDITS = 1				# AI wants to have at least this much energy over after starting a terraforming
+		BLOCKERS_SAVE_CREDITS = 1					# Sector AI wants to have at least this much energy over after starting to clear a blocker
+		MEGASTRUCTURE_SAVE_INFLUENCE = 1			# AI wants to have at least this much influence over after starting a megastructure project
+		DOCKED_FLEET_MAINTENANCE_REDUCTION = 0	# AI assumes that it can save this much maintenance on new ships by docking them
+		
+		WAS_HUMAN_MONTHS = 1							# Amount of months that the AI will refrain from making large changes to the empire if it's taking over from a player
+		POP_RESETTLEMENT_PRIO = 12				# AI Will prioritize resettling to achieve these many pops in each colony before anything else
+		
+		AI_AGGRESSIVENESS_LOW_MULT = 0.5		
+		AI_AGGRESSIVENESS_HIGH_MULT = 100			
+		AI_AGGRESSIVENESS_BASE = 75			# Base chance AI will declare a war (multiplied by personality aggressiveness score)
+		AI_AGGRESSIVENESS_PROPAGATOR_BOXED_IN_MULT = 2000	# When a warlike 'propagator' personality is boxed in aggression is multiplied by this value
+		AI_AGGRESSIVENESS_BOXED_IN_MULT = 500	# When an AI can no longer peacefully expand aggression is multiplied by this value
+		AI_AGGRESSIVENESS_NO_COLONY_TARGET_MULT = 500 # When an AI has no immediate colony targets and at least MAX_PLANETS_FOR_BUDGET_FACTOR planets (but is not boxed in) aggression is multiplied by this value
+
+
+		BASE_BUILDING_BUDGET = 0			# Always reserve this much energy budget for buildings before giving budget anywhere else
+		BASE_STATION_BUDGET = 0				# Always reserve this much energy budget for stations before giving budget anywhere else
+		BASE_ROBOT_BUDGET = 0				# In a robot/machine country always reserve this much energy budget for robots/machines before giving budget anywhere else
+		BASE_ARMY_BUDGET = 0				# Always reserve this much energy budget for armies before giving budget anywhere else (after first 20 years of gameplay)
+		
+		DISBAND_THRESHOLD = 0.95			# If budget does not cover at least this fraction of the navy maintenance disband ships & stations
+		MIN_NAVY_BUDGET = 0			# Always add this amount to the navy budget so we can have at least a few ships
+		MIN_ARMY_BUDGET = 0			# Always add this amount to the army budget so we can have at least a few armies
+		
+		ENERGY_COLONY_BUDGET_FRACTION = 0.425		# AI will spend this fraction of their energy on new colonies
+		ENERGY_TILE_BLOCKER_BUDGET_FRACTION = 0.425	# AI will spend this fraction of their energy on tile blockers
+		ENERGY_ROBOT_BUDGET_FRACTION = 0.00			# AI will spend this fraction of their energy on robots (transfered to colonies if no robots)
+		ENERGY_EDICTS_BUDGET_FRACTION = 0.00		# AI will spend this fraction of their energy on edicts
+		ENERGY_LEADERS_BUDGET_FRACTION = 0.075		# Fraction of AI energy that goes to recruiting leaders
+		ENERGY_RESETTLEMENT_BUDGET_FRACTION = 0.075	# Fraction of AI energy that is used for resettlement		
+		ENERGY_SAVINGS_BUDGET_FRACTION = 0.00		# AI will spend this fraction of their energy on savings
+		
+		###Paradox Numbers###
+		#ENERGY_COLONY_BUDGET_FRACTION = 0.25		# AI will spend this fraction of their energy on new colonies
+		#ENERGY_TILE_BLOCKER_BUDGET_FRACTION = 0.25	# AI will spend this fraction of their energy on tile blockers
+		#ENERGY_ROBOT_BUDGET_FRACTION = 0.0			# AI will spend this fraction of their energy on robots (transfered to colonies if no robots)
+		#ENERGY_EDICTS_BUDGET_FRACTION = 0.10		# AI will spend this fraction of their energy on edicts
+		#ENERGY_LEADERS_BUDGET_FRACTION = 0.20		# Fraction of AI energy that goes to recruiting leaders
+		#ENERGY_RESETTLEMENT_BUDGET_FRACTION = 0.10	# Fraction of AI energy that is used for resettlement		
+		#ENERGY_SAVINGS_BUDGET_FRACTION = 0.10		# AI will spend this fraction of their energy on savings
+		###Paradox Numbers###
+		
+		SAVINGS_BUDGET_FRACTION = 0.00 		# AI will spend this fraction of their income on savings (normally not needed as fleets in dock will result in energy surplus)
+		ARMY_BUDGET_FRACTION = 0.05   			# AI will spend this fraction of their income on armies
+		NAVY_BUDGET_FRACTION = 0.08 			# AI will spend this fraction of their income on ships
+		STATION_BUDGET_FRACTION =  0.00 		# AI will spend this fraction of their income on stations
+		BUILDING_BUDGET_FRACTION = 0.00 		# AI will spend this fraction of their income on buildings
+		ROBOT_BUDGET_FRACTION = 0.87			# AI will spend this fraction of their income on robots (transfered to stations & buildings if they don't use robots)
+		STARBASE_BUDGET_FRACTION = 0.00
+		
+		###Paradox Numbers###
+		#SAVINGS_BUDGET_FRACTION = 0.00 		# AI will spend this fraction of their income on savings (normally not needed as fleets in dock will result in energy surplus)
+		#ARMY_BUDGET_FRACTION = 0.05   			# AI will spend this fraction of their income on armies
+		#NAVY_BUDGET_FRACTION = 0.15 			# AI will spend this fraction of their income on ships
+		#STATION_BUDGET_FRACTION = 0.25 		# AI will spend this fraction of their income on stations
+		#BUILDING_BUDGET_FRACTION = 0.40 		# AI will spend this fraction of their income on buildings
+		#ROBOT_BUDGET_FRACTION = 0.10			# AI will spend this fraction of their income on robots (transfered to stations & buildings if they don't use robots)
+		#STARBASE_BUDGET_FRACTION = 0.10
+		###Paradox Numbers###
+		
+		#####Main Empire Numbers#####
+		MINERAL_ARMY_BUDGET_FRACTION = 0.00				# AI will spend this fraction on armies
+		MINERAL_NAVY_BUDGET_FRACTION = 0.00 			# Receives additional funding from AI_DESIRED_NAVY_MINERALS_AT_WAR
+		MINERAL_STATION_BUDGET_FRACTION = 0.05			# Receives from star base
+		MINERAL_STARBASE_BUDGET_FRACTION = 0.25			# gives to station
+		MINERAL_BUILDING_BUDGET_FRACTION = 0.05			# Receives from Robots and colonies
+		MINERAL_COLONY_BUDGET_FRACTION = 0.20			# Gives to Buildings
+		MINERAL_ROBOT_BUDGET_FRACTION = 0.45			# Gives to buildings
+		MINERAL_MEGASTRUCTURE_BUDGET_FRACTION = 0.15
+		#####Main Empire Numbers#####
+		
+		###Paradox Numbers###
+		#MINERAL_NAVY_BUDGET_FRACTION = 0.15 			# AI will spend this fraction of their stored minerals on ships
+		#MINERAL_STATION_BUDGET_FRACTION = 0.15			# AI will spend this fraction of their stored minerals on stations
+		#MINERAL_STARBASE_BUDGET_FRACTION = 0.25			# AI will spend this fraction of their stored minerals on starbases
+		#MINERAL_ARMY_BUDGET_FRACTION = 0.05				# AI will spend this fraction on armies
+		#MINERAL_TILE_BLOCKER_BUDGET_FRACTION = 0.00		# AI will spend this fraction on tile blockers
+		#MINERAL_BUILDING_BUDGET_FRACTION = 0.25			# AI will spend this fraction of their stored minerals on buildings
+		#MINERAL_COLONY_BUDGET_FRACTION = 0.10			# AI will spend this fraction of their stored minerals on colony ships
+		#MINERAL_ROBOT_BUDGET_FRACTION = 0.10			# AI will spend this fraction of their stored minerals on robots (transfered to buildings if they don't use robots)
+		#MINERAL_EDICTS_BUDGET_FRACTION = 0.0			# AI will spend this fraction of their stored minerals on edicts
+		#MINERAL_MEGASTRUCTURE_BUDGET_FRACTION = 0.10	# AI will spend this fraction of their stored minerals on megastructures (taken from stations & buildings)
+		###Paradox Numbers###
+		
+		#####SECTORS#####
+		SECTOR_COLONY_MINERALS_BUDGET_FRACTION = 0.20		# Fraction of sector minerals budget going to colonies
+		SECTOR_STATION_MINERALS_BUDGET_FRACTION = 0.00		# Fraction of sector minerals budget going to stations
+		SECTOR_BUILDING_MINERALS_BUDGET_FRACTION = 0.30		# Fraction of sector minerals budget going to buildings
+		SECTOR_ROBOT_MINERALS_BUDGET_FRACTION = 0.40		# Fraction of sector minerals budget going to robots
+		SECTOR_TILE_BLOCKER_MINERALS_BUDGET_FRACTION = 0.00	# Fraction of sector minerals budget going to tile blockers
+		SECTOR_STARBASE_MINERALS_BUDGET_FRACTION = 0.10	# Fraction of sector minerals budget going to starbases
+		SECTOR_ARMY_MINERALS_BUDGET_FRACTION = 0.00			# Fraction of sector minerals budget going to armies
+		
+		SECTOR_TILE_BLOCKER_ENERGY_BUDGET_FRACTION = 0.80	# Fraction of sector energy budget going to tile blockers
+		SECTOR_ROBOT_ENERGY_BUDGET_FRACTION = 0.20 			# Fraction of sector energy budget going to robots
+		#####SECTORS#####
+		AI_SECTOR_ENERGY_BOOST_THRESHOLD = 400			
+		AI_SECTOR_MINERAL_BOOST_THRESHOLD = 800
+		RESOURCES_FOR_HIGH_SECTOR_SHARE = 500			# At this number of stockpiled resources raise sector tax to 75% (0 = never use)
+
+		
+		DANGER_BUDGET_FACTOR = 0.00				# Handled by AI_DESIRED_NAVY_MINERALS_AT_WAR
+		SHIPSIZE_BUDGET_FACTOR = 0.15
+		PLANET_BUDGET_FACTOR = 0.00			# When AI has few planets it will decrease building/mil station budget by this and put it into colonies/stations instead
+		MAX_PLANETS_FOR_BUDGET_FACTOR = 1		# At this amount of planets budget is normalized
+		MAX_SYSTEMS_FOR_BUDGET_FACTOR = 1 # At this amount of systems budget priority shifts to colonies
+
+		ROBOT_EMPIRE_EXTRA_ROBOT_BUDGET = 0.00			# If the empire is a machine/synthetic empire, this amount of all other budget is transfered into constructing robot pops
+		AI_BUDGETING_START_YEARS = 1					# These variables are used for some of the AI's budgeting to ensure it prioritizes the right things early on
+		AI_BUDGETING_MID_YEARS = 1
+		AI_BUDGETING_LATE_YEARS = 1
+
+		# Below values are increased when mineral storage capacity goes up
+		ABS_MAX_MINERALS_STORED_NAVY = 40000		# Max regardless of cap multiplier
+		MAX_MINERALS_STORED_NAVY = 5000				# Minerals AI will store for navy when it needs more
+		MIN_MINERALS_STORED_NAVY = 0				# Minerals AI will store for navy when it does not need more 
+		ABS_MAX_MINERALS_STORED_BUILDINGS = 10000	# Max regardless of cap multiplier
+		MAX_MINERALS_STORED_BUILDINGS = 2500		# Minerals AI will store for buildings when it needs more
+		MIN_MINERALS_STORED_BUILDINGS = 0		# Minerals AI will store for buildings when it does not need more
+		ABS_MAX_MINERALS_STORED_STATIONS = 100	# Max regardless of cap multiplier
+		MAX_MINERALS_STORED_STATIONS = 100			# Minerals AI will store for stations when it needs more
+		MIN_MINERALS_STORED_STATIONS = 0			# Minerals AI will store for stations when it does not need more
+		ABS_MAX_MINERALS_STORED_STARBASE = 10000		# Max regardless of cap multiplier
+		MAX_MINERALS_STORED_STARBASE = 2000		# Minerals AI will store for starbase when it needs more
+		MIN_MINERALS_STORED_STARBASE = 0		# Minerals AI will store for starbase when it does not need more
+		ABS_MAX_MINERALS_STORED_COLONIES = 350	# Max regardless of cap multiplier
+		MAX_MINERALS_STORED_COLONIES = 350		# Minerals AI will store for colonies when it needs more
+		MIN_MINERALS_STORED_COLONIES = 0			# Minerals AI will store for colonies when it does not need more		
+		ABS_MAX_MINERALS_STORED_ARMIES = 1000		# Max regardless of cap multiplier
+		MAX_MINERALS_STORED_ARMIES = 1000			# Minerals AI will store for armies when it needs more
+		MIN_MINERALS_STORED_ARMIES = 0			# Minerals AI will store for armies when it does not need more		
+		ABS_MAX_MINERALS_STORED_ROBOTS = 150				# Max regardless of cap multiplier
+		MAX_MINERALS_STORED_ROBOTS = 150			# Minerals AI will store for robots when it needs more
+		MIN_MINERALS_STORED_ROBOTS = 0				# Minerals AI will store for robots when it does not need more
+		MINERALS_STORED_MEGASTRUCTURES = 50000			# Max minerals AI will store for megastructures if it can build them
+		AI_DESIRED_NAVY_MINERALS_AT_WAR = 2500		# AI wants at least this many minerals for ships while at war
+		AI_DESIRED_ARMY_MINERALS_AT_WAR = 0		# AI wants at least this many minerals for armies while at war
+		MAX_STORED_ENERGY_POST = 500				# AI will store maximum this amount for each energy budget post
+		# Above values are increased when mineral storage capacity goes up
+
+		MAX_MINERALS_STORED_SECTOR_POST = 5000		# Minerals AI will store for each budget post in sectors	
+		MAX_MINERALS_STORED_SECTOR_POST_BUILDINGS = 5000		# Minerals AI will store for buildings
+		MAX_MINERALS_SPENT_ON_NAVY = 0.50			# Spend no more than this fraction of mineral income on navy maintenance
+		EXPAND_NAVY_LIMIT_FACTOR = 4.00			# If the AI Navy maintenance is this much bigger than the opponents navy will not be expanded
+
+		ENEMY_FLEET_POWER_MULT = 1.20			# AI will need the the fleet power of the enemy multiplied by this value to become offensive in an offensive war
+		ENEMY_ARMY_POWER_MULT = 1.20				# AI will need the the military power of the enemy multiplied by this value to land armies on planet
+		ENEMY_NEUTRALS_FLEET_POWER_MULT = 1.20	# AI will need the the fleet power of the enemy multiplied by this value to attack neutrals and space hostiles
+		ENEMY_FLEET_POWER_HOME_SYSTEM_MULT = 0.50 # AI will need the fleet power of the enemy multiplied by this value to attack hostiles in own systems
+		
+		AI_NO_RETREAT_LIMIT = 1						# At fewer owner/controlled planets than this, the AI will fight to the death in their home systems
+
+		
+		INFLUENCE_FRACTION_EDICTS = 0.001		# Fraction of AI Influence that goes to edicts
+		INFLUENCE_FRACTION_STARBASES = 0.988		# Fraction of AI influence that is used for starbases
+		INFLUENCE_FRACTION_CLAIMS = 0.001		# Fraction of AI influence that is used for claims
+		INFLUENCE_FRACTION_RESETTLEMENT = 0.00	# Fraction of AI influence that is used for resettlement	
+		
+		INFLUENCE_MAX_EDICTS = 100		# Max influence stored for edicts
+		INFLUENCE_MAX_STARBASES = 100		# Max influence stored for starbases
+		INFLUENCE_MAX_CLAIMS = 200		# Max influence stored for claims
+		INFLUENCE_MAX_RESETTLEMENT = 0	# Max influence stored for resettlement
+
+
+		START_WEAPON_TECH_AREA_MULT = 10		# Weapons within the same tech area as the start weapon will be weighted (multiplied) by this value when deciding tech strategies
+		#TRANSPORT_FLEET_SIZE = 30					# AI will have transport fleets of this size + 1
+
+		EXPECTED_UNITY_BASE = 50000				# AI expects to make this base amount in unity
+		EXPECTED_UNITY_PER_POP = 0			# AI expects to make about their num pops x this in unity
+		EXPECTED_FOOD_BASE = 10					# AI expects to produce this much food surplus
+		EXPECTED_MINERALS_BASE = 25				# AI expects to make this base amount in minerals
+		EXPECTED_MINERALS_PER_POP = 2		# AI expects to make about their num pops x this in minerals
+		EXPECTED_TECH_PER_POP = 2				# AI expects to make about their num pops x this in tech
+		EXPECTED_ENERGY_SURPLUS = 30				# AI wants a surplus of least this amount in monthly energy production (temporary spending such as colonies does not count)
+		POP_FOOD_MIN = 10						# AI should always prioritize to get more food when food growth is below this value
+
+		DEFICIT_SPENDING_START_WAR = 0.70				# If at war and energy is at this fraction of max storage deficit spend energy
+		DEFICIT_SPENDING_START_PEACE = 0.025			# If at peace and energy is at this fraction of max storage deficit spend energy
+		DEFICIT_SPENDING_STOP_WAR = 0.05				# If at war and energy is at this fraction of max storage stop deficit spending
+		DEFICIT_SPENDING_STOP_PEACE = 0.02				# If at peace and energy is at this fraction of max storage stop deficit spending
+		DEFICIT_SPENDING_MONTHLY_PEACE = 0.95				# This percentage of max storage should be deficit spent each month when at peace
+		DEFICIT_SPENDING_MONTHLY_WAR = 0.02				# This percentage of max storage should be deficit spent each month when at war
+		
+		ENERGY_MONTHS_FACTOR_WAR = 120			# Energy are supposed to last this many months when used to buy new ships in war
+		ABORT_MISSION_LIMIT = 0.05				# MilitaryPower fraction below this level will result in AI escaping battle
+		
+		PRIO_BASE_FRACTION = 0.50				# Prio base fraction for example if prio is assault arsenal fraction will be set to this value
+		
+		BUILDING_ENERGY_MAX = 2000				# Used to calc AI want for buildings with energy
+		BUILDING_PRODUCTION_MAX = 80			# Used to calc AI want for buildings with production points
+		
+		
+		MIN_WANTED_SCIENTISTS = 6
+		CONSTRUCTOR_SHIPS_MAX = 9				# Maximum number of constructor ships of AI
+		SECTOR_SYSTEM_CAP_MIN = 75				# AI sectors will have minimum these many colonized systems in each sector before creating new sectors
+		
+		# These are used to determine where the AI should be upgrading its starbases
+		STARBASE_COLONY_SCORE = 75
+		#STARBASE_HABITABLE_PLANET_SCORE = 3
+		#STARBASE_MEGASTRUCTURE_SCORE = 5
+		#STARBASE_BYPASS_SCORE = 1
+		#STARBASE_CHOKEPOINT_SCORE = 2
+		#STARBASE_HAZARD_CHOKEPOINT_SCORE_MULT = 1.5
+		
+		###Paradox Numbers###
+		#STARBASE_COLONY_SCORE = 5
+		#STARBASE_HABITABLE_PLANET_SCORE = 3
+		#STARBASE_MEGASTRUCTURE_SCORE = 5
+		#STARBASE_BYPASS_SCORE = 10
+		#STARBASE_CHOKEPOINT_SCORE = 2
+		#STARBASE_HAZARD_CHOKEPOINT_SCORE_MULT = 1.5
+		###Paradox Numbers###
+	}

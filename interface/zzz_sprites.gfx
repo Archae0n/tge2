@@ -1,0 +1,46 @@
+# IRM
+# Sprites
+
+spriteTypes = {
+
+	# FACTION
+
+	spriteType = { name = "GFX_faction_icon_regionalist" 			textureFile = "gfx/interface/icons/faction_icons/faction_icons_regionalist.dds" }
+
+
+	# STARBASE
+
+	spriteType = { name = "GFX_starbase_civilian_dock" 				textureFile = "gfx/interface/icons/modules/sb_civilian_dock.dds" }
+
+
+	# UI / BUTTONS
+
+	spriteType = { name = "GFX_event_button_560_40" 				textureFile = "gfx/interface/buttons/button_560_40.dds"
+		noOfFrames = 3
+	}	
+
+	spriteType = { name = "GFX_event_button_560_40_transparent"		textureFile = "gfx/interface/buttons/button_560_40_transparent.dds"
+		noOfFrames = 3
+	}
+
+
+	# UI / ICONS
+
+	spriteType = { name = "GFX_button_settings_1"					textureFile = "gfx/interface/buttons/button_settings_1.dds" }
+	spriteType = { name = "GFX_sector_effects" 						textureFile = "gfx/interface/icons/special/sector_effects.dds" }
+	spriteType = { name = "GFX_sector_systems" 						textureFile = "gfx/interface/icons/special/sector_systems.dds" }
+	spriteType = { name = "GFX_sector_fleet" 						textureFile = "gfx/interface/icons/special/sector_fleet.dds" }
+
+
+	# UI / BARS
+
+	spriteType = { name = "GFX_bar_empty" 							texturefile = "gfx/interface/special/bar_empty.dds" }
+	spriteType = { name = "GFX_bar_green" 							texturefile = "gfx/interface/special/bar_green.dds" }
+	spriteType = { name = "GFX_bar_yellow" 							texturefile = "gfx/interface/special/bar_yellow.dds" }
+	spriteType = { name = "GFX_bar_red" 							texturefile = "gfx/interface/special/bar_red.dds" }
+	spriteType = { name = "GFX_bar_blue" 							texturefile = "gfx/interface/special/bar_blue.dds" }
+	spriteType = { name = "GFX_bar_empty" 							texturefile = "gfx/interface/special/bar_empty.dds" }
+	spriteType = { name = "GFX_bar_grey" 							texturefile = "gfx/interface/special/bar_grey.dds" }
+
+}
+

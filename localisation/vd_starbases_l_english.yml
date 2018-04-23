@@ -1,0 +1,21 @@
+﻿l_english:
+
+########################
+### Starbase Modules ###
+########################
+
+ sm_mining_terminal:1 "Mining Terminal"
+    sm_mining_terminal_desc:0 "A terminal for processing minerals collected from asteroids and planetoids in the system.\n"
+    requires_asteroid_belt:0 "§RRequires an §YAsteroid Belt§! in the system.§!"
+    requires_asteroid_belt_or_colony:0 "§RRequires a §YColony§! or §YAsteroid Belt§! in the system.§!"
+ sm_engineering_bay:0 "Engineering Bay"
+    sm_engineering_bay_desc:0 "A facility for maintaining and repairing docked ships.\n"
+ sm_processing_hub:0 "Processing Hub"
+     sm_processing_hub_desc:0 "A facility for further refining minerals processed by mining terminals.\n"
+     sm_processing_hub_desc_modifier:0 "Mining Terminals: §G+1§! £minerals\n\n"
+     
+######################
+### Starbase Types ###
+######################
+
+ stb_mining_base:0 "Mining Base"

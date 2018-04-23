@@ -1,0 +1,17 @@
+﻿l_english:
+
+ ########################
+ ### Static Modifiers ###
+ ########################
+
+    scorned_earth:0 "Scorned Earth"
+        scorned_earth_desc:0 "The empire governing this world has little interest in planetary affairs, resulting in a neglectful and inefficienct administration."
+ 
+    habitat_under_expansion:0 "Habitat Expansion"
+        habitat_under_expansion_desc:0 "This habitat is currently undergoing renovations."
+ 
+ #########################
+ ### Dynamic Modifiers ###
+ #########################
+    
+    pc_void_dwelling_habitability:0 "Void Dwelling Habitability"

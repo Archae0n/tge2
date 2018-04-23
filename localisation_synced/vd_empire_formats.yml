@@ -1,0 +1,28 @@
+﻿l_default:
+
+ format.democratic_admiralty.1: "<democratic_admiralty> of [This.Capital.System.GetName]"
+ format.democratic_admiralty.2: "[This.Capital.System.GetName] <democratic_admiralty>"
+ format.democratic_admiralty.3: "[This.GetSpeciesName] <democratic_admiralty>"
+ format.democratic_admiralty.4: "<democratic_admiralty_desc> [This.GetSpeciesName] <democratic_admiralty>"
+ format.democratic_admiralty.5: "[This.GetSpeciesName] <democratic_admiralty_mid_desc> <democratic_admiralty>"
+ 
+ format.oligarchic_admiralty.1: "<oligarchic_admiralty> of [This.Capital.System.GetName]"
+ format.oligarchic_admiralty.2: "[This.Capital.System.GetName] <oligarchic_admiralty>"
+ format.oligarchic_admiralty.3: "[This.GetSpeciesName] <oligarchic_admiralty>"
+ format.oligarchic_admiralty.4: "<oligarchic_admiralty_desc> [This.GetSpeciesName] <oligarchic_admiralty>"
+ format.oligarchic_admiralty.5: "[This.GetSpeciesName] <oligarchic_admiralty_mid_desc> <oligarchic_admiralty>"
+ 
+ format.dictatorial_admiralty.1: "<dictatorial_admiralty> of [This.Capital.System.GetName]"
+ format.dictatorial_admiralty.2: "[This.Capital.System.GetName] <dictatorial_admiralty>"
+ format.dictatorial_admiralty.3: "[This.GetSpeciesName] <dictatorial_admiralty>"
+ format.dictatorial_admiralty.4: "<dictatorial_admiralty_desc> [This.GetSpeciesName] <dictatorial_admiralty>"
+ format.dictatorial_admiralty.5: "[This.GetSpeciesName] <dictatorial_admiralty_mid_desc> <dictatorial_admiralty>"
+ 
+ format.imperial_khanate.1: "<imperial_khanate> of [This.Capital.System.GetName]"
+ format.imperial_khanate.2: "[This.Capital.System.GetName] <imperial_khanate>"
+ format.imperial_khanate.3: "[This.GetSpeciesName] <imperial_khanate>"
+ format.imperial_khanate.4: "<imperial_khanate_desc> [This.GetSpeciesName] <imperial_khanate>"
+ format.imperial_khanate.5: "[This.GetSpeciesName] <imperial_khanate_mid_desc> <imperial_khanate>"
+ 
+ format.fallen.egalitarian: "[This.GetSpeciesName] <fallen_empire_names_egalitarian>"
+ format.fallen.authoritarian: "[This.GetSpeciesName] <fallen_empire_names_authoritarian>"

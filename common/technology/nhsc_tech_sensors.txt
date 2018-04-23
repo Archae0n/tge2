@@ -1,0 +1,266 @@
+### This file contains techs that unlock various sensors
+
+### tech costs
+@tier3cost1 = 4000
+@tier3cost2 = 5000
+@tier3cost3 = 6000
+
+@tier4cost1 = 8000
+@tier4cost2 = 10000
+@tier4cost3 = 12000
+
+@tier5cost1 = 15000
+@tier5cost2 = 17500
+@tier5cost3 = 20000
+
+### tech weights
+@tier3weight1 = 65
+@tier3weight2 = 60
+@tier3weight3 = 50
+
+@tier4weight1 = 45
+@tier4weight2 = 40
+@tier4weight3 = 35
+
+@tier5weight1 = 30
+@tier5weight2 = 25
+@tier5weight3 = 20
+
+############################################################
+###                     TECHNOLOGIES                     ###
+############################################################
+
+############################################################
+##                 Improved Tachyon Sensors               ##
+##    Increases survey speed and unlock a sensor option   ##
+############################################################
+
+nhsc_tech_improvedtachyonsensors = {
+	area = physics  
+	category = { voidcraft }
+	tier = 4               
+	cost = @tier4cost3
+	weight = @tier4weight3
+	prerequisites = { "tech_sensors_4" "nhsc_tech_centralresearchbureau" }
+	ai_update_type = all
+	
+	prereqfor_desc = {
+		component = {
+			title = "TECH_UNLOCK_ADV_TACHYON_SENSOR_TITLE"
+			desc = "TECH_UNLOCK_ADV_TACHYON_SENSOR_DESC"
+		}
+	}
+
+	modifier = {
+		science_ship_survey_speed = 0.05
+	}
+	
+	potential = {
+		NOT = { has_global_flag = ESC_sensors_forbidden }
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_voidcraft"
+			}
+		}
+	}
+	
+	ai_weight = {
+		factor = 2
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_voidcraft"
+			}
+		}
+	}
+}
+
+############################################################
+##                      String Theory                     ##
+##    Increases survey speed and unlock a sensor option   ##
+############################################################
+                                                            
+nhsc_tech_stringtheory = {
+	area = physics  
+	category = { voidcraft }
+	tier = 5               
+	cost = @tier5cost1
+	weight = @tier5weight1
+	prerequisites = { "nhsc_tech_improvedtachyonsensors" }
+	ai_update_type = all
+	is_rare = yes
+	
+	prereqfor_desc = {
+		component = {
+			title = "TECH_UNLOCK_STRING_SENSOR_TITLE"
+			desc = "TECH_UNLOCK_STRING_SENSOR_DESC"
+		}
+	}
+
+	modifier = {
+		science_ship_survey_speed = 0.05
+	}
+	
+	potential = {
+		NOT = { has_global_flag = ESC_sensors_forbidden }
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_voidcraft"
+			}
+		}
+	}
+	
+	ai_weight = {
+		factor = 2
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_voidcraft"
+			}
+		}
+	}
+}
+
+############################################################
+##                String Fluctuation Analysis             ##
+##    Increases survey speed and unlock a sensor option   ##
+############################################################
+
+nhsc_tech_stringfluctuationanalysis = {
+	area = physics  
+	category = { voidcraft }
+	tier = 5               
+	cost = @tier5cost2
+	weight = @tier5weight2
+	prerequisites = { "nhsc_tech_stringtheory" }
+	ai_update_type = all
+	is_rare = yes
+
+	prereqfor_desc = {
+		component = {
+			title = "TECH_UNLOCK_ADV_STRING_SENSOR_TITLE"
+			desc = "TECH_UNLOCK_ADV_STRING_SENSOR_DESC"
+		}
+	}
+
+	modifier = {
+		science_ship_survey_speed = 0.10
+	}
+	
+	potential = {
+		NOT = { has_global_flag = ESC_sensors_forbidden }
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_voidcraft"
+			}
+		}
+	}
+	
+	ai_weight = {
+		factor = 2
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_voidcraft"
+			}
+		}
+	}
+}
+
+############################################################
+##                       Psi Sensors                      ##
+##    Increases survey speed and unlock a sensor option   ##
+############################################################
+
+nhsc_tech_psisensors = {
+	area = society  
+	category = { psionics }
+	tier = 5               
+	cost = @tier5cost2
+	weight = @tier5weight2
+	prerequisites = { "nhsc_tech_stringtheory" "tech_psionic_theory" }
+	ai_update_type = all
+	is_rare = yes
+	
+	prereqfor_desc = {
+		component = {
+			title = "TECH_UNLOCK_PSI_SENSOR_TITLE"
+			desc = "TECH_UNLOCK_PSI_SENSOR_DESC"
+		}
+	}
+
+	modifier = {
+		science_ship_survey_speed = 0.10
+	}
+	
+	potential = {
+		NOT = { has_global_flag = ESC_sensors_forbidden }
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_psionics"
+			}
+		}
+		modifier = {
+			factor = 1.5
+			OR = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+		modifier = {
+			factor = 0.25
+			OR = {
+				has_ethic = ethic_materialist
+				has_ethic = ethic_fanatic_materialist
+			}
+		}
+	}
+	
+	ai_weight = {
+		factor = 2
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_psionics"
+			}
+		}
+		modifier = {
+			factor = 1.5
+			OR = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+		modifier = {
+			factor = 0.25
+			OR = {
+				has_ethic = ethic_materialist
+				has_ethic = ethic_fanatic_materialist
+			}
+		}
+	}
+}

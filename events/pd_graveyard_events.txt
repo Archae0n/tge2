@@ -1,0 +1,166 @@
+namespace = pdgraveyard
+
+#EnterSystem
+ship_event = {
+	id = pdgraveyard.10
+	title = pdgraveyard.10.name
+	desc = pdgraveyard.10.desc
+	picture = GFX_evt_graveyard
+	location = from
+	show_sound = event_ship_bridge
+
+	is_triggered_only = yes
+
+	trigger = {
+		from = {
+			has_star_flag = graveyard_system
+		}
+		owner = {
+			NOT = {
+				has_country_flag = graveyard_encounter
+			}
+			OR = {
+				is_country_type = default
+				is_country_type = fallen_empire
+				is_country_type = awakened_fallen_empire
+			}
+		}
+	}
+
+	immediate = {
+		owner = {
+			set_country_flag = graveyard_encounter
+		}
+	}
+
+	option = {
+		name = pdgraveyard.10.a
+	}
+}
+
+#SurveyPlanet
+ship_event = {
+	id = pdgraveyard.20
+	title = pdgraveyard.20.name
+	desc = pdgraveyard.20.desc
+	picture = GFX_evt_graveyard2
+	location = from
+	show_sound = event_ship_bridge
+
+	is_triggered_only = yes
+
+	trigger = {
+		from = {
+			has_planet_flag = graveyard_planet
+		}
+		owner = {
+			NOT = {
+				has_country_flag = found_graveyard_planet
+			}
+			OR = {
+				is_country_type = default
+				is_country_type = fallen_empire
+				is_country_type = awakened_fallen_empire
+			}
+		}
+	}
+
+	immediate = {
+		owner = {
+			set_country_flag = found_graveyard_planet
+		}
+	}
+
+	option = {
+		name = pdgraveyard.20.a
+	}
+}
+
+#Tinyanki Falling From the Stars
+planet_event = {
+	id = pdgraveyard.30
+	title = pdgraveyard.30.name
+	desc = pdgraveyard.30.desc
+	picture = GFX_evt_graveyard3
+	show_sound = event_activating_unknown_technology
+	location = root
+
+	trigger = {
+		has_planet_flag = graveyard_planet
+		has_owner = yes
+		is_homeworld = no		
+		owner = {
+			NOT = {
+				has_authority = auth_machine_intelligence
+			}
+		}
+		has_ground_combat = no
+		is_occupied_flag = no
+		free_building_tiles > 0
+	}
+
+	is_triggered_only = yes
+	#mean_time_to_happen = {
+	#	months = 240
+	#}
+
+	option = {
+		name = pdgraveyard.30.a
+		hidden_effect = {
+			random_list = {
+				100 = {
+					planet_event = { id = pdgraveyard.31 days = 1 random = 0 }
+				}
+				0 = {
+					planet_event = { id = pdgraveyard.32 days = 1 random = 0 }
+				}
+				0 = {
+					planet_event = { id = pdgraveyard.33 days = 1 random = 0 }
+				}
+				0 = {
+					planet_event = { id = pdgraveyard.34 days = 1 random = 0 }
+				}
+				0 = {
+					planet_event = { id = pdgraveyard.35 days = 1 random = 0 }
+				}
+			}
+		}
+	}
+}
+
+# Normal Tiyanki Death
+planet_event = {
+	id = pdgraveyard.31
+	title = "pdgraveyard.31.name"
+	desc = "pdgraveyard.31.desc"
+	picture = GFX_evt_robot_assembly_plant
+	show_sound = event_space_whale
+	location = ROOT
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = pdgraveyard.31.a
+			owner = {
+				add_monthly_resource_mult = {
+					resource = society_research
+					value = 24
+					min = 150
+					max = 500
+				}
+				add_monthly_resource_mult = {
+					resource = minerals
+					value = 24
+					min = 350
+					max = 2000
+				}
+				add_monthly_resource_mult = {
+					resource = energy
+					value = 24
+					min = 350
+					max = 2000
+				}
+
+			}
+		}
+}

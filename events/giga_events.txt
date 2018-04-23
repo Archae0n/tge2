@@ -1,0 +1,486 @@
+
+namespace = cove
+
+country_event = {
+	id = cove.1
+	hide_window = yes
+	fire_only_once = yes
+	trigger = {
+		any_country = {
+			is_country_type = default
+			is_ai = no
+			any_owned_megastructure = {
+					is_megastructure_type = dimension_drain_3
+			}
+		}
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				is_country_type = default
+				is_ai = no
+				any_owned_megastructure = {
+					OR = {
+						is_megastructure_type = dimension_drain_3
+					}
+				}
+			}
+		save_event_target_as = target_country
+		}
+		event_target:target_country = {
+			random_owned_megastructure = {
+				limit = {
+					OR = {
+						is_megastructure_type = dimension_drain_3
+					}
+				}
+				save_event_target_as = dimension_drain_incoming
+			}
+		}
+		
+		event_target:target_country = {
+			#Pope of Doctrine is here...
+			country_event = { id = cove.0  days = 60 random = 60 }
+		}
+	}
+}
+
+country_event = {
+	id = cove.0
+	title = cove.0.name
+	desc = cove.0.desc
+	picture = GFX_evt_unspeakable_horror
+	show_sound = event_psionic
+	is_triggered_only = yes
+	option = {
+		name = cove.0.a 
+		hidden_effect = {
+			country_event = {id = cove.2}
+		}
+	}
+	option = {
+		name = cove.0.b
+		default_hide_option = yes
+	}
+}
+
+country_event = {
+	id = cove.2
+	title = "utopia.3000.name"
+	diplomatic = yes
+	force_open = yes
+	
+	picture_event_data = {
+		portrait = shroud1
+		room = shroud_room
+	}
+	
+	is_triggered_only = yes
+	desc = cove.2.desc
+	option = {
+		name = cove.2.a
+		event_target:dimension_drain_incoming = {
+			upgrade_megastructure_to = dimension_drain_4
+		}
+		hidden_effect = {
+			country_event = {id = cove.3}
+		}
+		custom_tooltip = "This will dramatically increase the resource output of our Psychic Hypersiphon"
+		set_country_flag = anarchy_covenant
+	}
+	option = {
+		name = "exit.shroud"
+		custom_tooltip = "exit.shroud.tooltip"
+		default_hide_option = yes
+	}
+}
+##Covenant formed, time for some fun
+country_event = {
+	id = cove.3
+	title = cove.3.name
+	picture = GFX_evt_unspeakable_horror
+	show_sound = event_mystic_reveal
+	is_triggered_only = yes
+	desc = cove.3.desc
+	immediate = {
+		set_country_flag = pope_of_doctrine
+	}
+	option = {
+		name = cove.3.a
+		event_target:dimension_drain_incoming = {
+			upgrade_megastructure_to = dimension_drain_4
+		}
+		hidden_effect = {
+			country_event = {id = cove.4 days = 36}
+		}
+	}
+}
+#roll for demand
+country_event = {
+	id = cove.4
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		random_list = {
+			10 = { 
+				country_event = { id = cove.10 }
+			}#massive resource
+			10 = {
+				country_event = { id = cove.20 }
+			}#massive influence
+			10 = {
+				country_event = { id = cove.30 }
+			}#all your leaders
+			10 = {
+				country_event = { id = cove.40 }
+			}#10 random pops
+			10 = {
+				country_event = { id = cove.50 }
+			}#all your fleet
+		}
+	}
+}
+
+country_event = {
+	id = cove.10
+	title = cove.10.name
+	diplomatic = yes
+	force_open = yes
+	desc = cove.10.desc
+	picture_event_data = {
+		portrait = shroud1
+		room = shroud_room
+	}
+	is_triggered_only = yes
+	option = {
+		name = cove.10.a
+		allow = {
+			root = {
+				minerals > 3000
+				energy > 8000
+			}
+		}
+		add_minerals = -3000
+		add_energy = -8000
+		hidden_effect = {
+			country_event = {id = cove.4 days = 3600}
+		}
+	}
+	option = {
+		name = cove.10.b
+		custom_tooltip = "Are You Sure?"
+		default_hide_option = yes
+		hidden_effect = {
+			country_event = {id = cove.100}
+		}
+	}
+}
+
+country_event = {
+	id = cove.20
+	title = cove.10.name
+	diplomatic = yes
+	force_open = yes
+	desc = cove.20.desc
+	picture_event_data = {
+		portrait = shroud1
+		room = shroud_room
+	}
+	is_triggered_only = yes
+	option = {
+		name = cove.10.a
+		allow = {
+			root = {
+				influence > 400
+			}
+		}
+		add_influence = -400
+		hidden_effect = {
+			country_event = {id = cove.4 days = 3600}
+		}
+	}
+	option = {
+		name = cove.10.b
+		custom_tooltip = "Are You Sure?"
+		default_hide_option = yes
+		hidden_effect = {
+			country_event = {id = cove.100}
+		}
+	}
+}
+
+country_event = {
+	id = cove.30
+	title = cove.10.name
+	diplomatic = yes
+	force_open = yes
+	desc = cove.30.desc
+	picture_event_data = {
+		portrait = shroud1
+		room = shroud_room
+	}
+	is_triggered_only = yes
+	option = {
+		name = cove.10.a
+		every_owned_leader = {
+			kill_leader = { show_notification = no }
+		}
+		custom_tooltip = "All your leaders will be submitted to Pope of Doctrine to satisfy its desire."
+		hidden_effect = {
+			country_event = {id = cove.4 days = 3600}
+		}
+	}
+	option = {
+		name = cove.10.b
+		custom_tooltip = "Are You Sure?"
+		default_hide_option = yes
+		hidden_effect = {
+			country_event = {id = cove.100}
+		}
+	}
+}
+
+country_event = {
+	id = cove.40
+	title = cove.10.name
+	desc = cove.40.desc
+	diplomatic = yes
+	force_open = yes
+	picture_event_data = {
+		portrait = shroud1
+		room = shroud_room
+	}
+	is_triggered_only = yes
+	option = {
+		name = cove.10.a
+		random_owned_pop = {
+			kill_pop = yes
+		}
+		random_owned_pop = {
+			kill_pop = yes
+		}	
+		random_owned_pop = {
+			kill_pop = yes
+		}	
+		random_owned_pop = {
+			kill_pop = yes
+		}	
+		random_owned_pop = {
+			kill_pop = yes
+		}
+		custom_tooltip = "5 population will be submitted to Pope of Doctrine to satisfy its desire."
+		hidden_effect = {
+			country_event = {id = cove.4 days = 3600}
+		}
+	}
+	option = {
+		name = cove.10.b
+		custom_tooltip = "Are You Sure?"
+		default_hide_option = yes
+		hidden_effect = {
+			country_event = {id = cove.100}
+		}
+	}
+}
+
+
+country_event = {
+	id = cove.100
+	title = cove.100.name
+	picture = GFX_evt_unspeakable_horror
+	show_sound = event_yellow_alert
+	is_triggered_only = yes
+	desc = cove.100.desc
+	option = {
+		name = cove.100.a
+		event_target:dimension_drain_incoming = {
+			upgrade_megastructure_to = dimension_drain_5
+		}
+		hidden_effect = {
+			remove_country_flag = pope_of_doctrine
+		}
+	}
+}
+
+####################Special Event: Angry Shroud-------no matter what you choose, the end is here.....
+country_event = {
+	id = cove.200
+	title = cove.200.name
+	hide_window = yes
+	fire_only_once = yes
+	trigger = {
+		has_country_flag = pope_of_doctrine
+		has_country_flag = has_shroud_patron
+	}
+	mean_time_to_happen = {
+		months = 6
+	}
+	immediate = {
+		if = {
+			limit = {
+				has_country_flag = whispers_of_voids
+			}
+			country_event = { id = cove.210 } 
+		}
+		if = {
+			limit = {
+				has_country_flag = eater_of_worlds
+			}
+			country_event = { id = cove.220 } 
+		}
+		if = {
+			limit = {
+				has_country_flag = instrument_of_desire
+			}
+			country_event = { id = cove.230 } 
+		}
+		if = {
+			limit = {
+				has_country_flag = composers_of_strands
+			}
+			country_event = { id = cove.240 } 
+		}		#apparently End of Cycle doesn't care about Pope of Doctrine...
+	}
+}
+
+country_event = {
+	id = cove.210
+	title = cove.210.name
+	desc = cove.210.desc
+	diplomatic = yes
+	force_open = yes
+	
+	picture_event_data = {
+		portrait = shroud1
+		room = shroud_room
+	}
+	
+	is_triggered_only = yes
+	option = {
+		name = cove.210.a
+		hidden_effect = {
+			country_event =  { id = cove.300 } 
+		}
+	}
+	option = {
+		name = cove.210.b
+		hidden_effect = {
+			country_event = { id = cove.400 } 
+		}
+	}
+}
+
+country_event = {
+	id = cove.220
+	title = cove.220.name
+	desc = cove.220.desc
+	diplomatic = yes
+	force_open = yes
+	
+	picture_event_data = {
+		portrait = shroud1
+		room = shroud_room
+	}
+	
+	is_triggered_only = yes
+	option = {
+		name = cove.220.a
+		hidden_effect = {
+			country_event =  { id = cove.300 } 
+		}
+	}
+	option = {
+		name = cove.220.b
+		hidden_effect = {
+			country_event =  { id = cove.400 } 
+		}
+	}
+}
+
+country_event = {
+	id = cove.230
+	title = cove.230.name
+	desc = cove.230.desc
+	diplomatic = yes
+	force_open = yes
+	
+	picture_event_data = {
+		portrait = shroud1
+		room = shroud_room
+	}
+	
+	is_triggered_only = yes
+	option = {
+		name = cove.230.a
+		hidden_effect = {
+			country_event =  { id = cove.300 } 
+		}
+	}
+	option = {
+		name = cove.230.b
+		hidden_effect = {
+			country_event = { id = cove.400 } 
+		}
+	}
+}
+
+country_event = {
+	id = cove.240
+	title = cove.240.name
+	desc = cove.240.desc
+	diplomatic = yes
+	force_open = yes
+	
+	picture_event_data = {
+		portrait = shroud1
+		room = shroud_room
+	}
+	
+	is_triggered_only = yes
+	option = {
+		name = cove.240.a
+		hidden_effect = {
+			country_event = { id = cove.300 } 
+		}
+	}
+	option = {
+		name = cove.240.b
+		hidden_effect = {
+			country_event =  { id = cove.400 } 
+		}
+	}
+}
+#angry Pope, summon Swarm
+country_event = {
+	id = cove.300
+	title = cove.300.name
+	desc = cove.300.desc
+	picture = GFX_evt_unspeakable_horror
+	show_sound = event_red_alert
+	is_triggered_only = yes
+	
+	option = {
+		name = cove.300.a
+		hidden_effect = {
+			country_event = {id = crisis.10 days = 36}
+		}
+	}
+}
+#angry Shroud, summon Demon
+country_event = {
+	id = cove.400
+	title = cove.400.name
+	desc = cove.400.desc
+	picture = GFX_evt_unspeakable_horror
+	show_sound = event_red_alert
+	is_triggered_only = yes
+	
+	option = {
+		name = cove.400.a
+		hidden_effect = {
+			country_event = {id = crisis.1000 days = 36}
+		}
+	}
+}
+

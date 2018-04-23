@@ -1,0 +1,54 @@
+# IRM
+# Sector database
+
+
+# Storage for sector variables, settings etc
+db = {
+	share_communications = no
+	government = no
+	default_ships = no
+	counts_for_victory = no
+	ai = {
+		enabled = no
+	}
+	faction = {
+		hostile = no
+		needs_border_access = no
+		generate_borders = no
+		needs_colony = no
+		auto_delete = no
+	}
+	modules = {
+		standard_event_module = {}
+		exclusive_diplomacy_module = {}
+		standard_technology_module = {}
+	}
+}
+
+# Country for autonomous sector fleets
+db_fleet = {
+	sub_title = "sector.fleet.desc"
+	government = no
+	share_communications = no
+	show_in_contacts_list = no
+	needs_survey = no
+	attack_unarmed_orbital_stations = yes
+	orbital_bombardment = yes
+	ai = {
+		enabled = yes
+		follow = yes
+	}
+	faction = {
+		hostile = yes
+		needs_border_access = no
+		generate_borders = no
+		needs_colony = no
+		auto_delete = no
+		hostile_when_attacked = yes
+	}
+	modules = {
+		standard_event_module = {}
+		exclusive_diplomacy_module = {}
+		standard_technology_module = {}
+	}
+}

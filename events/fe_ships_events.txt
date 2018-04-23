@@ -1,0 +1,59 @@
+############################
+#
+# Fallen Empire Ships Events
+#
+############################
+
+namespace = fallen_empire_ships
+
+
+
+
+country_event = {
+	id = fallen_empire_ships.1
+	title = OK
+	desc = OK
+	
+	
+	hide_window = yes
+	
+	trigger = {
+		
+		is_ai = no
+		has_country_flag = player_superior_ships
+		NOT = { has_country_flag = player_national_fe_ships }
+	}
+		
+		
+
+
+	immediate = {
+		
+		root = {
+			set_country_flag = player_national_fe_ships
+			country_event = { id = fallen_empire_ships.2 }
+		}
+		
+	}
+}
+
+country_event = {
+	id = fallen_empire_ships.2
+	title = fallen_empire_ships.2.name
+	desc = fallen_empire_ships.2.desc
+	picture = GFX_evt_fallen_empire
+	show_sound = event_alien_signal
+	location = from
+	
+	is_triggered_only = yes
+
+	option = {
+		name = fallen_empire_ships.2.a
+		hidden_effect = {
+			set_graphical_culture = fe_national
+		}	
+	}
+	option = {
+		name = fallen_empire_ships.2.b
+	}
+}

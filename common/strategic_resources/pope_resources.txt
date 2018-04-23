@@ -1,0 +1,12 @@
+# Doctrine
+sr_doctrine = {
+	AI_category = strategic_resource
+	tradable = yes
+	is_rare = yes
+	is_global = yes
+	
+	modifier = {
+		ship_interstellar_speed_mult = 3
+		ship_sensor_range_add = 5
+	}
+}

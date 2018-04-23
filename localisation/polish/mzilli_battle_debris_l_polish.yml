@@ -1,0 +1,7 @@
+﻿l_polish:
+
+
+sm_mzilli_battle_debris_recycling_center:0 "Disposal Center"
+
+sm_mzilli_battle_debris_recycling_center_desc:0 "There are numerous starship wrecks in this system. They are too corroded to salvage, but physically disposing of them should not prove difficult.\n"
+requires_mzilli_battle_debris:0 "There must be relatively fresh battle debris in this system."

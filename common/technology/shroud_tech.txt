@@ -1,0 +1,166 @@
+@tier3cost4 = 6000
+@repeatableTechBaseCost = 5000
+@repeatableTechLevelCost = 1000
+@repeatableTechTier = 4
+
+tech_psionic_pop = {
+	area = physics
+	cost = @tier3cost4
+	tier = 3
+	category = { psionics }
+	ai_update_type = all	
+	is_rare = yes
+	weight = 0
+	
+	weight_modifier = {
+		factor = 0
+	}	
+}
+
+tech_psionic_lancer = {
+	area = physics
+	cost = @tier3cost4
+	tier = 3
+	category = { psionics }
+	ai_update_type = all	
+	is_rare = yes
+	weight = 0
+	
+	weight_modifier = {
+		factor = 0
+	}	
+}
+
+tech_psionic_building = {
+	area = physics
+	cost = @tier3cost4
+	tier = 3
+	category = { psionics }
+	ai_update_type = all	
+	is_rare = yes
+	weight = 0
+	
+	weight_modifier = {
+		factor = 0
+	}	
+}
+
+tech_psionic_ship = {
+	area = physics
+	cost = @tier3cost4
+	tier = 3
+	category = { psionics }
+	ai_update_type = all	
+	is_dangerous = yes
+	weight = 0
+	
+	weight_modifier = {
+		factor = 0
+	}	
+}
+
+tech_repeatable_advanced_government = {
+	area = society
+	cost = @repeatableTechBaseCost
+	cost_per_level = @repeatableTechLevelCost
+	tier = @repeatableTechTier
+	category = { psionics }
+	levels = -1
+	weight = 0
+	is_rare = yes
+	weight_modifier = {
+		factor = 0
+	}
+
+	modifier = {		# add civic slot
+		country_government_civic_points_add = 1
+	}
+}
+
+tech_TBD = {
+	area = physics
+	cost = @tier3cost4
+	tier = 3
+	category = { psionics }
+	ai_update_type = all	
+	is_dangerous = yes
+	weight = 0
+	
+	weight_modifier = {
+		factor = 0
+	}	
+}
+
+tech_reduce_shroud_cooldown = {
+	cost = @tier3cost4
+	area = physics
+	tier = 3
+	category = { psionics }
+	is_rare = yes
+	weight = @tier2weight4
+	is_reverse_engineerable = no
+
+	weight_modifier = {
+		factor = 0.5
+		modifier = {
+			factor = 0
+			NOR = {
+				has_ethic = "ethic_spiritualist"
+				has_ethic = "ethic_fanatic_spiritualist"
+			}
+		}
+		modifier = {
+			factor = 1.10
+			research_leader = {
+				area = society
+				has_level > 2
+				has_trait = "leader_trait_expertise_psionics"
+			}
+		}
+		modifier = {
+			factor = 1.5
+			research_leader = {
+				area = society
+				has_level > 3
+				has_trait = "leader_trait_expertise_psionics"
+			}
+		}
+		modifier = {
+			factor = 2
+			research_leader = {
+				area = society
+				has_level > 4
+				has_trait = "leader_trait_expertise_psionics"
+			}
+		}
+		modifier = {
+			factor = 2
+			has_ethic = "ethic_fanatic_spiritualist"
+		}
+		modifier = {
+			factor = 5
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_maniacal"
+			}
+		}
+	}
+	
+	ai_weight = {
+		factor = 5 #very rare tech
+		modifier = {
+			factor = 1.5
+			OR = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_psionics"
+			}
+		}
+	}
+}

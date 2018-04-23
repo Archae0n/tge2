@@ -1,0 +1,36 @@
+# IRM
+# Special resources
+
+
+# Border Trade
+bm_trade = {
+	tradable = no
+	is_global = yes	
+	tooltip_decimals = 0
+
+	modifier = {
+		country_trade_attractiveness = 0.05
+	}
+}
+
+# Country leader's pool
+bm_pool = {
+	tradable = no
+	is_global = yes	
+	tooltip_decimals = 0
+
+	modifier = {
+		country_leader_pool_size = 1
+	}
+}
+
+# Piracy Risk
+bm_piracy = {
+	tradable = no
+	is_global = yes	
+	tooltip_decimals = 0
+
+	modifier = {
+		country_piracy_risk_mult = -0.01
+	}
+}

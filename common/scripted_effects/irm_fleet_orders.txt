@@ -1,0 +1,463 @@
+# IRM
+# Fleet orders & missions
+
+
+# NOTES:
+# Fleet is controlled by special mission flag, like mission_patrol_sector.
+# When the flag is set up, new mission is activated by gatekeeping event,
+# launching the specific fleet order.
+# This orders are repeatable while the flag is valid. When it ends, fleet
+# continues to perform the last mission and then stops. However, it could be
+# intercepted by regular action assigning the new mission.
+
+@nIdleDuration = 10
+@nOrbitDuration = 30
+
+
+# This/Root = Fleet
+# Fleet will patrol sector space, randomly choosing a new nearby system.
+# If system has some colonies within, fleet will randomly orbit selected one.
+mission_patrol_sector = {
+	# Clear all previous orders
+	clear_fleet_actions = this
+	queue_actions = {
+		# Repeat until the flag ends
+		repeat = {
+			while = {
+				id = mission_patrol_sector.while.1
+				has_fleet_flag = @sMissionPatrolSector
+			}
+			find_random_system = {
+				trigger = {
+					id = mission_patrol_sector.trigger.system.1
+					# Not the current system
+					not = { is_same_value = prev.solar_system }
+					# Sector space
+					exists = sector
+					sector = { prevprev = { has_fleet_flag = sector_id_@prev } }
+					# Closest systems within 3 jumps
+					distance = {
+						source = prev
+						use_bypasses = no
+						min_jumps = 1
+						max_jumps = 3
+					}					
+				}
+				found_system = {
+					move_to = this
+					# Orbit any owned planet, if exists
+					find_random_planet = {
+						trigger = {
+							id = mission_patrol_sector.trigger.planet.1
+							exists = owner
+						}
+						found_planet = {
+							move_to = this
+							orbit_planet = this
+							wait = { duration = @nOrbitDuration }
+						}
+						failed = { wait = { duration = @nIdleDuration } }
+					}
+				}
+				failed = { wait = { duration = @nIdleDuration } }
+			}
+		} #r
+	}
+}
+
+# This/Root = Fleet
+# Fleet will patrol core system, moving from one planet to another.
+# The next system is choosing randomly to cover all potential places.
+mission_patrol_cores = {
+	# Clear all previous orders
+	clear_fleet_actions = this
+	queue_actions = {
+		# Repeat until the flag ends
+		repeat = {
+			while = {
+				id = mission_patrol_cores.while.1
+				has_fleet_flag = @sMissionPatrolCores
+			}
+			find_random_system = {
+				trigger = {
+					id = mission_patrol_cores.trigger.system.1
+					# Not the current system
+					not = { is_same_value = prev.solar_system }
+					# Core sector space
+					exists = sector
+					sector = {
+						event_target:scpSectorOwner = {
+							any_sector = {
+								is_core_sector = yes
+								is_same_value = prevprev
+							}
+						}
+					}
+					# Have some colonized planets
+					any_planet = { exists = owner }
+				}
+				found_system = {
+					move_to = this
+					# Orbit any owned planet, if exists
+					find_random_planet = {
+						trigger = {
+							id = mission_patrol_cores.trigger.planet.1
+							exists = owner
+						}
+						found_planet = {
+							move_to = this
+							orbit_planet = this
+							wait = { duration = @nOrbitDuration }
+						}
+						failed = { wait = { duration = @nIdleDuration } }
+					}					
+				}
+				failed = { wait = { duration = @nIdleDuration } }
+			}
+		} #r
+	}	
+}
+
+# This/Root = Fleet
+# Fleet will defend capital system standing there for a while.
+mission_defend_capital = {
+	# Clear all previous orders
+	clear_fleet_actions = this
+	queue_actions = {
+		find_random_system = {
+			trigger = {
+				id = mission_defend_capital.trigger.system.1
+				any_planet = {
+					exists = owner
+					owner = { is_same_empire = event_target:scpSectorOwner }
+					has_modifier = "capital"
+				}
+			}
+			found_system = {
+				move_to = this
+				find_random_planet = {
+					trigger = {
+						id = mission_defend_capital.trigger.planet.1
+						exists = owner
+						owner = { is_same_empire = event_target:scpSectorOwner }
+						has_modifier = "capital"
+					}
+					found_planet = {
+						move_to = this
+						orbit_planet = this
+					}					
+					failed = { wait = { duration = @nIdleDuration } }
+				}
+			}
+			failed = { wait = { duration = @nIdleDuration } }
+		}
+		# Wait until flag ends
+		repeat = {
+			while = {
+				id = mission_defend_capital.while.1
+				has_fleet_flag = @sMissionDefendCapital
+			}
+			wait = { duration = @nOrbitDuration }				
+		}		
+	}
+}
+
+# This/Root = Fleet
+# Fleet will pick non-hostile nearby fleet in the same system and will follow it.
+# Effect will stop when the flag ends.
+mission_follow_fleet = {
+	# Clear all previous orders
+	clear_fleet_actions = this
+	queue_actions = {
+		# Repeat until the flag ends
+		repeat = {
+			while = {
+				id = mission_follow_fleet.while.1
+				has_fleet_flag = @sMissionFollowFleet
+				any_country = { any_owned_fleet = { prevprev = { has_fleet_flag = target_id_@prev } } }
+			}
+			effect = {
+				id = order.mission_follow_fleet.effect.1
+				random_country = {
+					limit = {
+						any_owned_fleet = {
+							is_ship_class = shipclass_military
+							prevprev = { has_fleet_flag = target_id_@prev }
+						}
+					}
+					random_owned_fleet = {
+						limit = {
+							is_ship_class = shipclass_military
+							prevprev = { has_fleet_flag = target_id_@prev }				
+						}
+						# Follow this fleet
+						prevprev = { auto_follow_fleet = { target = prev attack_fleet = no } }
+					}
+				}				
+			}
+			wait = { duration = 1 }
+		} #r
+		effect = {
+			id = order.mission_follow_fleet.effect.2
+			remove_fleet_flag = @sMissionFollowFleet
+			clear_fleet_actions = this
+			remove_auto_move_target = yes				
+		}		
+	}
+}
+
+# This/Root = Fleet
+# Force fleet to attack all hostile targets within sector borders.
+# Effect will stop when the flag ends.
+mission_attack_hostile = {
+	# Clear all previous orders
+	clear_fleet_actions = this
+	queue_actions = {
+		# Repeat until the flag ends
+		repeat = {
+			while = {
+				id = mission_attack_hostile.while.1
+				has_fleet_flag = @sMissionAttackHostile
+				# System belongs to the sector
+				any_system = {
+					exists = sector
+					sector = { prevprev = { has_fleet_flag = sector_id_@prev } }
+					#
+					# OR NEARBY !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+					#
+					# And has some hostiles
+					any_ship_in_system = {
+						exists = owner
+						owner = {
+							or = {
+								is_hostile = prevprev.space_owner
+								is_at_war_with = prevprev.space_owner								
+							}
+						}
+					}
+				}
+			}
+			effect = {
+				id = order.mission_attack_hostile.effect.1
+				random_system = {
+					limit = {
+						exists = sector
+						sector = { prevprev = { has_fleet_flag = sector_id_@prev } }
+						# And has some hostiles
+						any_ship_in_system = {
+							exists = owner
+							owner = {
+								or = {
+									is_hostile = prevprev.space_owner
+									is_at_war_with = prevprev.space_owner								
+								}
+							}
+						}						
+					}
+					random_fleet_in_system = {
+						limit = {
+							exists = owner
+							owner = {
+								or = {
+									is_hostile = prevprev.space_owner
+									is_at_war_with = prevprev.space_owner
+								}							
+							}							
+						}
+						# Follow & attack this fleet
+						prevprev = { auto_follow_fleet = { target = prev attack_fleet = yes } }
+					}				
+				}			
+			}
+			wait = { duration = 1 }
+		} #r
+		effect = {
+			id = order.mission_attack_hostile.effect.2
+			remove_fleet_flag = @sMissionAttackHostile
+			clear_fleet_actions = this
+			remove_auto_move_target = yes				
+		}		
+	}
+}
+
+# This/Root = Fleet
+# Fleet is forced to return home. By default it's sector capital.
+# Flag is cleared when fleet reaches the destination.
+mission_return_home = {
+	# Clear all previous orders
+	clear_fleet_actions = this
+	queue_actions = {
+		find_random_system = {
+			trigger = {
+				id = mission_return_home.trigger.system.1
+				any_planet = { prevprev = { has_fleet_flag = home_id_@prev } }
+			}
+			found_system = {
+				move_to = this
+				find_random_planet = {
+					trigger = {
+						id = mission_return_home.trigger.planet.1
+						prevprev = { has_fleet_flag = home_id_@prev }
+					}
+					found_planet = {
+						move_to = this
+						orbit_planet = this
+						wait = { duration = @nOrbitDuration }
+						effect = {
+							id = mission_return_home.effect.1
+							prevprev = {
+								remove_fleet_flag = @sMissionReturnHome
+								clear_fleet_actions = this
+								remove_auto_move_target = yes								
+							}				
+						}						
+					}
+					failed = { wait = { duration = @nIdleDuration } }
+				}
+			}
+			failed = { wait = { duration = @nIdleDuration } }
+		}			
+	}	
+}
+
+# This/Root = Fleet
+# Fleet seeks shipyard within sector borders for repairing.
+# In other cases, it'll look in empire scale.
+# Flag is cleared when fleet reaches the destination.
+mission_repair_fleet = {
+	# Clear all previous orders
+	clear_fleet_actions = this
+	queue_actions = {
+		find_closest_system = {
+			trigger = {
+				id = mission_repair_fleet.trigger.system.1
+				# System belongs to sector
+				exists = sector
+				sector = { prevprev = { has_fleet_flag = sector_id_@prev } }
+				# Starbase exists and has shipyards
+				exists = starbase
+				starbase = { has_starbase_module = shipyard }
+			}
+			found_system = {
+				move_to = this
+				wait = { duration = @nOrbitDuration }
+				effect = {
+					id = mission_repair_fleet.effect.1
+					prev = {
+						remove_fleet_flag = @sMissionRepairFleet
+						clear_fleet_actions = this
+						remove_auto_move_target = yes	
+					}				
+				}							
+			}
+			failed = {
+				find_closest_system = {
+					trigger = {
+						id = mission_repair_fleet.trigger.system.2
+						# True owner of fleet and sector
+						exists = owner
+						owner = { is_same_empire = event_target:scpSectorOwner }
+						# Starbase exists and has shipyards
+						exists = starbase
+						starbase = { has_starbase_module = shipyard }						
+					}
+					found_system = {
+						move_to = this
+						wait = { duration = @nOrbitDuration }
+						effect = {
+							id = mission_repair_fleet.effect.2
+							prev = {
+								remove_fleet_flag = @sMissionRepairFleet
+								clear_fleet_actions = this
+								remove_auto_move_target = yes	
+							}				
+						}						
+					}
+					failed = {
+						wait = { duration = @nIdleDuration }
+						# Clear failed mission
+						effect = {
+							id = mission_repair_fleet.effect.3
+							prev = {
+								remove_fleet_flag = @sMissionRepairFleet
+								clear_fleet_actions = this
+								remove_auto_move_target = yes
+							}				
+						}
+					} 
+				}
+			}
+		}			
+	}
+}
+
+# This/Root = Fleet
+# Fleet seeks shipyard within sector borders for upgrading.
+# In other cases, it'll look in empire scale.
+# Flag is cleared when fleet reaches the destination.
+mission_upgrade_fleet = {
+	# Clear all previous orders
+	clear_fleet_actions = this
+	queue_actions = {
+		find_closest_system = {
+			trigger = {
+				id = mission_upgrade_fleet.trigger.system.1
+				# System belongs to sector
+				exists = sector
+				sector = { prevprev = { has_fleet_flag = sector_id_@prev } }
+				# Starbase exists and has shipyards
+				exists = starbase
+				starbase = { has_starbase_module = shipyard }
+			}
+			found_system = {
+				move_to = this
+				wait = { duration = @nOrbitDuration }
+				effect = {
+					id = mission_upgrade_fleet.effect.1
+					prev = {
+						remove_fleet_flag = @sMissionUpgradeFleet
+						clear_fleet_actions = this
+						remove_auto_move_target = yes	
+					}				
+				}
+			}
+			failed = {
+				find_closest_system = {
+					trigger = {
+						id = mission_upgrade_fleet.trigger.system.2
+						# True owner of fleet and sector
+						exists = owner
+						owner = { is_same_empire = event_target:scpSectorOwner }
+						# Starbase exists and has shipyards
+						exists = starbase
+						starbase = { has_starbase_module = shipyard }
+					}
+					found_system = {
+						move_to = this
+						wait = { duration = @nOrbitDuration }
+						effect = {
+							id = mission_upgrade_fleet.effect.2
+							prev = {
+								remove_fleet_flag = @sMissionUpgradeFleet
+								clear_fleet_actions = this
+								remove_auto_move_target = yes	
+							}
+						}
+					}
+					failed = {
+						wait = { duration = @nIdleDuration }
+						# Clear failed mission
+						effect = {
+							id = mission_upgrade_fleet.effect.3
+							prev = {
+								remove_fleet_flag = @sMissionUpgradeFleet
+								clear_fleet_actions = this
+								remove_auto_move_target = yes
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

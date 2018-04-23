@@ -1,0 +1,23 @@
+# Called during empire initialization when starting a new game.
+# This on_action should always result in the creation of at least one new pop.
+# scope: planet
+# from: founder species
+empire_init_create_capital_pops = {
+	events = {
+		#cbshing_origins_machine_world_start.1 # change planet to machine world, shrink size, add new tile blockers
+	}
+}
+
+# Triggers when the game starts
+on_game_start_country = {
+	events = {
+		cbshing_origins_machine_world_start.1 # change planet to machine world, shrink size, add new tile blockers
+	}
+}
+
+# Triggers when the game starts
+on_press_begin = {
+	events = {
+		#cbshing_origins_machine_world_start.2 # change planet to machine world for determined exterminator start, add new tile blockers
+	}
+}

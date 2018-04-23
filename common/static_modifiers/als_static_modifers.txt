@@ -1,0 +1,41 @@
+als_bombardment_debuff_lv1 = {
+	planet_orbital_bombardment_damage = 0.15
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_chthonian_planet.dds"
+	icon_frame = 3
+}
+
+als_bombardment_debuff_lv2 = {
+	planet_orbital_bombardment_damage = 0.25
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_chthonian_planet.dds"
+	icon_frame = 3
+}
+
+als_bombardment_debuff_lv3 = {
+	planet_orbital_bombardment_damage = 0.35
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_chthonian_planet.dds"
+	icon_frame = 3
+}
+
+als_bombardment_debuff_lv4 = {
+	planet_orbital_bombardment_damage = 0.5
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_chthonian_planet.dds"
+	icon_frame = 3
+}
+
+als_bombardment_debuff_lv5 = {
+	planet_orbital_bombardment_damage = 0.75
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_chthonian_planet.dds"
+	icon_frame = 3
+}
+
+als_bombardment_debuff_max = {
+	planet_orbital_bombardment_damage = 1
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_chthonian_planet.dds"
+	icon_frame = 3
+}

@@ -1,0 +1,492 @@
+### This file contains energy weaponry techs
+
+### tech costs
+@tier3cost1 = 4000
+@tier3cost2 = 5000
+@tier3cost3 = 6000
+
+@tier4cost1 = 8000
+@tier4cost2 = 10000
+@tier4cost3 = 12000
+
+@tier5cost1 = 15000
+@tier5cost2 = 17500
+@tier5cost3 = 20000
+@tier5cost4 = 22500
+
+### tech weights
+@tier3weight1 = 65
+@tier3weight2 = 60
+@tier3weight3 = 50
+
+@tier4weight1 = 45
+@tier4weight2 = 40
+@tier4weight3 = 35
+
+@tier5weight1 = 30
+@tier5weight2 = 25
+@tier5weight3 = 20
+@tier5weight4 = 17
+
+############################################################
+###                     TECHNOLOGIES                     ###
+############################################################
+
+############################################################
+##                Enigmatic Energy Discharger             ##
+############################################################
+
+nhsc_tech_enigmatic_discharger = {
+	area = physics
+	category = { particles }
+	tier = 4
+	cost = @tier5cost2
+	weight = @tier5weight2
+	ai_update_type = military	
+	prerequisites = { "nhsc_tech_stringtheory" }
+	is_rare = yes
+	is_reverse_engineerable = no
+	
+	potential = {
+		NOT = { has_global_flag = ESC_weapons_forbidden }
+		NOT = { has_global_flag = ESC_leviathan_tech_forbidden }
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 0.0
+			NOT = { has_country_flag = fortress_solved }
+		}
+		modifier = {
+			factor = 0.8
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 0.9
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.1
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}	
+	}
+	
+	ai_weight = {
+		factor = 2
+		modifier = {
+			factor = 0.0
+			NOT = { has_country_flag = fortress_solved }
+		}
+		modifier = {
+			factor = 0.8
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 0.9
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.1
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}
+	}	
+}
+
+############################################################
+##                   Enigmatic Energy Lash                ##
+############################################################
+
+nhsc_tech_enigmatic_lash = {
+	area = physics
+	category = { particles }
+	tier = 4
+	cost = @tier5cost1
+	weight = @tier5weight1
+	ai_update_type = military	
+	prerequisites = { "nhsc_tech_stringtheory" }
+	is_rare = yes
+	is_reverse_engineerable = no
+	
+	potential = {
+		NOT = { has_global_flag = ESC_weapons_forbidden }
+		NOT = { has_global_flag = ESC_leviathan_tech_forbidden }
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 0.0
+			NOT = { has_country_flag = fortress_solved }
+		}
+		modifier = {
+			factor = 0.8
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 0.9
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.1
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}	
+	}
+	
+	ai_weight = {
+		factor = 2
+		modifier = {
+			factor = 0.0
+			NOT = { has_country_flag = fortress_solved }
+		}
+		modifier = {
+			factor = 0.8
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 0.9
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.1
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}
+	}	
+}
+
+############################################################
+##                Enigmatic Energy Autocannon             ##
+############################################################
+
+nhsc_tech_enigmatic_autocannon = {
+	area = physics
+	category = { particles }
+	tier = 4
+	cost = @tier5cost1
+	weight = @tier5weight1
+	ai_update_type = military	
+	prerequisites = { "nhsc_tech_stringtheory" }
+	is_rare = yes
+	is_reverse_engineerable = no
+	
+	potential = {
+		NOT = { has_global_flag = ESC_weapons_forbidden }
+		NOT = { has_global_flag = ESC_leviathan_tech_forbidden }
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 0.0
+			NOT = { has_country_flag = fortress_solved }
+		}
+		modifier = {
+			factor = 0.8
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 0.9
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.1
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}	
+	}
+	
+	ai_weight = {
+		factor = 2
+		modifier = {
+			factor = 0.0
+			NOT = { has_country_flag = fortress_solved }
+		}
+		modifier = {
+			factor = 0.8
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 0.9
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.1
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}
+	}	
+}
+
+############################################################
+##                Enigmatic Energy Lance                  ##
+############################################################
+
+nhsc_tech_enigmatic_lance = {
+	area = physics
+	category = { particles }
+	tier = 5
+	cost = @tier5cost3
+	weight = @tier5weight3
+	ai_update_type = military	
+	prerequisites = { "nhsc_tech_stringtheory" "nhsc_tech_advheavyweapons" }
+	is_rare = yes
+	is_reverse_engineerable = no
+	
+	potential = {
+		NOT = { has_global_flag = ESC_weapons_forbidden }
+		NOT = { has_global_flag = ESC_leviathan_tech_forbidden }
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 0.0
+			NOT = { has_country_flag = fortress_solved }
+		}
+		modifier = {
+			factor = 0.8
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 0.9
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.1
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}	
+	}
+	
+	ai_weight = {
+		factor = 2
+		modifier = {
+			factor = 0.0
+			NOT = { has_country_flag = fortress_solved }
+		}
+		modifier = {
+			factor = 0.8
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 0.9
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.1
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}
+	}	
+}
+
+############################################################
+##            Supersized Enigmatic Energy Lance           ##
+############################################################
+
+nhsc_tech_enigmatic_lance_titanic = {
+	area = physics
+	category = { particles }
+	tier = 5
+	cost = @tier5cost4
+	weight = @tier5weight4
+	ai_update_type = military
+	prerequisites = { "nhsc_tech_enigmatic_lance" "tech_titans" }
+	is_rare = yes
+	is_reverse_engineerable = no
+
+	potential = {
+		host_has_dlc = "Apocalypse"
+		NOT = { has_global_flag = ESC_weapons_forbidden }
+		NOT = { has_global_flag = ESC_leviathan_tech_forbidden }
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 0.0
+			NOT = { has_country_flag = fortress_solved }
+		}
+		modifier = {
+			factor = 0.8
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 0.9
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.1
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}
+	}
+
+	ai_weight = {
+		factor = 2
+		modifier = {
+			factor = 0.0
+			NOT = { has_country_flag = fortress_solved }
+		}
+		modifier = {
+			factor = 0.8
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 0.9
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.1
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}
+	}
+}
+
+############################################################
+##                Extradimensional Spike                  ##
+##          Unlocks powerful point-defense weapon         ##
+############################################################
+
+nhsc_tech_extradimensional_pd = {
+	area = physics
+	category = { field_manipulation }
+	tier = 4
+	cost = @tier4cost2
+	weight = @tier4weight2
+	prerequisites = {  }
+	is_rare = yes
+
+	potential = {
+		NOT = { has_global_flag = ESC_weapons_forbidden }
+		NOT = { has_global_flag = ESC_leviathan_tech_forbidden }
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			NOT = { has_country_flag = horror_killed }
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_field_manipulation"
+			}
+		}
+	}
+
+	ai_weight = {
+		modifier = {
+			factor = 0
+			NOT = { has_country_flag = horror_killed }
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_field_manipulation"
+			}
+		}
+	}
+}

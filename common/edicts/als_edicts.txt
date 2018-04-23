@@ -1,0 +1,20 @@
+country_edict = {
+	name = "att_admiral_no_skill_change"
+	
+	modifier = {
+		
+	}
+	
+	cost = { influence = 0 }
+	length = 10800
+	
+	potential = {
+	}
+		
+	allow = {
+	}
+	
+	ai_weight = {
+		weight = 0
+	}	
+}

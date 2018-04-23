@@ -1,0 +1,68 @@
+﻿l_english:
+
+ building_nutrient_synthesizer:0 "Nutrient Synthesizer"
+ building_nutrient_synthesizer_desc:0 "A facility that synthesizes vital nutrients more efficiently than traditional agriculture at the cost of flavor, reducing demand for imported food."
+ 
+ building_sensor_array:0 "Sensor Array"
+ building_sensor_array_desc:0 "An array of long-range sensors built to identify and track objects moving through space."
+ 
+ building_microgravity_fabricators:0 "Microgravity Fabricators"
+ building_microgravity_fabricators_desc:0 "The low gravity environment of space offers a plethora of opportunities in materials research and industry."
+ 
+ building_auxiliary_power_core:0 "Auxiliary Power Core"
+ building_auxiliary_power_core_desc:0 "A power core capable of providing auxiliary power generation to the habitat."
+ 
+ building_celestial_sanctum:0 "Celestial Sanctum"
+ building_celestial_sanctum_desc:0 "Now, finally, we are one with the stars."
+ 
+ building_arcology_district:0 "Arcology District"
+ building_arcology_district_desc:0 "A residental section of the habitat."
+ 
+ building_isotope_refinery:0 "Isotope Refinery"
+ building_isotope_refinery_desc:0 "This facility processes elements into isotopically pure forms for use in nuclear reactions and physics research."
+ 
+ building_chemical_processing:0 "Chemical Processing Plant"
+ building_chemical_processing_desc:0 "The volatile chemistry of toxic worlds prevents habitation, but provides a rich source of chemical feedstocks to various industries."
+ 
+ requires_habitat_molten:0 "Habitat must orbit a §YMolten World§!."
+ requires_habitat_toxic:0 "Habitat must orbit a §YToxic World§!."
+ requires_habitat_frozen:0 "Habitat must orbit a §YFrozen World§!."
+ requires_habitat_gas_giant:0 "Habitat must orbit a §YGas Giant§!."
+ requires_asteroid_belt_in_system:0 "Requires an asteroid belt in the system."
+ 
+ building_molten_harvester:0 "Magmatic Ore Harvester"
+ building_molten_harvester_desc: "The extraction and processing of minerals from the surface of molten worlds is difficult, but rewarding."
+ 
+ building_ice_refinery:0 "Ice Distillery"
+ building_ice_refinery_desc:0 "By distilling the volatile substances found in the ice of frozen worlds, we can acquire an acceptably pure product for industrial and scientific use."
+ 
+ solar_system:0 "System"
+ SOLAR_SYSTEM:0 "System"
+ 
+ building_network_hub:0 "Network Hub"
+ building_network_hub_desc:0 "$building_system_conflux_desc$"
+ 
+ building_synaptic_nexus:0 "Synaptic Nexus"
+ building_synaptic_nexus_desc:0 "$building_hive_synapse_desc$"
+ 
+ building_phys_institute:0 "Institute of Physics"
+ building_phys_institute_desc:0 "A research institute built to study theoretical and applied physics."
+ building_phys_institute_triggered_effect:0 "Laboratory Complexes:\n   $physics_research$: §G+2§!"
+ 
+ building_bio_institute:0 "Institute of Biology"
+ building_bio_institute_desc:0 "A research institute built to study the social and life sciences."
+ building_bio_institute_triggered_effect:0 "Laboratory Complexes:\n   $society_research$: §G+2§!"
+ 
+ building_engi_institute:0 "Institute of Engineering"
+ building_engi_institute_desc: "A research institute built to study mechanical engineering and materials science."
+ building_engi_institute_triggered_effect:0 "Laboratory Complexes:\n   $engineering_research$: §G+2§!"
+ 
+ building_hab_drydock:0 "Drydock"
+ building_hab_drydock_desc:0 "A docking facility where ships can be repaired, resupplied and maintained."
+ 
+ requires_tech_habitat:0 "$TRIGGER_FAIL$Requires the £engineering  §Y$tech_habitat$§! technology."
+ 
+ tech_habitat:0 "Habitation Matrices"
+ tech_habitat_desc:0 "The void, once seen as a cold and insurmountable barrier, has become a second home to us. Permanent habitation in the depths of space is now eminently possible."
+ TECH_UNLOCK_HABITAT_CONSTRUCTION_TITLE:0 "§HUnlocks Megastructure:§! Orbital Habitat"
+ TECH_UNLOCK_HABITAT_CONSTRUCTION_DESC:0 "An §Y$pc_habitat$§! is a theoretically self-sustaining space station designed for permanent habitation."

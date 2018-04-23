@@ -1,0 +1,16 @@
+trait_psionic_powerful_researcher = {
+	cost = 100
+	modifier = {
+		tile_resource_society_research_mult = 1.2
+		tile_resource_physics_research_mult = 1.2
+		tile_resource_engineering_research_mult = 1.2
+		pop_environment_tolerance = 2
+	}
+}
+
+trait_psionic_energy_generator = {
+	cost = 100
+	modifier = {
+		tile_resource_energy_mult = 1.5
+	}
+}

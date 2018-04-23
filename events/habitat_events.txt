@@ -1,0 +1,25 @@
+namespace = habitat
+
+### Habitat Expansion ###
+planet_event = {
+	id = habitat.1
+	title = habitat.1.name
+	desc = habitat.1.desc
+	show_sound = event_mystic_reveal
+	picture = GFX_evt_colony_settlement
+	
+	location = this
+	
+	is_triggered_only = yes
+
+	trigger = { exists = owner }
+
+	immediate = {
+		set_planet_size = 25
+		remove_modifier = habitat_under_expansion
+	}
+	
+	option = {
+		name = EXCELLENT
+	}
+}

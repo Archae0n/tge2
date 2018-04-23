@@ -1,0 +1,63 @@
+###############################
+# Lost Empire Planet Edicts
+###############################
+
+planet_edict = {
+	name = "youth_indoctrination"
+	length = 0
+	cost = { 
+		energy = 1000
+		minerals = 1000
+	}
+
+	potential = {
+		owner = {
+			is_country_type = lost_empire
+			has_valid_civic = civic_treaty_bound
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+		}
+		NOT = { has_planet_flag = youth_indoctrinated }
+	}
+	
+	effect = {
+		custom_tooltip = youth_indoctrination
+		hidden_effect = { 
+			create_random_lost_empire_fleet = yes 
+			set_timed_planet_flag = { flag = youth_indoctrinated days = 3600 }	
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+	}	
+}
+
+planet_edict = {
+	name = "volunteer_conscription"
+	length = 0
+	cost = { 
+		energy = 1000
+		minerals = 1000
+	}
+
+	potential = {
+		owner = {
+			is_country_type = lost_empire
+			has_valid_civic = civic_lost_fervor
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+		}
+		NOT = { has_planet_flag = volunteer_conscripted }
+	}
+	
+	effect = {
+		custom_tooltip = volunteer_conscription
+		hidden_effect = { 
+			create_random_lost_empire_fleet = yes 
+			set_timed_planet_flag = { flag = volunteer_conscripted days = 3600 }	
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+	}	
+}

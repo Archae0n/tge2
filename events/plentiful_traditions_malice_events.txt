@@ -1,0 +1,86 @@
+namespace = plentiful_traditions_malice
+
+pop_event = {
+	id = plentiful_traditions_malice.1
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		owner = {
+			has_tradition = tr_plentiful_malice_adopt
+		}
+		Not = {
+			has_modifier = modifier_plentiful_traditions_slave1
+		}
+	}
+	
+	immediate = {
+		add_modifier = {
+			modifier = "modifier_plentiful_traditions_slave1"
+			days = -1
+		}
+	}
+}
+
+pop_event = {
+	id = plentiful_traditions_malice.2
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		has_modifier = modifier_plentiful_traditions_slave1	
+	}
+	
+	immediate = {
+		remove_modifier = "modifier_plentiful_traditions_slave1"
+	}
+}
+
+pop_event = {
+	id = plentiful_traditions_malice.3
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		owner = {
+			has_tradition = tr_plentiful_malice_5
+		}
+		has_modifier = pop_recently_conquered
+	}
+	
+	immediate = {
+		remove_modifier = "pop_recently_conquered"
+	}
+}
+
+event = {
+	id = plentiful_traditions_malice.4
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		any_country = {
+			has_tradition = tr_plentiful_malice_adopt
+		}
+	}
+
+	immediate = {
+		every_country = {
+			limit = {
+				has_tradition = tr_plentiful_malice_adopt
+			}
+			every_owned_pop = {
+				limit = {
+					is_enslaved = yes
+					Not = {
+						has_modifier = modifier_plentiful_traditions_slave1
+					}
+				}
+				add_modifier = {
+					modifier = "modifier_plentiful_traditions_slave1"
+					days = -1
+				}
+			}
+		}
+	}
+}

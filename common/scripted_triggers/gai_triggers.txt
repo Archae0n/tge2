@@ -1,0 +1,475 @@
+gai_has_engineering = {
+	tile = {
+		has_resource = {
+			type = engineering_research
+			amount > 0
+		}
+	}
+}
+
+gai_has_physics = {
+	tile = {
+		has_resource = {
+			type = physics_research
+			amount > 0
+		}
+	}
+}
+
+gai_has_society = {
+	tile = {
+		has_resource = {
+			type = society_research
+			amount > 0
+		}
+	}
+	tile = {
+		has_resource = {
+			type = sr_alien_pets
+			amount = 0
+		}
+	}
+}
+
+gai_has_sr = {
+	OR = {
+		tile = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}
+		}
+		tile = {
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}
+		}
+	}
+}
+
+gai_has_research = {
+	OR = {
+		tile = {
+			has_resource = {
+				type = society_research
+				amount > 0
+			}
+		}
+		tile = {
+			has_resource = {
+				type = physics_research
+				amount > 0
+			}
+		}
+		tile = {
+			has_resource = {
+				type = engineering_research
+				amount > 0
+			}
+		}
+	}
+}
+
+gai_has_high_food = {
+	tile = {
+		has_resource = {
+			type = food
+			amount > 1
+		}
+	}
+}
+
+gai_has_high_energy = {	
+	AND = {
+		tile = {
+			has_resource = {
+				type = energy
+				amount > 1
+			}
+		}
+		gai_has_sr = no
+	}
+}
+
+gai_has_high_minerals = {	
+	tile = {
+		has_resource = {
+			type = minerals
+			amount > 1
+		}
+	}
+}
+
+gai_has_food = {	
+	AND = {
+		tile = {
+			has_resource = {
+				type = food
+				amount > 0
+			}
+		}
+		gai_has_high_minerals = no
+		gai_has_high_energy = no
+	}
+}
+
+gai_has_energy = {	
+	AND = {
+		tile = {
+			has_resource = {
+				type = energy
+				amount > 0
+			}
+		}
+		gai_has_sr = no
+		gai_has_high_minerals = no
+		gai_has_high_food = no
+	}
+}
+
+gai_has_minerals = {	
+	AND = {
+		tile = {
+			has_resource = {
+				type = minerals
+				amount > 0
+			}
+		}
+		gai_has_high_energy = no
+		gai_has_high_food = no
+	}
+}
+
+gai_has_unity_building = {
+	planet= {
+		OR = {
+			has_building = building_citadel_of_faith
+			has_building = building_temple
+			has_building = building_holotemple
+			has_building = building_sacred_nexus
+			has_building = building_autocurating_vault
+			has_building = building_hypercomms_forum
+			has_building = building_heritage_site
+			has_building = building_autochthon_monument
+			has_building = building_uplink_node
+			has_building = building_network_junction
+			has_building = building_system_conflux
+			has_building = building_alpha_hub
+		}
+	}
+}
+
+gai_has_growth_building = {
+	OR = {
+		AND = {
+			owner = {
+				OR = {
+					has_technology = tech_frontier_health
+					has_technology = tech_modular_components
+				}
+			}
+			planet= {
+				OR = {
+					has_building = building_clinic
+					has_building = building_hospital
+					has_building = building_spare_parts_depot
+					has_building = building_unit_assembly_plant
+				}
+			}
+		}
+		owner = {
+			NOR = {
+				has_technology = tech_frontier_health
+				has_technology = tech_modular_components
+			}
+		}
+	}
+}
+
+gai_has_dome = {
+	OR = {
+		AND = {
+			owner = {
+				has_non_swapped_tradition = tr_harmony_utopian_dream
+			}
+			planet= {
+				has_building = building_paradise_dome
+			}
+			planet = {
+				gai_upgraded_capital = yes
+			}
+		}
+		NOT = { planet = { gai_upgraded_capital = yes } }
+		NOT = { owner = { has_non_swapped_tradition = tr_harmony_utopian_dream	} }
+	}
+}
+
+gai_has_p_hub = {
+	OR = {
+		AND = {
+			owner = {
+				has_technology = tech_power_hub_1
+			}
+			planet= {
+				OR = {
+					has_building = building_power_hub_1
+					has_building = building_power_hub_2
+					has_building = building_akx_worm_1
+				}
+			}	
+			planet = {
+				gai_upgraded_capital = yes
+			}
+		}
+		NOT = { planet = { gai_upgraded_capital = yes } }
+		NOT = { owner = { has_technology = tech_power_hub_1	} }
+	}
+}
+
+
+
+gai_has_slave_p = {
+	OR = {
+		AND = {
+			planet = {
+				AND = {
+					has_building = building_slave_processing
+					any_pop = {
+						is_enslaved = yes
+					}
+				}
+			}
+			planet = {
+				gai_upgraded_capital = yes
+			}
+			owner = { has_technology = tech_neural_implants }
+		}
+		planet = {
+			any_pop = {
+				is_enslaved = NO
+			}
+		}
+		NOT = { planet = { gai_upgraded_capital = yes } }
+		NOT = { owner = { has_technology = tech_neural_implants } }
+	}
+}
+
+gai_has_pur = {
+	OR = {
+		AND = {
+			owner = {
+				has_swapped_tradition = tr_purity_symbol_purity
+			}
+			planet= {
+				has_building = building_symbol_purity
+			}
+			planet = {
+				gai_upgraded_capital = yes
+			}
+		}
+		NOT = { 
+			owner = {
+				has_swapped_tradition = tr_purity_symbol_purity
+			}
+		}
+		NOT = { planet = { gai_upgraded_capital = yes } }
+	}
+}
+
+gai_build_on_food_okay = {
+	AND = {
+		OR = {
+			AND = {
+				owner = {has_authority = auth_machine_intelligence}
+				gai_has_food = yes
+				gai_has_minerals = no
+			}
+			planet = {
+				gai_upgraded_capital = yes
+			}
+			AND = {
+				owner = {
+					has_monthly_income = {
+						resource = food
+						value > 60
+					}
+				}
+				gai_has_food = yes
+				gai_has_minerals = no
+			}
+		}
+	}
+}
+
+better_building_cleanup = {
+	AND = {
+		OR = {
+			owner = {
+				is_ai = yes
+			}
+			planet = {
+				AND = {
+					has_owner = yes
+					sector_controlled = yes
+				}
+			}
+		}
+		planet={
+			free_building_tiles = 0
+		}
+	}
+}
+
+gai_has_min_pro = {
+	OR = {
+		AND = {
+			owner = { has_technology = tech_mineral_processing_1 }
+			planet= {
+				OR = {
+					has_building = building_mineral_processing_plant_1
+					has_building = building_mineral_processing_plant_2
+				}
+			}
+			planet = {
+				gai_upgraded_capital = yes
+			}
+		}
+		NOT = { planet = { gai_upgraded_capital = yes } }
+		NOT = { owner = { has_technology = tech_mineral_processing_1 } }
+	}
+}	
+
+gai_is_blank = {
+	gai_has_food  = no
+	gai_has_energy = no
+	gai_has_minerals = no
+	gai_has_research = no
+	gai_has_sr = no
+}
+
+gai_is_critical_building = {
+	OR = {
+		AND = {
+			gai_has_high_food = no
+			gai_has_high_energy = no
+			gai_has_high_minerals = no
+			planet={
+				AND = {
+					free_building_tiles < 2
+					NOT = { any_tile = { has_building = no } }
+				}
+			}
+		}
+		gai_is_blank = yes
+	}
+}
+
+gai_blank_okay = {
+	AND = {
+		gai_is_blank = yes
+		gai_has_unity_building = yes
+		gai_has_growth_building = yes
+		gai_has_dome = yes
+		gai_has_p_hub = yes
+		gai_has_pur = yes
+		gai_has_slave_p = yes
+		gai_has_min_pro = yes
+		planet = {
+			gai_upgraded_capital = yes
+		}
+	}
+}
+
+gai_important_building = {
+	tile = {
+		AND = {
+			has_building = building_capital_1
+			has_building = building_capital_2
+			has_building = building_capital_3
+			has_building = building_mineral_processing_plant_1
+			has_building = building_mineral_processing_plant_2
+			has_building = building_symbol_purity
+			has_building = building_clinic
+			has_building = building_hospital
+			has_building = building_spare_parts_depot
+			has_building = building_unit_assembly_plant
+			has_building = building_paradise_dome
+			has_building = building_power_hub_1
+			has_building = building_power_hub_2
+			has_building = building_akx_worm_1
+			has_building = building_slave_processing
+			has_building = building_citadel_of_faith
+			has_building = building_temple
+			has_building = building_holotemple
+			has_building = building_sacred_nexus
+			has_building = building_autocurating_vault
+			has_building = building_hypercomms_forum
+			has_building = building_heritage_site
+			has_building = building_autochthon_monument
+			has_building = building_uplink_node
+			has_building = building_network_junction
+			has_building = building_system_conflux
+			has_building = building_alpha_hub
+		}
+	}
+}
+
+gai_is_ai = {
+	planet = {
+		has_owner = yes
+		or = {
+			owner = {
+				is_ai = yes
+			}
+			sector_controlled = yes
+		}
+	}
+}
+
+gai_shelter_capital = {
+	OR = {
+		has_building = building_colony_shelter
+		has_building = building_deployment_post
+	}
+}
+
+gai_upgraded_capital = {
+	OR = {
+		has_building = building_machine_capital_1
+		has_building = building_capital_1
+		has_building = building_machine_capital_2
+		has_building = building_capital_2
+		has_building = building_machine_capital_3
+		has_building = building_capital_3
+	}
+}
+
+gai_food_okay_to_replace = {
+	tile = {
+		OR = {
+			has_building = building_mining_network_1
+			has_building = building_mining_network_2
+			has_building = building_mining_network_3
+			has_building = building_mining_network_4
+			has_building = building_mining_network_5
+			has_building = building_power_plant_1
+			has_building = building_power_plant_2
+			has_building = building_power_plant_3
+			has_building = building_power_plant_4
+			has_building = building_power_plant_5
+			has_building = building_military_academy
+			has_building = building_visitor_center
+			has_building = building_biolab_1
+			has_building = building_biolab_2
+			has_building = building_biolab_3
+			has_building = building_physics_lab_1
+			has_building = building_physics_lab_2
+			has_building = building_physics_lab_3
+			has_building = building_engineering_facility_1
+			has_building = building_engineering_facility_2
+			has_building = building_engineering_facility_3
+			has_building = building_basic_science_lab_1
+		}
+	}
+}

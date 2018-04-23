@@ -1,0 +1,570 @@
+# IRM
+# Regionalist Sector Faction
+
+
+regionalist = {
+	
+	# This = Pop faction
+	unique = no
+
+	# This = Country
+	is_potential = {
+		is_ai = no
+		sectors > 0			
+	}
+	
+	# This = Country
+	parameters = {
+		sector = {
+			type = sector
+			valid_objects = { is_core_sector = no }
+		}
+	}
+
+	# This = Pop faction
+	valid = {
+		not = { has_pop_faction_flag = "clone" } # prevent duplicates
+		parameter:sector = {
+			debug_scope_type = sector
+			owner = { is_same_empire = root.owner }
+		}
+	}
+
+	# This = Pop
+	can_join_faction = {
+		# Global rules for pops, which can join the faction
+		pop_can_politics = yes
+	}
+
+	# This = Pop
+	attraction = {
+
+		# BASIC
+
+		# To prevent spawning outside the sectors
+		base = 0
+
+		# Basic faction attraction within sector
+		modifier = {
+			add = 85
+			is_region_pop = yes
+		}		
+
+#		# FACTION
+
+		# Initial
+		modifier = {
+			add = 1000
+			is_region_pop = yes
+			pop_att_is_founder = yes
+		}
+
+		# Member
+		modifier = {
+			factor = 1.25
+			is_region_pop = yes
+			pop_att_is_member = yes
+		}
+
+		# Regionalism reducement edict
+		modifier = {
+			factor = 0.90
+			is_region_pop = yes
+			pop_att_is_propaganded = yes
+		}
+
+		# PLANET
+
+		# Capital
+		modifier = {
+			factor = 1.10
+			is_region_pop = yes
+			pop_att_is_capital = yes
+		}
+
+		# Disconnected
+		modifier = {
+			factor = 1.50
+			is_region_pop = yes
+			pop_att_is_disconnected = yes
+		}
+
+		# POP
+
+		# Happiness
+		modifier = {
+			factor = 0.90
+			is_region_pop = yes
+			pop_att_is_happy = yes
+		}
+		modifier = {
+			factor = 1.10
+			is_region_pop = yes
+			pop_att_is_unhappy = yes
+		}
+		modifier = {
+			factor = 1.10
+			is_region_pop = yes
+			pop_att_is_angry = yes
+		}
+
+		# Different ethics
+		modifier = {
+			factor = 1.10
+			is_region_pop = yes
+			pop_att_same_ethics = yes
+		}
+
+		# Different species
+		modifier = {
+			factor = 1.15
+			is_region_pop = yes
+			pop_att_is_different = yes
+		}
+
+		# Unemployed
+		modifier = {
+			factor = 1.20
+			is_region_pop = yes
+			pop_att_is_unemployed = yes
+		}
+
+		# Conquered
+		modifier = {
+			factor = 2.00
+			is_region_pop = yes
+			pop_att_is_conquered = yes
+		}
+
+		# SECTOR
+
+		# Governor
+		modifier = {
+			factor = 0.90
+			is_region_pop = yes
+			pop_att_has_governor = yes
+		}
+		modifier = {
+			factor = 1.10
+			is_region_pop = yes
+			pop_att_has_governor = no
+		}
+
+		# Overextention
+		modifier = {
+			factor = 1.10
+			is_region_pop = yes
+			pop_att_is_overextended = yes
+		}		
+
+	}
+
+	# Leader has to be specifically created 
+	leader = {
+		base = 100
+		modifier = {
+			factor = 0.00
+			not = { has_leader_flag = "faction_leader" }			
+		}		
+	}
+
+	# This = Pop faction
+	on_create = {
+		# Check all potential factions within this sector.
+		# If this faction is similar to existing, mark as duplicated.
+		# Duplicated factions will be no valid and never appear.
+		if = {
+			limit = {
+				parameter:sector = {
+					any_pop = {
+						exists = pop_faction
+						pop_faction = {
+							is_pop_faction_type = "regionalist"
+							check_pop_faction_parameter = { which = sector value = prevprev }		
+							not = { is_same_value = root }
+						}
+					}
+				}
+			}
+			set_pop_faction_flag = "clone"
+			# Otherwise, establish the faction, launch procedures
+			else = {
+				faction_set_name = yes
+				faction_set_leader = yes
+				# Show the default message
+				pop_faction_event = { id = irm_faction.1 }
+			}
+
+		}
+	}
+
+	# This = Country
+	on_destroy = {}
+
+	# Governance
+	demand = {
+		title = "pft_regionalist.demand.governor"
+		desc = "pft_regionalist.demand.governor.desc"
+		unfulfilled_title = "pft_regionalist.demand.governor.failed"
+		
+		fulfilled_effect = 2.5
+		unfulfilled_effect	= -10
+		
+		potential = {
+			exists = parameter:sector
+		}
+		
+		trigger = {
+			parameter:sector = { exists = leader }
+		}
+	}
+
+	# Specie's Leader
+	demand = {
+		title = "pft_regionalist.demand.majority"
+		desc = "pft_regionalist.demand.majority.desc"
+		unfulfilled_title = "pft_regionalist.demand.majority"
+		
+		fulfilled_effect = 2.5
+		unfulfilled_effect = -10
+		
+		potential = {
+			exists = parameter:sector
+			parameter:sector = {
+				exists = leader
+				any_pop = {
+					is_region_pop = yes
+					pop_can_politics = yes
+					not = { is_same_species = parameter:sector.leader }
+				}
+			}
+			
+		}
+		
+		trigger = {
+			root = {
+				pop_percentage = {
+					limit = {
+						is_region_pop = yes
+						pop_can_politics = yes
+						is_same_species = parameter:sector.leader
+					}
+					percentage > 0.49
+				}
+			}
+		}
+	}
+
+	# Sorrow
+	demand = {
+		#title = "pft_regionalist.demand.death"
+		desc = "pft_regionalist.demand.death.desc"
+		unfulfilled_title = "pft_regionalist.demand.death.failed"
+		
+		#fulfilled_effect = 2.5
+		unfulfilled_effect	= -10
+		
+		potential = {
+			exists = parameter:sector
+			root = { has_pop_faction_flag = "leader_death" }
+			
+		}
+		
+		trigger = {
+			root = { not = { has_pop_faction_flag = "leader_death" } }
+		}
+	}
+
+	# Lost planets
+	demand = {
+		#title = "pft_regionalist.demand.lost"
+		desc = "pft_regionalist.demand.lost.desc"
+		unfulfilled_title = "pft_regionalist.demand.lost.failed"
+		
+		#fulfilled_effect = 10
+		unfulfilled_effect	= -20
+		
+		potential = {
+			exists = parameter:sector
+			owner = {
+				any_system_within_border = {
+					any_planet = {
+						exists = owner
+						owner = { is_same_empire = root.owner }
+						not = { has_modifier = "sector_capital" }
+					}
+					has_star_flag = mark_id_@parameter:sector
+					exists = sector
+					sector = { not = { is_same_value = parameter:sector } }
+				}
+			}			
+		}
+		
+		trigger = {
+			owner = {
+				not = {
+					any_system_within_border = {
+						any_planet = {
+							exists = owner
+							owner = { is_same_empire = root.owner }
+							not = { has_modifier = "sector_capital" }
+						}						
+						has_star_flag = mark_id_@parameter:sector
+						exists = sector
+						sector = { not = { is_same_value = parameter:sector } }
+					}			
+				}
+			}			
+		}
+	}
+
+	# Gained planets
+	demand = {
+		title = "pft_regionalist.demand.gain"
+		desc = "pft_regionalist.demand.gain.desc"
+		#unfulfilled_title = "pft_regionalist.demand.gain.failed"
+		
+		fulfilled_effect = 10.0
+		#unfulfilled_effect	= -25
+		
+		potential = {
+			exists = parameter:sector
+			owner = {
+				any_system_within_border = {
+					any_planet = {
+						exists = owner
+						owner = { is_same_empire = root.owner }
+						not = { has_modifier = "sector_capital" }
+					}
+					prev = {
+						any_sector = {
+							not = { is_same_value = parameter:sector }
+							prevprev = { has_star_flag = mark_id_@prev }
+						}
+					}
+					exists = sector
+					sector = { is_same_value = parameter:sector }
+				}
+			}			
+		}
+		
+		trigger = {
+			owner = {
+				any_system_within_border = {
+					any_planet = {
+						exists = owner
+						owner = { is_same_empire = root.owner }
+						not = { has_modifier = "sector_capital" }
+					}
+					prev = {
+						any_sector = {
+							not = { is_same_value = parameter:sector }
+							prevprev = { has_star_flag = mark_id_@prev }
+						}
+					}
+					exists = sector
+					sector = { is_same_value = parameter:sector }
+				}
+			}
+		}
+	}
+
+	# Overextension
+	demand = {
+		#title = "pft_regionalist.demand.overextension"
+		desc = "pft_regionalist.demand.overextension.desc"
+		unfulfilled_title = "pft_regionalist.demand.overextension.failed"
+		
+		#fulfilled_effect = 0
+		unfulfilled_effect	= -15
+		
+		potential = {
+			exists = parameter:sector
+			parameter:sector = { sector_is_overextended = yes }
+		}
+		
+		trigger = {
+			parameter:sector = { sector_is_overextended = no }			
+		}
+	}
+
+	# Sector Gurad Forces
+	demand = {
+		title = "pft_regionalist.demand.forces"
+		desc = "pft_regionalist.demand.forces.desc"
+		unfulfilled_title = "pft_regionalist.demand.forces.failed"
+		
+		fulfilled_effect = 0
+		unfulfilled_effect	= -5
+		
+		potential = {
+			exists = parameter:sector
+		}
+		
+		trigger = {
+			parameter:sector = {
+				sector_pol_nofleet = no
+				#sector_pol_noarmy = no
+			}
+		}
+	}
+
+	# Sector Fleet Size > 50
+	demand = {
+		title = "pft_regionalist.demand.navsize"
+		desc = "pft_regionalist.demand.navsize.desc"
+		#unfulfilled_title = "pft_regionalist.demand.navsize.failed"
+		
+		fulfilled_effect = 1
+		#unfulfilled_effect	= -5
+		
+		potential = {
+			exists = parameter:sector
+			any_country = {
+				is_country_type = @dbCountryFleet
+				any_owned_fleet = {
+					is_ship_class = shipclass_military
+					has_fleet_flag = sector_id_@parameter:sector
+					fleet_size >= 50
+				}
+			}
+		}
+		
+		trigger = {
+			exists = parameter:sector
+			any_country = {
+				is_country_type = @dbCountryFleet
+				any_owned_fleet = {
+					is_ship_class = shipclass_military
+					has_fleet_flag = sector_id_@parameter:sector
+					fleet_size >= 50
+				}
+			}
+		}
+	}
+
+	# Sector Fleet Size > 100
+	demand = {
+		title = "pft_regionalist.demand.navsize"
+		desc = "pft_regionalist.demand.navsize.desc"
+		#unfulfilled_title = "pft_regionalist.demand.navsize.failed"
+		
+		fulfilled_effect = 2.5
+		#unfulfilled_effect	= -5
+		
+		potential = {
+			exists = parameter:sector
+			any_country = {
+				is_country_type = @dbCountryFleet
+				any_owned_fleet = {
+					is_ship_class = shipclass_military
+					has_fleet_flag = sector_id_@parameter:sector
+					fleet_size >= 100
+				}
+			}
+		}
+		
+		trigger = {
+			exists = parameter:sector
+			any_country = {
+				is_country_type = @dbCountryFleet
+				any_owned_fleet = {
+					is_ship_class = shipclass_military
+					has_fleet_flag = sector_id_@parameter:sector
+					fleet_size >= 100
+				}
+			}
+		}
+	}
+
+	# Sector Fleet Size > 200
+	demand = {
+		title = "pft_regionalist.demand.navsize"
+		desc = "pft_regionalist.demand.navsize.desc"
+		#unfulfilled_title = "pft_regionalist.demand.navsize.failed"
+		
+		fulfilled_effect = 5
+		#unfulfilled_effect	= -5
+		
+		potential = {
+			exists = parameter:sector
+			any_country = {
+				is_country_type = @dbCountryFleet
+				any_owned_fleet = {
+					is_ship_class = shipclass_military
+					has_fleet_flag = sector_id_@parameter:sector
+					fleet_size >= 200
+				}
+			}
+		}
+		
+		trigger = {
+			exists = parameter:sector
+			any_country = {
+				is_country_type = @dbCountryFleet
+				any_owned_fleet = {
+					is_ship_class = shipclass_military
+					has_fleet_flag = sector_id_@parameter:sector
+					fleet_size >= 200
+				}
+			}
+		}
+	}
+
+	# Threat of Piracy
+	demand = {
+		#title = "pft_regionalist.demand.piracy"
+		desc = "pft_regionalist.demand.piracy.desc"
+		unfulfilled_title = "pft_regionalist.demand.piracy.failed"
+		
+		#fulfilled_effect = 0
+		unfulfilled_effect	= -10
+		
+		potential = {
+			any_country = {
+				is_country_type = pirate
+				any_owned_fleet = {
+					exists = solar_system
+					solar_system = {
+						or = {
+							and = {
+								exists = sector
+								sector = { is_same_value = parameter:sector }
+							}
+							any_neighbor_system = {
+								ignore_hyperlanes = no
+								exists = sector
+								sector = { is_same_value = parameter:sector }								
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		trigger = {
+			not = {
+				any_country = {
+					is_country_type = pirate
+					any_owned_fleet = {
+						exists = solar_system
+						solar_system = {
+							or = {
+								and = {
+									exists = sector
+									sector = { is_same_value = parameter:sector }
+								}
+								any_neighbor_system = {
+									ignore_hyperlanes = no
+									exists = sector
+									sector = { is_same_value = parameter:sector }								
+								}
+							}
+						}
+					}
+				}				
+			}						
+		}
+	}
+
+}

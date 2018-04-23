@@ -1,0 +1,73 @@
+# by cbshing
+#	Example:
+#
+#	example_effect = {
+#		add_energy = -100
+#	}
+#
+#
+#	In a script file:
+#
+#	effect = {
+#		example_effect = yes
+#	}
+#
+
+# add vanilla tile blockers to planet
+# Scope: Planet
+cbshing_origins_add_vanilla_tile_blockers = {
+	#create tile blockers on research tiles
+	while = {
+		count = 3
+		random_tile = {
+			limit = {
+				AND = {
+					has_blocker = no 
+					has_building = no
+					OR = {
+						has_resource = {
+							type = society_research
+							amount = 1
+						}
+						has_resource = {
+							type = physics_research
+							amount = 1
+						}
+						has_resource = {
+							type = engineering_research
+							amount = 1
+						}
+					}
+				}
+			}
+			set_blocker = "tb_failing_infrastructure"
+		}
+	}
+	#create tile blockers on food/energy/mineral tiles
+	while = {
+		count = 3
+		random_tile = {
+			limit = {
+				AND = {
+					has_blocker = no 
+					has_building = no
+					OR = {
+						has_resource = {
+							type = energy
+							amount = 2
+						}
+						has_resource = {
+							type = minerals
+							amount = 2
+						}
+						has_resource = {
+							type = food
+							amount = 2
+						}
+					}
+				}
+			}
+			set_blocker = "tb_decrepit_dwellings" 
+		}
+	}		
+}

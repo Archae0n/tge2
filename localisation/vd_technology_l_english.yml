@@ -1,0 +1,47 @@
+﻿l_english:
+
+ tech_void_acclimation:0 "Microgravity Acclimation"
+    tech_void_acclimation_desc:0 "Though we have mostly adapted to space, living in a microgravity environment can still be disorienting to some, especially outsiders. We should work to remedy this."
+ 
+ tech_orbital_redevelopment:0 "Orbital Redevelopment"
+    tech_orbital_redevelopment_desc:0 "Improved orbital construction techniques allow us to renovate existing habitats without significantly disrupting its functions, allowing us to expand previously constructed habitats."
+ 
+ tech_microgravity_fabricators:0 "Microgravity Fabrication"
+ tech_microgravity_fabricators_desc:0 "$building_microgravity_fabricators_desc$"
+ 
+ tech_isotope_refinery:0 "Intensive Isotope Refining"
+ tech_isotope_refinery_desc:0 "$building_isotope_refinery_desc$"
+ 
+ TECH_UNLOCK_LABORATORY_COMPLEX_PHYSICS_TITLE:0 "Laboratory Complexes: §G+1§! £physics  Physics Research"
+    TECH_UNLOCK_LABORATORY_COMPLEX_PHYSICS_DESC:0 "§H$tech_physics_lab_3$§!\nEmpire Modifier\n$TECH_UNLOCK_LABORATORY_COMPLEX_PHYSICS_TITLE$"
+ TECH_UNLOCK_LABORATORY_COMPLEX_SOCIETY_TITLE:0 "Laboratory Complexes: §G+1§! £society  Society Research"
+    TECH_UNLOCK_LABORATORY_COMPLEX_SOCIETY_DESC:0 "§H$tech_biolab_3$§!\nEmpire Modifier\n$TECH_UNLOCK_LABORATORY_COMPLEX_SOCIETY_TITLE$"
+ TECH_UNLOCK_LABORATORY_COMPLEX_ENGINEERING_TITLE:0 "Laboratory Complexes: §G+1§! £engineering  Engineering Research"
+    TECH_UNLOCK_LABORATORY_COMPLEX_ENGINEERING_DESC:0 "§H$tech_engineering_lab_3$§!\nEmpire Modifier\n$TECH_UNLOCK_LABORATORY_COMPLEX_ENGINEERING_TITLE$"
+ 
+ tech_improved_astro_mining_bay:0 "In-Situ Mineral Processing"
+    tech_improved_astro_mining_bay_desc:0 "By processing minerals harvested from asteroids on site, we can increase efficiency substantially."
+    TECH_UNLOCK_IMPROVED_ASTRO_MINING_BAY_TITLE:0 "Astro-Mining Bays: §G+1§! £minerals  Minerals"
+    TECH_UNLOCK_IMPROVED_ASTRO_MINING_BAY_DESC:0 "§H$tech_improved_astro_mining_bay$§!\nEmpire Modifier\n$TECH_UNLOCK_IMPROVED_ASTRO_MINING_BAY_TITLE$"
+    
+  tech_improved_solar_power_processor:0 "Cogenerative Photovoltaics"
+    tech_improved_solar_power_processor_desc:0 "Waste heat produced by solar panels can be diverted to generate additional power."
+    TECH_UNLOCK_IMPROVED_SOLAR_POWER_PROCESSOR_TITLE:0 "Solar Power Processors: §G+1§! £energy  Energy"
+    TECH_UNLOCK_IMPROVED_SOLAR_POWER_PROCESSOR_DESC:0 "§H$tech_improved_solar_power_processor$§!\nEmpire Modifier\n$TECH_UNLOCK_IMPROVED_SOLAR_POWER_PROCESSOR_TITLE$"
+ 
+ tech_improved_aeroponics_facility:0 "Zero-G Aquaponics"
+    tech_improved_aeroponics_facility_desc:0 "By recycling organic waste via aquaculture systems we can increase the productivity of our orbital aeroponics facilities."
+    TECH_UNLOCK_IMPROVED_AEROPONICS_FACILITY_TITLE:0 "Aeroponics Facilities: §G+1§! £food  Food\nHydroponics Bays: §G+2§! £food  Food"
+    TECH_UNLOCK_IMPROVED_AEROPONICS_FACILITY_DESC:0 "§H$tech_improved_aeroponics_facility$§!\nEmpire Modifier\n$TECH_UNLOCK_IMPROVED_AEROPONICS_FACILITY_TITLE$"
+ 
+ tech_hedonistic_abundance:0 "Hedonistic Abundance"
+ tech_hedonistic_abundance_desc:0 ""
+ 
+ tech_autonomous_fabricators:0 "Autonomous Fabricators"
+ tech_autonomous_fabricators_desc:0 ""
+ 
+ tech_dark_matter_power_plant:0 "Dark Matter Power Plants"
+ tech_dark_matter_power_plant_desc:0 ""
+ 
+ tech_agri_processing_complex:0 "Agri-Processing Complexes"
+ tech_agri_processing_complex_desc:0 ""

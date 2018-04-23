@@ -1,0 +1,291 @@
+plentiful_traditions_embargo = {
+	execution_order = 1
+	
+	parameters = {
+		country = {
+			type = country
+		}
+	}
+	
+	warscore_cost = {
+		base = 7
+	}
+
+	potential = {
+		OR = {
+			has_tradition = tr_plentiful_kleptocracy_finish
+		}
+		OR = {
+			is_subject = no
+			NOT = {
+				overlord = {
+					is_same_value = from
+				}
+			}
+		}
+		parameter:country = {
+			is_country = from
+		}		
+	}
+	
+	possible = {
+		hidden:parameter:country = {
+			custom_tooltip = {
+				fail_text = "war_demand_plentiful_traditions_embargo_no_planets"
+				war_demand_counter = {
+					type = num_owned_planets
+					value > 0
+				}
+			}
+		}
+	}
+	
+	proposable = {
+		always = yes
+	}
+	
+	effect = {	
+		fromfromfrom = {
+#			add_influence = 25
+		}
+		parameter:country = {		
+			add_modifier = { modifier = modifier_plentiful_traditions_embargo days = 3600 }			
+		}	
+	}
+	
+	counters = {
+		num_country_wargoals = {
+			context = parameter:country
+			value = {
+				base = 1
+			}
+		}	
+	}	
+	
+	ai_weight = {
+		base = 1
+		modifier = {
+			factor = 100
+			is_country_type = fallen_empire
+		}
+	}
+}
+
+plentiful_traditions_false_flag = {
+	execution_order = 1
+	
+	parameters = {
+		country = {
+			type = country
+		}
+	}
+	
+	warscore_cost = {
+		base = 7
+	}
+
+	potential = {
+		OR = {
+			has_tradition = tr_plentiful_order_finish
+		}
+		OR = {
+			is_subject = no
+			NOT = {
+				overlord = {
+					is_same_value = from
+				}
+			}
+		}
+		parameter:country = {
+			is_country = from
+		}		
+	}
+	
+	possible = {
+		hidden:parameter:country = {
+			custom_tooltip = {
+				fail_text = "war_demand_plentiful_traditions_false_flag_no_planets"
+				war_demand_counter = {
+					type = num_owned_planets
+					value > 0
+				}
+			}
+		}
+	}
+	
+	proposable = {
+		always = yes
+	}
+	
+	effect = {	
+		fromfromfrom = {
+#			add_influence = 25
+		}
+		parameter:country = {		
+			add_modifier = { modifier = modifier_plentiful_traditions_false_flag days = 3600 }			
+		}	
+	}
+	
+	counters = {
+		num_country_wargoals = {
+			context = parameter:country
+			value = {
+				base = 1
+			}
+		}	
+	}	
+	
+	ai_weight = {
+		base = 1
+		modifier = {
+			factor = 100
+			is_country_type = fallen_empire
+		}
+	}
+}
+
+plentiful_traditions_inflicted_genes = {
+	execution_order = 1
+	
+	parameters = {
+		country = {
+			type = country
+		}
+	}
+	
+	warscore_cost = {
+		base = 7
+	}
+
+	potential = {
+		OR = {
+			has_tradition = tr_plentiful_biogenesis_3
+		}
+		OR = {
+			is_subject = no
+			NOT = {
+				overlord = {
+					is_same_value = from
+				}
+			}
+		}
+		parameter:country = {
+			is_country = from
+		}		
+	}
+	
+	possible = {
+		hidden:parameter:country = {
+			custom_tooltip = {
+				fail_text = "war_demand_plentiful_traditions_inflicted_genes_no_planets"
+				war_demand_counter = {
+					type = num_owned_planets
+					value > 0
+				}
+			}
+		}
+	}
+	
+	proposable = {
+		always = yes
+	}
+	
+	effect = {	
+		fromfromfrom = {
+#			add_influence = 25
+		}
+		parameter:country = {		
+			add_modifier = { modifier = modifier_plentiful_traditions_inflicted_genes days = 3600 }			
+		}	
+	}
+	
+	counters = {
+		num_country_wargoals = {
+			context = parameter:country
+			value = {
+				base = 1
+			}
+		}	
+	}	
+	
+	ai_weight = {
+		base = 1
+		modifier = {
+			factor = 100
+			is_country_type = fallen_empire
+		}
+	}
+}
+
+plentiful_traditions_sabotage = {
+	execution_order = 1
+	
+	parameters = {
+		country = {
+			type = country
+		}
+	}
+	
+	warscore_cost = {
+		base = 7
+	}
+
+	potential = {
+		OR = {
+			has_tradition = tr_plentiful_order_finish
+		}
+		OR = {
+			is_subject = no
+			NOT = {
+				overlord = {
+					is_same_value = from
+				}
+			}
+		}
+		parameter:country = {
+			is_country = from
+		}		
+	}
+	
+	possible = {
+		hidden:parameter:country = {
+			custom_tooltip = {
+				fail_text = "war_demand_plentiful_traditions_sabotage_no_planets"
+				war_demand_counter = {
+					type = num_owned_planets
+					value > 0
+				}
+			}
+		}
+	}
+	
+	proposable = {
+		always = yes
+	}
+	
+	effect = {	
+		fromfromfrom = {
+#			add_influence = 25
+		}
+		parameter:country = {		
+			add_modifier = { modifier = modifier_plentiful_traditions_sabotage days = 3600 }			
+		}	
+	}
+	
+	counters = {
+		num_country_wargoals = {
+			context = parameter:country
+			value = {
+				base = 1
+			}
+		}	
+	}	
+	
+	ai_weight = {
+		base = 1
+		modifier = {
+			factor = 100
+			is_country_type = fallen_empire
+		}
+	}
+}

@@ -1,0 +1,2493 @@
+# IRM
+# Sector Events GUI
+
+
+namespace = irm_sector
+
+# This = Country
+# Sector Management Screen
+country_event = {
+	id = irm_sector.1
+	title = "none"
+	desc =  "none"
+	is_triggered_only = yes
+	diplomatic = yes
+	custom_gui = "irm_view_sector_control"
+	show_sound = event_conversation
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = "ui_sector_control_active"
+			# The idea to gather all data to form the sector list with some info.
+			# We'll use sector capital as saved targets to show them in the list.
+			# Blob effect is used to create some kind of sorting, based on distance.
+			effect_on_blob = {
+				center = capital_scope.solar_system
+				owned_planets_percentage = 1.0
+				planet_limit = {
+					has_modifier = "sector_capital"
+					exists = sector
+					sector = {
+						is_core_sector = no
+						sector_has_db = yes
+						prev = { has_planet_flag = sector_id_@prev }
+					}
+				}
+				effect = {
+					# +1 to pointer
+					owner = { change_variable = { which = nSectorPointer value = 1 } }
+					# Choose capital for each sector with hard criterias to avoid mess.
+					random_system_planet = {
+						limit = {
+							has_modifier = "sector_capital"
+							exists = sector
+							sector = {
+								is_core_sector = no
+								sector_has_db = yes
+								prev = { has_planet_flag = sector_id_@prev }
+							}
+						}
+						# Using pointer to assign specific temporary target to selected capital
+						set_variable = { which = nSectorPointer value = owner }
+						save_sector_slots = yes
+						set_variable = { which = nSectorPointer value = 0 }
+						# Collect data to database scopes
+						sector = {
+							sector_estimate_effects			= yes
+							sector_estimate_system_cap 		= yes
+							sector_estimate_system_num 		= yes
+							sector_estimates_fleet_cap		= yes
+							sector_estimate_regionalism		= yes
+							#sector_ui_estimate_naval_size   = yes
+						}
+					}
+				}
+			}
+			set_variable = { which = nSectorPointer value = 0 }
+		}
+	}
+	
+	# DUMMY (to prevent enter shortcut on specific sector)
+
+	option = {
+		custom_gui = "irm_sector_control_option_00"
+	}
+
+	# SECTOR ENTRIES
+
+		# COLUMN 1 - Name & Capital
+
+		# 01
+		option = {
+			name = "sector_control.ui.option.1.name"
+			custom_gui = "irm_sector_control_option_01"
+			trigger = {
+				sectors > 0
+				exists = event_target:uiSectorDatabase_01
+			}
+			allow = { custom_tooltip = { fail_text = "sector_control.ui.option.overview" not = { exists = event_target:uiSectorCapital } } }
+			event_target:uiSectorCapital_01 = { sector = { ui_tt_sector_control_row = yes } }
+			hidden_effect = { event_target:uiSectorCapital_01 = { planet_event = { id = irm_sector.2 } } }
+		}
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_01 } }
+		}
+
+		# 02
+		option = {
+			name = "sector_control.ui.option.2.name"
+			custom_gui = "irm_sector_control_option_01"
+			trigger = {
+				sectors > 1
+				exists = event_target:uiSectorDatabase_02
+			}
+			allow = { custom_tooltip = { fail_text = "sector_control.ui.option.overview" not = { exists = event_target:uiSectorCapital } } }
+			event_target:uiSectorCapital_02 = { sector = { ui_tt_sector_control_row = yes } }
+			hidden_effect = { event_target:uiSectorCapital_02 = { planet_event = { id = irm_sector.2 } } }		
+		}
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_02 } }
+		}
+
+		# 03
+		option = {
+			name = "sector_control.ui.option.3.name"
+			custom_gui = "irm_sector_control_option_01"
+			trigger = {
+				sectors > 2
+				exists = event_target:uiSectorDatabase_03
+			}
+			allow = { custom_tooltip = { fail_text = "sector_control.ui.option.overview" not = { exists = event_target:uiSectorCapital } } }
+			event_target:uiSectorCapital_03 = { sector = { ui_tt_sector_control_row = yes } }
+			hidden_effect = { event_target:uiSectorCapital_03 = { planet_event = { id = irm_sector.2 } } }		
+		}
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_03 } }
+		}
+
+		# 04
+		option = {
+			name = "sector_control.ui.option.4.name"
+			custom_gui = "irm_sector_control_option_01"
+			trigger = {
+				sectors > 3
+				exists = event_target:uiSectorDatabase_04
+			}
+			allow = { custom_tooltip = { fail_text = "sector_control.ui.option.overview" not = { exists = event_target:uiSectorCapital } } }
+			event_target:uiSectorCapital_04 = { sector = { ui_tt_sector_control_row = yes } }
+			hidden_effect = { event_target:uiSectorCapital_04 = { planet_event = { id = irm_sector.2 } } }		
+		}
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_04 } }
+		}
+
+		# 05
+		option = {
+			name = "sector_control.ui.option.5.name"
+			custom_gui = "irm_sector_control_option_01"
+			trigger = {
+				sectors > 4
+				exists = event_target:uiSectorDatabase_05
+			}
+			allow = { custom_tooltip = { fail_text = "sector_control.ui.option.overview" not = { exists = event_target:uiSectorCapital } } }
+			event_target:uiSectorCapital_05 = { sector = { ui_tt_sector_control_row = yes } }
+			hidden_effect = { event_target:uiSectorCapital_05 = { planet_event = { id = irm_sector.2 } } }	
+		}
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_05 } }
+		}	
+
+		# 06
+		option = {
+			name = "sector_control.ui.option.6.name"
+			custom_gui = "irm_sector_control_option_01"
+			trigger = {
+				sectors >= 6
+				exists = event_target:uiSectorDatabase_06
+			}
+			allow = { custom_tooltip = { fail_text = "sector_control.ui.option.overview" not = { exists = event_target:uiSectorCapital } } }
+			event_target:uiSectorCapital_06 = { sector = { ui_tt_sector_control_row = yes } }
+			hidden_effect = { event_target:uiSectorCapital_06 = { planet_event = { id = irm_sector.2 } } }	
+		}
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_06 } }
+		}	
+
+		# 07
+		option = {
+			name = "sector_control.ui.option.7.name"
+			custom_gui = "irm_sector_control_option_01"
+			trigger = {
+				sectors >= 7
+				exists = event_target:uiSectorDatabase_07
+			}
+			allow = { custom_tooltip = { fail_text = "sector_control.ui.option.overview" not = { exists = event_target:uiSectorCapital } } }
+			event_target:uiSectorCapital_07 = { sector = { ui_tt_sector_control_row = yes } }
+			hidden_effect = { event_target:uiSectorCapital_07 = { planet_event = { id = irm_sector.2 } } }	
+		}
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_07 } }
+		}
+
+		# 08
+		option = {
+			name = "sector_control.ui.option.8.name"
+			custom_gui = "irm_sector_control_option_01"
+			trigger = {
+				sectors >= 8
+				exists = event_target:uiSectorDatabase_08
+			}
+			allow = { custom_tooltip = { fail_text = "sector_control.ui.option.overview" not = { exists = event_target:uiSectorCapital } } }
+			event_target:uiSectorCapital_08 = { sector = { ui_tt_sector_control_row = yes } }
+			hidden_effect = { event_target:uiSectorCapital_08 = { planet_event = { id = irm_sector.2 } } }	
+		}
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_08 } }
+		}
+
+		# 09
+		option = {
+			name = "sector_control.ui.option.9.name"
+			custom_gui = "irm_sector_control_option_01"
+			trigger = {
+				sectors >= 9
+				exists = event_target:uiSectorDatabase_09
+			}
+			allow = { custom_tooltip = { fail_text = "sector_control.ui.option.overview" not = { exists = event_target:uiSectorCapital } } }
+			event_target:uiSectorCapital_09 = { sector = { ui_tt_sector_control_row = yes } }
+			hidden_effect = { event_target:uiSectorCapital_09 = { planet_event = { id = irm_sector.2 } } }	
+		}
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_09 } }
+		}
+
+		# 10
+		option = {
+			name = "sector_control.ui.option.10.name"
+			custom_gui = "irm_sector_control_option_01"
+			trigger = {
+				sectors >= 10
+				exists = event_target:uiSectorDatabase_10
+			}
+			allow = { custom_tooltip = { fail_text = "sector_control.ui.option.overview" not = { exists = event_target:uiSectorCapital } } }
+			event_target:uiSectorCapital_10 = { sector = { ui_tt_sector_control_row = yes } }
+			hidden_effect = { event_target:uiSectorCapital_10 = { planet_event = { id = irm_sector.2 } } }	
+		}
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_10 } }
+		}
+
+		# COLUMN 2 - Effects
+
+		# 01
+		option = {
+			name = "sector_control.ui.option.1.effects"
+			custom_gui = "irm_sector_control_option_02"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors > 0
+				exists = event_target:uiSectorDatabase_01
+				event_target:uiSectorDatabase_01 = { check_variable = { which = nSectorEffects value > 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.effects.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.1.effects.none"
+			custom_gui = "irm_sector_control_option_02_disabled"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors > 0
+				exists = event_target:uiSectorDatabase_01
+				event_target:uiSectorDatabase_01 = { check_variable = { which = nSectorEffects value = 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.effects.tooltip.none"
+		}		
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_01 } }
+		}
+
+		# 02
+		option = {
+			name = "sector_control.ui.option.2.effects"
+			custom_gui = "irm_sector_control_option_02"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors > 1
+				exists = event_target:uiSectorDatabase_02
+				event_target:uiSectorDatabase_02 = { check_variable = { which = nSectorEffects value > 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.effects.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.2.effects.none"
+			custom_gui = "irm_sector_control_option_02_disabled"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors > 1
+				exists = event_target:uiSectorDatabase_02
+				event_target:uiSectorDatabase_02 = { check_variable = { which = nSectorEffects value = 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.effects.tooltip.none"
+		}		
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_02 } }
+		}
+
+		# 03
+		option = {
+			name = "sector_control.ui.option.3.effects"
+			custom_gui = "irm_sector_control_option_02"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors > 2
+				exists = event_target:uiSectorDatabase_03
+				event_target:uiSectorDatabase_03 = { check_variable = { which = nSectorEffects value > 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.effects.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.3.effects.none"
+			custom_gui = "irm_sector_control_option_02_disabled"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors > 2
+				exists = event_target:uiSectorDatabase_03
+				event_target:uiSectorDatabase_03 = { check_variable = { which = nSectorEffects value = 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.effects.tooltip.none"
+		}		
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_03 } }
+		}
+
+		# 04
+		option = {
+			name = "sector_control.ui.option.4.effects"
+			custom_gui = "irm_sector_control_option_02"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors > 3
+				exists = event_target:uiSectorDatabase_04
+				event_target:uiSectorDatabase_04 = { check_variable = { which = nSectorEffects value > 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.effects.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.4.effects.none"
+			custom_gui = "irm_sector_control_option_02_disabled"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors > 3
+				exists = event_target:uiSectorDatabase_04
+				event_target:uiSectorDatabase_04 = { check_variable = { which = nSectorEffects value = 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.effects.tooltip.none"
+		}		
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_04 } }
+		}
+
+		# 05
+		option = {
+			name = "sector_control.ui.option.5.effects"
+			custom_gui = "irm_sector_control_option_02"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors > 4
+				exists = event_target:uiSectorDatabase_05
+				event_target:uiSectorDatabase_05 = { check_variable = { which = nSectorEffects value > 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.effects.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.5.effects.none"
+			custom_gui = "irm_sector_control_option_02_disabled"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors > 4
+				exists = event_target:uiSectorDatabase_05
+				event_target:uiSectorDatabase_05 = { check_variable = { which = nSectorEffects value = 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.effects.tooltip.none"
+		}		
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_05 } }
+		}	
+
+		# 06
+		option = {
+			name = "sector_control.ui.option.6.effects"
+			custom_gui = "irm_sector_control_option_02"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 6
+				exists = event_target:uiSectorDatabase_06
+				event_target:uiSectorDatabase_06 = { check_variable = { which = nSectorEffects value > 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.effects.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.6.effects.none"
+			custom_gui = "irm_sector_control_option_02_disabled"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 6
+				exists = event_target:uiSectorDatabase_06
+				event_target:uiSectorDatabase_06 = { check_variable = { which = nSectorEffects value = 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.effects.tooltip.none"
+		}		
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_06 } }
+		}
+
+		# 07
+		option = {
+			name = "sector_control.ui.option.7.effects"
+			custom_gui = "irm_sector_control_option_02"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 7
+				exists = event_target:uiSectorDatabase_07
+				event_target:uiSectorDatabase_07 = { check_variable = { which = nSectorEffects value > 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.effects.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.7.effects.none"
+			custom_gui = "irm_sector_control_option_02_disabled"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 7
+				exists = event_target:uiSectorDatabase_07
+				event_target:uiSectorDatabase_07 = { check_variable = { which = nSectorEffects value = 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.effects.tooltip.none"
+		}		
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_07 } }
+		}
+
+		# 08
+		option = {
+			name = "sector_control.ui.option.8.effects"
+			custom_gui = "irm_sector_control_option_02"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 8
+				exists = event_target:uiSectorDatabase_08
+				event_target:uiSectorDatabase_08 = { check_variable = { which = nSectorEffects value > 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.effects.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.8.effects.none"
+			custom_gui = "irm_sector_control_option_02_disabled"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 8
+				exists = event_target:uiSectorDatabase_08
+				event_target:uiSectorDatabase_08 = { check_variable = { which = nSectorEffects value = 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.effects.tooltip.none"
+		}		
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_08 } }
+		}
+
+		# 09
+		option = {
+			name = "sector_control.ui.option.9.effects"
+			custom_gui = "irm_sector_control_option_02"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 9
+				exists = event_target:uiSectorDatabase_09
+				event_target:uiSectorDatabase_09 = { check_variable = { which = nSectorEffects value > 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.effects.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.9.effects.none"
+			custom_gui = "irm_sector_control_option_02_disabled"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 9
+				exists = event_target:uiSectorDatabase_09
+				event_target:uiSectorDatabase_09 = { check_variable = { which = nSectorEffects value = 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.effects.tooltip.none"
+		}		
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_09 } }
+		}
+
+		# 10
+		option = {
+			name = "sector_control.ui.option.10.effects"
+			custom_gui = "irm_sector_control_option_02"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 10
+				exists = event_target:uiSectorDatabase_10
+				event_target:uiSectorDatabase_10 = { check_variable = { which = nSectorEffects value > 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.effects.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.10.effects.none"
+			custom_gui = "irm_sector_control_option_02_disabled"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 10
+				exists = event_target:uiSectorDatabase_10
+				event_target:uiSectorDatabase_10 = { check_variable = { which = nSectorEffects value = 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.effects.tooltip.none"
+		}		
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_10 } }
+		}
+
+		# COLUMN 3 - Systems
+
+		# 01
+		option = {
+			name = "sector_control.ui.option.1.systems"
+			custom_gui = "irm_sector_control_option_03"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors > 0
+				exists = event_target:uiSectorDatabase_01
+				event_target:uiSectorDatabase_01 = { not = { check_variable = { which = nSectorSystemsCap value < nSectorSystems } } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.systems.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.1.systems.ex"
+			custom_gui = "irm_sector_control_option_03"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors > 0
+				exists = event_target:uiSectorDatabase_01
+				event_target:uiSectorDatabase_01 = { check_variable = { which = nSectorSystemsCap value < nSectorSystems } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.systems.desc"
+		}		
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_01 } }
+		}
+
+		# 02
+		option = {
+			name = "sector_control.ui.option.2.systems"
+			custom_gui = "irm_sector_control_option_03"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors > 1
+				exists = event_target:uiSectorDatabase_02
+				event_target:uiSectorDatabase_02 = { not = { check_variable = { which = nSectorSystemsCap value < nSectorSystems } } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.systems.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.2.systems.ex"
+			custom_gui = "irm_sector_control_option_03"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors > 1
+				exists = event_target:uiSectorDatabase_02
+				event_target:uiSectorDatabase_02 = { check_variable = { which = nSectorSystemsCap value < nSectorSystems } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.systems.desc"
+		}		
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_02 } }
+		}
+
+		# 03
+		option = {
+			name = "sector_control.ui.option.3.systems"
+			custom_gui = "irm_sector_control_option_03"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors > 2
+				exists = event_target:uiSectorDatabase_03
+				event_target:uiSectorDatabase_03 = { not = { check_variable = { which = nSectorSystemsCap value < nSectorSystems } } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.systems.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.3.systems.ex"
+			custom_gui = "irm_sector_control_option_03"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors > 2
+				exists = event_target:uiSectorDatabase_03
+				event_target:uiSectorDatabase_03 = { check_variable = { which = nSectorSystemsCap value < nSectorSystems } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.systems.desc"
+		}		
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_03 } }
+		}
+
+		# 04
+		option = {
+			name = "sector_control.ui.option.4.systems"
+			custom_gui = "irm_sector_control_option_03"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors > 3
+				exists = event_target:uiSectorDatabase_04
+				event_target:uiSectorDatabase_04 = { not = { check_variable = { which = nSectorSystemsCap value < nSectorSystems } } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.systems.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.4.systems.ex"
+			custom_gui = "irm_sector_control_option_03"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors > 3
+				exists = event_target:uiSectorDatabase_04
+				event_target:uiSectorDatabase_04 = { check_variable = { which = nSectorSystemsCap value < nSectorSystems } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.systems.desc"
+		}		
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_04 } }
+		}
+
+		# 05
+		option = {
+			name = "sector_control.ui.option.5.systems"
+			custom_gui = "irm_sector_control_option_03"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors > 4
+				exists = event_target:uiSectorDatabase_05
+				event_target:uiSectorDatabase_05 = { not = { check_variable = { which = nSectorSystemsCap value < nSectorSystems } } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.systems.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.5.systems.ex"
+			custom_gui = "irm_sector_control_option_03"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors > 4
+				exists = event_target:uiSectorDatabase_05
+				event_target:uiSectorDatabase_05 = { check_variable = { which = nSectorSystemsCap value < nSectorSystems } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.systems.desc"
+		}		
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_05 } }
+		}
+
+		# 06
+		option = {
+			name = "sector_control.ui.option.6.systems"
+			custom_gui = "irm_sector_control_option_03"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 6
+				exists = event_target:uiSectorDatabase_06
+				event_target:uiSectorDatabase_06 = { not = { check_variable = { which = nSectorSystemsCap value < nSectorSystems } } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.systems.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.6.systems.ex"
+			custom_gui = "irm_sector_control_option_03"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 6
+				exists = event_target:uiSectorDatabase_06
+				event_target:uiSectorDatabase_06 = { check_variable = { which = nSectorSystemsCap value < nSectorSystems } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.systems.desc"
+		}		
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_06 } }
+		}
+
+		# 07
+		option = {
+			name = "sector_control.ui.option.7.systems"
+			custom_gui = "irm_sector_control_option_03"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 7
+				exists = event_target:uiSectorDatabase_07
+				event_target:uiSectorDatabase_07 = { not = { check_variable = { which = nSectorSystemsCap value < nSectorSystems } } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.systems.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.7.systems.ex"
+			custom_gui = "irm_sector_control_option_03"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 7
+				exists = event_target:uiSectorDatabase_07
+				event_target:uiSectorDatabase_07 = { check_variable = { which = nSectorSystemsCap value < nSectorSystems } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.systems.desc"
+		}		
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_07 } }
+		}
+
+		# 08
+		option = {
+			name = "sector_control.ui.option.8.systems"
+			custom_gui = "irm_sector_control_option_03"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 8
+				exists = event_target:uiSectorDatabase_08
+				event_target:uiSectorDatabase_08 = { not = { check_variable = { which = nSectorSystemsCap value < nSectorSystems } } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.systems.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.8.systems.ex"
+			custom_gui = "irm_sector_control_option_03"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 8
+				exists = event_target:uiSectorDatabase_08
+				event_target:uiSectorDatabase_08 = { check_variable = { which = nSectorSystemsCap value < nSectorSystems } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.systems.desc"
+		}		
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_08 } }
+		}
+
+		# 09
+		option = {
+			name = "sector_control.ui.option.9.systems"
+			custom_gui = "irm_sector_control_option_03"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 9
+				exists = event_target:uiSectorDatabase_09
+				event_target:uiSectorDatabase_09 = { not = { check_variable = { which = nSectorSystemsCap value < nSectorSystems } } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.systems.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.9.systems.ex"
+			custom_gui = "irm_sector_control_option_03"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 9
+				exists = event_target:uiSectorDatabase_09
+				event_target:uiSectorDatabase_09 = { check_variable = { which = nSectorSystemsCap value < nSectorSystems } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.systems.desc"
+		}		
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_09 } }
+		}
+
+		# 10
+		option = {
+			name = "sector_control.ui.option.10.systems"
+			custom_gui = "irm_sector_control_option_03"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 10
+				exists = event_target:uiSectorDatabase_10
+				event_target:uiSectorDatabase_10 = { not = { check_variable = { which = nSectorSystemsCap value < nSectorSystems } } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.systems.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.10.systems.ex"
+			custom_gui = "irm_sector_control_option_03"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 10
+				exists = event_target:uiSectorDatabase_10
+				event_target:uiSectorDatabase_10 = { check_variable = { which = nSectorSystemsCap value < nSectorSystems } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.systems.desc"
+		}		
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_10 } }
+		}
+
+		# COLUMN 4 - Fleets
+
+		# 01
+		option = {
+			name = "sector_control.ui.option.1.fleets.value"
+			custom_gui = "irm_sector_control_option_04"
+			trigger = {
+				sectors >= 1
+				exists = event_target:uiSectorDatabase_01
+				event_target:uiSectorDatabase_01 = { check_variable = { which = nSectorNavalCap value > 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.fleets.tooltip"
+		}
+		option = {
+			name = "sector_control.ui.option.1.fleets.none"
+			custom_gui = "irm_sector_control_option_04"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 1
+				exists = event_target:uiSectorDatabase_01
+				event_target:uiSectorDatabase_01 = { check_variable = { which = nSectorNavalCap value = 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.fleets.tooltip.none"
+		}
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_01 } }
+		}
+
+		# 02
+		option = {
+			name = "sector_control.ui.option.2.fleets.value"
+			custom_gui = "irm_sector_control_option_04"
+			trigger = {
+				sectors >= 2
+				exists = event_target:uiSectorDatabase_02
+				event_target:uiSectorDatabase_02 = { check_variable = { which = nSectorNavalCap value > 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.fleets.tooltip"
+		}
+		option = {
+			name = "sector_control.ui.option.2.fleets.none"
+			custom_gui = "irm_sector_control_option_04"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 2
+				exists = event_target:uiSectorDatabase_02
+				event_target:uiSectorDatabase_02 = { check_variable = { which = nSectorNavalCap value = 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.fleets.tooltip.none"
+		}
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_02 } }
+		}	
+
+		# 03
+		option = {
+			name = "sector_control.ui.option.3.fleets.value"
+			custom_gui = "irm_sector_control_option_04"
+			#allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 3
+				exists = event_target:uiSectorDatabase_03
+				event_target:uiSectorDatabase_03 = { check_variable = { which = nSectorNavalCap value > 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.fleets.tooltip"
+		}
+		option = {
+			name = "sector_control.ui.option.3.fleets.none"
+			custom_gui = "irm_sector_control_option_04"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 3
+				exists = event_target:uiSectorDatabase_03
+				event_target:uiSectorDatabase_03 = { check_variable = { which = nSectorNavalCap value = 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.fleets.tooltip.none"
+		}
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_03 } }
+		}
+
+		# 04
+		option = {
+			name = "sector_control.ui.option.4.fleets.value"
+			custom_gui = "irm_sector_control_option_04"
+			#allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 4
+				exists = event_target:uiSectorDatabase_04
+				event_target:uiSectorDatabase_04 = { check_variable = { which = nSectorNavalCap value > 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.fleets.tooltip"
+		}
+		option = {
+			name = "sector_control.ui.option.4.fleets.none"
+			custom_gui = "irm_sector_control_option_04"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 4
+				exists = event_target:uiSectorDatabase_04
+				event_target:uiSectorDatabase_04 = { check_variable = { which = nSectorNavalCap value = 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.fleets.tooltip.none"
+		}
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_04 } }
+		}
+
+		# 05
+		option = {
+			name = "sector_control.ui.option.5.fleets.value"
+			custom_gui = "irm_sector_control_option_04"
+			#allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 5
+				exists = event_target:uiSectorDatabase_05
+				event_target:uiSectorDatabase_05 = { check_variable = { which = nSectorNavalCap value > 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.fleets.tooltip"
+		}
+		option = {
+			name = "sector_control.ui.option.5.fleets.none"
+			custom_gui = "irm_sector_control_option_04"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 5
+				exists = event_target:uiSectorDatabase_05
+				event_target:uiSectorDatabase_05 = { check_variable = { which = nSectorNavalCap value = 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.fleets.tooltip.none"
+		}
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_05 } }
+		}
+
+		# 06
+		option = {
+			name = "sector_control.ui.option.6.fleets.value"
+			custom_gui = "irm_sector_control_option_04"
+			#allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 6
+				exists = event_target:uiSectorDatabase_06
+				event_target:uiSectorDatabase_06 = { check_variable = { which = nSectorNavalCap value > 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.fleets.tooltip"
+		}
+		option = {
+			name = "sector_control.ui.option.6.fleets.none"
+			custom_gui = "irm_sector_control_option_04"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 6
+				exists = event_target:uiSectorDatabase_06
+				event_target:uiSectorDatabase_06 = { check_variable = { which = nSectorNavalCap value = 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.fleets.tooltip.none"
+		}
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_06 } }
+		}
+
+
+		# 07
+		option = {
+			name = "sector_control.ui.option.7.fleets.value"
+			custom_gui = "irm_sector_control_option_04"
+			#allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 7
+				exists = event_target:uiSectorDatabase_07
+				event_target:uiSectorDatabase_07 = { check_variable = { which = nSectorNavalCap value > 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.fleets.tooltip"
+		}
+		option = {
+			name = "sector_control.ui.option.7.fleets.none"
+			custom_gui = "irm_sector_control_option_04"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 7
+				exists = event_target:uiSectorDatabase_07
+				event_target:uiSectorDatabase_07 = { check_variable = { which = nSectorNavalCap value = 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.fleets.tooltip.none"
+		}
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_07 } }
+		}
+
+		# 08
+		option = {
+			name = "sector_control.ui.option.8.fleets.value"
+			custom_gui = "irm_sector_control_option_04"
+			#allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 8
+				exists = event_target:uiSectorDatabase_08
+				event_target:uiSectorDatabase_08 = { check_variable = { which = nSectorNavalCap value > 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.fleets.tooltip"
+		}
+		option = {
+			name = "sector_control.ui.option.8.fleets.none"
+			custom_gui = "irm_sector_control_option_04"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 8
+				exists = event_target:uiSectorDatabase_08
+				event_target:uiSectorDatabase_08 = { check_variable = { which = nSectorNavalCap value = 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.fleets.tooltip.none"
+		}
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_08 } }
+		}
+
+		# 09
+		option = {
+			name = "sector_control.ui.option.9.fleets.value"
+			custom_gui = "irm_sector_control_option_04"
+			#allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 9
+				exists = event_target:uiSectorDatabase_09
+				event_target:uiSectorDatabase_09 = { check_variable = { which = nSectorNavalCap value > 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.fleets.tooltip"
+		}
+		option = {
+			name = "sector_control.ui.option.9.fleets.none"
+			custom_gui = "irm_sector_control_option_04"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 9
+				exists = event_target:uiSectorDatabase_09
+				event_target:uiSectorDatabase_09 = { check_variable = { which = nSectorNavalCap value = 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.fleets.tooltip.none"
+		}
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_09 } }
+		}
+
+		# 10
+		option = {
+			name = "sector_control.ui.option.10.fleets.value"
+			custom_gui = "irm_sector_control_option_04"
+			#allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 10
+				exists = event_target:uiSectorDatabase_10
+				event_target:uiSectorDatabase_10 = { check_variable = { which = nSectorNavalCap value > 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.fleets.tooltip"
+		}
+		option = {
+			name = "sector_control.ui.option.10.fleets.none"
+			custom_gui = "irm_sector_control_option_04"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 10
+				exists = event_target:uiSectorDatabase_10
+				event_target:uiSectorDatabase_10 = { check_variable = { which = nSectorNavalCap value = 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.fleets.tooltip.none"
+		}
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_10 } }
+		}
+
+		# COLUMN 5 - Regionalism
+
+		# 01
+		option = {
+			name = "sector_control.ui.option.0.regionalism.none"
+			custom_gui = "irm_sector_control_option_05_disabled"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 1
+				exists = event_target:uiSectorDatabase_01
+				event_target:uiSectorDatabase_01 = { check_variable = { which = pSectorRegionalism value = 0 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.tooltip.none"
+		}		
+		option = {
+			name = "sector_control.ui.option.1.regionalism.low"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 1
+				exists = event_target:uiSectorDatabase_01
+				event_target:uiSectorDatabase_01 = { check_variable = { which = pSectorRegionalism value > 0 } check_variable = { which = pSectorRegionalism value < 20 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.1.regionalism.avg"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 1
+				exists = event_target:uiSectorDatabase_01
+				event_target:uiSectorDatabase_01 = { check_variable = { which = pSectorRegionalism value > 19.99 } check_variable = { which = pSectorRegionalism value < 50 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.1.regionalism.high"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 1
+				exists = event_target:uiSectorDatabase_01
+				event_target:uiSectorDatabase_01 = { check_variable = { which = pSectorRegionalism value > 49.99 } check_variable = { which = pSectorRegionalism value < 80 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.1.regionalism.crit"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 1
+				exists = event_target:uiSectorDatabase_01
+				event_target:uiSectorDatabase_01 = { check_variable = { which = pSectorRegionalism value > 79.99 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}						
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_01 } }
+		}
+
+		# 02
+		option = {
+			name = "sector_control.ui.option.0.regionalism.none"
+			custom_gui = "irm_sector_control_option_05_disabled"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 2
+				exists = event_target:uiSectorDatabase_02
+				not = { event_target:uiSectorDatabase_02 = { check_variable = { which = pSectorRegionalism value > 0 } } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.tooltip.none"
+		}
+		option = {
+			name = "sector_control.ui.option.2.regionalism.low"
+			custom_gui = "irm_sector_control_option_05"
+			is_dialog_only = yes
+			trigger = {
+				sectors >= 2
+				exists = event_target:uiSectorDatabase_02
+				event_target:uiSectorDatabase_02 = { check_variable = { which = pSectorRegionalism value > 0 } check_variable = { which = pSectorRegionalism value < 20 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.2.regionalism.avg"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 2
+				exists = event_target:uiSectorDatabase_02
+				event_target:uiSectorDatabase_02 = { check_variable = { which = pSectorRegionalism value > 19.99 } check_variable = { which = pSectorRegionalism value < 50 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.2.regionalism.high"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 2
+				exists = event_target:uiSectorDatabase_02
+				event_target:uiSectorDatabase_02 = { check_variable = { which = pSectorRegionalism value > 49.99 } check_variable = { which = pSectorRegionalism value < 80 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.2.regionalism.crit"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 2
+				exists = event_target:uiSectorDatabase_02
+				event_target:uiSectorDatabase_02 = { check_variable = { which = pSectorRegionalism value > 79.99 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}				
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_02 } }
+		}	
+
+		# 03
+		option = {
+			name = "sector_control.ui.option.0.regionalism.none"
+			custom_gui = "irm_sector_control_option_05_disabled"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 3
+				exists = event_target:uiSectorDatabase_03
+				not = { event_target:uiSectorDatabase_03 = { check_variable = { which = pSectorRegionalism value > 0 } } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.tooltip.none"
+		}
+		option = {
+			name = "sector_control.ui.option.3.regionalism.low"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 3
+				exists = event_target:uiSectorDatabase_03
+				event_target:uiSectorDatabase_03 = { check_variable = { which = pSectorRegionalism value > 0 } check_variable = { which = pSectorRegionalism value < 20 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.3.regionalism.avg"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 3
+				exists = event_target:uiSectorDatabase_03
+				event_target:uiSectorDatabase_03 = { check_variable = { which = pSectorRegionalism value > 19.99 } check_variable = { which = pSectorRegionalism value < 50 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.3.regionalism.high"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 3
+				exists = event_target:uiSectorDatabase_03
+				event_target:uiSectorDatabase_03 = { check_variable = { which = pSectorRegionalism value > 49.99 } check_variable = { which = pSectorRegionalism value < 80 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.3.regionalism.crit"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 3
+				exists = event_target:uiSectorDatabase_03
+				event_target:uiSectorDatabase_03 = { check_variable = { which = pSectorRegionalism value > 79.99 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}				
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_03 } }
+		}
+
+		# 04
+		option = {
+			name = "sector_control.ui.option.0.regionalism.none"
+			custom_gui = "irm_sector_control_option_05_disabled"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 4
+				exists = event_target:uiSectorDatabase_04
+				not = { event_target:uiSectorDatabase_04 = { check_variable = { which = pSectorRegionalism value > 0 } } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.4.regionalism.low"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 4
+				exists = event_target:uiSectorDatabase_04
+				event_target:uiSectorDatabase_04 = { check_variable = { which = pSectorRegionalism value > 0 } check_variable = { which = pSectorRegionalism value < 20 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.4.regionalism.avg"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 4
+				exists = event_target:uiSectorDatabase_04
+				event_target:uiSectorDatabase_04 = { check_variable = { which = pSectorRegionalism value > 19.99 } check_variable = { which = pSectorRegionalism value < 50 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.4.regionalism.high"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 4
+				exists = event_target:uiSectorDatabase_04
+				event_target:uiSectorDatabase_04 = { check_variable = { which = pSectorRegionalism value > 49.99 } check_variable = { which = pSectorRegionalism value < 80 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.4.regionalism.crit"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 4
+				exists = event_target:uiSectorDatabase_04
+				event_target:uiSectorDatabase_04 = { check_variable = { which = pSectorRegionalism value > 79.99 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}			
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_04 } }
+		}
+
+		# 05
+		option = {
+			name = "sector_control.ui.option.0.regionalism.none"
+			custom_gui = "irm_sector_control_option_05_disabled"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 5
+				exists = event_target:uiSectorDatabase_05
+				not = { event_target:uiSectorDatabase_05 = { check_variable = { which = pSectorRegionalism value > 0 } } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.tooltip.none"
+		}
+		option = {
+			name = "sector_control.ui.option.5.regionalism.low"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 5
+				exists = event_target:uiSectorDatabase_05
+				event_target:uiSectorDatabase_05 = { check_variable = { which = pSectorRegionalism value > 0 } check_variable = { which = pSectorRegionalism value < 20 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.5.regionalism.avg"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 5
+				exists = event_target:uiSectorDatabase_05
+				event_target:uiSectorDatabase_05 = { check_variable = { which = pSectorRegionalism value > 19.99 } check_variable = { which = pSectorRegionalism value < 50 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.5.regionalism.high"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 5
+				exists = event_target:uiSectorDatabase_05
+				event_target:uiSectorDatabase_05 = { check_variable = { which = pSectorRegionalism value > 49.99 } check_variable = { which = pSectorRegionalism value < 80 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.5.regionalism.crit"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 5
+				exists = event_target:uiSectorDatabase_05
+				event_target:uiSectorDatabase_05 = { check_variable = { which = pSectorRegionalism value > 79.99 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}			
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_05 } }
+		}
+
+		# 06
+		option = {
+			name = "sector_control.ui.option.0.regionalism.none"
+			custom_gui = "irm_sector_control_option_05_disabled"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 6
+				exists = event_target:uiSectorDatabase_06
+				not = { event_target:uiSectorDatabase_06 = { check_variable = { which = pSectorRegionalism value > 0 } } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.tooltip.none"
+		}
+		option = {
+			name = "sector_control.ui.option.6.regionalism.low"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 6
+				exists = event_target:uiSectorDatabase_06
+				event_target:uiSectorDatabase_06 = { check_variable = { which = pSectorRegionalism value > 0 } check_variable = { which = pSectorRegionalism value < 20 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.6.regionalism.avg"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 6
+				exists = event_target:uiSectorDatabase_06
+				event_target:uiSectorDatabase_06 = { check_variable = { which = pSectorRegionalism value > 19.99 } check_variable = { which = pSectorRegionalism value < 50 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.6.regionalism.high"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 6
+				exists = event_target:uiSectorDatabase_06
+				event_target:uiSectorDatabase_06 = { check_variable = { which = pSectorRegionalism value > 49.99 } check_variable = { which = pSectorRegionalism value < 80 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.6.regionalism.crit"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 6
+				exists = event_target:uiSectorDatabase_06
+				event_target:uiSectorDatabase_06 = { check_variable = { which = pSectorRegionalism value > 79.99 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}			
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_06 } }
+		}
+
+		# 07
+		option = {
+			name = "sector_control.ui.option.0.regionalism.none"
+			custom_gui = "irm_sector_control_option_05_disabled"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 7
+				exists = event_target:uiSectorDatabase_07
+				not = { event_target:uiSectorDatabase_07 = { check_variable = { which = pSectorRegionalism value > 0 } } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.tooltip.none"
+		}
+		option = {
+			name = "sector_control.ui.option.7.regionalism.low"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 7
+				exists = event_target:uiSectorDatabase_07
+				event_target:uiSectorDatabase_07 = { check_variable = { which = pSectorRegionalism value > 0 } check_variable = { which = pSectorRegionalism value < 20 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.7.regionalism.avg"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 7
+				exists = event_target:uiSectorDatabase_07
+				event_target:uiSectorDatabase_07 = { check_variable = { which = pSectorRegionalism value > 19.99 } check_variable = { which = pSectorRegionalism value < 50 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.7.regionalism.high"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 7
+				exists = event_target:uiSectorDatabase_07
+				event_target:uiSectorDatabase_07 = { check_variable = { which = pSectorRegionalism value > 49.99 } check_variable = { which = pSectorRegionalism value < 80 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.7.regionalism.crit"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 7
+				exists = event_target:uiSectorDatabase_07
+				event_target:uiSectorDatabase_07 = { check_variable = { which = pSectorRegionalism value > 79.99 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}			
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_07 } }
+		}
+
+		# 08
+		option = {
+			name = "sector_control.ui.option.0.regionalism.none"
+			custom_gui = "irm_sector_control_option_05_disabled"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 8
+				exists = event_target:uiSectorDatabase_08
+				not = { event_target:uiSectorDatabase_08 = { check_variable = { which = pSectorRegionalism value > 0 } } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.tooltip.none"
+		}
+		option = {
+			name = "sector_control.ui.option.8.regionalism.low"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 8
+				exists = event_target:uiSectorDatabase_08
+				event_target:uiSectorDatabase_08 = { check_variable = { which = pSectorRegionalism value > 0 } check_variable = { which = pSectorRegionalism value < 20 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.8.regionalism.avg"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 8
+				exists = event_target:uiSectorDatabase_08
+				event_target:uiSectorDatabase_08 = { check_variable = { which = pSectorRegionalism value > 19.99 } check_variable = { which = pSectorRegionalism value < 50 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.8.regionalism.high"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 8
+				exists = event_target:uiSectorDatabase_08
+				event_target:uiSectorDatabase_08 = { check_variable = { which = pSectorRegionalism value > 49.99 } check_variable = { which = pSectorRegionalism value < 80 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.8.regionalism.crit"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 8
+				exists = event_target:uiSectorDatabase_08
+				event_target:uiSectorDatabase_08 = { check_variable = { which = pSectorRegionalism value > 79.99 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}			
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_08 } }
+		}
+
+		# 09
+		option = {
+			name = "sector_control.ui.option.0.regionalism.none"
+			custom_gui = "irm_sector_control_option_05_disabled"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 9
+				exists = event_target:uiSectorDatabase_09
+				not = { event_target:uiSectorDatabase_09 = { check_variable = { which = pSectorRegionalism value > 0 } } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.tooltip.none"
+		}
+		option = {
+			name = "sector_control.ui.option.9.regionalism.low"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 9
+				exists = event_target:uiSectorDatabase_09
+				event_target:uiSectorDatabase_09 = { check_variable = { which = pSectorRegionalism value > 0 } check_variable = { which = pSectorRegionalism value < 20 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.9.regionalism.avg"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 9
+				exists = event_target:uiSectorDatabase_09
+				event_target:uiSectorDatabase_09 = { check_variable = { which = pSectorRegionalism value > 19.99 } check_variable = { which = pSectorRegionalism value < 50 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.9.regionalism.high"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 9
+				exists = event_target:uiSectorDatabase_09
+				event_target:uiSectorDatabase_09 = { check_variable = { which = pSectorRegionalism value > 49.99 } check_variable = { which = pSectorRegionalism value < 80 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.9.regionalism.crit"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 9
+				exists = event_target:uiSectorDatabase_09
+				event_target:uiSectorDatabase_09 = { check_variable = { which = pSectorRegionalism value > 79.99 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}			
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_09 } }
+		}
+
+		# 10
+		option = {
+			name = "sector_control.ui.option.0.regionalism.none"
+			custom_gui = "irm_sector_control_option_05_disabled"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 10
+				exists = event_target:uiSectorDatabase_10
+				not = { event_target:uiSectorDatabase_10 = { check_variable = { which = pSectorRegionalism value > 0 } } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.tooltip.none"
+		}
+		option = {
+			name = "sector_control.ui.option.10.regionalism.low"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 10
+				exists = event_target:uiSectorDatabase_10
+				event_target:uiSectorDatabase_10 = { check_variable = { which = pSectorRegionalism value > 0 } check_variable = { which = pSectorRegionalism value < 20 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.10.regionalism.avg"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 10
+				exists = event_target:uiSectorDatabase_10
+				event_target:uiSectorDatabase_10 = { check_variable = { which = pSectorRegionalism value > 19.99 } check_variable = { which = pSectorRegionalism value < 50 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.10.regionalism.high"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 10
+				exists = event_target:uiSectorDatabase_10
+				event_target:uiSectorDatabase_10 = { check_variable = { which = pSectorRegionalism value > 49.99 } check_variable = { which = pSectorRegionalism value < 80 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}
+		option = {
+			name = "sector_control.ui.option.10.regionalism.crit"
+			custom_gui = "irm_sector_control_option_05"
+			allow = { custom_tooltip = { fail_text = none always = no } }
+			trigger = {
+				sectors >= 10
+				exists = event_target:uiSectorDatabase_10
+				event_target:uiSectorDatabase_10 = { check_variable = { which = pSectorRegionalism value > 79.99 } }
+			}
+			custom_tooltip = "sector_control.ui.option.0.regionalism.desc"
+		}			
+		option = {
+			custom_gui = "irm_sector_control_option_xx"
+			trigger = { not = { exists = event_target:uiSectorDatabase_10 } }
+		}
+
+	# CLEAN UP
+
+	after = {
+		# Clean up
+		hidden_effect = {
+			remove_country_flag = "ui_sector_control_active"
+			clear_sector_slots = yes
+		}								
+	}
+
+}
+
+
+
+# This = Planet
+# Sector Overview Screen
+# Runs from the sector capital planet (or faction manager)
+planet_event = {
+	id = irm_sector.2
+	title = "sector_screen.ui.sector.name"
+	desc =  "event_desc"
+	is_triggered_only = yes
+	diplomatic = yes
+	custom_gui = "irm_view_sector_screen"
+	show_sound = event_conversation
+	location = root
+
+	immediate = {
+		set_planet_flag = "ui_sector_overview_active"
+		save_global_event_target_as = "uiSectorCapital"
+		sector = {
+			# Connect with sector database
+			random_country = {
+				limit = { is_sector_db = yes }
+				save_global_event_target_as = "uiSectorDatabase"
+			}
+			# Parse sector data
+			sector_estimate_system_cap 		= yes
+			sector_estimate_system_num 		= yes			
+			sector_estimate_balance			= yes 			
+			sector_estimate_devidx 			= yes 			
+			#sector_estimate_regionalism 	= yes
+			sector_estimate_species 		= yes
+			sector_estimate_unrest 			= yes
+			sector_estimate_troops 			= yes
+			sector_estimate_fleet			= yes
+		}
+	}
+	
+	# CLOSE
+
+	option = {
+		custom_gui = "irm_option_sector_close"
+		allow = {
+			custom_tooltip = {
+				fail_text = "sector_screen.ui.close.disallow"
+				nor = {
+					has_planet_flag = "ui_sector_edicts_active"
+					has_planet_flag = "ui_sector_orders_active"
+					has_planet_flag = "ui_sector_warfare_active"
+				}
+			}
+		}
+	}
+
+	# VALUES
+
+	# Block 1 - Development
+
+	# Capital
+	option = {
+		name = "sector_screen.ui.option.capital.val"
+		custom_gui = "irm_sector_screen_option_b1"
+		is_dialog_only = yes
+	}
+
+	# Systems
+	option = {
+		name = "sector_screen.ui.option.systems.val"
+		custom_gui = "irm_sector_screen_option_b1"
+		is_dialog_only = yes
+		trigger = { event_target:uiSectorDatabase = { not = { check_variable = { which = nSectorSystemsCap value < nSectorSystems } } } }
+	}
+	option = {
+		name = "sector_screen.ui.option.systems.val_r"
+		custom_gui = "irm_sector_screen_option_b1"
+		is_dialog_only = yes
+		trigger = { event_target:uiSectorDatabase = { check_variable = { which = nSectorSystemsCap value < nSectorSystems } } }
+	}
+
+	# Autonomy
+	option = {
+		name = "sector_screen.ui.option.autonomy.val"
+		custom_gui = "irm_sector_screen_option_b1"
+		is_dialog_only = yes
+	}
+
+	# Dev plan
+	option = {
+		name = "sector_screen.ui.option.plan.val"
+		custom_gui = "irm_sector_screen_option_b1"
+		is_dialog_only = yes
+	}
+
+	# Dev idx
+	option = {
+		name = "sector_screen.ui.option.index.val"
+		custom_gui = "irm_sector_screen_option_b1"
+		is_dialog_only = yes
+	}
+
+	# Block 2 - Infrastructure
+	option = {
+		name = "sector_screen.ui.option.food.val"
+		custom_gui = "irm_sector_screen_option_b2"
+		is_dialog_only = yes
+		trigger = { event_target:uiSectorDatabase = { not = { check_variable = { which = pFood value = 0 } } } }
+	}
+	option = {
+		name = "sector_screen.ui.option.food.null"
+		custom_gui = "irm_sector_screen_option_b2"
+		is_dialog_only = yes
+		trigger = { event_target:uiSectorDatabase = { check_variable = { which = pFood value = 0 } } }
+	}
+
+	option = {
+		name = "sector_screen.ui.option.energy.val"
+		custom_gui = "irm_sector_screen_option_b2"
+		is_dialog_only = yes
+		trigger = { event_target:uiSectorDatabase = { not = { check_variable = { which = pEnergy value = 0 } } } }
+	}
+	option = {
+		name = "sector_screen.ui.option.energy.null"
+		custom_gui = "irm_sector_screen_option_b2"
+		is_dialog_only = yes
+		trigger = { event_target:uiSectorDatabase = { check_variable = { which = pEnergy value = 0 } } }
+	}
+
+	option = {
+		name = "sector_screen.ui.option.minerals.val"
+		custom_gui = "irm_sector_screen_option_b2"
+		is_dialog_only = yes
+		trigger = { event_target:uiSectorDatabase = { not = { check_variable = { which = pMinerals value = 0 } } } }
+	}
+	option = {
+		name = "sector_screen.ui.option.minerals.null"
+		custom_gui = "irm_sector_screen_option_b2"
+		is_dialog_only = yes
+		trigger = { event_target:uiSectorDatabase = { check_variable = { which = pMinerals value = 0 } } }
+	}
+
+	option = {
+		name = "sector_screen.ui.option.research.val"
+		custom_gui = "irm_sector_screen_option_b2"
+		is_dialog_only = yes
+		trigger = { event_target:uiSectorDatabase = { not = { check_variable = { which = pResearch value = 0 } } } }
+	}
+	option = {
+		name = "sector_screen.ui.option.research.null"
+		custom_gui = "irm_sector_screen_option_b2"
+		is_dialog_only = yes
+		trigger = { event_target:uiSectorDatabase = { check_variable = { which = pResearch value = 0 } } }
+	}
+
+	option = {
+		name = "sector_screen.ui.option.other.val"
+		custom_gui = "irm_sector_screen_option_b2"
+		is_dialog_only = yes
+		trigger = { event_target:uiSectorDatabase = { not = { check_variable = { which = pOther value = 0 } } } }
+	}
+	option = {
+		name = "sector_screen.ui.option.other.null"
+		custom_gui = "irm_sector_screen_option_b2"
+		is_dialog_only = yes
+		trigger = { event_target:uiSectorDatabase = { check_variable = { which = pOther value = 0 } } }
+	}
+
+	# Block 3 - Politics
+
+	# Species
+	option = {
+		name = "sector_screen.ui.option.species.val"
+		custom_gui = "irm_sector_screen_option_b3"
+		is_dialog_only = yes
+	}
+	# Regionalism
+	option = {
+		name = "sector_screen.ui.option.regionalism.no"
+		custom_gui = "irm_sector_screen_option_b3"
+		is_dialog_only = yes
+		trigger = { root.sector = { sector_has_faction = no } }
+	}
+	option = {
+		name = "sector_screen.ui.option.regionalism.val"
+		custom_gui = "irm_sector_screen_option_b3"
+		is_dialog_only = yes
+		trigger = { root.sector = { sector_has_faction = yes } }
+	}
+	# Unrest
+	option = {
+		name = "sector_screen.ui.option.unrest.no"
+		custom_gui = "irm_sector_screen_option_b3"
+		is_dialog_only = yes
+		trigger = { event_target:uiSectorDatabase = { check_variable = { which = pSectorUnrest value = 0 } } }
+	}
+	option = {
+		name = "sector_screen.ui.option.unrest.val"
+		custom_gui = "irm_sector_screen_option_b3"
+		is_dialog_only = yes
+		trigger = { event_target:uiSectorDatabase = { check_variable = { which = pSectorUnrest value > 0 } check_variable = { which = pSectorUnrest value < 75 } } }
+	}	
+	option = {
+		name = "sector_screen.ui.option.unrest.red"
+		custom_gui = "irm_sector_screen_option_b3"
+		is_dialog_only = yes
+		trigger = { event_target:uiSectorDatabase = { check_variable = { which = pSectorUnrest value > 74.999 } } }
+	}
+
+	# Block 4 - Warfare
+
+	# Troops
+	option = {
+		name = "sector_screen.ui.option.troops.no"
+		custom_gui = "irm_sector_screen_option_b4"
+		is_dialog_only = yes
+		trigger = { event_target:uiSectorDatabase = { check_variable = { which = nSectorTroops value = 0 } } }
+	}	
+	option = {
+		name = "sector_screen.ui.option.troops.val"
+		custom_gui = "irm_sector_screen_option_b4"
+		is_dialog_only = yes
+		trigger = { event_target:uiSectorDatabase = { check_variable = { which = nSectorTroops value > 0 } } }
+	}
+	# Naval
+	option = {
+		name = "sector_screen.ui.option.naval.val"
+		custom_gui = "irm_sector_screen_option_b4"
+		is_dialog_only = yes
+		trigger = {
+			exists = event_target:uiSectorMilFleet
+			event_target:uiSectorDatabase = { check_variable = { which = fSectorActualCap value > 0.009 } }
+		}		
+	}
+	option = {
+		name = "sector_screen.ui.option.naval.small"
+		custom_gui = "irm_sector_screen_option_b4"
+		is_dialog_only = yes
+		trigger = {
+			exists = event_target:uiSectorMilFleet
+			event_target:uiSectorDatabase = { check_variable = { which = fSectorActualCap value < 0.010 } }
+		}		
+	}
+	option = {
+		name = "sector_screen.ui.option.naval.none"
+		custom_gui = "irm_sector_screen_option_b4"
+		is_dialog_only = yes
+		trigger = { not = { exists = event_target:uiSectorMilFleet } }
+	}		
+	# Fleets
+	option = {
+		name = "sector_screen.ui.option.fleets.val"
+		custom_gui = "irm_sector_screen_option_b4"
+		is_dialog_only = yes
+		trigger = {
+			exists = event_target:uiSectorMilFleet
+			event_target:uiSectorDatabase = { check_variable = { which = nCivilFleets value > 0 } }
+		}
+	}
+	option = {
+		name = "sector_screen.ui.option.fleets.none"
+		custom_gui = "irm_sector_screen_option_b4"
+		is_dialog_only = yes
+		trigger = {
+			not = {
+				exists = event_target:uiSectorMilFleet
+				event_target:uiSectorDatabase = { check_variable = { which = nCivilFleets value > 0 } }
+			}
+		}
+	}
+	option = {
+		name = "sector_screen.ui.option.fleets.val.civ"
+		custom_gui = "irm_sector_screen_option_b4"
+		is_dialog_only = yes
+		trigger = {
+			event_target:uiSectorDatabase = { check_variable = { which = nCivilFleets value > 0 } }
+			not = { exists = event_target:uiSectorMilFleet }
+		}
+	}
+	option = {
+		name = "sector_screen.ui.option.fleets.val.mil"
+		custom_gui = "irm_sector_screen_option_b4"
+		is_dialog_only = yes
+		trigger = {
+			not = { event_target:uiSectorDatabase = { check_variable = { which = nCivilFleets value > 0 } } }
+			exists = event_target:uiSectorMilFleet
+		}
+	}				
+
+	after = {
+		# Clean up
+		hidden_effect = {
+			remove_planet_flag = "ui_sector_overview_active"
+			clear_global_event_target = uiSectorDatabase
+			clear_global_event_target = uiSectorCapital
+			clear_sector_fleet_slots = yes
+		}								
+	}
+
+}
+
+	# This = Planet
+	# Sector Edicts
+	planet_event = {
+		id = irm_sector.22
+		title = "event_title"
+		desc =  "event_desc"
+		is_triggered_only = yes
+		diplomatic = yes
+		custom_gui = "irm_view_sector_screen_edicts"
+		show_sound = event_conversation
+		location = root
+
+		immediate = {
+			set_planet_flag = "ui_sector_edicts_active"
+			sector = {
+				sector_estimate_edict_cost = yes
+			}
+		}
+		
+		# CLOSE
+
+		option = {
+			custom_gui = "irm_option_sector_close_s"
+		}
+
+		# EDICTS
+
+		# 01 - Capital
+		option = {
+			name = "sector_screen.ui.block.edi.edict.value"
+			custom_gui = "irm_option_edict_row"
+			is_dialog_only = yes
+			trigger = { event_target:uiSectorDatabase = { check_variable = { which = nEdictCapital value = 0 } } }
+		}
+		option = {
+			name = "sector_screen.ui.block.edi.edict.active"
+			custom_gui = "irm_option_edict_row"
+			is_dialog_only = yes
+			trigger = { event_target:uiSectorDatabase = { check_variable = { which = nEdictCapital value > 0 } } }
+		}
+
+		# 02 - Mining
+		option = {
+			name = "sector_screen.ui.block.edi.edict.value"
+			custom_gui = "irm_option_edict_row"
+			is_dialog_only = yes
+			trigger = { event_target:uiSectorDatabase = { check_variable = { which = nEdictMining value = 0 } } }
+		}
+		option = {
+			name = "sector_screen.ui.block.edi.edict.active"
+			custom_gui = "irm_option_edict_row"
+			is_dialog_only = yes
+			trigger = { event_target:uiSectorDatabase = { check_variable = { which = nEdictMining value > 0 } } }
+		}
+
+		# 03 - Assets
+		option = {
+			name = "sector_screen.ui.block.edi.edict.value"
+			custom_gui = "irm_option_edict_row"
+			is_dialog_only = yes
+			trigger = { event_target:uiSectorDatabase = { check_variable = { which = nEdictAssets value = 0 } } }
+		}
+		option = {
+			name = "sector_screen.ui.block.edi.edict.active"
+			custom_gui = "irm_option_edict_row"
+			is_dialog_only = yes
+			trigger = { event_target:uiSectorDatabase = { check_variable = { which = nEdictAssets value > 0 } } }
+		}		
+		
+		# 04 - Colonization
+		option = {
+			name = "sector_screen.ui.block.edi.edict.value"
+			custom_gui = "irm_option_edict_row"
+			is_dialog_only = yes
+			trigger = { event_target:uiSectorDatabase = { check_variable = { which = nEdictColony value = 0 } } }
+		}
+		option = {
+			name = "sector_screen.ui.block.edi.edict.active"
+			custom_gui = "irm_option_edict_row"
+			is_dialog_only = yes
+			trigger = { event_target:uiSectorDatabase = { check_variable = { which = nEdictColony value > 0 } } }
+		}
+
+		# 05 - Trade
+		option = {
+			name = "sector_screen.ui.block.edi.edict.value"
+			custom_gui = "irm_option_edict_row"
+			is_dialog_only = yes
+			trigger = { event_target:uiSectorDatabase = { check_variable = { which = nEdictTrade value = 0 } } }
+		}
+		option = {
+			name = "sector_screen.ui.block.edi.edict.active"
+			custom_gui = "irm_option_edict_row"
+			is_dialog_only = yes
+			trigger = { event_target:uiSectorDatabase = { check_variable = { which = nEdictTrade value > 0 } } }
+		}		
+		
+		# 06 - Leadership
+		option = {
+			name = "sector_screen.ui.block.edi.edict.value"
+			custom_gui = "irm_option_edict_row"
+			is_dialog_only = yes
+			trigger = { event_target:uiSectorDatabase = { check_variable = { which = nEdictLeadership value = 0 } } }
+		}
+		option = {
+			name = "sector_screen.ui.block.edi.edict.active"
+			custom_gui = "irm_option_edict_row"
+			is_dialog_only = yes
+			trigger = { event_target:uiSectorDatabase = { check_variable = { which = nEdictLeadership value > 0 } } }
+		}		
+		
+		# 07 - Propaganda
+		option = {
+			name = "sector_screen.ui.block.edi.edict.value"
+			custom_gui = "irm_option_edict_row"
+			is_dialog_only = yes
+			trigger = { event_target:uiSectorDatabase = { check_variable = { which = nEdictPropaganda value = 0 } } }
+		}
+		option = {
+			name = "sector_screen.ui.block.edi.edict.active"
+			custom_gui = "irm_option_edict_row"
+			is_dialog_only = yes
+			trigger = { event_target:uiSectorDatabase = { check_variable = { which = nEdictPropaganda value > 0 } } }
+		}
+
+		# 08 - Faction
+		option = {
+			name = "sector_screen.ui.block.edi.edict.value"
+			custom_gui = "irm_option_edict_row"
+			is_dialog_only = yes
+			trigger = { event_target:uiSectorDatabase = { check_variable = { which = nEdictFaction value = 0 } } }
+		}		
+		option = {
+			name = "sector_screen.ui.block.edi.edict.active"
+			custom_gui = "irm_option_edict_row"
+			is_dialog_only = yes
+			trigger = { event_target:uiSectorDatabase = { check_variable = { which = nEdictFaction value > 0 } } }
+		}
+
+		# 09 - Training
+		option = {
+			name = "sector_screen.ui.block.edi.edict.value"
+			custom_gui = "irm_option_edict_row"
+			is_dialog_only = yes
+			trigger = { event_target:uiSectorDatabase = { check_variable = { which = nEdictTraining value = 0 } } }
+		}
+		option = {
+			name = "sector_screen.ui.block.edi.edict.active"
+			custom_gui = "irm_option_edict_row"
+			is_dialog_only = yes
+			trigger = { event_target:uiSectorDatabase = { check_variable = { which = nEdictTraining value > 0 } } }
+		}
+
+		# 10 - Piracy
+		option = {
+			name = "sector_screen.ui.block.edi.edict.value"
+			custom_gui = "irm_option_edict_row"
+			is_dialog_only = yes
+			trigger = { event_target:uiSectorDatabase = { check_variable = { which = nEdictPiracy value = 0 } } }
+		}
+		option = {
+			name = "sector_screen.ui.block.edi.edict.active"
+			custom_gui = "irm_option_edict_row"
+			is_dialog_only = yes
+			trigger = { event_target:uiSectorDatabase = { check_variable = { which = nEdictPiracy value > 0 } } }
+		}				
+
+		# CLEAN UP
+
+		after = {
+			hidden_effect = {
+				remove_planet_flag = "ui_sector_edicts_active"
+			}
+		}							
+
+	}
+
+
+	# This = Planet
+	# Sector Warfare settings
+	planet_event = {
+		id = irm_sector.24
+		title = "event_title"
+		desc =  "event_desc"
+		is_triggered_only = yes
+		diplomatic = yes
+		custom_gui = "irm_view_sector_screen_warfare"
+		show_sound = event_conversation
+		location = root
+
+		immediate = {
+			set_planet_flag = "ui_sector_warfare_active"
+			# Parse sector data
+			sector = {
+				sector_estimate_starbases 		= yes
+				sector_estimate_naval_capacity 	= yes
+			}
+			# Parse fleet data
+			if = { 
+				limit = { exists = event_target:uiSectorMilFleet }
+					event_target:uiSectorMilFleet = {
+						fleet_get_home			= yes
+					}
+			}
+		}
+		
+		# CLOSE
+
+		option = {
+			custom_gui = "irm_option_sector_close_m"
+		}
+
+		# INFO
+
+		# Naval Capacity
+		option = {
+			name = "sector_screen.ui.block.war.inf_naval.value"
+			custom_gui = "irm_option_warfare_info_1"
+			is_dialog_only = yes
+		}
+
+		# Regional Starbases
+		option = {
+			name = "sector_screen.ui.block.war.inf_starbases.value"
+			custom_gui = "irm_option_warfare_info_1"
+			is_dialog_only = yes
+			trigger = { event_target:uiSectorDatabase = { check_variable = { which = nSectorStarbases value > 0 } } }			
+		}
+		option = {
+			name = "sector_screen.ui.block.war.inf_starbases.none"
+			custom_gui = "irm_option_warfare_info_1"
+			is_dialog_only = yes
+			trigger = { event_target:uiSectorDatabase = { check_variable = { which = nSectorStarbases value = 0 } } }			
+		}
+
+		# Fleet Name
+		option = {
+			name = "sector_screen.ui.block.war.inf_fleet.value"
+			custom_gui = "irm_option_warfare_info_2"
+			is_dialog_only = yes
+			trigger = { exists = event_target:uiSectorMilFleet }
+		}
+		option = {
+			name = "sector_screen.ui.block.war.inf_fleet.none"
+			custom_gui = "irm_option_warfare_info_2"
+			is_dialog_only = yes
+			trigger = { not = { exists = event_target:uiSectorMilFleet } }
+		}		
+
+		# Assigned Admiral
+		option = {
+			name = "sector_screen.ui.block.war.inf_admiral.value"
+			custom_gui = "irm_option_warfare_info_2"
+			is_dialog_only = yes
+			trigger = {
+				exists = event_target:uiSectorMilFleet
+				event_target:uiSectorMilFleet = { exists = leader }
+			}
+		}
+		option = {
+			name = "sector_screen.ui.block.war.inf_admiral.none"
+			custom_gui = "irm_option_warfare_info_2"
+			is_dialog_only = yes
+			trigger = { not = { exists = event_target:uiSectorMilFleet } }
+		}		
+
+		# Size & Capacity
+		option = {
+			name = "sector_screen.ui.block.war.inf_size.value"
+			custom_gui = "irm_option_warfare_info_2"
+			is_dialog_only = yes
+			trigger = { exists = event_target:uiSectorMilFleet }
+		}
+		option = {
+			name = "sector_screen.ui.block.war.inf_size.none"
+			custom_gui = "irm_option_warfare_info_2"
+			is_dialog_only = yes
+			trigger = { not = { exists = event_target:uiSectorMilFleet } }
+		}		
+
+		# Action
+		option = {
+			name = "sector_screen.ui.block.war.inf_action.value"
+			custom_gui = "irm_option_warfare_info_2"
+			is_dialog_only = yes
+			trigger = { exists = event_target:uiSectorMilFleet }
+		}
+		option = {
+			name = "sector_screen.ui.block.war.inf_action.none"
+			custom_gui = "irm_option_warfare_info_2"
+			is_dialog_only = yes
+			trigger = { not = { exists = event_target:uiSectorMilFleet } }
+		}		
+
+		# Location
+		option = {
+			name = "sector_screen.ui.block.war.inf_location.warp"
+			custom_gui = "irm_option_warfare_info_2"
+			is_dialog_only = yes
+			trigger = {
+				exists = event_target:uiSectorMilFleet
+				event_target:uiSectorMilFleet = {
+					not = { exists = solar_system }
+				}
+			}
+		}
+		option = {
+			name = "sector_screen.ui.block.war.inf_location.system"
+			custom_gui = "irm_option_warfare_info_2"
+			is_dialog_only = yes
+			trigger = {
+				exists = event_target:uiSectorMilFleet
+				event_target:uiSectorMilFleet = {
+					exists = solar_system
+					not = { exists = orbit }
+				}
+			}
+		}
+		option = {
+			name = "sector_screen.ui.block.war.inf_location.planet"
+			custom_gui = "irm_option_warfare_info_2"
+			is_dialog_only = yes
+			trigger = {
+				exists = event_target:uiSectorMilFleet
+				event_target:uiSectorMilFleet = {
+					exists = solar_system
+					exists = orbit
+					#has_fleet_order = orbit_planet_order
+				}
+			}
+		}						
+		option = {
+			name = "sector_screen.ui.block.war.inf_location.none"
+			custom_gui = "irm_option_warfare_info_2"
+			is_dialog_only = yes
+			trigger = { not = { exists = event_target:uiSectorMilFleet } }
+		}		
+
+		# Home
+		option = {
+			name = "sector_screen.ui.block.war.inf_home.value"
+			custom_gui = "irm_option_warfare_info_2"
+			is_dialog_only = yes
+			trigger = {
+				exists = event_target:uiSectorMilFleet
+				exists = event_target:uiFleetHome
+			}
+		}
+		option = {
+			name = "sector_screen.ui.block.war.inf_home.none"
+			custom_gui = "irm_option_warfare_info_2"
+			is_dialog_only = yes
+			trigger = {
+				or = {
+					not = { exists = event_target:uiSectorMilFleet }
+					not = { exists = event_target:uiFleetHome }
+				}
+			}
+		}		
+
+		# CLEAN UP
+
+		after = {
+			hidden_effect = {
+				remove_planet_flag = "ui_sector_warfare_active"
+				if = {	limit = { exists = event_target:uiFleetHome }
+						clear_global_event_target = uiFleetHome }
+			}
+		}
+
+	}
+
+
+	# This = Planet
+	# Sector Fleet Orders
+	planet_event = {
+		id = irm_sector.25
+		title = "event_title"
+		desc =  "event_desc"
+		is_triggered_only = yes
+		diplomatic = yes
+		custom_gui = "irm_view_sector_screen_orders"
+		show_sound = event_conversation
+		location = root
+
+		immediate = {
+			set_planet_flag = "ui_sector_orders_active"
+			# Parse sector data
+			sector = {
+				#
+			}
+			# Parse fleet data
+			if = { 
+				limit = { exists = event_target:uiSectorMilFleet }
+					event_target:uiSectorMilFleet = {
+						#
+					}
+			}
+		}
+		
+		# CLOSE
+
+		option = {
+			custom_gui = "irm_option_sector_close_s"
+		}
+
+		# ORDERS
+
+		option = {
+			name = "sector_screen.ui.block.mission.patrol_sector.length"
+			custom_gui = "irm_option_edict_row"
+			is_dialog_only = yes
+		}
+
+		option = {
+			name = "sector_screen.ui.block.mission.patrol_cores.length"
+			custom_gui = "irm_option_edict_row"
+			is_dialog_only = yes
+		}
+
+		option = {
+			name = "sector_screen.ui.block.mission.defend_capital.length"
+			custom_gui = "irm_option_edict_row"
+			is_dialog_only = yes
+		}
+
+		option = {
+			name = "sector_screen.ui.block.mission.follow_fleet.length"
+			custom_gui = "irm_option_edict_row"
+			is_dialog_only = yes
+		}
+
+		option = {
+			name = "sector_screen.ui.block.order.war_goals.length"
+			custom_gui = "irm_option_edict_row"
+			is_dialog_only = yes
+		}
+
+		option = {
+			name = "sector_screen.ui.block.mission.attack_hostile.length"
+			custom_gui = "irm_option_edict_row"
+			is_dialog_only = yes
+		}
+
+		option = {
+			name = "sector_screen.ui.block.mission.return_home.length"
+			custom_gui = "irm_option_edict_row"
+			is_dialog_only = yes
+		}
+
+		option = {
+			name = "sector_screen.ui.block.mission.repair_fleet.length"
+			custom_gui = "irm_option_edict_row"
+			is_dialog_only = yes
+		}
+
+		option = {
+			name = "sector_screen.ui.block.mission.upgrade_fleet.length"
+			custom_gui = "irm_option_edict_row"
+			is_dialog_only = yes
+		}
+
+		option = {
+			name = "sector_screen.ui.block.mission.cancel_all.length"
+			custom_gui = "irm_option_edict_row"
+			is_dialog_only = yes
+		}
+
+		# CLEAN UP
+
+		after = {
+			hidden_effect = {
+				remove_planet_flag = "ui_sector_orders_active"
+			}
+		}
+
+	}

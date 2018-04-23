@@ -1,0 +1,150 @@
+building_microgravity_fabricators = {
+	base_buildtime = 360
+	is_listed = yes
+	prerequisites = { "tech_microgravity_fabricators" }
+	
+	cost = {
+		minerals = 400
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_habitat
+			has_building = "building_hab_capital"
+		}
+	}
+	
+	produced_resources = {
+		minerals = 5
+		engineering_research = 2
+	}
+	
+	required_resources = {
+		energy = 3
+	}
+}
+
+building_isotope_refinery = {
+	base_buildtime = 360
+	is_listed = yes
+	prerequisites = { "tech_isotope_refinery" }
+	
+	cost = {
+		minerals = 400
+	}
+	
+	potential = {
+		planet = {	
+			is_planet_class = pc_habitat
+			has_building = "building_hab_capital"
+		}
+	}
+	
+	produced_resources = {
+		energy = 5
+		physics_research = 2
+	}
+}
+
+building_celestial_sanctum = {
+	planet_unique = yes
+	base_buildtime = 360
+	
+	cost = {
+		minerals = 500
+	}
+	
+	show_tech_unlock_if = {
+		has_ascension_perk = ap_voidborn
+	}
+	
+	potential = {
+		owner = {
+			OR = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+		planet = {
+			is_planet_class = pc_habitat
+			has_building = "building_hab_capital"
+		}
+	}
+	
+	allow = {
+		planet = {
+			NOT = {
+				has_building = "building_hab_cultural_center"
+			}
+		}
+	}
+	
+	produced_resources = {
+		unity = 6
+	}
+	
+	planet_modifier = {
+		pop_citizen_happiness = 0.1
+		pop_ethic_spiritualist_attraction_mult = 0.3
+	}
+	
+	destroy_if = {
+		exists = owner
+		owner = {
+			has_ethic = ethic_gestalt_consciousness
+		}
+	}
+	
+	required_resources = {
+		energy = 2
+	}
+	
+	ai_weight = {
+		weight = 300
+	}
+}
+
+building_synaptic_nexus = {
+	base_buildtime = 360
+	planet_unique = yes
+	icon = "building_hab_cultural_center"
+	
+	cost = {
+		minerals = 500
+	}
+	
+	potential = {
+		planet = {	
+			is_planet_class = pc_habitat
+			has_building = "building_hab_capital"
+		}
+		owner = {
+			has_authority = auth_hive_mind
+		}
+	}
+	
+	produced_resources = {		
+		unity = 4
+	}
+	
+	planet_modifier = {
+		pop_resource_output = 0.05
+	}
+	
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = {
+				has_authority = auth_hive_mind
+			}
+		}
+	}
+	
+	required_resources = {
+		energy = 2
+	}
+	
+	ai_weight = {
+		weight = 300
+	}
+}

@@ -1,0 +1,121 @@
+@dreadnought_power_1 = 1140
+@dreadnought_power_2 = 1380
+@dreadnought_power_3 = 1680
+@dreadnought_power_4 = 2050
+@dreadnought_power_5 = 2240
+@dreadnought_power_6 = 2900
+
+@dreadnought_cost_1 = 400
+@dreadnought_cost_2 = 480
+@dreadnought_cost_3 = 575
+@dreadnought_cost_4 = 750
+@dreadnought_cost_5 = 1000
+@dreadnought_cost_6 = 1230
+
+utility_component_template = {
+	key = "SCX_DREADNOUGHT_FISSION_REACTOR"
+	size = small
+	icon = "GFX_ship_part_reactor_1"
+	icon_frame = 1
+	power = @dreadnought_power_1
+	cost = @dreadnought_cost_1
+	
+	prerequisites = { "tech_fission_power" }
+	component_set = "power_core"
+	size_restriction = { SCX_Dreadnought }
+	upgrades_to = "SCX_DREADNOUGHT_FUSION_REACTOR"
+	
+	ai_weight = {
+		weight = 1
+	}
+}
+
+utility_component_template = {
+	key = "SCX_DREADNOUGHT_FUSION_REACTOR"
+	size = small
+	icon = "GFX_ship_part_reactor_2"
+	icon_frame = 1
+	power = @dreadnought_power_2
+	cost = @dreadnought_cost_2
+	
+	prerequisites = { "tech_fusion_power" }
+	component_set = "power_core"
+	size_restriction = { SCX_Dreadnought }
+	upgrades_to = "SCX_DREADNOUGHT_COLD_FUSION_REACTOR"
+	
+	ai_weight = {
+		weight = 2
+	}
+}
+
+utility_component_template = {
+	key = "SCX_DREADNOUGHT_COLD_FUSION_REACTOR"
+	size = small
+	icon = "GFX_ship_part_reactor_3"
+	icon_frame = 1
+	power = @dreadnought_power_3
+	cost = @dreadnought_cost_3
+	
+	prerequisites = { "tech_cold_fusion_power" }
+	component_set = "power_core"
+	size_restriction = { SCX_Dreadnought }
+	upgrades_to = "SCX_DREADNOUGHT_ANTIMATTER_REACTOR"
+	
+	ai_weight = {
+		weight = 3
+	}
+}
+
+utility_component_template = {
+	key = "SCX_DREADNOUGHT_ANTIMATTER_REACTOR"
+	size = small
+	icon = "GFX_ship_part_reactor_4"
+	icon_frame = 1
+	power = @dreadnought_power_4
+	cost = @dreadnought_cost_4
+	
+	prerequisites = { "tech_antimatter_power" }
+	component_set = "power_core"
+	size_restriction = { SCX_Dreadnought }
+	upgrades_to = "SCX_DREADNOUGHT_ZERO_POINT_REACTOR"
+	
+	ai_weight = {
+		weight = 4
+	}
+}
+
+utility_component_template = {
+	key = "SCX_DREADNOUGHT_ZERO_POINT_REACTOR"
+	size = small
+	icon = "GFX_ship_part_reactor_5"
+	icon_frame = 1
+	power = @dreadnought_power_5
+	cost = @dreadnought_cost_5
+	
+	prerequisites = { "tech_zero_point_power" }
+	component_set = "power_core"
+	size_restriction = { SCX_Dreadnought }
+	upgrades_to = "SCX_DREADNOUGHT_DARK_MATTER_REACTOR"
+	
+	ai_weight = {
+		weight = 5
+	}
+}
+
+utility_component_template = {
+	key = "SCX_DREADNOUGHT_DARK_MATTER_REACTOR"
+	size = small
+	icon = "GFX_ship_part_dark_matter_power_core"
+	icon_frame = 1
+	power = @dreadnought_power_6
+	cost = @dreadnought_cost_6
+	
+	prerequisites = { "tech_dark_matter_power_core" }
+	component_set = "power_core"
+	size_restriction = { SCX_Dreadnought }
+	
+	ai_weight = {
+		weight = 6
+	}
+}
+

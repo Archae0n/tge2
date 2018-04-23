@@ -1,0 +1,688 @@
+# IRM
+# Scripted Triggers
+
+
+# GAME # ------------------------------------------------------------------------------------------
+
+
+# This = Country (db)
+# Prev = Sector
+# Checks if this country is special db
+is_db = {
+	or = {
+		is_country_type = @dbCountry
+		is_country_type = @dbCountryFleet
+	}
+}
+
+# This = Country (db)
+# Prev = Sector
+# Checks if this country is special db
+is_sector_db = {
+	is_country_type = @dbCountry
+	has_country_flag = sector_id_@prev	
+}
+
+# This = Country (db)
+# Prev = Sector
+# Checks if this country is special db (fleet)
+is_sector_db_fleet = {
+	is_country_type = @dbCountryFleet
+	has_country_flag = sector_id_@prev	
+}
+
+# This = Country
+# Used for regular events launcher (restricting avaialbl empires)
+is_allowed_country = {
+	is_ai = no
+	or = {
+		is_country_type = default
+		is_country_type = fallen_empire
+		is_country_type = awakened_fallen_empire
+	}	
+}
+
+
+
+# FLEET # -----------------------------------------------------------------------------------------
+
+
+# This = Fleet (Sector Fleet)
+# Prev = Country
+# PrevPrev = Sector
+# Checks if this fleet belongs to sector
+is_sector_fleet = {
+	has_fleet_flag = sector_id_@prevprev
+}
+
+# This = Fleet
+# Checks, does fleet have any orders
+fleet_has_orders = {
+	or = {
+		#has_fleet_order = aggressive_stance_fleet_order
+		has_fleet_order = analyze_ftl_trail_order
+		has_fleet_order = assist_research_order
+		has_fleet_order = auto_explore_order
+		has_fleet_order = build_orbital_station_order
+		has_fleet_order = build_space_station_order
+		has_fleet_order = collect_data_fleet_order
+		has_fleet_order = colonize_planet_order
+		has_fleet_order = combat_order
+		has_fleet_order = evade_hostiles_order
+		has_fleet_order = fleet_cancel_order
+		has_fleet_order = follow_order
+		has_fleet_order = land_armies_order
+		has_fleet_order = merge_fleet_order
+		has_fleet_order = move_to_system_point_order
+		has_fleet_order = orbit_planet_order
+		has_fleet_order = rally_point_fleet_order
+		has_fleet_order = repair_ship_fleet_order
+		has_fleet_order = research_anomaly_order
+		has_fleet_order = research_discovery_order
+		has_fleet_order = return_fleet_order
+		has_fleet_order = survey_planet_order
+		has_fleet_order = upgrade_design_fleet_order
+	}
+}
+
+# This = Fleet
+# Checks if fleet has some custom order (mission)
+fleet_has_mission = {
+	or = {
+		fleet_has_mission_patrol_sector = yes
+		fleet_has_mission_patrol_cores = yes
+		fleet_has_mission_defend_capital = yes
+		fleet_has_mission_follow_fleet = yes
+		fleet_has_order_war_goals = yes
+		fleet_has_mission_attack_hostile = yes
+		fleet_has_mission_return_home = yes
+		fleet_has_mission_repair_fleet = yes
+		fleet_has_mission_upgrade_fleet = yes
+	}
+}
+
+# This = Fleet
+# Checks fleet active orders
+fleet_has_mission_patrol_sector = {
+	has_fleet_flag = @sMissionPatrolSector
+}
+fleet_has_mission_patrol_cores = {
+	has_fleet_flag = @sMissionPatrolCores
+}
+fleet_has_mission_defend_capital = {
+	has_fleet_flag = @sMissionDefendCapital
+}
+fleet_has_mission_follow_fleet = {
+	has_fleet_flag = @sMissionFollowFleet
+}
+fleet_has_order_war_goals = {
+	has_fleet_flag = @sOrderWarGoals
+}
+fleet_has_mission_attack_hostile = {
+	has_fleet_flag = @sMissionAttackHostile
+}
+fleet_has_mission_return_home = {
+	has_fleet_flag = @sMissionReturnHome
+}
+fleet_has_mission_repair_fleet = {
+	has_fleet_flag = @sMissionRepairFleet
+}
+fleet_has_mission_upgrade_fleet = {
+	has_fleet_flag = @sMissionUpgradeFleet
+}
+
+
+
+# PLANET # ----------------------------------------------------------------------------------------
+
+
+# This = Planet
+# Prev = Sector
+# Checks, if this planet has former capital status
+is_former_capital = {
+	is_sector_planet = yes
+	has_modifier = "former_capital"
+}
+
+# This = Planet
+# Prev = Sector
+# Checks, if this planet is a capital of selected sector
+is_sector_capital = {
+	is_sector_planet = yes
+	has_modifier = "sector_capital"
+}
+
+# This = Planet
+# Prev = Sector
+# Checks, if this planet belongs to selected sector
+is_sector_planet = {
+	exists = owner
+	owner = { is_same_empire = prevprev.owner }
+	exists = sector
+	sector = { is_same_value = prevprev }
+}
+
+
+
+# POP # -------------------------------------------------------------------------------------------
+
+
+# This = Pop
+# PrevPrev = Planet
+# Checks if pop belongs to chosen planet
+is_planet_pop = {
+	exists = planet
+	planet = { is_same_value = prevprev }
+}
+
+# This = Pop
+# Root = Pop faction
+# Checks if this pop is from this region (sector)
+is_region_pop = {
+	planet = {
+		exists = sector
+		sector = { is_same_value = parameter:sector }
+	}	
+}
+
+# This = Pop
+# Prev = Sector
+# Checks if this pop is from selected sector
+is_sector_pop = {
+	exists = owner
+	owner = { is_same_empire = prevprev.owner }
+	exists = planet
+	planet = {
+		exists = sector
+		sector = { is_same_value = prevprevprev }
+	}	
+}
+
+# This = Pop
+# Checks if this pop could take a part in political life
+# (i.e., to create or join factons, generate a leader etc)
+pop_can_politics = {
+	is_growing = no
+	is_enslaved = no
+	is_being_purged = no
+	is_robot_pop = no
+	is_shackled_robot = no
+	is_sapient = yes
+	not = { has_trait = trait_nerve_stapled }	
+}
+
+# Regionalist attraction
+
+# This = Pop
+# Checks, if pop is already regionalist
+pop_att_is_founder = {
+	has_pop_flag = "faction_founder"
+}
+
+# This = Pop
+# Checks, if pop is already regionalist
+pop_att_is_member = {
+	member_of_faction = "regionalist"
+}
+
+# This = Pop
+# Checks, if sector has regionalism reducing effect
+pop_att_is_propaganded = {
+	parameter:sector = { sector_has_edict_propaganda = yes }
+}
+
+# This = Pop
+# Checks, if planet was or is a sector capital and has specific edict
+pop_att_is_capital = {
+	planet = {
+		or = {
+			has_modifier = "former_capital"
+			has_modifier = "sector_capital"
+		}
+		#has_building = "building_sector_administration"
+		#sector = { sector_has_edict_capital = yes }
+	}
+}
+
+# This = Pop
+# Checks, if pop's planet is disconnected from sector
+pop_att_is_disconnected = {
+	planet = { has_modifier = "disconnected_from_sector" }
+}
+
+# This = Pop
+# Checks, if pop is happy
+pop_att_is_happy = {
+	happiness > 0.79
+}
+
+# This = Pop
+# Checks, if pop is happy
+pop_att_is_unhappy = {
+	happiness < 0.40
+}
+
+# This = Pop
+# Checks, if pop is angry
+pop_att_is_angry = {
+	happiness < 0.20
+}
+
+# This = Pop
+# Checks, if pop has same ethics as gov
+pop_att_same_ethics = {
+	opposing_ethics_divergence = {
+		steps > 0
+		who = owner
+	}
+}
+
+# This = Pop
+# Checks, if pop is a xeno or modifier species
+pop_att_is_different = {
+	not = { is_same_species = owner_species }
+}
+
+# This = Pop
+# Checks, if pop is unemployed
+pop_att_is_unemployed = {
+	is_unemployed = yes
+}
+
+# This = Pop
+# Checks, if pop was recently conquered
+pop_att_is_conquered = {
+	has_modifier = "pop_recently_conquered"
+}
+
+# This = Pop
+# Checks, if pop's sector has governor
+pop_att_has_governor = {
+	planet = {
+		exists = sector
+		sector = { exists = leader }
+	}
+}
+
+# This = Pop
+# Checks, if related sector is overextended
+pop_att_is_overextended = {
+	parameter:sector = {
+		sector_is_overextended = yes
+	}
+}
+
+
+# SECTOR # ----------------------------------------------------------------------------------------
+
+
+# This = Sector
+# Checks if sector has related database
+sector_has_db = {
+	any_country = { is_sector_db = yes }
+}
+
+# This = Sector
+# Checks if sector has related db fleet
+sector_has_db_fleet = {
+	any_country = { is_sector_db_fleet = yes }
+}
+
+# This = Sector
+# Checks, if this sector has related existed regionalist faction
+sector_has_faction = {
+	owner = {
+		count_pop_factions = {
+			limit = {
+				is_pop_faction_type = "regionalist"
+				check_pop_faction_parameter = { which = sector value = prev }
+			}
+			count > 0
+		}
+	}	
+}
+
+# This = Sector
+# Checks the existance of sector fleet
+sector_has_fleet = {
+	any_country = {
+		is_sector_db_fleet = yes
+		any_owned_fleet = {
+			has_fleet_flag = sector_id_@prevprev
+		}
+	}
+}
+
+# This = Sector
+# Checks if sector has exceed core system number
+sector_is_overextended = {
+	any_country = {
+		is_sector_db = yes
+		check_variable = { which = nSectorSystemsCap value < nSectorSystems }
+	}	
+}
+
+# This = Sector
+# Sector edicts
+# Check the state of each sector edict, by checking edict remaining time
+sector_has_edict_capital = {
+	any_country = {
+		is_sector_db = yes
+		check_variable = { which = nEdictCapital value > 0 }
+	}	
+}
+sector_has_edict_mining = {
+	any_country = {
+		is_sector_db = yes
+		check_variable = { which = nEdictMining value > 0 }
+	}	
+}
+sector_has_edict_assets = {
+	any_country = {
+		is_sector_db = yes
+		check_variable = { which = nEdictAssets value > 0 }
+	}	
+}
+sector_has_edict_colony = {
+	any_country = {
+		is_sector_db = yes
+		check_variable = { which = nEdictColony value > 0 }
+	}	
+}
+sector_has_edict_trade = {
+	any_country = {
+		is_sector_db = yes
+		check_variable = { which = nEdictTrade value > 0 }
+	}	
+}
+sector_has_edict_leadership = {
+	any_country = {
+		is_sector_db = yes
+		check_variable = { which = nEdictLeadership value > 0 }
+	}	
+}
+sector_has_edict_propaganda = {
+	any_country = {
+		is_sector_db = yes
+		check_variable = { which = nEdictPropaganda value > 0 }
+	}	
+}
+sector_has_edict_faction = {
+	any_country = {
+		is_sector_db = yes
+		check_variable = { which = nEdictFaction value > 0 }
+	}	
+}
+sector_has_edict_training = {
+	any_country = {
+		is_sector_db = yes
+		check_variable = { which = nEdictTraining value > 0 }
+	}	
+}
+sector_has_edict_piracy = {
+	any_country = {
+		is_sector_db = yes
+		check_variable = { which = nEdictPiracy value > 0 }
+	}	
+}
+
+# This = Sector
+# Checks sector active policies
+
+sector_pol_nofleet = {
+	any_country = {
+		is_sector_db = yes
+		check_variable = { which = bPolicyNofleet value > 0 }
+	}
+}
+
+sector_pol_noarmy = {
+	any_country = {
+		is_sector_db = yes
+		check_variable = { which = nPolicyNoarmy value > 0 }
+	}
+}
+
+# This = Sector
+# Check strategic resource deposits within a sector
+# All technologies have to be researched and planet has to have stations
+sector_mines_terraform_gases = {
+	owner = { has_technology = tech_terrestrial_sculpting }
+	any_planet = {
+		has_resource = sr_terraform_gases
+		has_mining_station = yes
+	}
+}
+sector_mines_terraform_liquids = {
+	owner = { has_technology = tech_terrestrial_sculpting }
+	any_planet = {
+		has_resource = sr_terraform_liquids
+		has_mining_station = yes
+	}
+}
+sector_mines_garanthium = {
+	owner = { has_technology = tech_mine_garanthium }
+	any_planet = {
+		has_resource = sr_garanthium
+		has_mining_station = yes
+	}
+}
+sector_mines_lythuric = {
+	owner = { has_technology = tech_lythuric_gas }
+	any_planet = {
+		has_resource = sr_lythuric
+		has_research_station = yes
+	}
+}
+sector_mines_teldar = {
+	owner = { has_technology = tech_mine_teldar }
+	any_planet = {
+		has_resource = sr_teldar
+		has_research_station = yes
+	}
+}
+sector_mines_yuranic = {
+	owner = { has_technology = tech_mine_yuranic }
+	any_planet = {
+		has_resource = sr_yuranic
+		has_research_station = yes
+	}
+}
+sector_mines_orillium = {
+	owner = { has_technology = tech_mine_orillium }
+	any_planet = {
+		has_resource = sr_orillium
+		has_research_station = yes
+	}
+}
+sector_mines_pitharan = {
+	owner = { has_technology = tech_pitharan_dust }
+	any_planet = {
+		has_resource = sr_pitharan
+		has_research_station = yes
+	}
+}
+sector_mines_engos = {
+	owner = { has_technology = tech_engos_vapor }
+	any_planet = {
+		has_resource = sr_engos
+		has_research_station = yes
+	}
+}
+sector_mines_neutronium = {
+	owner = { has_technology = tech_mine_neutronium }
+	any_planet = {
+		has_resource = sr_neutronium
+		has_research_station = yes
+	}
+}
+sector_mines_living_metal = {
+	owner = { has_technology = tech_mine_living_metal }
+	any_planet = {
+		has_resource = sr_living_metal
+		has_research_station = yes
+	}
+}
+sector_mines_zro = {
+	owner = { has_technology = tech_mine_zro }
+	any_planet = {
+		has_resource = sr_zro
+		has_research_station = yes
+	}
+}
+sector_mines_dark_matter = {
+	owner = { has_technology = tech_mine_dark_matter }
+	any_planet = {
+		has_resource = sr_dark_matter
+		has_research_station = yes
+	}
+}
+sector_mines_satramene = {
+	owner = { has_technology = tech_mine_satramene }
+	any_planet = {
+		has_resource = sr_satramene
+		has_mining_station = yes
+	}
+}
+sector_mines_strategic_resources = {
+	or = {
+		sector_mines_terraform_gases = yes
+		sector_mines_terraform_liquids = yes
+		sector_mines_garanthium = yes
+		sector_mines_lythuric = yes
+		sector_mines_teldar = yes
+		sector_mines_yuranic = yes
+		sector_mines_orillium = yes
+		sector_mines_pitharan = yes
+		sector_mines_engos = yes
+		sector_mines_neutronium = yes
+		sector_mines_living_metal = yes
+		sector_mines_zro = yes
+		sector_mines_dark_matter = yes
+		sector_mines_satramene = yes
+	}
+}
+
+
+
+# SPECIES # ---------------------------------------------------------------------------------------
+
+
+# This = Species
+# Prev = Country
+# Root = Planet (Sector Capital)
+is_sector_species = {
+	prev = {
+		any_owned_pop = {
+			species = { is_same_species = prevprevprev }
+			exists = planet
+			planet = {
+				exists = sector
+				sector = { is_same_value = root.sector }
+			}
+		}
+	}
+}
+
+
+
+# TILE # ------------------------------------------------------------------------------------------
+
+
+# This = Tile
+# Checks if tile has building producing food
+has_building_food = {
+	has_building = yes
+	exists = pop
+	pop = { 
+		pop_produces_resource = { type = food amount > 0 }
+	}	
+}
+
+# This = Tile
+# Checks if tile has building producing energy
+has_building_energy = {
+	has_building = yes
+	exists = pop
+	pop = { 
+		pop_produces_resource = { type = energy amount > 0 }
+	}	
+}
+
+# This = Tile
+# Checks if tile has building producing minerals
+has_building_minerals = {
+	has_building = yes
+	exists = pop
+	pop = { 
+		pop_produces_resource = { type = minerals amount > 0 }
+	}
+}
+
+# This = Tile
+# Checks if tile has building with research output
+has_building_research = {
+	has_building = yes
+	exists = pop
+	pop = {
+		or = {
+			pop_produces_resource = { type = engineering_research amount > 0 }
+			pop_produces_resource = { type = physics_research amount > 0 }
+			pop_produces_resource = { type = society_research amount > 0 }
+		}
+
+	}	
+}
+
+
+
+# UI # --------------------------------------------------------------------------------------------
+
+
+# This = Sector
+# Checks if player has enough influence to enact sector edict
+ui_has_edict_influence = {
+	any_country = {
+		is_sector_db = yes
+		or = {
+			and = { check_variable = { which = nEdictCost value = 75  } prev.owner = { not = { influence < 75  } } }
+			and = { check_variable = { which = nEdictCost value = 100 } prev.owner = { not = { influence < 100 } } }
+			and = { check_variable = { which = nEdictCost value = 125 } prev.owner = { not = { influence < 125 } } }
+			and = { check_variable = { which = nEdictCost value = 150 } prev.owner = { not = { influence < 150 } } }
+			and = { check_variable = { which = nEdictCost value = 175 } prev.owner = { not = { influence < 175 } } }
+			and = { check_variable = { which = nEdictCost value = 200 } prev.owner = { not = { influence < 200 } } }
+			and = { check_variable = { which = nEdictCost value = 225 } prev.owner = { not = { influence < 225 } } }
+			and = { check_variable = { which = nEdictCost value = 250 } prev.owner = { not = { influence < 250 } } }
+			and = { check_variable = { which = nEdictCost value = 275 } prev.owner = { not = { influence < 275 } } }
+			and = { check_variable = { which = nEdictCost value = 300 } prev.owner = { not = { influence < 300 } } }	
+			and = { check_variable = { which = nEdictCost value = 325 } prev.owner = { not = { influence < 325 } } }		
+			and = { check_variable = { which = nEdictCost value = 350 } prev.owner = { not = { influence < 350 } } }		
+			and = { check_variable = { which = nEdictCost value = 375 } prev.owner = { not = { influence < 375 } } }		
+			and = { check_variable = { which = nEdictCost value = 400 } prev.owner = { not = { influence < 400 } } }		
+			and = { check_variable = { which = nEdictCost value = 425 } prev.owner = { not = { influence < 425 } } }		
+			and = { check_variable = { which = nEdictCost value = 450 } prev.owner = { not = { influence < 450 } } }		
+			and = { check_variable = { which = nEdictCost value = 475 }	prev.owner = { not = { influence < 475 } } }	
+			and = { check_variable = { which = nEdictCost value = 500 } prev.owner = { not = { influence < 500 } } }		
+			and = { check_variable = { which = nEdictCost value = 525 } prev.owner = { not = { influence < 525 } } }		
+			and = { check_variable = { which = nEdictCost value = 550 } prev.owner = { not = { influence < 550 } } }		
+			and = { check_variable = { which = nEdictCost value = 575 } prev.owner = { not = { influence < 575 } } }		
+			and = { check_variable = { which = nEdictCost value = 600 } prev.owner = { not = { influence < 600 } } }		
+			and = { check_variable = { which = nEdictCost value = 625 } prev.owner = { not = { influence < 625 } } }		
+			and = { check_variable = { which = nEdictCost value = 650 } prev.owner = { not = { influence < 650 } } }		
+			and = { check_variable = { which = nEdictCost value = 675 } prev.owner = { not = { influence < 675 } } }		
+			and = { check_variable = { which = nEdictCost value = 700 } prev.owner = { not = { influence < 700 } } }		
+			and = { check_variable = { which = nEdictCost value = 725 } prev.owner = { not = { influence < 725 } } }		
+			and = { check_variable = { which = nEdictCost value = 750 } prev.owner = { not = { influence < 750 } } }		
+			and = { check_variable = { which = nEdictCost value = 775 } prev.owner = { not = { influence < 775 } } }		
+			and = { check_variable = { which = nEdictCost value = 800 } prev.owner = { not = { influence < 800 } } }		
+			and = { check_variable = { which = nEdictCost value = 825 } prev.owner = { not = { influence < 825 } } }		
+			and = { check_variable = { which = nEdictCost value = 850 } prev.owner = { not = { influence < 850 } } }	
+			and = { check_variable = { which = nEdictCost value = 875 } prev.owner = { not = { influence < 875 } } }		
+			and = { check_variable = { which = nEdictCost value = 900 } prev.owner = { not = { influence < 900 } } }		
+			and = { check_variable = { which = nEdictCost value = 925 } prev.owner = { not = { influence < 925 } } }		
+			and = { check_variable = { which = nEdictCost value = 950 } prev.owner = { not = { influence < 950 } } }		
+			and = { check_variable = { which = nEdictCost value = 975 } prev.owner = { not = { influence < 975 } } }		
+			and = { check_variable = { which = nEdictCost value > 999 } prev.owner = { not = { influence < 999 } } }	
+		}
+	}
+}

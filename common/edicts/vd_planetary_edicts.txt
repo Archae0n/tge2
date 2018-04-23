@@ -1,0 +1,36 @@
+planet_edict = {
+	name = "expand_habitat"
+	cost = { influence = 100 }
+	length = 0
+	
+	potential = {
+		is_planet_class = pc_habitat
+		planet_size < 25
+		NOT = { has_modifier = habitat_under_expansion }
+	}
+	
+	allow = {
+		custom_tooltip = {
+			fail_text = habitat_expansion_requires_minerals
+			owner = {
+				minerals > 10000
+			}
+		}
+	}
+	
+	prerequisites = {
+		"tech_orbital_redevelopment"		
+	}
+	
+	effect = {
+		custom_tooltip = expand_habitat_tooltip_effects
+		hidden_effect = {
+			owner = { add_minerals = -10000 }
+			planet_event = { id = habitat.1 days = 30 }
+			add_modifier = {
+				modifier = habitat_under_expansion
+				days = 1800
+			}
+		}
+	}
+}

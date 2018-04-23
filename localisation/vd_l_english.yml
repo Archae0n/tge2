@@ -1,0 +1,45 @@
+﻿l_english:
+
+ VOID_DWELLERS_CANNOT_COLONIZE_PLANETS:0 "§RVoid Dwellers cannot colonize planets.§!"
+ 
+ pc_void_dwelling:0 "Void Dwelling"
+ pc_void_dwelling_tile:0 "$pc_habitat_tile$"
+ pc_void_dwelling_tile_desc:0 "$pc_habitat_tile_desc$"
+ 
+ edict_expand_habitat:0 "Expand Habitat"
+ edict_expand_habitat_desc:0 "We will begin renovations on this orbital habitat. When finished, the useable area will be greatly increased."
+ expand_habitat_tooltip_effects:0 "Construction on the habitat begins at the cost of §R10,000§! £minerals  §YMinerals§! and will last §Y5§! years. §YHappiness§! and §YPop Resource Production§! is decreased by §R10%§! during construction. On completion, the habitat gains §Y9§! tiles."
+ habitat_expansion_requires_minerals:0 "Requires §R10,000§! £minerals  §YMinerals§!"
+ 
+ edict_expand_void_dwelling_1:0 "Expand Habitat"
+ edict_expand_void_dwelling_1_desc:0 "Void dwellings are highly modular in nature, and can be readily expanded to meet our needs."
+ edict_expand_void_dwelling_2:0 "$edict_expand_void_dwelling_1$"
+ edict_expand_void_dwelling_2_desc:0 "$edict_expand_void_dwelling_1_desc$"
+ void_dwelling_expansion_1:0 "Permanently increases the size of the habitat by §G7§! tiles."
+ void_dwelling_expansion_2:0 "Permanently increases the size of the habitat by §G9§! tiles."
+ 
+ gateway_ancient:0 "$gateway_restored$"
+ gateway_ancient_DESC:0 "$gateway_restored_DESC$"
+ 
+ void_dwelling_0_MEGASTRUCTURE_DETAILS:0 "A §Y$pc_void_dwelling$§! is a self-sustaining space station designed for permanent habitation."
+ void_dwelling_0_CONSTRUCTION_INFO_DELAYED:0 "Void Dwellings can only be built by empires with the §YVoid Dwellers§! civic. They start with §Y9§! tiles, but grow in size over time."
+ void_dwelling_0:0 "Void Dwelling"
+ 
+ void_dwelling_1_MEGASTRUCTURE_DETAILS:0 "$void_dwelling_0_MEGASTRUCTURE_DETAILS$"
+ void_dwelling_1_CONSTRUCTION_INFO_DELAYED:0 "$void_dwelling_0_CONSTRUCTION_INFO_DELAYED$"
+ void_dwelling_1:0 "$void_dwelling_0$"
+ 
+ VOID_DWELLING_NAME:0 "[PREVPREV.GetName] Dwelling"
+ 
+ requires_pops_9:0 "§RRequires at least §Y9 Pops§! on planet.§!"
+ requires_pops_16:0 "§RRequires at least §Y16 Pops§! on planet.§!"
+ 
+ personality_fallen_empire_egalitarian:0 "Hedonistic Egoists"
+ personality_fallen_empire_egalitarian_desc:0 "This Fallen Empire is a loose collective where citizens enjoy abundant liberties and luxury. They mostly keep to themselves."
+ personality_awakened_fallen_empire_egalitarian:0 "Celestial Liberators"
+ personality_awakened_fallen_empire_egalitarian_desc:0 "This Awakened Empire seeks to liberate the galaxy's sapient races from tyranny. They are likely to attack any empire that violates their ideals."
+ 
+ personality_fallen_empire_authoritarian:0 "Disciplined Absolutists"
+ personality_fallen_empire_authoritarian_desc:0 "This Fallen Empire is a strictly ordered regime where citizens are seen as cogs in the imperial machine. They mostly keep to themselves."
+ personality_awakened_fallen_empire_authoritarian:0 "Despotic Arbiters"
+ personality_awakened_fallen_empire_authoritarian_desc:0 "This Awakened Empire seeks to enforce their brand of order on the galaxy. They are likely to attack any empire who rejects their authority."

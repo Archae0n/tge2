@@ -1,0 +1,46 @@
+# IRM
+# New opinions
+
+
+# Sector border trade
+opinion_border_trade = {
+	opinion = {
+		base = 10
+	}
+
+	trigger = {
+		from = {
+			# has to be suitable for trade
+			nor = {
+				has_closed_borders = prev
+				prev = { has_closed_borders = prev }
+				is_rival = prev
+				prev = { is_rival = prev }
+				is_at_war_with = prev
+			}
+			# has bordering trading sector	
+			any_sector = {
+				is_core_sector = no
+				any_country = {
+					is_sector_db = yes
+					check_variable = { which = nEdictTrade value > 0 }
+				}
+				any_planet = {
+					is_star = yes
+					solar_system = {
+						any_neighbor_system = {
+							ignore_hyperlanes = yes
+							exists = space_owner
+							space_owner = {
+								is_country_type = default
+								is_same_empire = root								
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	months = 120
+}

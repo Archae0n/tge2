@@ -1,0 +1,2349 @@
+#################################
+### Guardian & Enclave Events ###
+### by Maximilian Olbers	  ###
+### & Niclas Karlsson		  ###
+### & Rufus Tronde			  ###
+### & Henrik Eklund			  ###
+#################################
+
+namespace = guardian
+
+@tier1influencecontact = 7
+@tier1influencecontactxenophile = 8
+@tier1influencecontactmin = 20
+@tier1influencecontactmax = 80
+
+@tier2influencecontact = 10
+@tier2influencecontactxenophile = 12
+@tier2influencecontactmin = 40
+@tier2influencecontactmax = 100
+
+@tier1materialreward = 6
+@tier1materialmin = 100
+@tier1materialmax = 500
+@tier2materialreward = 12
+@tier2materialmin = 150
+@tier2materialmax = 1000
+@tier3materialreward = 18
+@tier3materialmin = 250
+@tier3materialmax = 1500
+@tier4materialreward = 24
+@tier4materialmin = 350
+@tier4materialmax = 2000
+@tier5materialreward = 48
+@tier5materialmin = 700
+@tier5materialmax = 4000
+
+@tier1influencereward = 6
+@tier1influencemin = 40
+@tier1influencemax = 100
+@tier2influencereward = 12
+@tier2influencemin = 80
+@tier2influencemax = 175
+@tier3influencereward = 18
+@tier3influencemin = 125
+@tier3influencemax = 250
+@tier4influencereward = 24
+@tier4influencemin = 150
+@tier4influencemax = 300
+@tier5influencereward = 36
+@tier5influencemin = 250
+@tier5influencemax = 500
+@tier6influencereward = 48
+@tier6influencemin = 300
+@tier6influencemax = 600
+
+@tier1researchreward = 6
+@tier1researchmin = 60
+@tier1researchmax = 150
+@tier2researchreward = 12
+@tier2researchmin = 90
+@tier2researchmax = 250
+@tier3researchreward = 18
+@tier3researchmin = 120
+@tier3researchmax = 350
+@tier4researchreward = 24
+@tier4researchmin = 150
+@tier4researchmax = 500
+@tier5researchreward = 48
+@tier5researchmin = 300
+@tier5researchmax = 1000
+
+country_event = {
+	id = guardian.9
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		from = {
+			is_guardian_country = yes
+		}
+		OR = {
+			is_country_type = default
+			is_country_type = ascended_empire
+			is_country_type = fallen_empire
+			is_country_type = awakened_fallen_empire
+		}
+	}
+
+	immediate = {
+		from = {
+			establish_communications_no_message = root
+		}
+	}
+}
+
+country_event = {
+	id = guardian.11
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		every_owned_fleet = {
+			limit = {
+				exists = solar_system
+				solar_system = {
+					exists = space_owner
+					space_owner = {
+						OR = {
+							is_country_type = default
+							is_country_type = ascended_empire
+						}
+					}
+				}
+			}
+			solar_system = {
+				space_owner = {
+					root = {
+						add_trust = {
+							who = prev
+							amount = 1
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+fleet_event = {
+	id = guardian.96
+	title = "action.10.name"
+	desc = "action.15.desc"
+	picture = GFX_evt_star_chart
+	location = FROM
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		owner = {
+			OR = {
+				is_country_type = default
+				is_country_type = ascended_empire
+			}
+			exists = capital_scope
+		}
+		from = {
+			has_star_flag = enclave
+			any_ship_in_system = {
+				exists = owner
+				owner = {
+					is_country_type = enclave
+					NOR = {
+						has_communications = root.owner
+						reverse_has_relation_flag = {
+							flag = ongoing_enclave_investigation
+							who = root.owner
+						}
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		owner = {
+			capital_scope = { save_event_target_as = pc_home }
+			from = {
+				random_fleet_in_system = {
+					limit = {
+						exists = owner
+						owner = { is_country_type = enclave }
+					}
+					owner = {
+						save_event_target_as = target_enclave
+						country_event = { id = guardian.97 days = 300 random = 50 }
+						enable_special_project = {
+							name = "INVESTIGATE_ENCLAVE"
+							location = event_target:pc_home
+							owner = root.owner
+						}
+						country_event = { id = guardian.960 }
+					}
+				}
+			}
+			set_relation_flag = {
+				flag = ongoing_enclave_investigation
+				who = event_target:target_enclave
+			}
+		}
+	}
+	
+	option = {
+		name = "action.10.a"
+		owner = {
+			tooltip = {
+				enable_special_project = {
+					name = "INVESTIGATE_ENCLAVE"
+					location = event_target:pc_home
+					owner = ROOT
+				}
+			}
+		}
+	}
+}
+
+# Trader Destroyed (HIDDEN)
+country_event = {
+	id = guardian.140
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_country_type = enclave
+		has_country_flag = trader_enclave_country
+		FROMFROM = { 
+			is_ship_size = enclave_station
+		}
+	}
+	
+	immediate = {
+		FROMFROM = {
+			solar_system = { save_event_target_as = trader_system }
+		}
+		FROM = { 
+			country_event = { id = guardian.141 }
+			save_event_target_as = trader_destroyer
+		}
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				has_communications = ROOT
+				NOT = { is_country = event_target:trader_destroyer }
+			}
+			if = {
+				limit = {
+					ROOT = { has_country_flag = trader_enclave_country_1 }
+				}
+				country_event = { id = guardian.142 }
+			}
+			if = {
+				limit = {
+					ROOT = { has_country_flag = trader_enclave_country_2 }
+				}
+				country_event = { id = guardian.143 }
+			}
+			if = {
+				limit = {
+					ROOT = { has_country_flag = trader_enclave_country_3 }
+				}
+				country_event = { id = guardian.144 }
+			}
+		}
+	}
+}
+
+# Any Trader Destroyed (Destroyer)
+country_event = {
+	id = guardian.141
+	title = "guardian.141"
+	desc = "guardian.141.desc"
+	picture = GFX_evt_space_debris
+	location = event_target:trader_system
+	show_sound = event_ship_bridge
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_country_flag = destroyed_trader
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				NOR = {
+					is_same_value = root
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_hive_devouring_swarm
+					has_valid_civic = civic_machine_terminator
+				}
+			}
+			add_opinion_modifier = {
+				who = root
+				modifier = opinion_destroyed_trader
+			}
+		}
+		if = {
+			limit = { FROM = { has_country_flag = trader_enclave_country_1 } }
+			remove_modifier = "enclave_traders_sr2"
+			remove_modifier = enclave_mineral_trade_1_xur
+			remove_modifier = enclave_mineral_trade_2_xur
+			remove_modifier = enclave_mineral_trade_3_xur
+			remove_modifier = enclave_energy_trade_1_xur
+			remove_modifier = enclave_energy_trade_2_xur
+			remove_modifier = enclave_energy_trade_3_xur
+			remove_relation_flag = {
+				who = FROM
+				flag = xuracorp_trade 
+			}
+			break = yes
+		}
+		if = {
+			limit = { FROM = { has_country_flag = trader_enclave_country_2 } }
+			remove_modifier = "enclave_traders_sr1"
+			remove_modifier = enclave_mineral_trade_1_rig
+			remove_modifier = enclave_mineral_trade_2_rig
+			remove_modifier = enclave_mineral_trade_3_rig
+			remove_modifier = enclave_energy_trade_1_rig
+			remove_modifier = enclave_energy_trade_2_rig
+			remove_modifier = enclave_energy_trade_3_rig
+			remove_relation_flag = {
+				who = FROM
+				flag = riggan_trade 
+			}
+			break = yes
+		}
+		if = {
+			limit = { FROM = { has_country_flag = trader_enclave_country_3 } }
+			remove_modifier = "enclave_traders_sr3"
+			remove_modifier = enclave_mineral_trade_1_mut
+			remove_modifier = enclave_mineral_trade_2_mut
+			remove_modifier = enclave_mineral_trade_3_mut
+			remove_modifier = enclave_energy_trade_1_mut
+			remove_modifier = enclave_energy_trade_2_mut
+			remove_modifier = enclave_energy_trade_3_mut
+			remove_relation_flag = {
+				who = FROM
+				flag = muutagan_trade 
+			}
+		}
+	}
+	
+	option = {
+		name = EXCELLENT
+		add_minerals = 2000
+		add_energy = 2000
+	}
+}
+
+# Attacked XuraCorp (HIDDEN)
+country_event = {
+	id = guardian.155
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			is_country_type = default
+			is_country_type = ascended_empire
+		}
+		FROM = { has_country_flag = trader_enclave_country_1 }
+	}
+
+	immediate = {
+		FROM = { 
+			save_event_target_as = traders
+			add_trust = {
+				who = ROOT
+				amount = -100
+			}
+		}
+		set_country_flag = attacked_xuracorp
+		if = {
+			limit = { 
+				OR = {
+					has_modifier = enclave_traders_sr2 
+					has_modifier = enclave_mineral_trade_1_xur
+					has_modifier = enclave_mineral_trade_2_xur
+					has_modifier = enclave_mineral_trade_3_xur
+					has_modifier = enclave_energy_trade_1_xur
+					has_modifier = enclave_energy_trade_2_xur
+					has_modifier = enclave_energy_trade_3_xur
+				}
+			}
+			remove_modifier = enclave_traders_sr1
+			remove_modifier = enclave_mineral_trade_1_xur
+			remove_modifier = enclave_mineral_trade_2_xur
+			remove_modifier = enclave_mineral_trade_3_xur
+			remove_modifier = enclave_energy_trade_1_xur
+			remove_modifier = enclave_energy_trade_2_xur
+			remove_modifier = enclave_energy_trade_3_xur
+			remove_relation_flag = {
+				who = FROM
+				flag = xuracorp_trade
+			}
+			country_event = { id = guardian.156 }
+		}
+	}
+}
+
+# Attacked Riggans (HIDDEN)
+country_event = {
+	id = guardian.158
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			is_country_type = default
+			is_country_type = ascended_empire
+		}
+		FROM = { has_country_flag = trader_enclave_country_2 }
+	}
+
+	immediate = {
+		FROM = { 
+			save_event_target_as = traders
+			add_trust = {
+				who = ROOT
+				amount = -100
+			}
+		}
+		set_country_flag = attacked_riggans
+		if = {
+			limit = { 
+				OR = {
+					has_modifier = enclave_traders_sr1 
+					has_modifier = enclave_mineral_trade_1_rig
+					has_modifier = enclave_mineral_trade_2_rig
+					has_modifier = enclave_mineral_trade_3_rig
+					has_modifier = enclave_energy_trade_1_rig
+					has_modifier = enclave_energy_trade_2_rig
+					has_modifier = enclave_energy_trade_3_rig
+				}
+			}
+			remove_modifier = enclave_traders_sr1
+			remove_modifier = enclave_mineral_trade_1_rig
+			remove_modifier = enclave_mineral_trade_2_rig
+			remove_modifier = enclave_mineral_trade_3_rig
+			remove_modifier = enclave_energy_trade_1_xur
+			remove_modifier = enclave_energy_trade_2_xur
+			remove_modifier = enclave_energy_trade_3_xur
+			remove_relation_flag = {
+				who = FROM
+				flag = riggan_trade
+			}
+			country_event = { id = guardian.159}
+		}
+	}
+}
+
+# Attacked Muutagans (HIDDEN)
+country_event = {
+	id = guardian.161
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			is_country_type = default
+			is_country_type = ascended_empire
+		}
+		FROM = { has_country_flag = trader_enclave_country_3 }
+	}
+
+	immediate = {
+		FROM = { 
+			save_event_target_as = traders
+			add_trust = {
+				who = ROOT
+				amount = -100
+			}
+		}
+		set_country_flag = attacked_muutagans
+		if = {
+			limit = { 
+				OR = {
+					has_modifier = enclave_traders_sr3
+					has_modifier = enclave_mineral_trade_1_mut
+					has_modifier = enclave_mineral_trade_2_mut
+					has_modifier = enclave_mineral_trade_3_mut
+					has_modifier = enclave_energy_trade_1_mut
+					has_modifier = enclave_energy_trade_2_mut
+					has_modifier = enclave_energy_trade_3_mut
+				}
+			}
+			remove_modifier = enclave_traders_sr3
+			remove_modifier = enclave_mineral_trade_1_mut
+			remove_modifier = enclave_mineral_trade_2_mut
+			remove_modifier = enclave_mineral_trade_3_mut
+			remove_modifier = enclave_energy_trade_1_mut
+			remove_modifier = enclave_energy_trade_2_mut
+			remove_modifier = enclave_energy_trade_3_mut
+			remove_relation_flag = {
+				who = FROM
+				flag = muutagan_trade
+			}
+			country_event = { id = guardian.162}
+		}
+	}
+}
+
+# Mineral Trade Cancelled
+event = {
+	id = guardian.170
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		any_country = {
+			OR = {
+				is_country_type = default
+				is_country_type = ascended_empire
+			}
+			energy <= 0
+			OR = {
+				has_modifier = enclave_mineral_trade_1_xur
+				has_modifier = enclave_mineral_trade_2_xur
+				has_modifier = enclave_mineral_trade_3_xur
+				has_modifier = enclave_mineral_trade_1_rig
+				has_modifier = enclave_mineral_trade_2_rig
+				has_modifier = enclave_mineral_trade_3_rig
+				has_modifier = enclave_mineral_trade_1_mut
+				has_modifier = enclave_mineral_trade_2_mut
+				has_modifier = enclave_mineral_trade_3_mut
+			}
+		}
+	}
+
+	immediate = {
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				energy <= 0
+				OR = {
+					has_modifier = enclave_mineral_trade_1_xur
+					has_modifier = enclave_mineral_trade_2_xur
+					has_modifier = enclave_mineral_trade_3_xur
+					has_modifier = enclave_mineral_trade_1_rig
+					has_modifier = enclave_mineral_trade_2_rig
+					has_modifier = enclave_mineral_trade_3_rig
+					has_modifier = enclave_mineral_trade_1_mut
+					has_modifier = enclave_mineral_trade_2_mut
+					has_modifier = enclave_mineral_trade_3_mut
+				}
+			}
+			country_event = { id = guardian.171 }
+		}
+	}
+}
+
+# Energy Trade Cancelled
+event = {
+	id = guardian.172
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		any_country = {
+			OR = {
+				is_country_type = default
+				is_country_type = ascended_empire
+			}
+			minerals <= 0
+			OR = {
+				has_modifier = enclave_energy_trade_1_xur
+				has_modifier = enclave_energy_trade_2_xur
+				has_modifier = enclave_energy_trade_3_xur
+				has_modifier = enclave_energy_trade_1_rig
+				has_modifier = enclave_energy_trade_2_rig
+				has_modifier = enclave_energy_trade_3_rig
+				has_modifier = enclave_energy_trade_1_mut
+				has_modifier = enclave_energy_trade_2_mut
+				has_modifier = enclave_energy_trade_3_mut
+			}
+		}
+	}
+
+	immediate = {
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				minerals <= 0
+				OR = {
+					has_modifier = enclave_energy_trade_1_xur
+					has_modifier = enclave_energy_trade_2_xur
+					has_modifier = enclave_energy_trade_3_xur
+					has_modifier = enclave_energy_trade_1_rig
+					has_modifier = enclave_energy_trade_2_rig
+					has_modifier = enclave_energy_trade_3_rig
+					has_modifier = enclave_energy_trade_1_mut
+					has_modifier = enclave_energy_trade_2_mut
+					has_modifier = enclave_energy_trade_3_mut
+				}
+			}
+			country_event = { id = guardian.173 }
+		}
+	}
+}
+
+# Enclave Communication Spread
+country_event = {
+	id = guardian.560
+	hide_window = yes
+	
+	trigger = {
+		is_country_type = enclave
+		any_relation = {
+			OR = {
+				is_country_type = default
+				is_country_type = ascended_empire
+			}
+			any_relation = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				NOT = { has_communications = ROOT }
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 80
+	}
+	
+	immediate = {
+		random_relation = {
+			limit = {
+				any_relation = {
+					OR = {
+						is_country_type = default
+						is_country_type = ascended_empire
+					}
+					NOT = { has_communications = ROOT }
+				}
+			}
+			random_relation = {
+				limit = {
+					OR = {
+						is_country_type = default
+						is_country_type = ascended_empire
+					}
+					NOT = { has_communications = ROOT }
+				}
+				root = { establish_communications_no_message = prev }
+				country_event = { id = guardian.98 }
+			}
+		}
+	}	
+}
+
+# Curator Destroyed (HIDDEN)
+country_event = {
+	id = guardian.592
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_country_type = enclave
+		has_country_flag = curator_enclave_country
+		FROMFROM = { 
+			is_ship_size = enclave_station
+		}
+	}
+	
+	immediate = {
+		FROMFROM = {
+			solar_system = { save_event_target_as = curator_system }
+		}
+		FROM = { 
+			country_event = { id = guardian.593 }
+			save_event_target_as = curator_destroyer
+		}
+		every_country = {
+			limit = {
+				has_communications = ROOT
+				NOT = { is_country = event_target:curator_destroyer }
+				OR = { 
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+			}
+			country_event = { id = guardian.594 }
+		}
+	}
+}
+
+# Attacked Curators (HIDDEN)
+country_event = {
+	id = guardian.595
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			is_country_type = default
+			is_country_type = ascended_empire
+		}
+		FROM = { has_country_flag = curator_enclave_country }
+	}
+
+	immediate = {
+		FROM = { 
+			save_event_target_as = curators
+			add_trust = {
+				who = ROOT
+				amount = -100
+			}
+		}
+		set_country_flag = attacked_curators
+		if = {
+			limit = { has_modifier = curator_insight }
+			remove_modifier = curator_insight
+			country_event = { id = guardian.596}
+		}
+	}
+}
+
+# Encounter
+fleet_event = {
+	id = guardian.610
+	title = guardian.610.name
+	desc = guardian.610.desc
+	picture = GFX_evt_space_dragon
+	location = from
+	show_sound = event_yellow_alert
+
+	is_triggered_only = yes
+
+	trigger = {
+		from = {
+			has_star_flag = guardians_dragon_system
+			any_ship_in_system = { is_ship_size = space_dragon_red }
+		}
+		owner = {
+			NOT = {
+				has_country_flag = dragon_encounter
+			}
+			OR = {
+				is_country_type = ascended_empire
+				is_country_type = default
+				is_country_type = fallen_empire
+				is_country_type = awakened_fallen_empire
+			}
+		}
+	}
+
+	immediate = {
+		owner = {
+			set_country_flag = dragon_encounter
+		}
+	}
+
+	option = {
+		name = guardian.610.a
+	}
+}
+
+# Dragon retaliates if hurt and fleet destroyed
+country_event = {
+	id = guardian.648
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_country_type = guardian_dragon
+		any_owned_ship = {
+			is_ship_size = space_dragon_red
+			has_hp_percentage < 0.80
+			has_hp_percentage > 0.15
+			fleet = {
+				NOT = {
+					has_fleet_flag = aggro_cooldown
+				}
+				exists = solar_system
+				solar_system = {
+					has_star_flag = guardians_dragon_system
+				}
+			}
+		}
+		from = {
+			OR = {
+				is_country_type = default
+				is_country_type = ascended_empire
+			}
+		}
+	}
+
+	immediate = {
+		random_owned_fleet = {
+			limit = {
+				any_owned_ship = {
+					is_ship_size = space_dragon_red
+				}
+			}
+			set_timed_fleet_flag = {
+				flag = aggro_cooldown
+				days = 60
+			}
+			clear_fleet_actions = this
+			fleet_event = { id = guardian.652 }
+		}
+		from = {
+			country_event = { id = guardian.649 }
+		}
+	}
+}
+
+# Dragon pursues if fleet flees
+# Fired before entering FTL - does combat still exist?
+fleet_event = {
+	id = guardian.650
+	#hide_window = yes
+	title = guardian.650.name
+	desc = {
+		text = guardian.650.desc
+		trigger = {
+			owner = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+		}
+	}
+	desc = {
+		text = guardian.650.desc.gesta
+		trigger = {
+			owner = { has_ethic = ethic_gestalt_consciousness }
+		}
+	}
+	picture = GFX_evt_space_dragon
+	is_triggered_only = yes
+
+	trigger = {
+		owner = {
+			OR = {
+				is_country_type = default
+				is_country_type = ascended_empire
+			}
+		}
+		from = {
+			has_star_flag = guardians_dragon_system
+		}
+		any_combatant_fleet = {
+			exists = owner
+			owner = {
+				is_country_type = guardian_dragon
+			}
+			NOT = { has_fleet_flag = aggro_cooldown }
+			any_owned_ship = {
+				is_ship_size = space_dragon_red
+				has_hp_percentage < 0.80
+				has_hp_percentage > 0.15
+			}
+		}
+	}
+
+	immediate = {
+		random_combatant_fleet = {
+			limit = {
+				exists = owner
+				owner = {
+					is_country_type = guardian_dragon
+				}
+				any_owned_ship = {
+					is_ship_size = space_dragon_red
+				}
+			}
+			#save_event_target_as = retaliating_dragon
+			set_timed_fleet_flag = {
+				flag = aggro_cooldown
+				days = 30
+			}
+			clear_fleet_actions = this
+			fleet_event = { id = guardian.651 }
+		}
+	}
+
+	option = {
+		name = guardian.649.a
+		trigger = { owner = { NOT = { has_ethic = ethic_gestalt_consciousness } } }
+	}
+
+	option = {
+		name = guardian.649.b.gesta
+		trigger = { owner = { has_ethic = ethic_gestalt_consciousness } }
+	}
+}
+
+fleet_event = {
+	id = guardian.654
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		owner = {
+			OR = {
+				is_country_type = default
+				is_country_type = ascended_empire
+			}
+		}
+		from = {
+			has_star_flag = guardians_dragon_system
+		}
+		any_combatant_fleet = {
+			exists = owner
+			owner = {
+				is_country_type = guardian_dragon
+			}
+			#NOT = { has_fleet_flag = aggro_cooldown }
+			any_owned_ship = {
+				is_ship_size = space_dragon_red
+				has_hp_percentage < 0.16
+			}
+		}
+	}
+
+	immediate = {
+		from = {
+			random_fleet_in_system = {
+				limit = {
+					exists = owner
+					owner = {
+						is_country_type = guardian_dragon
+					}
+					#NOT = { has_fleet_flag = aggro_cooldown }
+					any_owned_ship = {
+						is_ship_size = space_dragon_red
+					}
+				}
+				random_owned_ship = {
+					limit = { is_ship_size = space_dragon_red }
+					save_event_target_as = dragon_ship
+				}
+				clear_fleet_actions = this
+				queue_actions = {
+					repeat = {
+						max_iterations = 1
+						find_random_system = {
+							trigger = {
+								id = guardian.hibernate.7
+								has_star_flag = guardians_dragon_system
+							}
+							found_system = {
+								move_to = this
+								find_random_planet = {
+									trigger = {
+										id = guardian.hibernate.8
+										is_star = yes
+									}
+									found_planet = {
+										orbit_planet = this
+										effect = {
+											id = guardian.hibernate.9
+											event_target:dragon_ship = {
+												repair_ship = yes
+											}
+										}
+									}
+								}
+								wait = {
+									duration = 60
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+planet_event = {
+	id = guardian.660
+	hide_window = yes
+	mean_time_to_happen = {
+		years = 50
+	}
+
+	trigger = {
+		has_planet_flag = hoard_planet
+		#has_deposit = d_guardian_dragon_hoard
+		NOT = {
+			has_planet_flag = deboned
+		}
+		has_mining_station = yes
+		exists = controller
+		controller = {
+			OR = {
+				is_country_type = default
+				is_country_type = ascended_empire
+			}
+		}
+	}
+
+	immediate = {
+		set_planet_flag = deboned
+		controller = {
+			country_event = { id = guardian.661 }
+		}
+	}
+}
+
+planet_event = {
+	id = guardian.662
+	hide_window = yes
+
+	mean_time_to_happen = {
+		years = 50
+	}
+
+	trigger = {
+		has_planet_flag = hoard_planet
+		#has_deposit = d_guardian_dragon_hoard
+		NOT = {
+			has_planet_flag = deegged
+		}
+		has_mining_station = yes
+		exists = controller
+		controller = {
+			OR = {
+				is_country_type = default
+				is_country_type = ascended_empire
+			}
+		}
+	}
+
+	immediate = {
+		set_planet_flag = deegged
+		controller = {
+			country_event = { id = guardian.663 }
+		}
+	}
+}
+
+# victorious admiral gains dragonslayer trait
+country_event = {
+	id = guardian.670
+	title = guardian.670.name
+	desc = {
+		text = guardian.670.desc
+		trigger = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+			fromfrom = {
+				exists = leader
+			}
+		}
+	}
+	desc = {
+		text = guardian.670.desc.noleader
+		trigger = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+			fromfrom = {
+				NOT = { exists = leader }
+			}
+		}
+	}
+	desc = {
+		text = guardian.670.desc.gesta
+		trigger = {
+			has_ethic = ethic_gestalt_consciousness
+			fromfrom = {
+				NOT = { exists = leader }
+			}
+		}
+	}
+	picture = GFX_evt_space_dragon
+	location = fromfrom
+	show_sound = event_mystic_reveal
+
+	is_triggered_only = yes
+
+	trigger = {
+		from = {
+			is_country_type = guardian_dragon
+		}
+		#fromfromfrom = {
+		#	has_fleet_flag = dragon_fleet
+		#}
+	}
+
+	immediate = {
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				has_modifier = draconic_beats
+			}
+			remove_modifier = draconic_beats
+		}
+		fromfrom.solar_system = {
+			save_event_target_as = slain_guardian_system
+		}
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				has_event_chain = curator_poi_chain
+				event_target:slain_guardian_system = {
+					is_point_of_interest = {
+						id = curator_poi_dragon
+						event_chain = curator_poi_chain
+						owner = prev
+					}
+				}
+			}
+			remove_point_of_interest = curator_poi_dragon
+			end_curator_chain = yes
+		}
+	}
+
+	option = {
+		name = guardian.670.a
+		trigger = {
+			fromfrom = {
+				exists = leader
+			}
+			OR = {
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_xenophile
+				has_ethic = ethic_xenophile
+			}
+		}
+		fromfrom = {
+			leader = {
+				add_trait = leader_trait_dragonslayer
+			}
+		}
+		add_influence = 300
+		custom_tooltip = guardian.670.spiritphile.tooltip
+		hidden_effect = {
+			set_country_flag = dragon_slayer
+		}
+	}
+
+	option = {
+		name = guardian.670.a
+		trigger = {
+			fromfrom = {
+				NOT = {
+					exists = leader
+				}
+			}
+			OR = {
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_xenophile
+				has_ethic = ethic_xenophile
+			}
+		}
+		add_influence = 300
+		custom_tooltip = guardian.670.spiritphile.tooltip
+		hidden_effect = {
+			set_country_flag = dragon_slayer
+		}
+	}
+
+	option = {
+		name = guardian.670.a
+		trigger = {
+			fromfrom = {
+				exists = leader
+			}
+			NOR = {
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_xenophile
+				has_ethic = ethic_xenophile
+			}
+		}
+		fromfrom = {
+			leader = {
+				add_trait = leader_trait_dragonslayer
+			}
+		}
+		add_influence = 300
+		custom_tooltip = guardian.670.tooltip
+		hidden_effect = {
+			set_country_flag = dragon_slayer
+		}
+	}
+
+	option = {
+		name = guardian.670.a
+		trigger = {
+			fromfrom = {
+				NOT = {
+					exists = leader
+				}
+			}
+			NOR = {
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_xenophile
+				has_ethic = ethic_xenophile
+			}
+		}
+		add_influence = 300
+		custom_tooltip = guardian.670.tooltip
+		hidden_effect = {
+			set_country_flag = dragon_slayer
+		}
+	}
+}
+
+# Stellarite dies and creates special project
+country_event = {
+	id = guardian.1016
+	title = guardian.1000.name
+	desc = {
+		text = guardian.1016.desc
+		trigger = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+	}
+	desc = {
+		text = guardian.1016.desc.gesta
+		trigger = { has_ethic = ethic_gestalt_consciousness }
+	}
+	picture = GFX_evt_stellarites
+	show_sound = event_radio_chatter
+	location = event_target:stellarite_project_object
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			is_country_type = default
+			is_country_type = ascended_empire
+		}
+		from = { is_country_type = guardian_stellarite }
+		fromfromfrom = {
+			has_ship_flag = stellarite_ship
+			solar_system = {
+				has_star_flag = stellarite_present
+				NOT = {
+					has_star_flag = stellarite_slain
+				}
+			}
+		}
+	}
+
+	immediate = {
+		fromfromfrom = {
+			solar_system = {
+				save_event_target_as = slain_guardian_system
+			}
+			create_ambient_object = {
+				type = stellarite_object
+				location = this
+			}
+		}
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				has_event_chain = curator_poi_chain
+				event_target:slain_guardian_system = {
+					is_point_of_interest = {
+						id = curator_poi_stellarite
+						event_chain = curator_poi_chain
+						owner = prev
+					}
+				}
+			}
+			remove_point_of_interest = curator_poi_stellarite
+			end_curator_chain = yes
+		}
+		last_created_ambient_object = {
+			save_event_target_as = stellarite_project_object
+			set_ambient_object_flag = stellarite_project_object
+			solar_system = {
+				set_star_flag = stellarite_slain
+			}
+		}
+
+		random_system = {
+			limit = {
+				has_star_flag = stellarite_present
+			}
+			every_system_planet = {
+				limit = {
+					has_modifier = stellarite_high_temp
+				}
+				remove_modifier = stellarite_high_temp
+			}
+		}
+	}
+
+	option = {
+		name = guardian.1016.a
+		#hidden_effect = {
+			event_target:stellarite_project_object = {
+				enable_special_project = {
+					name = "STELLARITE_DEAD_PROJECT"
+			 		location = this
+			 		owner = root
+				}
+			}
+		#}
+	}
+	option = {
+		name = guardian.1016.b
+		trigger = {
+			OR = {
+				has_ethic = ethic_militarist
+				has_ethic = ethic_fanatic_militarist
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+			} 
+		}
+		custom_tooltip = guardian.1016.b.tooltip
+		add_influence = 500
+		hidden_effect = {
+			set_country_flag = stellarite_trophy_allowed
+			random_ambient_object = {
+				limit = {
+					has_ambient_object_flag = stellarite_project_object
+				}
+				destroy_ambient_object = this
+			}
+		}
+	}
+
+	after = {
+		hidden_effect = {
+			random_system = {
+				limit = {
+					has_star_flag = stellarite_present
+				}
+				remove_star_flag = stellarite_present
+			}
+		}
+	}
+}
+
+#Killing the Technosphere
+country_event = {
+	id = guardian.1039
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				has_event_chain = curator_poi_chain
+				event_target:slain_guardian_system = {
+					is_point_of_interest = {
+						id = curator_poi_technosphere
+						event_chain = curator_poi_chain
+						owner = prev
+					}
+				}
+			}
+			remove_point_of_interest = curator_poi_technosphere
+			end_curator_chain = yes
+		}
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				has_event_chain = technosphere_chain
+			}
+			end_event_chain = technosphere_chain
+		}
+		every_country = {
+			limit = {
+				NOR = {
+					is_same_value = root
+					is_hostile = event_target:guardian_technosphere_country
+				}
+				is_country_type = default
+				OR = {
+					has_modifier = infinity_calculations
+					has_modifier = technosphere_praising
+					has_country_flag = guardians_technosphere_encountered
+				}
+			}
+			country_event = { id = guardian.1041 }
+		}
+	}
+
+	after = {
+		if = {
+			limit = {
+				has_modifier = infinity_calculations
+			}
+			remove_modifier = infinity_calculations
+		}
+		if = {
+			limit = {
+				has_modifier = technosphere_praising
+			}
+			remove_modifier = technosphere_praising
+		}
+	}
+}
+
+country_event = {
+	id = guardian.1040
+	title = guardian.1030.name
+	desc = {
+		trigger = {
+			switch = {
+				trigger = has_country_flag
+				technosphere_sabotaged = { text = guardian.1040.desc.alt }
+				technosphere_studied = { text = guardian.1040.desc.detail }
+				default = { text = guardian.1040.desc }
+			}
+		}
+	}
+	picture = GFX_evt_technosphere
+	show_sound = event_super_explosion
+	location = fromfrom
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				has_country_flag = technosphere_sabotaged
+				fromfrom = { owner = { is_country_type = guardian_sphere } }
+			}
+			AND = {
+				from = {
+					is_country_type = guardian_sphere
+				}
+			}
+		}
+	}
+
+	immediate = {
+		fromfrom = {
+			solar_system = {
+				save_event_target_as = technosphere_location
+				save_event_target_as = slain_guardian_system
+			}
+		}
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				has_event_chain = curator_poi_chain
+				event_target:slain_guardian_system = {
+					is_point_of_interest = {
+						id = curator_poi_technosphere
+						event_chain = curator_poi_chain
+						owner = prev
+					}
+				}
+			}
+			remove_point_of_interest = curator_poi_technosphere
+			end_curator_chain = yes
+		}
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				has_event_chain = technosphere_chain
+			}
+			end_event_chain = technosphere_chain
+		}
+		every_country = {
+			limit = {
+				NOR = {
+					is_same_value = root
+					is_hostile = event_target:guardian_technosphere_country
+				}
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				OR = {
+					has_modifier = infinity_calculations
+					has_modifier = technosphere_praising
+					has_country_flag = guardians_technosphere_encountered
+				}
+			}
+			country_event = { id = guardian.1041 }
+		}
+	}
+
+	after = {
+		if = {
+			limit = {
+				has_modifier = infinity_calculations
+			}
+			remove_modifier = infinity_calculations
+		}
+		if = {
+			limit = {
+				has_modifier = technosphere_praising
+			}
+			remove_modifier = technosphere_praising
+		}
+	}
+
+	option = {
+		name = guardian.1040.a
+		add_monthly_resource_mult = {
+			resource = influence
+			value = @tier5influencereward
+			min = @tier5influencemin
+			max = @tier5influencemax
+		}
+		add_monthly_resource_mult = {
+			resource = minerals
+			value = @tier5materialreward
+			min = @tier5materialmin
+			max = @tier5materialmax
+		}
+	}
+	option = {
+		name = guardian.1040.c
+		trigger = {
+			NOT = {
+				has_ethic = ethic_gestalt_consciousness
+				has_technology = tech_robotic_workers
+				has_technology = tech_droid_workers
+				has_technology = tech_synthetic_workers
+				has_technology = tech_synthetic_leaders
+			}
+		}
+		add_research_option = tech_robotic_workers
+		add_tech_progress = {
+			tech = tech_robotic_workers
+			progress = 0.50
+		}
+	}
+	option = {
+		name = guardian.1040.c
+		trigger = {
+			has_technology = tech_robotic_workers
+			NOT = {
+				has_ethic = ethic_gestalt_consciousness
+				has_technology = tech_droid_workers
+				has_technology = tech_synthetic_workers
+				has_technology = tech_synthetic_leaders
+			}
+		}
+		add_research_option = tech_droid_workers
+		add_tech_progress = {
+			tech = tech_droid_workers
+			progress = 0.50
+		}
+	}
+	option = {
+		name = guardian.1040.c
+		trigger = {
+			has_technology = tech_robotic_workers
+			has_technology = tech_droid_workers
+			NOT = {
+				has_ethic = ethic_gestalt_consciousness
+				has_technology = tech_synthetic_workers
+				has_technology = tech_synthetic_leaders
+			}
+		}
+		add_research_option = tech_synthetic_workers
+		add_tech_progress = {
+			tech = tech_synthetic_workers
+			progress = 0.50
+		}
+	}
+	option = {
+		name = guardian.1040.c
+		trigger = {
+			has_technology = tech_robotic_workers
+			has_technology = tech_droid_workers
+			has_technology = tech_synthetic_workers
+			NOT = {
+				has_ethic = ethic_gestalt_consciousness
+				has_technology = tech_synthetic_leaders
+			}
+		}
+		add_research_option = tech_synthetic_leaders
+		add_tech_progress = {
+			tech = tech_synthetic_leaders
+			progress = 0.50
+		}
+	}
+}
+
+# Wraith killed
+country_event = {
+	id = guardian.2014
+	title = "guardian.2014.name"
+	desc = {
+		text = guardian.2014.desc
+		trigger = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+		}
+	}
+	desc = {
+		text = guardian.2014.desc.gesta
+		trigger = {
+			has_ethic = ethic_gestalt_consciousness
+		}
+	}
+	picture = GFX_evt_wraith
+	show_sound = event_space_whale
+
+	is_triggered_only = yes
+
+	trigger = {
+		from = { has_country_flag = wraith_country }
+	}
+
+	immediate = {
+		set_country_flag = killed_wraith
+		fromfrom.solar_system = {
+			save_event_target_as = slain_guardian_system
+		}
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				has_event_chain = curator_poi_chain
+				event_target:slain_guardian_system = {
+					is_point_of_interest = {
+						id = curator_poi_wraith
+						event_chain = curator_poi_chain
+						owner = prev
+					}
+				}
+			}
+			remove_point_of_interest = curator_poi_wraith
+			end_curator_chain = yes
+		}
+	}
+
+	option = {
+		name = guardian.2014.a
+		add_modifier = {
+			modifier = "spectral_residue_studies"
+			days = -1
+		}
+	}
+}
+
+# Enigmatic Fortress Disabled (HIDDEN)
+ship_event = {
+	id = guardian.2100
+	hide_window = yes
+	
+	is_triggered_only = yes
+
+	trigger = {
+		has_ship_flag = fortress_vault
+		from.owner = {
+			OR = {
+				is_country_type = default
+				is_country_type = ascended_empire
+			}
+		}
+	}
+
+	immediate = {
+		from.owner = { country_event = { id = guardian.2101 } }
+	}
+}
+
+# The Heart of Dark Matter
+country_event = {
+	id = guardian.2151
+	title = "guardian.2151.name"
+	desc = "guardian.2151.desc"
+	picture = GFX_evt_enigmatic_fortress
+	show_sound = event_laboratory_sound
+	location = from
+	
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = fortress_solved
+		event_target:disabled_enigmatic_fortress = {
+			save_event_target_as = slain_guardian_system
+		}
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				has_event_chain = curator_poi_chain
+				event_target:slain_guardian_system = {
+					is_point_of_interest = {
+						id = curator_poi_fortress
+						event_chain = curator_poi_chain
+						owner = prev
+					}
+				}
+			}
+			remove_point_of_interest = curator_poi_fortress
+			end_curator_chain = yes
+		}
+		event_target:disabled_enigmatic_fortress = {
+			solar_system = {
+				random_system_planet = {
+					limit = { is_star = yes }
+					create_ambient_object = {
+						type = "dead_enigmatic_fortress_object"
+						location = solar_system
+					}
+					last_created_ambient_object = {
+						save_global_event_target_as = fortress_ambient
+						set_location = {
+							target = PREV
+							distance = 110
+							angle = 110
+						}
+					}
+				}
+
+			}
+			fleet = {
+				delete_fleet = this
+			}
+		}
+	}
+	
+	option = {
+		name = "guardian.2151.a"
+		add_monthly_resource_mult = {
+			resource = engineering_research
+			value = 24
+			min = 1000
+			max = 5000
+		}
+		add_monthly_resource_mult = {
+			resource = physics_research
+			value = 24
+			min = 1000
+			max = 5000
+		}
+		add_monthly_resource_mult = {
+			resource = society_research
+			value = 24
+			min = 1000
+			max = 5000
+		}
+		add_research_option = tech_enigmatic_encoder
+		add_tech_progress = {
+			tech = tech_enigmatic_encoder
+			progress = 0.30
+		}
+		add_research_option = tech_enigmatic_decoder
+		add_tech_progress = {
+			tech = tech_enigmatic_decoder
+			progress = 0.30
+		}
+		end_event_chain = "enigmatic_fortress_chain"
+	}
+}
+
+# The Middle Path
+country_event = {
+	id = guardian.2154
+	title = "guardian.2154.name"
+	desc = "guardian.2154.desc"
+	picture = GFX_evt_enigmatic_fortress
+	show_sound = event_laboratory_sound
+	location = event_target:disabled_enigmatic_fortress
+	
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = fortress_solved
+		event_target:disabled_enigmatic_fortress = {
+			save_event_target_as = slain_guardian_system
+		}
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				has_event_chain = curator_poi_chain
+				event_target:slain_guardian_system = {
+					is_point_of_interest = {
+						id = curator_poi_fortress
+						event_chain = curator_poi_chain
+						owner = prev
+					}
+				}
+			}
+			remove_point_of_interest = curator_poi_fortress
+			end_curator_chain = yes
+		}
+		event_target:disabled_enigmatic_fortress = {
+			solar_system = {
+				random_system_planet = {
+					limit = { is_star = yes }
+					create_ambient_object = {
+						type = "dead_enigmatic_fortress_object"
+						location = solar_system
+					}
+					last_created_ambient_object = {
+						save_global_event_target_as = fortress_ambient
+						set_location = {
+							target = PREV
+							distance = 110
+							angle = 110
+						}
+					}
+					#create_ambient_object = {
+					#	type = explosion_particle_object
+					#	location = this
+					#	use_3d_location = yes
+					#	duration = 10
+					#	scale = 20
+					#}
+					#last_created_ambient_object = {
+					#	set_location = {
+					#		target = PREV
+					#		distance = 110
+					#		angle = 110
+					#	}
+					#}
+				}
+			}
+			fleet = {
+				delete_fleet = this
+			}
+		}
+	}
+	
+	option = {
+		name = "guardian.2154.a"
+		add_monthly_resource_mult = {
+			resource = engineering_research
+			value = 24
+			min = 1000
+			max = 5000
+		}
+		add_monthly_resource_mult = {
+			resource = physics_research
+			value = 24
+			min = 1000
+			max = 5000
+		}
+		add_monthly_resource_mult = {
+			resource = society_research
+			value = 24
+			min = 1000
+			max = 5000
+		}
+		add_research_option = tech_enigmatic_encoder
+		add_tech_progress = {
+			tech = tech_enigmatic_encoder
+			progress = 0.30
+		}
+		add_research_option = tech_enigmatic_decoder
+		add_tech_progress = {
+			tech = tech_enigmatic_decoder
+			progress = 0.30
+		}
+		end_event_chain = "enigmatic_fortress_chain"
+	}
+}
+
+# Dark Matter Gambit
+country_event = {
+	id = guardian.2156
+	title = "guardian.2156.name"
+	desc = "guardian.2156.desc"
+	picture = GFX_evt_enigmatic_fortress
+	show_sound = event_laboratory_sound
+	location = event_target:disabled_enigmatic_fortress
+	
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = fortress_solved
+		event_target:disabled_enigmatic_fortress = {
+			save_event_target_as = slain_guardian_system
+		}
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				has_event_chain = curator_poi_chain
+				event_target:slain_guardian_system = {
+					is_point_of_interest = {
+						id = curator_poi_fortress
+						event_chain = curator_poi_chain
+						owner = prev
+					}
+				}
+			}
+			remove_point_of_interest = curator_poi_fortress
+			end_curator_chain = yes
+		}
+		event_target:disabled_enigmatic_fortress = {
+			solar_system = {
+				random_system_planet = {
+					limit = { is_star = yes }
+					create_ambient_object = {
+						type = "dead_enigmatic_fortress_object"
+						location = solar_system
+					}
+					last_created_ambient_object = {
+						save_global_event_target_as = fortress_ambient
+						set_location = {
+							target = PREV
+							distance = 110
+							angle = 110
+						}
+					}
+				}
+
+			}
+			fleet = {
+				delete_fleet = this
+			}
+		}
+	}
+	
+	option = {
+		name = "guardian.2156.a"
+		add_monthly_resource_mult = {
+			resource = engineering_research
+			value = 24
+			min = 1000
+			max = 5000
+		}
+		add_monthly_resource_mult = {
+			resource = physics_research
+			value = 24
+			min = 1000
+			max = 5000
+		}
+		add_monthly_resource_mult = {
+			resource = society_research
+			value = 24
+			min = 1000
+			max = 5000
+		}
+		add_research_option = tech_enigmatic_encoder
+		add_tech_progress = {
+			tech = tech_enigmatic_encoder
+			progress = 0.30
+		}
+		add_research_option = tech_enigmatic_decoder
+		add_tech_progress = {
+			tech = tech_enigmatic_decoder
+			progress = 0.30
+		}
+		end_event_chain = "enigmatic_fortress_chain"
+	}
+}
+
+# Shot Through the Heart
+country_event = {
+	id = guardian.2157
+	title = "guardian.2157.name"
+	desc = "guardian.2157.desc"
+	picture = GFX_evt_exploding_ship
+	show_sound = event_super_explosion
+	location = event_target:disabled_enigmatic_fortress
+	
+	is_triggered_only = yes
+
+	immediate = {
+		event_target:disabled_enigmatic_fortress = {
+			save_event_target_as = slain_guardian_system
+		}
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				has_event_chain = curator_poi_chain
+				event_target:slain_guardian_system = {
+					is_point_of_interest = {
+						id = curator_poi_fortress
+						event_chain = curator_poi_chain
+						owner = prev
+					}
+				}
+			}
+			remove_point_of_interest = curator_poi_fortress
+			end_curator_chain = yes
+		}
+		event_target:disabled_enigmatic_fortress = {
+			solar_system = {
+				random_system_planet = {
+					limit = { is_star = yes }
+					create_ambient_object = {
+						type = "large_debris_object" # Actually explosion
+						location = solar_system
+					}
+					last_created_ambient_object = {
+						save_global_event_target_as = fortress_ambient
+						set_location = {
+							target = PREV
+							distance = 110
+							angle = 110
+						}
+					}
+				}
+
+			}
+			create_ambient_object = {
+				type = explosion_particle_object
+				location = this
+				use_3d_location = yes
+				duration = 10
+				scale = 30
+			}
+			fleet = {
+				delete_fleet = this
+			}
+		}
+	}
+	
+	option = {
+		name = "guardian.2157.a"
+		custom_tooltip = guardian.2157.a.tooltip
+		end_event_chain = "enigmatic_fortress_chain"
+		hidden_effect = {
+			event_target:disabled_enigmatic_fortress = {
+				solar_system = {
+					every_system_planet = {
+						limit = {
+							habitable_planet = yes
+							NOR = {
+								is_planet_class = pc_ringworld_habitable
+								is_planet_class = pc_habitat
+							}
+						}
+						create_ambient_object = {
+							type = explosion_particle_object
+							location = this
+							use_3d_location = yes
+							duration = 10
+							scale = 20
+						}
+						change_pc = pc_nuked
+						reset_planet = yes
+					}
+					every_system_planet = {
+						limit = {
+							habitable_planet = no
+							is_asteroid = no
+							is_star = no
+							NOT = { is_planet_class = pc_gas_giant }
+						}
+						create_ambient_object = {
+							type = explosion_particle_object
+							location = this
+							use_3d_location = yes
+							duration = 10
+							scale = 20
+						}
+						change_pc = pc_molten
+						reset_planet = yes
+					}
+					every_fleet_in_system = { destroy_fleet = this }
+				}
+			}
+		}
+	}
+}
+
+# Horror Destroyed (HIDDEN)
+country_event = {
+	id = guardian.3002
+	hide_window = yes
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		is_country_type = guardian_horror
+		has_country_flag = dimensional_horror_country
+		FROMFROM = { is_ship_size = dimensional_horror }
+	}
+	
+	immediate = {
+		FROMFROM = {
+			solar_system = { save_event_target_as = guardians_horror_system }
+		}
+		create_ambient_object = {
+			type = "horror_energy_object"
+			location = FROMFROM
+		}
+		last_created_ambient_object = { 
+			save_event_target_as = horror_energy
+			set_ambient_object_flag = horror_energy
+		}
+		FROM = {
+			country_event = { id = guardian.3003 days = 6 }
+		}
+		destroy_country = yes
+		every_country = {
+			limit = { 
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				has_modifier = dimensional_horror_weak_points
+			}
+			remove_modifier = "dimensional_horror_weak_points"
+		}
+		every_country = {
+			limit = {
+				is_country_type = default
+				has_event_chain = curator_poi_chain
+				event_target:guardians_horror_system = {
+					is_point_of_interest = {
+						id = curator_poi_horror
+						event_chain = curator_poi_chain
+						owner = prev
+					}
+				}
+			}
+			remove_point_of_interest = curator_poi_horror
+			end_curator_chain = yes
+		}
+	}
+}
+
+# Dreadnought Disabled (HIDDEN)
+country_event = {
+	id = guardian.3101
+	hide_window = yes
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		is_country_type = guardian_dreadnought
+		has_country_flag = automated_dreadnought_country
+		FROMFROM = { is_ship_size = npc_warship_01 }
+		FROM = { is_ai = no }
+	}
+	
+	immediate = {
+		FROMFROM = {
+			solar_system = { save_event_target_as = guardians_dreadnought_system }
+			create_ambient_object = {
+				type = "dreadnought_object"
+				location = THIS
+			}
+			last_created_ambient_object = { save_global_event_target_as = disabled_dreadnought_object }
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = THIS
+			}
+			last_created_ambient_object = { set_ambient_object_flag = dreadnought_debris }
+		}
+		FROM = {
+			country_event = { id = guardian.3102 }
+		}
+		destroy_country = yes
+		every_country = {
+			limit = { 
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				has_modifier = automated_dreadnought_weak_points
+			}
+			remove_modifier = "automated_dreadnought_weak_points"
+		}
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				has_event_chain = curator_poi_chain
+				event_target:guardians_dreadnought_system = {
+					is_point_of_interest = {
+						id = curator_poi_dreadnought
+						event_chain = curator_poi_chain
+						owner = prev
+					}
+				}
+			}
+			remove_point_of_interest = curator_poi_dreadnought
+			end_curator_chain = yes
+		}
+	}
+}
+
+# Hivers Appear (HIDDEN)
+country_event = {
+	id = guardian.3210
+	hide_window = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			is_country_type = default
+			is_country_type = ascended_empire
+		}
+		has_country_flag = built_hiver_mine
+		any_planet_within_border = {
+			OR = {
+				has_planet_flag = hiver_asteroid_1
+				has_planet_flag = hiver_asteroid_2
+				has_planet_flag = hiver_asteroid_3
+				has_planet_flag = hiver_asteroid_4
+				has_planet_flag = hiver_asteroid_5
+			}
+			has_mining_station = yes
+		}	
+	}
+	
+	mean_time_to_happen = {
+		years = 100
+		
+		modifier = {
+			factor = 0.3
+			any_planet_within_border = {
+				has_mining_station = yes
+				has_planet_flag = hiver_asteroid_1
+			}
+		}
+		modifier = {
+			factor = 0.3
+			any_planet_within_border = {
+				has_mining_station = yes
+				has_planet_flag = hiver_asteroid_2
+			}
+		}
+		modifier = {
+			factor = 0.3
+			any_planet_within_border = {
+				has_mining_station = yes
+				has_planet_flag = hiver_asteroid_3
+			}
+		}
+		modifier = {
+			factor = 0.3
+			any_planet_within_border = {
+				has_mining_station = yes
+				has_planet_flag = hiver_asteroid_4
+			}
+		}
+		modifier = {
+			factor = 0.3
+			any_planet_within_border = {
+				has_mining_station = yes
+				has_planet_flag = hiver_asteroid_5
+			}
+		}
+	}
+	
+	immediate = {
+		random_system = {
+			limit = { has_star_flag = guardians_hive_system }
+			save_event_target_as = hiver_system
+		}
+		country_event = { id = guardian.3201 }
+		set_global_flag = hivers_appeared
+	}
+}
+
+# Hivers Destroyed (HIDDEN)
+country_event = {
+	id = guardian.3203
+	hide_window = yes
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		is_country_type = guardian_hiver
+		has_country_flag = hive_country
+		count_owned_ships = {
+			limit = { is_ship_size = hive_asteroid }
+			count < 1 # count_owned_ships no longer counts dead ships
+		}
+		FROM = { 
+			has_country_flag = provoked_hivers 
+			is_ai = no
+		}
+	}
+	
+	immediate = {
+		random_system = {
+			limit = { has_star_flag = guardians_hive_system }
+			save_event_target_as = hive_system
+			set_star_flag = hivers_defeated
+		}
+		create_ambient_object = {
+			type = "dormant_hive_base_2_object"
+		}
+		last_created_ambient_object = {
+			set_location = FROMFROM
+			set_ambient_object_flag = boardable_hive_asteroid
+			save_event_target_as = boardable_hive_asteroid
+		}
+		FROM = {
+			country_event = { id = guardian.3204 }
+		}
+		every_country = {
+			limit = { 
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				has_modifier = asteroid_hive_weak_points
+			}
+			remove_modifier = "asteroid_hive_weak_points"
+		}
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				has_event_chain = curator_poi_chain
+				event_target:hive_system = {
+					is_point_of_interest = {
+						id = curator_poi_hiver
+						event_chain = curator_poi_chain
+						owner = prev
+					}
+				}
+			}
+			remove_point_of_interest = curator_poi_hiver
+			end_curator_chain = yes
+		}
+	}
+}

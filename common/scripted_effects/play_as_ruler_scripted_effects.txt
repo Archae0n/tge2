@@ -1,0 +1,73 @@
+#	Example:
+#
+#	example_effect = {
+#		add_energy = -100
+#	}
+#
+#
+#	In a script file:
+#
+#	effect = {
+#		example_effect = yes
+#	}
+#
+
+effect_play_as_ruler_set_target_on_them = {
+	random_owned_leader = {
+		limit = {
+			leader_class = ruler
+			has_leader_flag = play_as_ruler_ruler_itself
+		}
+		save_event_target_as = ruler
+	}
+}
+
+effect_play_as_ruler_hobby_event_ended = {
+	random_owned_leader = {
+		limit = {
+			leader_class = ruler
+			has_leader_flag = play_as_ruler_ruler_itself
+		}
+		save_event_target_as = ruler
+	}
+	event_target:ruler = {
+		set_timed_leader_flag = { flag = play_as_ruler_hobby_event_cooldown days = 720 }
+	}
+}
+
+effect_play_as_ruler_gain_exp = {
+	random_owned_leader = {
+		limit = {
+			leader_class = ruler
+			has_leader_flag = play_as_ruler_ruler_itself
+		}
+		save_event_target_as = ruler
+	}
+	event_target:ruler = {
+#		change_variable = { which = play_as_ruler_exp value = 1 }
+	}
+}
+
+effect_play_as_ruler_gain_ruled_time = {
+	random_owned_leader = {
+		limit = {
+			leader_class = ruler
+			has_leader_flag = play_as_ruler_ruler_itself
+		}
+		save_event_target_as = ruler
+	}
+	event_target:ruler = {
+		change_variable = { which = play_as_ruler_ruled_time value = 1 }
+	}
+}
+
+effect_play_as_ruler_gain_campaign_exp = {
+	random_owned_leader = {
+		limit = {
+			leader_class = ruler
+			has_leader_flag = play_as_ruler_ruler_itself
+		}
+		save_event_target_as = ruler
+	}
+	change_variable = { which = play_as_ruler_campaign_exp value = 1 }
+}

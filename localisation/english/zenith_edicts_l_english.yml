@@ -1,0 +1,13 @@
+﻿l_english:
+ 
+ edict_make_xeno_preserve:0 "Project: Xeno Preserve"
+ edict_make_xeno_preserve_desc:0 "We search our domain for a large §Y$pc_gaia$§! to designate as The Preserve. As long as it is populated by many types of xenos and remain within our borders, this planet will give us: £unity  §Y$country_resource_unity_mult$§! §G+10%§!."
+  
+ has_preserve_world_planet:0 "We have designated a Gaia world within our borders as The Preserve."
+ has_preserve_world_candidate:0 "$TRIGGER_FAIL$§RThere is no §YGaia Planet§! within our borders with suitable size or species diversity§!"
+ make_preserve_world_effect:0 "We begin the search for a suitable planet to designate as The Preserve."
+ 
+ 
+ edict_rejuvenate_society:0 "Rejuvenate Society"
+ edict_rejuvenate_society_desc:0 "We cannot afford to be complacent in a galaxy still full of our enemies. Campaigns are fought to eradicate decadence in our society in a bid to rejuvenate our nation."
+ 

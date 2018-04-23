@@ -1,0 +1,254 @@
+ms_resource_processor_0 = {
+	entity = "construction_platform_entity"
+	construction_entity = "construction_platform_entity"
+	portrait = "GFX_megastructure_construction_background"
+	place_entity_on_planet_plane = no
+	construction_blocks_others = no
+	entity_offset = { x = -7 y = 7 }
+	build_time = 1400
+	build_cost = {
+		minerals = 8000
+		influence = 300
+	}
+
+	maintenance = {
+		energy = 5
+	}
+	
+	potential = {
+		has_ascension_perk = ap_galactic_wonders
+	}
+	
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_inside_border"
+			is_inside_border = from
+		}
+	}
+	
+	custom_tooltip = {
+			fail_text = "requires_surveyed_system"
+			NOT = {
+				any_planet = {
+					is_surveyed = {
+						who = prev.from
+						status = no
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = "requires_no_habitable_planets"
+			NOT = {
+				any_planet = {
+					AND = {
+						OR = {
+							habitable_planet = yes
+							habitable_structure = yes
+						}
+						NOT = { has_planet_flag = habitat }
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = "requires_no_black_hole_neutron_star_pulsar"
+			NOT = {
+				is_star_class = sc_black_hole
+				is_star_class = sc_neutron_star
+				is_star_class = sc_pulsar
+			}
+		}
+		custom_tooltip = {
+			fail_text = "requires_no_existing_megastructure"
+			#NOT = { has_any_megastructure = yes }
+			has_no_non_gate_megastructure = yes
+		}
+
+	
+placement_rules = {
+		planet_possible = {
+			custom_tooltip = {
+				fail_text = "must_build_around_star"
+				is_star = yes
+			}
+			custom_tooltip = {
+				fail_text = "requires_no_anomaly"
+				NOT = { has_anomaly = yes }
+			}
+			custom_tooltip = {
+				fail_text = "requires_no_orbital_station"
+				has_orbital_station = no
+			}
+		}
+	}
+
+ai_weight = {
+		factor = 15
+		
+		modifier = {
+			factor = 0.1
+			starbase = { NOT = { has_starbase_size >= starbase_starfortress } }
+		}	
+		
+		modifier = {
+			factor = 0.1
+			any_neighbor_system = { 
+				NOT = { 
+					owner = { is_same_value = from } 
+				}
+			}
+		}
+	}
+
+	on_build_start = {}
+	on_build_cancel = {}
+	on_build_complete = {}
+}
+
+ms_resource_processor_1 = {
+	entity = "ms_resource_processor_1_entity"
+	construction_entity = "ms_resource_processor_1_entity"
+	portrait = "GFX_megastructure_construction_background"
+	construction_blocks_others = no
+	place_entity_on_planet_plane = no
+	
+	upgrade_from = {
+		ms_resource_processor_0
+	}
+
+	build_time = 2800
+	build_cost = {
+		minerals = 40000
+	}
+	
+	possible = {
+		from = { has_ascension_perk = ap_galactic_wonders }
+	}
+
+	monthly_production = {
+
+	}
+
+	maintenance = {
+		energy = 50
+	}
+}
+
+ms_resource_processor_2 = {
+	entity = "ms_resource_processor_2_entity"
+	construction_entity = "ms_resource_processor_2_entity"
+	portrait = "GFX_megastructure_construction_background"
+
+	place_entity_on_planet_plane = no
+	construction_blocks_others = no
+	upgrade_from = {
+		ms_resource_processor_1
+	}
+
+	build_time = 2800
+	build_cost = {
+		minerals = 40000
+	}
+	
+	possible = {
+		from = { has_ascension_perk = ap_galactic_wonders }
+	}
+	
+	monthly_production = {
+		minerals = 250
+	}
+
+	maintenance = {
+		energy = 75
+	}
+}
+
+ms_resource_processor_3 = {
+	entity = "ms_resource_processor_3_entity"
+	construction_entity = "ms_resource_processor_3_entity"
+	portrait = "GFX_resource_processor_background"
+
+	place_entity_on_planet_plane = no
+	construction_blocks_others = no
+	upgrade_from = {
+		ms_resource_processor_2
+	}
+
+	build_time = 2800
+	build_cost = {
+		minerals = 40000
+	}
+	
+	possible = {
+		from = { has_ascension_perk = ap_galactic_wonders }
+	}
+	
+	monthly_production = {
+		minerals = 500
+	}
+
+	maintenance = {
+		energy = 100
+	}
+}
+
+
+ms_resource_processor_4 = {
+	entity = "ms_resource_processor_4_entity"
+	construction_entity = "ms_resource_processor_4_entity"
+	portrait = "GFX_resource_processor_background"
+	construction_blocks_others = no
+	place_entity_on_planet_plane = no
+	
+	upgrade_from = {
+		ms_resource_processor_3
+	}
+
+	build_time = 2800
+	build_cost = {
+		minerals = 40000
+	}
+	
+	possible = {
+		from = { has_ascension_perk = ap_galactic_wonders }
+	}
+	
+	monthly_production = {
+		minerals = 750
+	}
+
+	maintenance = {
+		energy = 125
+	}
+}
+
+
+ms_resource_processor_5 = {
+	entity = "ms_resource_processor_5_entity"
+	construction_entity = "ms_resource_processor_5_entity"
+	portrait = "GFX_resource_processor_background"
+
+	place_entity_on_planet_plane = no
+	construction_blocks_others = no
+	upgrade_from = {
+		ms_resource_processor_4
+	}
+
+	build_time = 2800
+	build_cost = {
+		minerals = 40000
+	}
+	
+	possible = {
+		from = { has_ascension_perk = ap_galactic_wonders }
+	}
+	
+	monthly_production = {
+		minerals = 1000
+	}
+
+	maintenance = {
+		energy = 175
+	}
+}

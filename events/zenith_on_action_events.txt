@@ -1,0 +1,30 @@
+namespace = zenith
+
+#Ascended Empires encountering other empires
+country_event = {
+	id = zenith.31
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+				OR = {
+					is_country_type = ascended_empire
+						
+				}
+		from = {
+				OR = {
+					is_country_type = default
+					is_country_type = fallen_empire
+					is_country_type = awakened_empire
+					is_country_type = ascended_empire 
+				}
+				NOT = { has_communications = root }
+		}
+	}
+
+	immediate = {
+		establish_communications_no_message = from
+		from = { save_event_target_as = contact_empire }
+		country_event = { id = action.1 }
+	}
+}

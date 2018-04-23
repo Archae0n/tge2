@@ -1,0 +1,477 @@
+# IRM
+# General events
+
+
+namespace = irm
+
+
+# REGULAR
+# This section contains all events which has to be launched manually
+# For example, some regular estimations, cleaning procedures etc.
+
+# Preparations & global flags
+country_event = {
+	id = irm.1
+	hide_window = yes
+	fire_only_once = yes
+
+	trigger = {
+		not = { has_global_flag = "irm_main_on" }
+	}
+
+	immediate = {
+		# Set general irm flag
+		set_global_flag = "irm_main_on"
+	}
+}
+
+# Daily regular events
+country_event = {
+	id = irm.2
+	hide_window = yes
+
+	trigger = { is_allowed_country = yes }
+
+	immediate = {
+
+			every_country = {
+				# For sector db & fleet countries
+				limit = { is_db = yes }
+					# Checks the state of any databases, deletes if the link
+					# is no longer valid or there is no related sector
+					# Potential instances: 1-15
+					database_check_link	= yes
+			}
+
+			every_sector = {
+				# For non-core sectors
+				limit = { is_core_sector = no }
+					# Checks where it necessary to create a new database for sector.
+					# Maintenances the link between sector and database.
+					# Potential instances: 1-15
+					sector_check_db = yes
+					sector_check_db_fleet = yes
+					# Checks the existance of sector capital, keeps the link with sector.
+					# Potential instances: 1-15 * 1-10
+					sector_check_capital = yes
+			}
+
+			every_owned_planet = {
+				# For sector capitals
+				limit = { has_modifier = sector_capital }
+					# Clears all non-valid capitals
+					# Potential instances: 1-15
+					planet_check_capital = yes
+			}
+
+	}
+}
+
+# Monthly regular events
+# Sequence is important
+event = {
+	id = irm.3
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = { 
+		every_country = {
+			limit = { is_allowed_country = yes }
+
+			every_country = {
+				limit = { is_db = yes }
+				# For sector database
+				if = {
+					limit = { is_country_type = @dbCountry }
+					# Updates the remaining length of sector edicts & policies
+					# Potential instances: 1-15
+					database_update_edicts = yes
+					database_update_policies = yes
+				}
+				# For sector fleets db
+				if = {
+					limit = { is_country_type = @dbCountryFleet }
+					# Updates fleet data
+					# Potential instances: 1-15
+					database_update_fleets = yes					
+				}
+			}
+
+			# country
+				# For playable countries
+					# Estimates country total & sector used naval capacities
+					# Potential instances: 1/1-15
+					country_check_fleet_policy = yes
+					country_estimate_naval_cap = yes
+					country_estimate_naval_cap_sector = yes
+
+			every_sector = {
+				# For non-core sectors
+				limit = { is_core_sector = no }
+					# Estimates sector maximum naval capacity
+					# Potential instances: 1/1-15				
+					sector_estimate_naval_capacity = yes
+			}
+
+			every_pop_faction = {			
+				# For sector (regionalist factions)
+				if = { limit = { is_pop_faction_type = regionalist }
+					# Updates the name of each regionalist faction to match with sector
+					# Potential scopes: 1-15
+					faction_update_name = yes
+				}
+			}
+
+			every_system_within_border = {
+				# System / star
+					# Sets faction marks for each controlled system
+					# Used for faction demands and some political events
+					# Potential scopes: 1-XXX
+					star_system_update_mark = yes
+			}
+
+		}
+	}	
+}
+
+# Yearly regular events
+event = {
+	id = irm.4
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = { 
+		every_country = {
+			limit = { is_allowed_country = yes }
+
+			every_sector = {
+				# For non-core sectors
+				limit = { is_core_sector = no }
+					# Checks the existance and the state of sector fleet
+					# Updates it when necessary
+					# Potential instances: 1-15
+					sector_check_fleet = yes
+			}				
+
+			every_pop_faction = {			
+				# For suppressed factions
+				if = { limit = { has_modifier = suppressed_faction }
+					# Tries to suppres random faction pop making him leave related ethic
+					# Potential scopes: 1-15/1
+					faction_do_suppression = yes		
+				}
+			}
+
+		}
+	}
+}
+
+# Decade regular events
+event = {
+	id = irm.7
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = { 
+		every_country = {
+			limit = { is_allowed_country = yes }
+
+				every_system_within_border = {
+					# For stars
+						#limit = {}
+							star_system_set_mark = yes 						# scopes: ~ 5-15/1-10
+				}
+
+		}
+	}
+}
+
+# Debug info
+country_event = {
+	id = irm.91
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = { 
+		log = "(IRM): ### COUNTRY VARIABLES ###"
+		log = "(IRM): nNavalCap = [This.nNavalCap]"
+		log = "(IRM): nNavalCapTrue = [This.nNavalCapTrue]"
+		log = "(IRM): nUsedNavalCap = [This.nUsedNavalCap]"
+		log = "(IRM): fUsedNavalCap = [This.fUsedNavalCap]"
+		log = "(IRM): nSectorNavalCap = [This.nSectorNavalCap]"
+		log = "(IRM): fSectorNavalCap = [This.fSectorNavalCap]"
+		log = "(IRM): ###"
+	}
+}
+
+# Debug info
+fleet_event = {
+	id = irm.92
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		exists = owner
+		owner = { is_country_type = @dbCountryFleet }
+	}
+
+	immediate = { 
+		log = "(IRM): ### FLEET STANDINGS ###"
+		owner = {
+			every_relation = {
+				limit = {
+					has_communications = prev
+					or = {
+						is_country_type = default
+						is_country_type = primitive
+						is_country_type = pirate
+						is_country_type = neutral_faction
+						is_country_type = enclave
+						is_country_type = nomad
+						is_country_type = fallen_empire
+						is_country_type = awakened_fallen_empire
+					}
+				}
+				if = {
+					limit = {
+						or = {
+							is_hostile = prev
+							is_at_war_with = prev
+						}
+					}
+					log = "(IRM): [This.GetName] is hostile/wary"
+				}
+				if = {
+					limit = {
+						is_neutral_to = prev
+					}
+					log = "(IRM): [This.GetName] is neutral"
+				}
+				if = {
+					limit = {
+						or = {
+							is_in_federation_with = prev
+							has_association_status = prev
+							has_defensive_pact = prev
+						}
+					}
+					log = "(IRM): [This.GetName] is allied"
+				}
+				if = {
+					limit = {
+						or = {
+							is_overlord_to = prev
+							prev = { is_overlord_to = prev }
+						}
+					}
+					log = "(IRM): [This.GetName] is vassalage"
+				}												
+			}
+		}
+	}
+}
+
+
+
+
+
+
+planet_event = {
+	id = irm.301
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		owner = { set_variable = { which = var0 value = 33 } }
+		set_variable = { which = var1 value = 120 }
+		set_variable = { which = var2 value = var1 }
+		set_variable = { which = var3 value = this.var1 }
+		set_variable = { which = var0 value = owner }
+	}
+}
+
+
+
+planet_event = {
+	id = irm.303
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		create_country = {
+			name = "Sector Fleet"
+			type = sector_fleet
+			ignore_initial_colony_error = yes
+			species = root.owner.owner_species
+			name_list = root.owner
+			flag = {
+				icon = { category = "special" file = "abandoned.dds" }
+				background = { category = "backgrounds" file = "00_solid.dds" }
+				colors ={ "dark_blue" "dark_blue" "null" "null" }
+			}			
+			effect = {
+				copy_techs_from = { target = root.owner }
+				set_faction_hostility = { target = root.owner set_hostile = no set_neutral = no set_friendly = yes }			
+			}			
+		}
+		last_created_country = {
+			create_fleet = {
+				name = "Sector Fleet I"
+				#set_take_point = yes
+				effect = {
+					set_owner = last_created_country
+					while = {
+						count = 3
+						create_ship = {
+							name = random
+							random_existing_design = corvette
+							graphical_culture = root.owner
+						}
+					}
+					set_location = root
+					#set_home_base = root.solar_system.starbase
+				}
+			}
+		}
+
+	}
+}
+
+fleet_event = {
+	id = irm.304
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		while = {
+			count = 9
+			create_ship = {
+				name = random
+				random_existing_design = corvette
+				graphical_culture = root.owner
+			}			
+		}
+
+	}
+}
+
+fleet_event = {
+	id = irm.305
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		while = {
+			count = 2
+			create_ship = {
+				name = random
+				random_existing_design = corvette
+				graphical_culture = root.owner
+			}			
+		}
+
+	}
+}
+
+planet_event = {
+	id = irm.306
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		create_country = {
+			name = "test"
+			type = pirate			
+		}
+		last_created_country = {
+			create_fleet = {
+				name = "pirates"
+				effect = {
+					set_owner = last_created_country
+					while = {
+						count = 3
+						create_ship = {
+							name = random
+							random_existing_design = corvette
+						}
+					}
+					set_location = root
+				}
+			}
+		}		
+	}
+}
+
+fleet_event = {
+	id = irm.307
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		set_timed_fleet_flag = { flag = @sMissionPatrolSector days = 3600 }
+	}
+}
+
+
+fleet_event = {
+	id = irm.308
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		solar_system = {
+			random_fleet_in_system = {
+				limit = {
+					is_ship_class = shipclass_military
+					#has_fleet_flag = "fleet_follow_target"
+				}
+				set_name = "qwerty"
+				root = { auto_follow_fleet = { target = prev attack_fleet = no } }
+			}
+		}
+	}
+}
+
+fleet_event = {
+	id = irm.309
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		random_country = {
+			limit = {
+				any_owned_fleet = { is_ship_class = shipclass_military }
+			}
+			random_owned_fleet = {
+				limit = { is_ship_class = shipclass_military }
+					root = { auto_follow_fleet = { target = prev attack_fleet = no } }
+			}
+		}
+	}
+}
+
+country_event = {
+	id = irm.310
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		every_country = {
+			limit = { is_country_type = "db" }
+				log = "[This.GetName]"
+		}
+	}
+}
+
+country_event = {
+	id = irm.311
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		every_country = {
+			limit = { is_country_type = "db_fleet" }
+				log = "[This.GetName]"
+		}
+	}
+}

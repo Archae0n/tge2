@@ -1,0 +1,99 @@
+# EFFECTS
+
+# {1} - frequency, critical for performance issues
+#		* - yearly, ** - monthly, *** - daily
+# {2} - effect name
+# {3} - scopes/list of scopes within an effect 
+
+# {1} {2}										{3}
+
+#     db
+
+# *** database_check_link
+# **  database_update_edicts
+# **  database_update_fleets . . . . . . . . . 	every_owned_fleet
+# **  database_update_policies 
+   
+#     country 
+     
+# **  country_check_fleet_policy 
+# **  country_estimate_naval_cap . . . . . . . 	every_owned_ship 
+# **  country_estimate_naval_cap_sector . . . .	every_country . . . . . . . . .	every_owned_fleet 
+#     country_policy_sector_fleet_allow . . . . every_country
+#     country_policy_sector_fleet_disallow: 	every_country
+    
+#     faction
+   
+# *   faction_do_suppression
+#     faction_set_leader
+#     faction_set_name
+# **  faction_update_name
+    
+#     fleet
+    
+#     fleet_clear_orders
+#     fleet_do_disband
+#     fleet_estimate_navcap . . . . . . . . . . every_ship
+#     fleet_estimate_navcap
+#     fleet_get_home
+#     fleet_get_order
+#     fleet_update_name
+#     fleet_update_missions
+#     fleet_update_standings . . . . . . . . . 	every_relation
+#     fleet_update_technologies
+     
+#     planet
+    
+# *** planet_check_capital
+#     planet_remove_sector_capital
+#     planet_set_sector_capital
+    
+#     leader
+    
+#     leader_clean_traits
+#     leader_add_custom_traits
+    
+#     sector
+
+# *** sector_check_db
+# *** sector_check_db_fleet
+# *** sector_check_capital
+# *   sector_check_fleet
+#     sector_choose_capital . . . . . . . . . . every_owned_planet
+#     sector_create_fleet
+#     sector_do_reshape
+#     sector_do_edict
+#     sector_estimate_balance
+#     sector_estimate_balance_food . . . . . . 	every_planet
+#     sector_estimate_balance_energy . . . . . 	every_planet
+#     sector_estimate_balance_minerals . . . . 	every_planet
+#     sector_estimate_balance_research . . . . 	every_planet
+#     sector_estimate_balance_other
+#     sector_estimate_buildings . . . . . . . . every_planet
+#     sector_estimate_colonies . . . . . . . .	every_planet
+#     sector_estimate_devidx
+#     sector_estimate_edict_cost
+#     sector_estimate_effects
+#     sector_estimate_fleet
+# x   sector_estimates_fleet_cap
+#     sector_estimate_fleet_data
+#     sector_estimate_naval_capacity . . . . . 	every_owned_planet, every_owned_pop
+#     sector_estimate_population . . . . . . . 	every_owned_pop
+#     sector_estimate_regionalism . . . . . . . every_owned_pop
+#     sector_estimate_species . . . . . . . . . every_owned_pop_species
+#     sector_estimate_starbases . . . . . . . . every_system_within_border
+#     sector_estimate_system_cap
+#     sector_estimate_system_num . . . . . . . 	every_system_within_border
+#     sector_estimate_tiles . . . . . . . . . .	every_planet, every_tile
+#     sector_estimate_troops . . . . . . . . . 	every_planet, every_planet_army
+#     sector_estimate_unrest . . . . . . . . . 	every_planet
+     
+#     system (star)
+     
+# **  star_system_update_mark
+# *   star_system_set_mark
+    
+#     ui
+    
+#     ui_tt_sector_control_row
+#     ui_tt_sector_control_effects

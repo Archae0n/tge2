@@ -1,0 +1,67 @@
+# IRM
+# Faction Related Events
+
+
+namespace = irm_faction
+
+# This = Pop faction
+# Shows initial message when faction is created
+pop_faction_event = {
+	id = irm_faction.1
+	title = pft_regionalist.message.title
+	desc  = pft_regionalist.message.desc		
+	location = event_target:ui_location
+	picture = GFX_evt_alien_propaganda
+	show_sound = event_factions
+	is_triggered_only = yes
+
+	immediate = { 
+		owner = {
+			random_owned_planet = {
+				limit = {
+					exists = sector
+					sector = {
+						is_core_sector = no
+						root = { check_pop_faction_parameter = { which = sector value = prev } }
+					}
+					has_modifier = "sector_capital"					
+				}
+				save_event_target_as = ui_location
+			}
+		}	
+	}
+
+	option = {
+		name = OK
+	}
+}
+
+# This = Country
+# From = Leader (Dead faction leader)
+# Tracks faction leader's death, create a new leader for regionalist faction
+country_event = {
+	id = irm_faction.301
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_ai = no
+		from = {
+			leader_class = governor
+			leader_of_faction = yes
+			has_leader_flag = "faction_leader"
+			exists = pop_faction
+		}
+	}
+
+	# Create new faction leader
+	immediate = { 
+		from = {
+			pop_faction = {
+				set_timed_pop_faction_flag = { flag = "leader_death" days = 360 }
+				faction_set_leader = yes
+			}
+		}
+	}
+
+}

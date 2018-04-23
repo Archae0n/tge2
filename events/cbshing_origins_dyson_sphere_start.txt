@@ -1,0 +1,83 @@
+namespace = cbshing_origins_dyson_sphere_start
+# file modifies start planets to be a Dyson Engineers Start
+# by cbshing
+
+# Triggers when the game starts
+### Add a partial dyson sphere to home system if have Dyson Engineers Civics on Game Start
+country_event = {
+	id = cbshing_origins_dyson_sphere_start.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = { is_cbshing_dyson_sphere_country = yes }
+
+	immediate = {
+		this.capital_scope.solar_system = {
+			#Remove Mining Station on Star
+			random_system_planet = {
+				limit = { is_star = yes }
+				clear_deposits = yes
+				if = { limit = { has_mining_station = yes }
+					mining_station = { dismantle = yes }
+				}
+			}
+			# Create Dyson Sphere
+			spawn_megastructure = { 
+				type = cbshing_origins_dyson_sphere_2
+				#location = this.star
+				owner = FROMFROM
+			}
+			# Create Gateway
+			spawn_megastructure = { 
+				type = gateway_0  
+				random_pos = yes
+				orbit_angle = 360
+				owner = FROMFROM
+			}
+			remove_dyson_neighbor_hyperlanes = yes
+			#spawn_origins_artificial_wormhole = yes
+		}
+		set_country_flag = built_dyson_sphere
+		set_country_flag = starting_event #prevent the starting events from starting due to not working without hyperlanes
+		
+		#boost minerals for human players
+		if = { 
+			limit = { is_ai = no }
+			add_minerals = 4800
+		}
+		
+		#give megaengineering & special techs
+		give_technology = { tech = "tech_mega_engineering" message = no }
+		add_gateway_construction_option = yes
+		#add_wormhole_construction_option = yes
+		
+		#clear blockers on homeworld (lived there a long time)
+		random_owned_planet ={
+			limit = { is_capital = yes }
+			every_tile = {
+				remove_blocker = yes
+			}
+			cbshing_origins_setup_dyson_sphere_homeworld = yes 
+		}
+				
+		# setup mining & research stations			
+		every_planet_within_border = {
+			limit = { 
+				has_deposit_for = shipclass_mining_station 
+				has_mining_station = no
+			}
+			create_mining_station = {
+				owner = ROOT
+			}
+		}
+		every_planet_within_border = {
+			limit = { 
+				has_deposit_for = shipclass_research_station 
+				has_research_station = no
+			}
+			create_research_station = {
+				owner = ROOT
+			}
+		}
+	}
+}

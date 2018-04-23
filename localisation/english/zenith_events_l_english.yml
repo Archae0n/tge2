@@ -1,0 +1,31 @@
+﻿l_english:
+
+ 
+ zofe.2.name:0 "Xeno Preserve World Candidate"
+ zofe.2.desc:0 "In cooperation with theological experts, several biologists have independently confirmed §Y[preserve_world.GetName]§! in the [preserve_world.GetStarName] system as being the best candidate for our Xeno Preserve Project.\n\nOfficial recognition is sure to boost the public's appreciation of our effort to preserve all Xeno life."
+ zofe.2.a:0 "[preserve_world.GetName] shall be known as The Preserve."
+
+ zofe.201.name:0 "No Candidate for The Xeno Preserve Project Found"
+ zofe.201.desc:0 "Our top biologists have issued a report stating that no suitable candidates are to be found among the planets within our Empire."
+ zofe.201.a.tooltip:0 "Edict £influence  Influence cost is refunded."
+ 
+ 
+ 
+ zofe.3.name:0 "Societal Decadence"
+ zofe.3.desc:0 "Today's generation of §H[Root.Owner.GetSpeciesNamePlural]§! have never had it so good. The standard of living has never been higher, and many young §H[Root.Owner.GetSpeciesNamePlural]§! now grow up in laps of luxury, never experiencing hardship or real struggle. They are conceited, foolish, and have questionable work ethics, favoring of pleasure over work. They take for granted the nation that was built on the bodies of their ancestors, and feel complacent about their way of life, that nothing matters and nothing bad would ever happen. Some young §H[Root.Owner.GetSpeciesNamePlural]§! would go so far as to believe that the §H[Root.GetName]§! is invincible because the §H[Root.GetSpeciesAdj]§! race is inherently superior. That was the finding of §H[Root.GetRulerTitle] [Root.GetRulerName]§! anyway, during a routine stroll through the streets of [Root.Capital.GetName].\n\nAnd that is worrying. The §H[Root.GetName]§! and the future of the §H[Root.GetSpeciesAdj]§! race cannot be assured when our young live in such decadence with no ambition or drive. To ensure our continued survival, campaigns must be fought at each generation to eradicate decadence and complacency, if our civilization is truly to last millennia."
+ zofe.3.a:0 "We must re-double our efforts."
+ enable_decadence_edict: "Gives access to the §Y$edict_rejuvenate_society$§! Empire Edict.\n\n"
+ 
+ zofe.4.name:0 "Rejuvenation of an Ascendancy"
+ zofe.4.desc:0 "A massive campaign is underway in the §H[From.GetName]§!.\n\nNews have spread of §H[From.GetRulerTitle] [From.GetRulerName]§!'s war on decadence, an issue that seems rife in §H[From.GetSpeciesAdj]§! society. If successful, §H[From.GetName]§! would surely return to the peak of their power, securing their ascendancy for a generation."
+ zofe.4.a:0 "What will it mean for us?"
+ 
+ zofe.6.name:0 "Conquest of [From.From.GetName]"
+ zofe.6.desc:0 "We have wrested control over §H[From.From.GetName]§! from the ravenous swarm, and the fighting has finally settled down. Sadly, the original population of this plant had all been eaten by the galactic scourge.\n\nUntil new colonists arrive from somewhere, this world will remain devoid of intelligent life."
+ zofe.6.a:0 "Withdraw our forces to orbit."
+ 
+ war_in_heaven.4.e:0 "We can take on both of you."
+ war_in_heaven.4.f:0 "As a Lost Empire, this is not of our interest."
+
+ 
+ 

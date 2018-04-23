@@ -1,0 +1,63 @@
+############################
+#
+# Extended Traits events
+# by Scarecrow
+#
+############################
+
+
+extraits_conservationists = {
+	planet_clear_blocker_cost_mult = 0.5
+	planet_clear_blocker_time_mult = 0.75
+}
+
+extraits_deliberators = {
+	influence_gain_add = 1
+}
+
+extraits_virtualists = {
+	influence_gain_add = -1
+}
+
+extraits_pol_adept = {
+	max_rivalries = 1
+	diplomacy_influence_cost = -0.25
+	country_trust_growth = 0.50
+}
+
+extraits_natural_architects = {
+	building_time_mult = -0.05
+	planet_building_cost_mult = -0.1
+}
+
+extraits_incompetent_architects = {
+	building_time_mult = 0.05
+	planet_building_cost_mult = 0.1
+}
+
+extraits_scavengers = {
+	science_ship_survey_speed = 0.1
+}
+
+extraits_spaceborn = {
+	country_border_mult = 0.2
+}
+
+extraits_relic_of_the_past = {
+	num_tech_alternatives_add = 1
+}
+
+extraits_quick_reflexes = {
+    weapon_type_kinetic_weapon_fire_rate_mult = 0.05
+    weapon_type_energy_weapon_fire_rate_mult = 0.05
+    weapon_type_explosive_weapon_fire_rate_mult = 0.05
+}
+
+extraits_epimorphosis = {
+    army_upkeep_mult = -0.1
+}
+
+extraits_natural_psionics = {
+    army_morale = 0.1
+    army_morale_damage_mult = 0.1
+}

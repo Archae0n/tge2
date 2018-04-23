@@ -1,0 +1,24 @@
+﻿l_english:
+ 
+ 
+ FE_Spiritualist: "Spiritualist Fallen Empire"
+ FE_Materialist: "Materialist Fallen Empire"
+ FE_Xenophile: "Xenophile Fallen Empire"
+ FE_Xenophobe: "Xenophobe Fallen Empire"
+ FE_Mechanical: "Mechanical Fallen Empire"
+ FE_National: "National Fallen Empire"
+ 
+ 
+ fe_spiritualist: "FE Cyan Ships"
+ fe_materialist: "FE Green Ships"
+ fe_xenophile: "FE Blue Ships"
+ fe_xenophobe: "FE Red Ships"
+ fe_mechanical: "FE Mech Ships"
+ fe_national: "FE National Ships"
+ 
+ 
+ fallen_empire_ships.2.name:0 "National Ship Design"
+ fallen_empire_ships.2.desc:0 "Having recently adopted a new look for our stellar fleet, there has been only one looming criticism from many citizens and politicians alike, the color. Some within our empire are decrying that the lack of our national colors on the ships is an insult to our cultural heritage and proof that xeno-cultural exchange has gone too far, while others simply just do not like that particular shade."
+ fallen_empire_ships.2.a:0 "Our colors will be proudly displayed by our brand-new fleet!"
+ fallen_empire_ships.2.b:0 "Really? Do you have nothing better to do?" 
+ 

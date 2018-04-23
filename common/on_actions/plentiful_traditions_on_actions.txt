@@ -1,0 +1,80 @@
+on_building_upgraded = {
+	events = {
+		plentiful_traditions_faith.1
+	}
+}
+
+on_yearly_pulse = {
+	events = {
+		plentiful_traditions_fixer.1
+	}
+}
+
+on_monthly_pulse = {
+	events = {
+		plentiful_traditions_anguish.1
+		plentiful_traditions_anguish.3
+		plentiful_traditions_affinity.1
+		plentiful_traditions_affinity.2
+		plentiful_traditions_affinity.3
+		plentiful_traditions_experimentalism.2
+		plentiful_traditions_experimentalism.3
+		plentiful_traditions_announcement.2
+		plentiful_traditions_aspiration.1
+		plentiful_traditions_aspiration.2
+		plentiful_traditions_cybernetics.1
+		plentiful_traditions_experimentalism.1
+		plentiful_traditions_malice.4
+	}
+}
+
+on_buildable_pop_created = {
+	events = {
+		
+	}
+}
+
+on_purge_complete = {
+	events = {
+		plentiful_traditions_mutagenesis.1
+		plentiful_traditions_anguish.2
+	}
+}
+
+on_leader_level_up = {
+	events = {
+		plentiful_traditions_experimentalism.4
+		plentiful_traditions_experimentalism.5
+	}
+}
+
+on_tech_increased = {
+	events = {
+
+	}
+}
+
+on_pop_enslaved = {
+	events = {
+		plentiful_traditions_malice.1
+		plentiful_traditions_malice.3
+	}
+}
+
+on_pop_emancipated = {
+	events = {
+		plentiful_traditions_malice.2
+	}
+}
+
+on_building_mining_station = {
+	events = {		
+		plentiful_traditions_aspiration.3
+	}
+}
+
+on_planet_transfer = {
+	events = {
+		plentiful_traditions_faith.2
+	}
+}

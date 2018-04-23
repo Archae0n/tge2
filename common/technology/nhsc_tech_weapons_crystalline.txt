@@ -1,0 +1,581 @@
+### This file contains crystalline weaponry techs
+
+### tech costs
+@tier2cost1 = 1500
+@tier2cost2 = 2000
+@tier2cost3 = 2500
+
+@tier3cost1 = 4000
+@tier3cost2 = 5000
+@tier3cost3 = 6000
+
+@tier4cost1 = 8000
+@tier4cost2 = 10000
+@tier4cost3 = 12000
+
+@tier5cost1 = 15000
+@tier5cost2 = 17500
+@tier5cost3 = 20000
+
+### tech weights
+@tier2weight1 = 85
+@tier2weight2 = 75
+@tier2weight3 = 70
+
+@tier3weight1 = 65
+@tier3weight2 = 60
+@tier3weight3 = 50
+
+@tier4weight1 = 45
+@tier4weight2 = 40
+@tier4weight3 = 35
+
+@tier5weight1 = 30
+@tier5weight2 = 25
+@tier5weight3 = 20
+
+############################################################
+###                     TECHNOLOGIES                     ###
+############################################################
+
+############################################################
+##                    Crystal Shard Thrower               ##
+##       Unlocks a basic crystalline cannon component     ##
+############################################################
+
+nhsc_tech_crystal_cannon_1 = {
+	area = society
+	category = { materials }
+	tier = 2
+	cost = @tier2cost1
+	weight = @tier2weight1
+	ai_update_type = military
+	prerequisites = { }
+	# prerequisites are country flags and, thus, are defined in weight_modifier
+	
+	potential = {
+		NOT = { has_global_flag = ESC_weapons_forbidden }
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			is_country_type = default
+			NOT = {
+				has_country_flag = crystal_nonhostile_approach
+				has_country_flag = crystal_hostile_approach
+			}
+		}
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 1.125
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_xenophile
+		}
+		modifier = {
+			factor = 1.4
+			has_ethic = ethic_fanatic_xenophile
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_materials"
+			}
+		}
+	}
+	
+	ai_weight = {
+		factor = 2
+		modifier = {
+			factor = 0
+			is_country_type = default
+			NOT = {
+				has_country_flag = crystal_nonhostile_approach
+				has_country_flag = crystal_hostile_approach
+			}
+		}
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 1.125
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_xenophile
+		}
+		modifier = {
+			factor = 1.4
+			has_ethic = ethic_fanatic_xenophile
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_materials"
+			}
+		}
+	}
+}
+
+############################################################
+##               Improved Crystal Shard Thrower           ##
+##      Unlocks a tier 2 crystalline cannon component     ##
+############################################################
+
+nhsc_tech_crystal_cannon_2 = {
+	area = society
+	category = { materials }
+	tier = 3
+	cost = @tier3cost1
+	weight = @tier3weight1
+	ai_update_type = military
+	prerequisites = { }
+	# prerequisites are of OR condition type, hence listed in weight modifier
+	
+	potential = {
+		NOT = { has_global_flag = ESC_weapons_forbidden }
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			is_country_type = default
+			NOT = {
+				has_technology = "nhsc_tech_crystal_cannon_1"
+				has_technology = "tech_crystal_armor_1"
+				has_technology = "tech_crystal_armor_2"
+			}
+		}
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 1.125
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_xenophile
+		}
+		modifier = {
+			factor = 1.4
+			has_ethic = ethic_fanatic_xenophile
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_materials"
+			}
+		}
+	}
+	
+	ai_weight = {
+		factor = 2
+		modifier = {
+			factor = 0
+			is_country_type = default
+			NOT = {
+				has_technology = "nhsc_tech_crystal_cannon_1"
+				has_technology = "tech_crystal_armor_1"
+				has_technology = "tech_crystal_armor_2"
+			}
+		}
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 1.125
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_xenophile
+		}
+		modifier = {
+			factor = 1.4
+			has_ethic = ethic_fanatic_xenophile
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_materials"
+			}
+		}
+	}
+}
+
+############################################################
+##                   Crystal Spike Thrower                ##
+##      Unlocks a tier 3 crystalline cannon component     ##
+############################################################
+
+nhsc_tech_crystal_cannon_3 = {
+	area = society
+	category = { materials }
+	tier = 3
+	cost = @tier3cost3
+	weight = @tier3weight3
+	ai_update_type = military
+	prerequisites = { "nhsc_tech_crystal_cannon_2" }
+	
+	potential = {
+		NOT = { has_global_flag = ESC_weapons_forbidden }
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 1.125
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_xenophile
+		}
+		modifier = {
+			factor = 1.4
+			has_ethic = ethic_fanatic_xenophile
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_materials"
+			}
+		}
+	}
+	
+	ai_weight = {
+		factor = 2
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 1.125
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_xenophile
+		}
+		modifier = {
+			factor = 1.4
+			has_ethic = ethic_fanatic_xenophile
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_materials"
+			}
+		}
+	}
+}
+
+############################################################
+##             Improved Crystal Spike Thrower             ##
+##      Unlocks a tier 4 crystalline cannon component     ##
+############################################################
+
+nhsc_tech_crystal_cannon_4 = {
+	area = society
+	category = { materials }
+	tier = 4
+	cost = @tier4cost1
+	weight = @tier4weight1
+	ai_update_type = military
+	prerequisites = { "nhsc_tech_crystal_cannon_3" "nhsc_tech_newagewarfare" }
+	
+	potential = {
+		NOT = { has_global_flag = ESC_weapons_forbidden }
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 1.125
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_xenophile
+		}
+		modifier = {
+			factor = 1.4
+			has_ethic = ethic_fanatic_xenophile
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_materials"
+			}
+		}
+	}
+	
+	ai_weight = {
+		factor = 2
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 1.125
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_xenophile
+		}
+		modifier = {
+			factor = 1.4
+			has_ethic = ethic_fanatic_xenophile
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_materials"
+			}
+		}
+	}
+}
+
+############################################################
+##                   Crystal Spear Cannon                 ##
+##      Unlocks a tier 5 crystalline cannon component     ##
+############################################################
+
+nhsc_tech_crystal_cannon_5 = {
+	area = society
+	category = { materials }
+	tier = 4
+	cost = @tier4cost3
+	weight = @tier4weight3
+	ai_update_type = military
+	prerequisites = { "nhsc_tech_crystal_cannon_4" }
+	is_rare = yes
+	
+	potential = {
+		NOT = { has_global_flag = ESC_weapons_forbidden }
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 1.125
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_xenophile
+		}
+		modifier = {
+			factor = 1.4
+			has_ethic = ethic_fanatic_xenophile
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_materials"
+			}
+		}
+	}
+	
+	ai_weight = {
+		factor = 2
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 1.125
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_xenophile
+		}
+		modifier = {
+			factor = 1.4
+			has_ethic = ethic_fanatic_xenophile
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_materials"
+			}
+		}
+	}
+}
+
+############################################################
+##                  Crystal Javelin Cannon                ##
+##     Unlocks an X-slot crystalline cannon component     ##
+############################################################
+
+nhsc_tech_crystal_lance_1 = {
+	area = society
+	category = { materials }
+	tier = 4
+	cost = @tier4cost3
+	weight = @tier4weight3
+	ai_update_type = military
+	prerequisites = { "nhsc_tech_crystal_cannon_5" "nhsc_tech_advheavyweapons" }
+
+	potential = {
+		NOT = { has_global_flag = ESC_weapons_forbidden }
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 1.125
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_xenophile
+		}
+		modifier = {
+			factor = 1.4
+			has_ethic = ethic_fanatic_xenophile
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_materials"
+			}
+		}
+	}
+
+	ai_weight = {
+		factor = 2
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 1.125
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_xenophile
+		}
+		modifier = {
+			factor = 1.4
+			has_ethic = ethic_fanatic_xenophile
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_materials"
+			}
+		}
+	}
+}
+
+############################################################
+##                  Crystal Lance Cannon                  ##
+##     Unlocks an X-slot crystalline cannon component     ##
+############################################################
+
+nhsc_tech_crystal_lance_2 = {
+	area = society
+	category = { materials }
+	tier = 5
+	cost = @tier5cost2
+	weight = @tier5weight2
+	ai_update_type = military
+	prerequisites = { "nhsc_tech_crystal_lance_1" }
+	is_rare = yes
+
+	potential = {
+		NOT = { has_global_flag = ESC_weapons_forbidden }
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 1.125
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_xenophile
+		}
+		modifier = {
+			factor = 1.4
+			has_ethic = ethic_fanatic_xenophile
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_materials"
+			}
+		}
+	}
+
+	ai_weight = {
+		factor = 2
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 1.125
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_xenophile
+		}
+		modifier = {
+			factor = 1.4
+			has_ethic = ethic_fanatic_xenophile
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_materials"
+			}
+		}
+	}
+}

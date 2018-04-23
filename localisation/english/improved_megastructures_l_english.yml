@@ -1,0 +1,15 @@
+﻿l_english:
+ ## Resource Processor itself
+ ms_resource_processor_0:0 "Star Forge"
+ ms_resource_processor_0_DESC:1 "Construction site for a Star Forge"
+ ms_resource_processor_0_MEGASTRUCTURE_DETAILS:1 "Trough immense energy cost we can produce a wealth of raw materials"
+ ms_resource_processor_1:0 "Star Forge 1"
+ ms_resource_processor_1_DESC:1 "The stellar siphon is in place, drawing useful materials from the star."
+ ms_resource_processor_2:0 "Star Forge 2"
+ ms_resource_processor_2_DESC:1 "Construction continues on our Star Forge"
+ ms_resource_processor_3:0 "Star Forge 3"
+ ms_resource_processor_3_DESC:1 "Construction continues on our Star Forge"
+ ms_resource_processor_4:0 "Star Forge 4"
+ ms_resource_processor_4_DESC:1 "Construction continues on our Star Forge"
+ ms_resource_processor_5:0 "Star Forge"
+ ms_resource_processor_5_DESC:1 "The star forge consumes immense ammounts of energy to produce a wealth of materials"
