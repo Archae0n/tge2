@@ -143,7 +143,7 @@ building_hyperstorage_facility_1 = {
 		new_building_content_enabled = yes
 		planet_is_not_virtual = yes
 		NAND = {
-			owner = { has_technology = "tech_hyperstorage_3" }
+			owner = { has_technology = "tech_hyperstorage_2" }
 			requires_capital_2_or_hab = yes
 			NOT = { has_global_flag = display_low_tier_flag }
 		}
@@ -254,7 +254,7 @@ building_hyperstorage_facility_2_direct_build = {
 		}
 	}
 	allow = { requires_capital_2_or_hab = yes }
-	prerequisites = { "tech_hyperstorage_3" }
+	prerequisites = { "tech_hyperstorage_2" }
 	upgrades = { building_hyperstorage_facility_3 }
 	#resource output and modifiers
 	adjacency_bonus = { tile_building_resource_minerals_add = @hyperstorage_t2_adjacency_bonus tile_building_resource_food_add = @hyperstorage_t2_adjacency_bonus tile_building_resource_energy_add = @hyperstorage_t2_adjacency_bonus }
@@ -353,7 +353,7 @@ building_hyperstorage_facility_2 = {
 	#requirements and upgrade
 	potential = { new_building_content_enabled = yes planet_is_not_virtual = yes }
 	allow = { requires_capital_2_or_hab = yes }
-	prerequisites = { "tech_hyperstorage_3" }
+	prerequisites = { "tech_hyperstorage_2" }
 	upgrades = { building_hyperstorage_facility_3 }
 	#resource output and modifiers
 	adjacency_bonus = { tile_building_resource_minerals_add = @hyperstorage_t2_adjacency_bonus tile_building_resource_food_add = @hyperstorage_t2_adjacency_bonus tile_building_resource_energy_add = @hyperstorage_t2_adjacency_bonus }
@@ -1162,7 +1162,6 @@ building_manufacturing_complex_5_direct_build = {
 	base_buildtime = 750
 	cost = { minerals = 600 }
 	required_resources = { energy = @manufacturing_complex_upkeep_5 }
-	destroy_if = { planet_is_capital = no }
 	#requirements and upgrade
 	potential = {
 		new_building_content_enabled = yes
@@ -1202,7 +1201,6 @@ building_manufacturing_complex_5 = {
 	base_buildtime = @non_restricted_t5_time
 	cost = { minerals = @non_restricted_t5_cost }
 	required_resources = { energy = @manufacturing_complex_upkeep_5 }
-	destroy_if = { planet_is_capital = no }
 	show_tech_unlock_if = { new_building_content_enabled = yes }
 	#requirements and upgrade
 	potential = { new_building_content_enabled = yes planet_is_not_virtual = yes }
@@ -1242,6 +1240,7 @@ building_hydroponic_farm_1 = {
 	potential = {
 		new_building_content_enabled = yes
 		planet_is_not_virtual = yes
+		owner_is_machine_empire = no
 		NAND = {
 			owner = { has_technology = "tech_hydroponics" }
 			requires_capital_1_or_hab = yes
@@ -1296,6 +1295,7 @@ building_hydroponic_farm_2_direct_build = {
 	potential = {
 		new_building_content_enabled = yes
 		planet_is_not_virtual = yes
+		owner_is_machine_empire = no
 		NOT = { has_building_hydroponic_farm_2 = yes }
 		direct_build_enabled = yes
 		NAND = {
@@ -1352,7 +1352,7 @@ building_hydroponic_farm_2 = {
 	show_tech_unlock_if = { new_building_content_enabled = yes is_machine_empire = no }
 	destroy_if = { owner_is_machine_empire = yes }
 	#requirements and upgrade
-	potential = { new_building_content_enabled = yes planet_is_not_virtual = yes }
+	potential = { new_building_content_enabled = yes planet_is_not_virtual = yes owner_is_machine_empire = no }
 	allow = { requires_capital_1_or_hab = yes }
 	prerequisites = { "tech_hydroponics" }
 	upgrades = { building_hydroponic_farm_3 }
@@ -1401,6 +1401,7 @@ building_hydroponic_farm_3_direct_build = {
 	potential = {
 		new_building_content_enabled = yes
 		planet_is_not_virtual = yes
+		owner_is_machine_empire = no
 		NOT = { has_building_hydroponic_farm_3 = yes }
 		direct_build_enabled = yes
 		NAND = {
@@ -1457,7 +1458,7 @@ building_hydroponic_farm_3 = {
 	show_tech_unlock_if = { new_building_content_enabled = yes is_machine_empire = no }
 	destroy_if = { owner_is_machine_empire = yes }
 	#requirements and upgrade
-	potential = { new_building_content_enabled = yes planet_is_not_virtual = yes }
+	potential = { new_building_content_enabled = yes planet_is_not_virtual = yes owner_is_machine_empire = no }
 	allow = { requires_capital_1_or_hab = yes }
 	prerequisites = { "tech_gene_crops" }
 	upgrades = { building_hydroponic_farm_4 }
@@ -1506,6 +1507,7 @@ building_hydroponic_farm_4_direct_build = {
 	potential = {
 		new_building_content_enabled = yes
 		planet_is_not_virtual = yes
+		owner_is_machine_empire = no
 		NOT = { has_building_hydroponic_farm_4 = yes }
 		direct_build_enabled = yes
 		NAND = {
@@ -1562,7 +1564,7 @@ building_hydroponic_farm_4 = {
 	show_tech_unlock_if = { new_building_content_enabled = yes is_machine_empire = no }
 	destroy_if = { owner_is_machine_empire = yes }
 	#requirements and upgrade
-	potential = { new_building_content_enabled = yes planet_is_not_virtual = yes }
+	potential = { new_building_content_enabled = yes planet_is_not_virtual = yes owner_is_machine_empire = no }
 	allow = { requires_capital_2_or_hab = yes }
 	prerequisites = { "tech_nano_vitality_crops" }
 	upgrades = { building_hydroponic_farm_5 }
@@ -1611,6 +1613,7 @@ building_hydroponic_farm_5_direct_build = {
 	potential = {
 		new_building_content_enabled = yes
 		planet_is_not_virtual = yes
+		owner_is_machine_empire = no
 		NOT = { has_building_hydroponic_farm_5 = yes }
 		direct_build_enabled = yes
 	}
@@ -1668,7 +1671,7 @@ building_hydroponic_farm_5 = {
 	show_tech_unlock_if = { new_building_content_enabled = yes is_machine_empire = no }
 	destroy_if = { owner_is_machine_empire = yes }
 	#requirements and upgrade
-	potential = { new_building_content_enabled = yes planet_is_not_virtual = yes }
+	potential = { new_building_content_enabled = yes planet_is_not_virtual = yes owner_is_machine_empire = no }
 	allow = { requires_capital_2_or_hab = yes }
 	prerequisites = { "tech_nano_vitality_crops" }
 	#resource output and modifiers
@@ -1942,7 +1945,6 @@ building_sociological_campus_5_direct_build = {
 	base_buildtime = 750
 	cost = { minerals = 600 }
 	required_resources = { energy = @sociological_campus_upkeep_5 minerals = @sociological_campus_upkeep_5 }
-	destroy_if = { planet_is_capital = no }
 	#requirements and upgrade
 	potential = {
 		new_building_content_enabled = yes
@@ -1982,7 +1984,6 @@ building_sociological_campus_5 = {
 	base_buildtime = @non_restricted_t5_time
 	cost = { minerals = @non_restricted_t5_cost }
 	required_resources = { energy = @sociological_campus_upkeep_5 minerals = @sociological_campus_upkeep_5 }
-	destroy_if = { planet_is_capital = no }
 	show_tech_unlock_if = { new_building_content_enabled = yes }
 	#requirements and upgrade
 	potential = { new_building_content_enabled = yes planet_is_not_virtual = yes }
@@ -2239,7 +2240,6 @@ building_physics_campus_5_direct_build = {
 	base_buildtime = 750
 	cost = { minerals = 600 }
 	required_resources = { energy = @physics_campus_upkeep_5 minerals = @physics_campus_upkeep_5 }
-	destroy_if = { planet_is_capital = no }
 	#requirements and upgrade
 	potential = {
 		new_building_content_enabled = yes
@@ -2279,7 +2279,6 @@ building_physics_campus_5 = {
 	base_buildtime = @non_restricted_t5_time
 	cost = { minerals = @non_restricted_t5_cost }
 	required_resources = { energy = @physics_campus_upkeep_5 minerals = @physics_campus_upkeep_5 }
-	destroy_if = { planet_is_capital = no }
 	show_tech_unlock_if = { new_building_content_enabled = yes }
 	#requirements and upgrade
 	potential = { new_building_content_enabled = yes planet_is_not_virtual = yes }
@@ -2536,7 +2535,6 @@ building_engineering_campus_5_direct_build = {
 	base_buildtime = 750
 	cost = { minerals = 600 }
 	required_resources = { energy = @engineering_campus_upkeep_5 minerals = @engineering_campus_upkeep_5 }
-	destroy_if = { planet_is_capital = no }
 	#requirements and upgrade
 	potential = {
 		new_building_content_enabled = yes
@@ -2576,7 +2574,6 @@ building_engineering_campus_5 = {
 	base_buildtime = @non_restricted_t5_time
 	cost = { minerals = @non_restricted_t5_cost }
 	required_resources = { energy = @engineering_campus_upkeep_5 minerals = @engineering_campus_upkeep_5 }
-	destroy_if = { planet_is_capital = no }
 	show_tech_unlock_if = { new_building_content_enabled = yes }
 	#requirements and upgrade
 	potential = { new_building_content_enabled = yes planet_is_not_virtual = yes }
@@ -6937,7 +6934,7 @@ building_isotope_refinery_1_1 = {
 	prerequisites = { "tech_power_plant_1" }
 	upgrades = { building_isotope_refinery_2_1 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t1_1_output }
+	produced_resources = { energy = @tile_restricted_t1_0_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t1_static_resource_add }
 	#ai restrictions and weights
 	ai_weight = {
@@ -6979,7 +6976,7 @@ building_isotope_refinery_2_1_direct_build = {
 	prerequisites = { "tech_power_plant_2" }
 	upgrades = { building_isotope_refinery_3_1 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t2_1_output }
+	produced_resources = { energy = @tile_restricted_t2_0_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t2_static_resource_add }
 	#construction effects
 	#ai restrictions and weights
@@ -7013,7 +7010,7 @@ building_isotope_refinery_2_1 = {
 	prerequisites = { "tech_power_plant_2" }
 	upgrades = { building_isotope_refinery_3_1 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t2_1_output }
+	produced_resources = { energy = @tile_restricted_t2_0_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t2_static_resource_add }
 	#construction effects
 	#ai restrictions and weights
@@ -7056,7 +7053,7 @@ building_isotope_refinery_3_1_direct_build = {
 	prerequisites = { "tech_power_plant_3" }
 	upgrades = { building_isotope_refinery_4_1 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t3_1_output }
+	produced_resources = { energy = @tile_restricted_t3_0_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t3_static_resource_add }
 	#construction effects
 	#ai restrictions and weights
@@ -7090,7 +7087,7 @@ building_isotope_refinery_3_1 = {
 	prerequisites = { "tech_power_plant_3" }
 	upgrades = { building_isotope_refinery_4_1 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t3_1_output }
+	produced_resources = { energy = @tile_restricted_t3_0_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t3_static_resource_add }
 	#construction effects
 	#ai restrictions and weights
@@ -7133,7 +7130,7 @@ building_isotope_refinery_4_1_direct_build = {
 	prerequisites = { "tech_power_plant_4" }
 	upgrades = { building_isotope_refinery_5_1 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t4_1_output }
+	produced_resources = { energy = @tile_restricted_t4_0_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t4_static_resource_add }
 	#construction effects
 	#ai restrictions and weights
@@ -7167,7 +7164,7 @@ building_isotope_refinery_4_1 = {
 	prerequisites = { "tech_power_plant_4" }
 	upgrades = { building_isotope_refinery_5_1 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t4_1_output }
+	produced_resources = { energy = @tile_restricted_t4_0_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t4_static_resource_add }
 	#construction effects
 	#ai restrictions and weights
@@ -7202,7 +7199,7 @@ building_isotope_refinery_5_1_direct_build = {
 	}
 	allow = { requires_energy_tile = yes requires_capital_2_or_hab = yes }
 	prerequisites = { "tech_power_plant_5" }
-	produced_resources = { energy = @tile_restricted_t5_1_output }
+	produced_resources = { energy = @tile_restricted_t5_0_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t5_static_resource_add }
 	triggered_planet_modifier = {
 		key = "capital_3_resource_bonus_modifier"
@@ -7241,7 +7238,7 @@ building_isotope_refinery_5_1 = {
 	potential = { new_building_content_enabled = yes planet_is_not_virtual = yes conditions_tile_restricted_1_energy = yes }
 	allow = { requires_energy_tile = yes requires_capital_2_or_hab = yes }
 	prerequisites = { "tech_power_plant_5" }
-	produced_resources = { energy = @tile_restricted_t5_1_output }
+	produced_resources = { energy = @tile_restricted_t5_0_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t5_static_resource_add }
 	triggered_planet_modifier = {
 		key = "capital_3_resource_bonus_modifier"
@@ -7291,7 +7288,7 @@ building_isotope_refinery_1_2 = {
 	prerequisites = { "tech_power_plant_1" }
 	upgrades = { building_isotope_refinery_2_2 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t1_2_output }
+	produced_resources = { energy = @tile_restricted_t1_1_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t1_static_resource_add }
 	#ai restrictions and weights
 	ai_weight = {
@@ -7333,7 +7330,7 @@ building_isotope_refinery_2_2_direct_build = {
 	prerequisites = { "tech_power_plant_2" }
 	upgrades = { building_isotope_refinery_3_2 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t2_2_output }
+	produced_resources = { energy = @tile_restricted_t2_1_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t2_static_resource_add }
 	#construction effects
 	#ai restrictions and weights
@@ -7367,7 +7364,7 @@ building_isotope_refinery_2_2 = {
 	prerequisites = { "tech_power_plant_2" }
 	upgrades = { building_isotope_refinery_3_2 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t2_2_output }
+	produced_resources = { energy = @tile_restricted_t2_1_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t2_static_resource_add }
 	#construction effects
 	#ai restrictions and weights
@@ -7410,7 +7407,7 @@ building_isotope_refinery_3_2_direct_build = {
 	prerequisites = { "tech_power_plant_3" }
 	upgrades = { building_isotope_refinery_4_2 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t3_2_output }
+	produced_resources = { energy = @tile_restricted_t3_1_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t3_static_resource_add }
 	#construction effects
 	#ai restrictions and weights
@@ -7444,7 +7441,7 @@ building_isotope_refinery_3_2 = {
 	prerequisites = { "tech_power_plant_3" }
 	upgrades = { building_isotope_refinery_4_2 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t3_2_output }
+	produced_resources = { energy = @tile_restricted_t3_1_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t3_static_resource_add }
 	#construction effects
 	#ai restrictions and weights
@@ -7487,7 +7484,7 @@ building_isotope_refinery_4_2_direct_build = {
 	prerequisites = { "tech_power_plant_4" }
 	upgrades = { building_isotope_refinery_5_2 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t4_2_output }
+	produced_resources = { energy = @tile_restricted_t4_1_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t4_static_resource_add }
 	#construction effects
 	#ai restrictions and weights
@@ -7521,7 +7518,7 @@ building_isotope_refinery_4_2 = {
 	prerequisites = { "tech_power_plant_4" }
 	upgrades = { building_isotope_refinery_5_2 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t4_2_output }
+	produced_resources = { energy = @tile_restricted_t4_1_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t4_static_resource_add }
 	#construction effects
 	#ai restrictions and weights
@@ -7556,7 +7553,7 @@ building_isotope_refinery_5_2_direct_build = {
 	}
 	allow = { requires_energy_tile = yes requires_capital_2_or_hab = yes }
 	prerequisites = { "tech_power_plant_5" }
-	produced_resources = { energy = @tile_restricted_t5_2_output }
+	produced_resources = { energy = @tile_restricted_t5_1_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t5_static_resource_add }
 	triggered_planet_modifier = {
 		key = "capital_3_resource_bonus_modifier"
@@ -7595,7 +7592,7 @@ building_isotope_refinery_5_2 = {
 	potential = { new_building_content_enabled = yes planet_is_not_virtual = yes conditions_tile_restricted_2_energy = yes }
 	allow = { requires_energy_tile = yes requires_capital_2_or_hab = yes }
 	prerequisites = { "tech_power_plant_5" }
-	produced_resources = { energy = @tile_restricted_t5_2_output }
+	produced_resources = { energy = @tile_restricted_t5_1_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t5_static_resource_add }
 	triggered_planet_modifier = {
 		key = "capital_3_resource_bonus_modifier"
@@ -7645,7 +7642,7 @@ building_isotope_refinery_1_3 = {
 	prerequisites = { "tech_power_plant_1" }
 	upgrades = { building_isotope_refinery_2_3 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t1_3_output }
+	produced_resources = { energy = @tile_restricted_t1_2_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t1_static_resource_add }
 	#ai restrictions and weights
 	ai_weight = {
@@ -7687,7 +7684,7 @@ building_isotope_refinery_2_3_direct_build = {
 	prerequisites = { "tech_power_plant_2" }
 	upgrades = { building_isotope_refinery_3_3 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t2_3_output }
+	produced_resources = { energy = @tile_restricted_t2_2_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t2_static_resource_add }
 	#construction effects
 	#ai restrictions and weights
@@ -7721,7 +7718,7 @@ building_isotope_refinery_2_3 = {
 	prerequisites = { "tech_power_plant_2" }
 	upgrades = { building_isotope_refinery_3_3 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t2_3_output }
+	produced_resources = { energy = @tile_restricted_t2_2_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t2_static_resource_add }
 	#construction effects
 	#ai restrictions and weights
@@ -7764,7 +7761,7 @@ building_isotope_refinery_3_3_direct_build = {
 	prerequisites = { "tech_power_plant_3" }
 	upgrades = { building_isotope_refinery_4_3 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t3_3_output }
+	produced_resources = { energy = @tile_restricted_t3_2_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t3_static_resource_add }
 	#construction effects
 	#ai restrictions and weights
@@ -7798,7 +7795,7 @@ building_isotope_refinery_3_3 = {
 	prerequisites = { "tech_power_plant_3" }
 	upgrades = { building_isotope_refinery_4_3 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t3_3_output }
+	produced_resources = { energy = @tile_restricted_t3_2_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t3_static_resource_add }
 	#construction effects
 	#ai restrictions and weights
@@ -7841,7 +7838,7 @@ building_isotope_refinery_4_3_direct_build = {
 	prerequisites = { "tech_power_plant_4" }
 	upgrades = { building_isotope_refinery_5_3 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t4_3_output }
+	produced_resources = { energy = @tile_restricted_t4_2_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t4_static_resource_add }
 	#construction effects
 	#ai restrictions and weights
@@ -7875,7 +7872,7 @@ building_isotope_refinery_4_3 = {
 	prerequisites = { "tech_power_plant_4" }
 	upgrades = { building_isotope_refinery_5_3 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t4_3_output }
+	produced_resources = { energy = @tile_restricted_t4_2_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t4_static_resource_add }
 	#construction effects
 	#ai restrictions and weights
@@ -7910,7 +7907,7 @@ building_isotope_refinery_5_3_direct_build = {
 	}
 	allow = { requires_energy_tile = yes requires_capital_2_or_hab = yes }
 	prerequisites = { "tech_power_plant_5" }
-	produced_resources = { energy = @tile_restricted_t5_3_output }
+	produced_resources = { energy = @tile_restricted_t5_2_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t5_static_resource_add }
 	triggered_planet_modifier = {
 		key = "capital_3_resource_bonus_modifier"
@@ -7949,7 +7946,7 @@ building_isotope_refinery_5_3 = {
 	potential = { new_building_content_enabled = yes planet_is_not_virtual = yes conditions_tile_restricted_3_energy = yes }
 	allow = { requires_energy_tile = yes requires_capital_2_or_hab = yes }
 	prerequisites = { "tech_power_plant_5" }
-	produced_resources = { energy = @tile_restricted_t5_3_output }
+	produced_resources = { energy = @tile_restricted_t5_2_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t5_static_resource_add }
 	triggered_planet_modifier = {
 		key = "capital_3_resource_bonus_modifier"
@@ -7999,7 +7996,7 @@ building_isotope_refinery_1_4 = {
 	prerequisites = { "tech_power_plant_1" }
 	upgrades = { building_isotope_refinery_2_4 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t1_4_output }
+	produced_resources = { energy = @tile_restricted_t1_3_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t1_static_resource_add }
 	#ai restrictions and weights
 	ai_weight = {
@@ -8041,7 +8038,7 @@ building_isotope_refinery_2_4_direct_build = {
 	prerequisites = { "tech_power_plant_2" }
 	upgrades = { building_isotope_refinery_3_4 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t2_4_output }
+	produced_resources = { energy = @tile_restricted_t2_3_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t2_static_resource_add }
 	#construction effects
 	#ai restrictions and weights
@@ -8075,7 +8072,7 @@ building_isotope_refinery_2_4 = {
 	prerequisites = { "tech_power_plant_2" }
 	upgrades = { building_isotope_refinery_3_4 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t2_4_output }
+	produced_resources = { energy = @tile_restricted_t2_3_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t2_static_resource_add }
 	#construction effects
 	#ai restrictions and weights
@@ -8118,7 +8115,7 @@ building_isotope_refinery_3_4_direct_build = {
 	prerequisites = { "tech_power_plant_3" }
 	upgrades = { building_isotope_refinery_4_4 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t3_4_output }
+	produced_resources = { energy = @tile_restricted_t3_3_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t3_static_resource_add }
 	#construction effects
 	#ai restrictions and weights
@@ -8152,7 +8149,7 @@ building_isotope_refinery_3_4 = {
 	prerequisites = { "tech_power_plant_3" }
 	upgrades = { building_isotope_refinery_4_4 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t3_4_output }
+	produced_resources = { energy = @tile_restricted_t3_3_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t3_static_resource_add }
 	#construction effects
 	#ai restrictions and weights
@@ -8195,7 +8192,7 @@ building_isotope_refinery_4_4_direct_build = {
 	prerequisites = { "tech_power_plant_4" }
 	upgrades = { building_isotope_refinery_5_4 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t4_4_output }
+	produced_resources = { energy = @tile_restricted_t4_3_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t4_static_resource_add }
 	#construction effects
 	#ai restrictions and weights
@@ -8229,7 +8226,7 @@ building_isotope_refinery_4_4 = {
 	prerequisites = { "tech_power_plant_4" }
 	upgrades = { building_isotope_refinery_5_4 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t4_4_output }
+	produced_resources = { energy = @tile_restricted_t4_3_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t4_static_resource_add }
 	#construction effects
 	#ai restrictions and weights
@@ -8264,7 +8261,7 @@ building_isotope_refinery_5_4_direct_build = {
 	}
 	allow = { requires_energy_tile = yes requires_capital_2_or_hab = yes }
 	prerequisites = { "tech_power_plant_5" }
-	produced_resources = { energy = @tile_restricted_t5_4_output }
+	produced_resources = { energy = @tile_restricted_t5_3_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t5_static_resource_add }
 	triggered_planet_modifier = {
 		key = "capital_3_resource_bonus_modifier"
@@ -8303,7 +8300,7 @@ building_isotope_refinery_5_4 = {
 	potential = { new_building_content_enabled = yes planet_is_not_virtual = yes conditions_tile_restricted_4_energy = yes }
 	allow = { requires_energy_tile = yes requires_capital_2_or_hab = yes }
 	prerequisites = { "tech_power_plant_5" }
-	produced_resources = { energy = @tile_restricted_t5_4_output }
+	produced_resources = { energy = @tile_restricted_t5_3_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t5_static_resource_add }
 	triggered_planet_modifier = {
 		key = "capital_3_resource_bonus_modifier"
@@ -8353,7 +8350,7 @@ building_isotope_refinery_1_5 = {
 	prerequisites = { "tech_power_plant_1" }
 	upgrades = { building_isotope_refinery_2_5 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t1_5_output }
+	produced_resources = { energy = @tile_restricted_t1_4_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t1_static_resource_add }
 	#ai restrictions and weights
 	ai_weight = {
@@ -8395,7 +8392,7 @@ building_isotope_refinery_2_5_direct_build = {
 	prerequisites = { "tech_power_plant_2" }
 	upgrades = { building_isotope_refinery_3_5 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t2_5_output }
+	produced_resources = { energy = @tile_restricted_t2_4_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t2_static_resource_add }
 	#construction effects
 	#ai restrictions and weights
@@ -8429,7 +8426,7 @@ building_isotope_refinery_2_5 = {
 	prerequisites = { "tech_power_plant_2" }
 	upgrades = { building_isotope_refinery_3_5 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t2_5_output }
+	produced_resources = { energy = @tile_restricted_t2_4_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t2_static_resource_add }
 	#construction effects
 	#ai restrictions and weights
@@ -8472,7 +8469,7 @@ building_isotope_refinery_3_5_direct_build = {
 	prerequisites = { "tech_power_plant_3" }
 	upgrades = { building_isotope_refinery_4_5 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t3_5_output }
+	produced_resources = { energy = @tile_restricted_t3_4_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t3_static_resource_add }
 	#construction effects
 	#ai restrictions and weights
@@ -8506,7 +8503,7 @@ building_isotope_refinery_3_5 = {
 	prerequisites = { "tech_power_plant_3" }
 	upgrades = { building_isotope_refinery_4_5 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t3_5_output }
+	produced_resources = { energy = @tile_restricted_t3_4_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t3_static_resource_add }
 	#construction effects
 	#ai restrictions and weights
@@ -8549,7 +8546,7 @@ building_isotope_refinery_4_5_direct_build = {
 	prerequisites = { "tech_power_plant_4" }
 	upgrades = { building_isotope_refinery_5_5 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t4_5_output }
+	produced_resources = { energy = @tile_restricted_t4_4_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t4_static_resource_add }
 	#construction effects
 	#ai restrictions and weights
@@ -8583,7 +8580,7 @@ building_isotope_refinery_4_5 = {
 	prerequisites = { "tech_power_plant_4" }
 	upgrades = { building_isotope_refinery_5_5 }
 	#resource output and modifiers
-	produced_resources = { energy = @tile_restricted_t4_5_output }
+	produced_resources = { energy = @tile_restricted_t4_4_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t4_static_resource_add }
 	#construction effects
 	#ai restrictions and weights
@@ -8618,7 +8615,7 @@ building_isotope_refinery_5_5_direct_build = {
 	}
 	allow = { requires_energy_tile = yes requires_capital_2_or_hab = yes }
 	prerequisites = { "tech_power_plant_5" }
-	produced_resources = { energy = @tile_restricted_t5_5_output }
+	produced_resources = { energy = @tile_restricted_t5_4_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t5_static_resource_add }
 	triggered_planet_modifier = {
 		key = "capital_3_resource_bonus_modifier"
@@ -8657,7 +8654,7 @@ building_isotope_refinery_5_5 = {
 	potential = { new_building_content_enabled = yes planet_is_not_virtual = yes conditions_tile_restricted_5_energy = yes }
 	allow = { requires_energy_tile = yes requires_capital_2_or_hab = yes }
 	prerequisites = { "tech_power_plant_5" }
-	produced_resources = { energy = @tile_restricted_t5_5_output }
+	produced_resources = { energy = @tile_restricted_t5_4_output }
 	planet_modifier = { static_planet_resource_energy_add = @tile_restricted_t5_static_resource_add }
 	triggered_planet_modifier = {
 		key = "capital_3_resource_bonus_modifier"
