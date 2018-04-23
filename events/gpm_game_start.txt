@@ -42,7 +42,7 @@ country_event = {
 	}
 
 	immediate = {
-		set_country_flag = gpm_fallen_empire_lost_colony
+		set_country_flag = gpm_death_world
 		random_owned_planet ={
 			limit = { is_capital = yes }
 			set_planet_flag = gpm_civic_start_planet
@@ -51,8 +51,6 @@ country_event = {
 			every_tile = {
 				remove_blocker = yes
 			}
-			set_planet_size = 25
-			
 			gpm_random_dangerous_modifiers = yes
 			gpm_random_dangerous_modifiers = yes
 			gpm_random_dangerous_modifiers = yes
@@ -112,7 +110,17 @@ country_event = {
 				if = {
 					limit = {
 						has_building = yes
-						NOT = { has_building = building_capital_1 }
+						NOR = {
+							has_building = building_colony_shelter
+							has_building = building_capital_1
+							has_building = building_capital_2
+							has_building = building_capital_3
+							has_building = building_deployment_post
+							has_building = building_machine_capital_1
+							has_building = building_machine_capital_2
+							has_building = building_machine_capital_3
+							has_building = building_hab_capital
+						}
 					}
 					kill_pop = yes
 					remove_building = yes
@@ -123,21 +131,21 @@ country_event = {
 					has_building = no
 				}
 				clear_deposits = yes
-				set_building = building_esap_adv_buildings_minerals
+				set_building = gpm_building_precursor_factory
 			}
 			random_tile = {
 				limit = {
 					has_building = no
 				}
 				clear_deposits = yes
-				set_building = building_esap_adv_buildings_energy
+				set_building = gpm_building_precursor_power_plant
 			}
 			random_tile = {
 				limit = {
 					has_building = no
 				}
 				clear_deposits = yes
-				set_building = building_esap_adv_buildings_food
+				set_building = gpm_building_precursor_processing_complex
 			}
 			while = {
 				limit = {
@@ -269,23 +277,23 @@ country_event = {
 					limit = {
 						has_building = building_power_plant_1
 					}
-					kill_pop = yes
-					set_building = building_esap_adv_buildings_energy
-					set_ruined = yes
+					set_building = gpm_building_dark_matter_power_plant
+					clear_deposits = yes
 				}
 				random_tile = {
 					limit = {
 						has_building = building_mining_network_1
 					}
-					set_building = building_esap_adv_buildings_minerals
-					set_ruined = yes
+					kill_pop = yes
+					set_building = gpm_building_ancient_factory
+					clear_deposits = yes
 				}
 				random_tile = {
 					limit = {
 						has_building = building_hydroponics_farm_1
 					}
-					set_building = building_esap_adv_buildings_food
-					set_ruined = yes
+					set_building = gpm_building_agri_processing_complex
+					clear_deposits = yes
 				}
 				random_tile = {
 					limit = {
@@ -293,7 +301,7 @@ country_event = {
 					}
 					kill_pop = yes
 					set_building = gpm_building_ancient_archives
-					set_ruined = yes
+					clear_deposits = yes
 				}
 			}
 			every_tile = {

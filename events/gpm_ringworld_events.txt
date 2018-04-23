@@ -24,12 +24,12 @@ event = {
 					log = "---- rolling modifiers on ringworld ----"
 					
 					# IDEA: wipe all deposits and do something else with ringworld tiles/deposits
-					every_tile = {
-						limit = {
-							has_deposit = yes
-						}
-						clear_deposits = yes
-					}
+					# every_tile = {
+						# limit = {
+							# has_deposit = yes
+						# }
+						# clear_deposits = yes
+					# }
 					
 					# First we try to apply a construction bonus modifier (low chance)
 					random_list = {

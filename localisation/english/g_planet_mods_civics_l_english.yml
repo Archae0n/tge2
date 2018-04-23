@@ -9,7 +9,7 @@ l_english:
 
  civic_tooltip_gpm_precursor_world_effects:0 " £pop  Pop consumer goods: §R+15%§!\n\n§YHomeworld§!:\n Start with §Y1§! £pop  pop\n Start with §Y3§! £building  Advanced Buildings\n Start with §Y2§! §EPrecursor§! planet modifiers.\n\nGain the §YForgotten Species§! trait, granting:\n Leader Level Cap: §G+2§!\n Leader Experience Gain: §G+100%§!"
  
- civic_tooltip_gpm_fallen_empire_colony_effects:0 "§YHigh Status§!:\n Influence per month: §G+1§! \n\n§YStagnant Inheritance§!:\n Research Speed: §R-10%§!\n Pop Growth Speed: §R-10%§!\n\n§YHomeworld§!:\n Start on a §Yrandom§! planet type.\n Start with §Y3§! £pop  pops\n Start with §Y2§! Damaged £building  Advanced Buildings\n Start with §Y2§! §HFallen Empire§! planet modifiers.\n\nGain the §YRespected Beginnings§! trait, granting:\n Other Species Trust Growth: §G+15%§!\n §YRespected Children§! §G+40§! opinion bonus with §HFallen Empires§!."
+ civic_tooltip_gpm_fallen_empire_colony_effects:0 "§YHigh Status§!:\n Influence per month: §G+1§! \n\n§YStagnant Inheritance§!:\n Research Speed: §R-10%§!\n Pop Growth Speed: §R-10%§!\n\n§YHomeworld§!:\n Start on a §Yrandom§! planet type.\n Start with §Y3§! £pop  pops\n Start with §Y4§! £building  Advanced Buildings\n Start with §Y2§! §HFallen Empire§! planet modifiers.\n\nGain the §YRespected Beginnings§! trait, granting:\n Other Species Trust Growth: §G+15%§!\n §YRespected Children§! §G+40§! opinion bonus with §HFallen Empires§!."
  
  
  civic_gpm_death_world:0 "Death World"
