@@ -1,16 +1,16 @@
-ap_plentiful_traditions_favored_equilibrium = {
-	modifier = {
-		tradition_cost_num_colonies_mult = -0.2
-	}
-	potential = { # Fixed by uberwaffe
-		NOT = {
-			has_ascension_perk = ap_plentiful_traditions_favored_equilibrium
-		}
-	}
-	ai_weight = {
-		factor = 0
-	}
-}
+#ap_plentiful_traditions_favored_equilibrium = {
+#	modifier = {
+#		tradition_cost_num_colonies_mult = -0.2
+#	}
+#	potential = { # Fixed by uberwaffe
+#		NOT = {
+#			has_ascension_perk = ap_plentiful_traditions_favored_equilibrium
+#		}
+#	}
+#	ai_weight = {
+#		factor = 0
+#	}
+#}
 
 ap_plentiful_traditions_avicennian_motion = {
 #	possible = {
