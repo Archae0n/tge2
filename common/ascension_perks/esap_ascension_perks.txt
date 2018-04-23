@@ -393,7 +393,10 @@ ap_mind_over_matter = {
 		}
 		custom_tooltip = {
 			fail_text = "requires_ascension_perks_1"
-			num_ascension_perks > 0
+			OR = {
+				num_ascension_perks > 0
+				has_valid_civic = civic_spiritual_harmony
+			}
 		}
 		custom_tooltip = {
 			fail_text = "requires_technology_psionic_theory"

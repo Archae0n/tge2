@@ -491,9 +491,6 @@ civic_keepers_traditions = {
 	modifier = {
 		country_resource_unity_mult = 0.15
 		country_resource_unity_add = 3
-		TRADITION_COST_NUM_COLONIES_MULT = -0.1
-		TRADITION_COST_NUM_SYSTEMS_MULT = -0.1
-		leader_age = 10
 	}
 }
 

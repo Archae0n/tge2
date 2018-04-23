@@ -326,6 +326,9 @@ civic_cbshing_nuclear_vault = {
 				value = civic_cbshing_voidborne
 				#value = civic_cbshing_ringworld
 				#value = civic_cbshing_dyson_sphere
+				value = civic_gpm_death_world
+				value = civic_gpm_precursor_world
+				value = civic_gpm_fallen_empire_colony
 			}
 		}
 	}
@@ -395,6 +398,9 @@ civic_cbshing_nuclear_mutation = {
 				value = civic_cbshing_voidborne
 				#value = civic_cbshing_ringworld
 				#value = civic_cbshing_dyson_sphere
+				value = civic_gpm_death_world
+				value = civic_gpm_precursor_world
+				value = civic_gpm_fallen_empire_colony				
 			}
 		}
 	}
@@ -441,6 +447,9 @@ civic_cbshing_voidborne = {
 				value = civic_cbshing_nuclear_mutation
 				#value = civic_cbshing_ringworld
 				#value = civic_cbshing_dyson_sphere
+				value = civic_gpm_death_world
+				value = civic_gpm_precursor_world
+				value = civic_gpm_fallen_empire_colony				
 			}
 		}
 	}
@@ -520,6 +529,9 @@ civic_cbshing_dyson_sphere = {
 				#value = civic_cbshing_nuclear_mutation
 				#value = civic_cbshing_voidborne
 				#value = civic_cbshing_ringworld
+				value = civic_gpm_death_world
+				value = civic_gpm_precursor_world
+				value = civic_gpm_fallen_empire_colony				
 			}
 		}
 	}

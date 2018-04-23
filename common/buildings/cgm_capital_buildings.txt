@@ -980,7 +980,7 @@ building_hab_capital_hidden_tree_root = {
 building_hab_capital = {
 	#building defines
 	tags = { capital_building }
-	base_buildtime = 1080
+	base_buildtime = 180
 	planet_unique = yes
 	ai_replace = no
 	capital = yes
