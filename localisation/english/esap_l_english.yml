@@ -155,7 +155,7 @@
  ap_esap_border_n_war_req_1:0 "$TRIGGER_FAIL$Requires the §Y$ap_interstellar_dominion$§! Ascension Perk."
  ap_esap_border_n_war_req_2:0 "$TRIGGER_FAIL$Requires the §Y$ap_esap_art_of_war$§! Ascension Perk."
  
- ap_esap_border_n_colony:0 "Claiming the galaxy"
+ ap_esap_border_n_colony:0 "Claiming the Galaxy"
  ap_esap_border_n_colony_desc:0 "If we only reach out and grasps for it, the galaxy shall be ours."
  ap_esap_border_n_colony_tooltip:0 "Increase §Y$MOD_SHIP_HITPOINTS_MULT$§! for all §YFrontier Outposts§! by §G+500%§!."
  ap_esap_border_n_colony_req_1:0 "$TRIGGER_FAIL$Requires the §Y$ap_interstellar_dominion$§! Ascension Perk."

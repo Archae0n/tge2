@@ -43,12 +43,12 @@
 
  
  ethic_elitist:0 "Elitist"
- ethic_elitist_desc:0 "Everybody isn't suited for every role in the grand scheme of things. Skill, ability, intelligence, strength of character, and other defining qualities are not equally distributed. Why then should position in society be? Some are meant to lead, others are meant to follow; everyone benefits from this."
+ ethic_elitist_desc:0 "§LEverybody isn't suited for every role in the grand scheme of things. Skill, ability, intelligence, strength of character, and other defining qualities are not equally distributed. Why then should position in society be? Some are meant to lead, others are meant to follow; everyone benefits from this.§"
  ethic_fanatic_elitist:0 "Fanatic Elitist"
- ethic_fanatic_elitist_desc:0 "Society is a herd, with sheperds and watchdogs. Society is a struggle, with winners and losers. The huddled masses of the lesser need the guiding hand of the destined few who have the power, understanding and capability to mold and channel them into shape and purpose. Some are born, chosen, or risen to position over the unpurposeful, the errant, the lost, the narrowminded, the restrained, and the filth. Some are better than others." 
+ ethic_fanatic_elitist_desc:0 "§LSociety is a herd, with sheperds and watchdogs. Society is a struggle, with winners and losers. The huddled masses of the lesser need the guiding hand of the destined few who have the power, understanding and capability to mold and channel them into shape and purpose. Some are born, chosen, or risen to position over the unpurposeful, the errant, the lost, the narrowminded, the restrained, and the filth. Some are better than others.§" 
  
  ethic_pluralist:0 "Egalitarian"
- ethic_pluralist_desc:0 "Society has a tendancy of restraining the possibilities of a citizen through factors out of his grasp, like birth, money or networks, limiting its own richness, diversity, and thus gains. Helping everyone so they have the same chances in life is both just and meaningful."
+ ethic_pluralist_desc:0 "§LSociety has a tendancy of restraining the possibilities of a citizen through factors out of his grasp, like birth, money or networks, limiting its own richness, diversity, and thus gains. Helping everyone so they have the same chances in life is both just and meaningful.§"
  ethic_fanatic_pluralist:0 "Fanatic Egalitarian"
 
  elite_cyborg_army:0 "Elite Cyborg Army"
