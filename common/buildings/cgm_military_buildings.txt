@@ -111,16 +111,11 @@ building_planetary_shield_generator = {
 	prerequisites = { "tech_planetary_shield_generator" }
 	#resource output and modifiers
 	planet_modifier = { planet_orbital_bombardment_damage = -0.75 }
+	produced_resources = { engineering_research = 3 physics_research = 3 }
 	produced_resource_trigger = {
 		modifier = {
-			#this is the base building output using vanilla stats
-			overhauled_building_stats_enabled = no
-			resources = { engineering_research = 3 physics_research = 3 }
-		}
-		modifier = {
-			#this is the base building output using overhauled stats
-			overhauled_building_stats_enabled = yes
-			resources = { unity = 2 }
+			has_valid_civic = civic_isolationism
+			resources = { unity = 1 }
 		}
 	}
 	#ai restrictions and weights
