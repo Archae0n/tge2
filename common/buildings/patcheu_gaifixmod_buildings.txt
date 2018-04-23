@@ -178,93 +178,93 @@ building_clone_vats = {
 ### Planet Unique buildings ###
 ###############################
 
-building_clinic = {
-	base_buildtime = 360
-	planet_unique = yes
-	
-	cost = {
-		minerals = 150
-	}
-
-	show_tech_unlock_if = { NOT = { has_ethic = ethic_gestalt_consciousness } }#eutab
-
-	potential = {
-		NOT = {
-			owner = { has_ethic = ethic_gestalt_consciousness }#eutab
-		}
-	}
-
-	destroy_if = {
-		exists = owner
-		owner = { has_ethic = ethic_gestalt_consciousness }#eutab
-	}
-	
-	required_resources = {
-		energy = 1
-	}
-	
-	produced_resources = {
-		society_research = 2
-		unity = 1
-	}
-	
-	produced_resource_trigger = {
-		modifier = {
-			has_technology = "tech_eutab_folk_community"
-			resources = {
-				unity = 2
-			}
-		}
-	}
-	
-	planet_modifier = {
-		pop_growth_speed = 0.1
-	}
-	
-	prerequisites = {
-		"tech_frontier_health"
-	}
-	
-	upgrades = {
-		building_hospital
-	}
-	
-	ai_allow = {
-	NOT = { gai_has_sr = yes }
-		AND = {
-			NOT = {
-				AND = {
-					has_resource = {
-						type = society_research
-						amount = 0
-					}
-					any_neighboring_tile = { 
-						OR = {
-							has_building = building_capital_3
-							has_building = building_capital_2
-							has_building = building_capital_1
-							has_building = building_colony_shelter
-						}
-					}
-				}
-			}
-			OR = {
-				tile = { gai_is_blank = yes }
-				gai_has_society = yes
-			}
-		}
-	}
-
-	ai_weight = {
-		weight = 300
-		modifier = {
-			weight = 0
-			planet = {is_planet_class = pc_habitat}
-		}
-	}
-	
-	ai_replace = no
-}
+#building_clinic = {
+#	base_buildtime = 360
+#	planet_unique = yes
+#	
+#	cost = {
+#		minerals = 150
+#	}
+#
+#	show_tech_unlock_if = { NOT = { has_ethic = ethic_gestalt_consciousness } }#eutab
+#
+#	potential = {
+#		NOT = {
+#			owner = { has_ethic = ethic_gestalt_consciousness }#eutab
+#		}
+#	}
+#
+#	destroy_if = {
+#		exists = owner
+#		owner = { has_ethic = ethic_gestalt_consciousness }#eutab
+#	}
+#	
+#	required_resources = {
+#		energy = 1
+#	}
+#	
+#	produced_resources = {
+#		society_research = 2
+#		unity = 1
+#	}
+#	
+#	produced_resource_trigger = {
+#		modifier = {
+#			has_technology = "tech_eutab_folk_community"
+#			resources = {
+#				unity = 2
+#			}
+#		}
+#	}
+#	
+#	planet_modifier = {
+#		pop_growth_speed = 0.1
+#	}
+#	
+#	prerequisites = {
+#		"tech_frontier_health"
+#	}
+#	
+#	upgrades = {
+#		building_hospital
+#	}
+#	
+#	ai_allow = {
+#	NOT = { gai_has_sr = yes }
+#		AND = {
+#			NOT = {
+#				AND = {
+#					has_resource = {
+#						type = society_research
+#						amount = 0
+#					}
+#					any_neighboring_tile = { 
+#						OR = {
+#							has_building = building_capital_3
+#							has_building = building_capital_2
+#							has_building = building_capital_1
+#							has_building = building_colony_shelter
+#						}
+#					}
+#				}
+#			}
+#			OR = {
+#				tile = { gai_is_blank = yes }
+#				gai_has_society = yes
+#			}
+#		}
+#	}
+#
+#	ai_weight = {
+#		weight = 300
+#		modifier = {
+#			weight = 0
+#			planet = {is_planet_class = pc_habitat}
+#		}
+#	}
+#	
+#	ai_replace = no
+#}
 
 building_visitor_center = {
 	base_buildtime = 270
