@@ -77,18 +77,22 @@ environmentalists = {
 		unfulfilled_title = "NO_ENVIRONMENTAL_ECONOMY"
 		desc = "ENVIRONMENTAL_ECONOMY_DESC"
  
-		unfulfilled_effect = -15
+		unfulfilled_effect = -10
 
 		potential = {
 			exists = owner
 			owner = {
-				OR = {
-					has_tradition = tr_prosperity_adopt
+				has_any_tradition_unlocked = yes
+			}
+		}
+		
+		trigger = {
+			owner = {
+				NOT = {
+				has_tradition = tr_prosperity_adopt
+				}
 				}
             }				
-		}
-
-		trigger = {		
 		}
 	}	
 	
