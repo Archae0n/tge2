@@ -51,7 +51,7 @@ country_event = {
 			every_tile = {
 				remove_blocker = yes
 			}
-			change_planet_size = 25
+			set_planet_size = 25
 			gpm_random_dangerous_modifiers = yes
 			gpm_random_dangerous_modifiers = yes
 			gpm_random_dangerous_modifiers = yes
@@ -88,11 +88,13 @@ country_event = {
 			}
 		}
 		every_owned_pop = {
-			limit = { is_exact_same_species = owner_species }
-			#changes_species = event_target:deathworlders
+			limit = { 
+				is_exact_same_species = owner_species
+				is_cbshing_lost_colony_country = yes 
+			}
 			modify_species = {
 				species = this
-				add_trait = civic_tooltip_gpm_death_world_effects
+				add_trait = trait_gpm_mega_adaptive
 			}
 		}
 	}
