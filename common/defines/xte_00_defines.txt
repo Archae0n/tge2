@@ -1,0 +1,13 @@
+	NSpecies = {
+
+		MAX_TRAIT_POINTS_LEADER				= 2		# How many trait points a leader can have
+		MAX_TRAIT_POINTS_RULER				= 3
+
+		TRAIT_MODIFICATION_BASE_COST 		= 5000		# This cost is always added to a species modification project so modifying single pops isn't efficient
+		TRAIT_CLIMATE_MODIFICATION_COST		= 5
+		TRAIT_MODIFICATION_COST_MULT 		= 75		# species modification cost to be multiplied with the absolute trait cost of all changes applied, per pop
+		MODIFICATION_COST_MULT				= 15		# adds to the above species modification cost, per pop
+		ROBO_TRAIT_MODIFICATION_BASE_COST 	= 500		# This cost is always added to a species modification project so modifying single pops isn't efficient
+		ROBO_TRAIT_MODIFICATION_COST_MULT 	= 125 		# species modification cost to be multiplied with the absolute trait cost of all changes applied, per pop
+		ROBO_MODIFICATION_COST_MULT			= 45		# adds to the above species modification cost, per pop
+	}

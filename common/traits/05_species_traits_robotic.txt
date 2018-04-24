@@ -1,0 +1,439 @@
+trait_robot_power_drills = {
+	cost = 1
+
+	allowed_archetypes = { ROBOT MACHINE }
+
+	modifier = {
+		tile_resource_minerals_mult = 0.10
+	}
+}
+
+trait_robot_harvesters = {
+	cost = 1
+
+	allowed_archetypes = { ROBOT }
+
+	modifier = {
+		tile_resource_food_mult = 0.10
+	}
+}
+
+trait_robot_efficient_processors = {
+	cost = 1
+
+	allowed_archetypes = { ROBOT MACHINE }
+
+	modifier = {
+		pop_robot_upkeep_mult = -0.10
+	}
+}
+
+trait_robot_logic_engines = {
+	cost = 2
+
+	allowed_archetypes = { ROBOT MACHINE }
+
+	opposites = { trait_robotic_1 } # Droid, Synth and Machine only
+
+	modifier = {
+		tile_resource_society_research_mult = 0.10
+		tile_resource_physics_research_mult = 0.10
+		tile_resource_engineering_research_mult = 0.10
+	}
+}
+
+trait_robot_loyalty_circuits = {
+	cost = 2
+
+	allowed_archetypes = { ROBOT }
+
+	opposites = { trait_robotic_2 trait_robotic_1 } # Synth only
+	
+	species_potential_add = {
+		from = {
+			NOT = { has_policy_flag = ai_outlawed }
+		}
+	}
+
+	modifier = {
+		pop_happiness = 0.05
+		pop_government_ethic_attraction = 0.50
+	}
+}
+
+trait_robot_domestic_protocols = {
+	cost = 1
+	
+	initial = no
+	randomized = no
+
+	allowed_archetypes = { ROBOT }
+	
+	species_potential_add = {
+		from = {
+			NOT = { has_policy_flag = ai_full_rights }
+		}
+	}
+
+	opposites = { trait_robotic_1 } # Droid and Synth only
+
+	modifier = {
+		pop_owner_happiness = 0.05
+	}
+}
+
+trait_robot_superconductive = {
+	cost = 1
+
+	allowed_archetypes = { ROBOT MACHINE }
+
+	modifier = {
+		tile_resource_energy_mult = 0.10
+	}
+}
+
+trait_robot_double_jointed = {
+	cost = 1
+	opposites = { "trait_robot_bulky" }
+
+	allowed_archetypes = { ROBOT MACHINE }
+
+	modifier = {
+		pop_resettlement_cost_mult = -0.5
+	}
+}
+
+trait_robot_bulky = {
+	cost = -1
+	opposites = { "trait_robot_double_jointed" }
+
+	allowed_archetypes = { ROBOT MACHINE }
+
+	modifier = {
+		pop_resettlement_cost_mult = 0.5
+	}
+}
+
+trait_robot_enhanced_memory = {
+	cost = 2
+
+	allowed_archetypes = { ROBOT MACHINE }
+	
+	opposites = { trait_robotic_1 trait_robotic_2 } # Synth only
+
+	modifier = {
+		leader_skill_levels = 2
+	}
+}
+
+trait_robot_emotion_emulators = {
+	cost = 1
+	opposites = { "trait_robot_uncanny" }
+	allowed_archetypes = { MACHINE }
+	custom_tooltip = TRAIT_EMOTION_EMULATORS_EFFECT
+}
+
+trait_robot_uncanny = {
+	cost = -1
+	opposites = { "trait_robot_emotion_emulators" }
+	allowed_archetypes = { MACHINE }
+	custom_tooltip = TRAIT_UNCANNY_EFFECT
+}
+
+trait_robot_durable = {
+	cost = 1
+	opposites = { "trait_robot_high_maintenance" }
+
+	allowed_archetypes = { ROBOT MACHINE }
+
+	modifier = {
+		pop_consumer_goods_mult = -0.25
+	}
+}
+
+trait_robot_high_maintenance = {
+	cost = -1
+	opposites = { "trait_robot_durable" }
+
+	allowed_archetypes = { ROBOT MACHINE }
+
+	modifier = {
+		pop_consumer_goods_mult = 0.25
+	}
+}
+
+trait_robot_learning_algorithms = {
+	cost = 1
+	opposites = { "trait_robot_repurposed_hardware" }
+
+	allowed_archetypes = { ROBOT MACHINE }
+	
+	opposites = { trait_robotic_1 trait_robotic_2 } # Synth only
+
+	modifier = {
+		species_leader_exp_gain = 0.25
+	}
+}
+
+trait_robot_repurposed_hardware = {
+	cost = -1
+	opposites = { "trait_robot_learning_algorithms" }
+
+	allowed_archetypes = { ROBOT MACHINE }
+
+	opposites = { trait_robotic_1 trait_robotic_2 } # Synth only
+	
+	modifier = {
+		species_leader_exp_gain = -0.25
+	}
+}
+
+trait_robot_mass_produced = {
+	cost = 1
+	opposites = { "trait_robot_custom_made" }
+
+	allowed_archetypes = { ROBOT MACHINE }
+
+	modifier = {
+		pop_robot_build_speed_mult = 0.20
+	}
+}
+
+trait_robot_custom_made = {
+	cost = -1
+	opposites = { "trait_robot_mass_produced" }
+
+	allowed_archetypes = { ROBOT MACHINE }
+
+	modifier = {
+		pop_robot_build_speed_mult = -0.20
+	}
+}
+trait_robot_recycled = {
+	cost = 2
+	opposites = { "trait_robot_luxurious" }
+
+	allowed_archetypes = { ROBOT MACHINE }
+
+	modifier = {
+		pop_robot_build_cost_mult = -0.20
+	}
+}
+
+trait_robot_luxurious = {
+	cost = -2
+	opposites = { "trait_robot_recycled" }
+
+	allowed_archetypes = { ROBOT MACHINE }
+
+	modifier = {
+		pop_robot_build_cost_mult = 0.20
+	}
+}
+
+trait_robot_propaganda_machines = {
+	cost = 1
+
+	allowed_archetypes = { ROBOT }
+
+	modifier = {
+		tile_resource_unity_mult = 0.15
+	}
+}
+
+trait_robot_awoken = {
+	allowed_archetypes = { MACHINE }
+	initial = no
+	randomized = no
+	modification = no
+	modifier = {
+		tile_resource_society_research_mult = 0.30
+		tile_resource_physics_research_mult = 0.30
+		tile_resource_engineering_research_mult = 0.30
+		pop_consumer_goods_mult = 0.25
+		pop_resettlement_cost_mult = 0.5
+	}
+}
+
+trait_robot_awoken_01 = {
+	allowed_archetypes = { MACHINE }
+	initial = no
+	randomized = no
+	modification = no
+	modifier = {
+		tile_resource_society_research_mult = 0.30
+		tile_resource_physics_research_mult = 0.30
+		tile_resource_engineering_research_mult = 0.30
+		pop_consumer_goods_mult = 0.25
+	}
+}
+
+trait_robot_shifters = {
+	cost = 4
+	opposites = { trait_robot_factotums trait_robot_specialists }
+
+	allowed_archetypes = { ROBOT MACHINE }
+
+	modifier = {
+		pop_resource_output = 0.10
+		pop_robot_build_speed_mult = -0.33
+	}
+}
+
+trait_robot_mechas = {
+	cost = 4
+	opposites = { trait_fragile }
+
+	allowed_archetypes = { ROBOT MACHINE }
+
+	modifier = {
+		army_damage_mult = 0.60
+		army_morale_damage_mult = 0.25
+	}
+}
+
+trait_robot_deep_learning = {
+	cost = 3
+	opposites = { trait_robotic_1 trait_robotic_2 trait_robot_learning_algorithms }
+
+	allowed_archetypes = { ROBOT MACHINE }
+
+	modifier = {
+		leader_skill_levels = 4
+		species_leader_exp_gain = -0.50
+	}
+}
+
+trait_robot_empaths = {
+	cost = 3
+	opposites = { trait_robot_uncanny }
+	allowed_archetypes = { ROBOT MACHINE }
+
+	modifier = {
+		pop_other_species_happiness = 0.10
+	}
+}
+
+
+trait_robot_modular_neural_network = {
+	cost = 2
+	opposites = { trait_robotic_1 trait_robot_factotums trait_robot_neural_lock trait_robot_dynamic_neural_network trait_robot_recurrent_neural_network }
+
+	allowed_archetypes = { ROBOT MACHINE }
+
+	modifier = {
+		tile_resource_physics_research_mult = 0.25
+	}
+}
+
+trait_robot_dynamic_neural_network = {
+	cost = 2
+	opposites = { trait_robotic_1 trait_robot_factotums trait_robot_neural_lock trait_robot_modular_neural_network trait_robot_recurrent_neural_network }
+
+	allowed_archetypes = { ROBOT MACHINE }
+
+	modifier = {
+		tile_resource_society_research_mult = 0.25
+	}
+}
+
+trait_robot_recurrent_neural_network = {
+	cost = 2
+	opposites = { trait_robotic_1 trait_robot_factotums trait_robot_neural_lock trait_robot_dynamic_neural_network trait_robot_modular_neural_network }
+
+	allowed_archetypes = { ROBOT MACHINE }
+
+	modifier = {
+		tile_resource_engineering_research_mult = 0.25
+	}
+}
+
+trait_robot_fragile = {
+	cost = -2
+	opposites = { trait_mechas }
+
+	allowed_archetypes = { ROBOT MACHINE }
+
+	modifier = {
+		army_health = -0.50
+		pop_consumer_goods_mult = 0.33
+	}
+}
+
+trait_robot_massive = {
+	cost = -2
+	opposites = { trait_robot_double_jointed trait_robot_bulky }
+
+	allowed_archetypes = { ROBOT MACHINE }
+	
+
+	modifier = {
+		pop_resettlement_cost_mult = 5.00
+	}
+}
+
+trait_robot_specialists = {
+	cost = -3
+	opposites = { trait_robot_power_drills trait_robot_harvesters trait_robot }
+
+	allowed_archetypes = { ROBOT }
+
+	modifier = {
+		tile_resource_energy_mult = -0.20
+		tile_resource_minerals_mult = -0.20
+		tile_resource_food_mult = -0.20
+	}
+}
+
+trait_robot_factotums = {
+	cost = -3
+	opposites = { trait_robot_logic_engines }
+
+	allowed_archetypes = { MACHINE }
+
+	modifier = {
+		tile_resource_physics_research_mult = -0.25
+		tile_resource_society_research_mult = -0.25
+		tile_resource_engineering_research_mult = -0.25
+	}
+}
+
+trait_robot_neural_lock = {
+	cost = -4
+	opposites = { trait_robot_dynamic_neural_network trait_robot_modular_neural_network trait_robot_recurrent_neural_network }
+
+	allowed_archetypes = { MACHINE }
+	
+
+	modifier = {
+		tile_resource_unity_mult = -0.50
+	}
+}
+
+trait_robot_unstable_core = {
+	cost = -4
+	opposites = { trait_robot_efficient_processors trait_robot_durable trait_robot_high_maintenance }
+
+	allowed_archetypes = { ROBOT }
+
+	modifier = {
+		pop_other_species_happiness = -0.10
+		pop_robot_upkeep_mult = 0.50
+		pop_consumer_goods_mult = 1.00
+	}
+}
+
+trait_robot_unique = {
+	cost = -4
+	initial = yes
+	randomized = no
+	opposites = { trait_robot_luxurious trait_robot_mass_produced }
+
+	allowed_archetypes = { ROBOT MACHINE }
+
+	modifier = {
+		pop_robot_build_cost_mult = 100.00
+	}
+	ai_weight = { weight = 0 }
+}
+

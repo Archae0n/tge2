@@ -1,0 +1,66 @@
+###########################
+# Xenology General Traits #
+###########################
+
+trait_general_star_paladins = {
+	cost = 1
+	modification = no
+	icon = "gfx/interface/icons/traits/leader_traits/trait_general_star_paladins.dds"
+
+	modifier = {
+		army_morale = 0.20
+		army_collateral_damage_mult = -0.75
+		}
+		
+	leader_trait = yes
+	leader_class = { general }
+	requires_traits = { trait_xte_very_strong }
+}
+
+trait_robot_general_protective = {
+	cost = 1
+	modification = no
+	icon = "gfx/interface/icons/traits/leader_traits/trait_robot_general_protective.dds"
+
+	modifier = {
+		army_disengage_chance_mult = 0.30
+		army_morale = 0.15
+		}
+		
+	leader_trait = yes
+	leader_class = { general }
+	requires_traits = { trait_robot_empaths }
+	ai_weight = { weight = 500 }
+}
+
+trait_robot_general_ace_unit = {
+	cost = 1
+	modification = no
+	icon = "gfx/interface/icons/traits/leader_traits/trait_robot_general_ace_unit.dds"
+
+	modifier = {
+		army_damage_mult = 0.20
+		army_morale_damage_mult = 0.05
+		}
+		
+	leader_trait = yes
+	leader_class = { general }
+	requires_traits = { trait_robot_mechas }
+	ai_weight = { weight = 500 }
+}
+
+trait_general_apocalypse = {
+	cost = 1
+	modification = no
+	icon = "gfx/interface/icons/traits/leader_traits/trait_general_apocalypse.dds"
+
+	modifier = {
+		army_damage_mult = 0.33
+		army_collateral_damage_mult = 1.00
+		}
+		
+	leader_trait = yes
+	leader_class = { general }
+	requires_traits = { trait_xte_presapient_irradiated }
+	ai_weight = { weight = 500 }
+}

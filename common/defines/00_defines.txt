@@ -1,0 +1,10 @@
+	NGameplay = {
+		# These values control the mid and end game sliders in game setup
+		ANOMALY_RISK_DEFAULT					= 20	# Base failure chance for anomalies
+		ANOMALY_RISK_MOD_POSITIVE				= -10	# Positive risk modifier for researching discovery
+		ANOMALY_RISK_MOD_NEGATIVE				= 20	# Negative risk modifier for researching discovery
+		ANOMALY_RISK_MIN						= 0		# Risk is never less than this
+		ANOMALY_CRITICAL_FAIL_CHANCE			= 0.20 # 20% chance of critical fail on fail
+		ANOMALY_SPAWN_CHANCE					= 0.025# Percent chance that a planet gets a discovery when surveyed
+		ANOMALY_SPAWN_CHANCE_INCREMENT			= 0.005# Percentage increase towards next chance when fail
+	}
