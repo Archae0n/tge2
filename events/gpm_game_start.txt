@@ -87,16 +87,6 @@ country_event = {
 				}
 			}
 		}
-		every_owned_pop = {
-			limit = { 
-				is_exact_same_species = owner_species
-				is_cbshing_lost_colony_country = yes 
-			}
-			modify_species = {
-				species = this
-				add_trait = trait_gpm_mega_adaptive
-			}
-		}
 	}
 }
 ### Precursor civic gamestart

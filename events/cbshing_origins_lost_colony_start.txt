@@ -18,70 +18,70 @@ event = {
 			set_country_flag = custom_start_screen
 			
 			# check if there is an existing "homeworld" species for this country
-			owner_species = { save_event_target_as = lost_colony_species }
-			every_country = {
-				limit = { 
-					is_valid_cbshing_lost_colony_home_country = yes
-					is_same_species = event_target:lost_colony_species
-				}
-				if = { 
-					limit = { capital_scope = { solar_system = { has_star_flag = sol} } }
-					set_global_flag = origins_sol_system_used
-				}
-				this.capital_scope = { save_event_target_as = lost_colony_homeplanet }
-				set_country_flag = "lost_colony_home_empire"
-				random_owned_pop = {
-					limit = { is_same_species = owner }
-					owner.capital_scope = { save_event_target_as = lost_colony_homeplanet }
-					create_species = {
-						is_mod = no
-						name = this
-						namelist = this
-						plural = this
-						class = this
-						portrait = this
-						traits = this
-						homeworld = owner.capital_scope
-					}
-				}
-				every_owned_pop = {
-					limit = { is_same_species = owner }
-					change_species = last_created
-				} 
-				every_owned_leader = {
-					limit = { is_same_species = owner }
-					change_species = last_created
-				}
-				every_pool_leader = {
-					limit = { is_same_species = owner }
-					change_species = last_created
-				}
-				change_dominant_species = { species = last_created }
-				every_country = {
-					limit = { 
-						is_cbshing_lost_colony_country = yes 
-						is_same_species = event_target:lost_colony_species
-					}
-					set_country_flag = "country_homeworld_created" 
-					every_owned_pop = {
-						limit = { is_same_species = event_target:lost_colony_species }
-						change_species = last_created
-					} 
-					every_owned_leader = {
-						limit = { is_same_species = event_target:lost_colony_species }
-						change_species = last_created
-					}
-					every_pool_leader = {
-						limit = { is_same_species = event_target:lost_colony_species }
-						change_species = last_created
-					}
-					change_dominant_species = { species = last_created }
-					if = { 
-						limit = { has_global_flag = origins_sol_system_used }
-						set_country_flag = origins_lost_colony_sol
-					}
-				}
-			}
+			#owner_species = { save_event_target_as = lost_colony_species }
+			#every_country = {
+			#	limit = { 
+			#		is_valid_cbshing_lost_colony_home_country = yes
+			#		is_same_species = event_target:lost_colony_species
+			#	}
+			#	if = { 
+			#		limit = { capital_scope = { solar_system = { has_star_flag = sol} } }
+			#		set_global_flag = origins_sol_system_used
+			#	}
+			#	this.capital_scope = { save_event_target_as = lost_colony_homeplanet }
+			#	set_country_flag = "lost_colony_home_empire"
+			#	random_owned_pop = {
+			#		limit = { is_same_species = owner }
+			#		owner.capital_scope = { save_event_target_as = lost_colony_homeplanet }
+			#		create_species = {
+			#			is_mod = no
+			#			name = this
+			#			namelist = this
+			#			plural = this
+			#			class = this
+			#			portrait = this
+			#			traits = this
+			#			homeworld = owner.capital_scope
+			#		}
+			#	}
+			#	every_owned_pop = {
+			#		limit = { is_same_species = owner }
+			#		change_species = last_created
+			#	} 
+			#	every_owned_leader = {
+			#		limit = { is_same_species = owner }
+			#		change_species = last_created
+			#	}
+			#	every_pool_leader = {
+			#		limit = { is_same_species = owner }
+			#		change_species = last_created
+			#	}
+			#	change_dominant_species = { species = last_created }
+			#	every_country = {
+			#		limit = { 
+			#			is_cbshing_lost_colony_country = yes 
+			#			is_same_species = event_target:lost_colony_species
+			#		}
+			#		set_country_flag = "country_homeworld_created" 
+			#		every_owned_pop = {
+			#			limit = { is_same_species = event_target:lost_colony_species }
+			#			change_species = last_created
+			#		} 
+			#		every_owned_leader = {
+			#			limit = { is_same_species = event_target:lost_colony_species }
+			#			change_species = last_created
+			#		}
+			#		every_pool_leader = {
+			#			limit = { is_same_species = event_target:lost_colony_species }
+			#			change_species = last_created
+			#		}
+			#		change_dominant_species = { species = last_created }
+			#		if = { 
+			#			limit = { has_global_flag = origins_sol_system_used }
+			#			set_country_flag = origins_lost_colony_sol
+			#		}
+			#	}
+			#}
 			# check if human species to create a random "sol" origin
 			if = { 
 				limit = { 
