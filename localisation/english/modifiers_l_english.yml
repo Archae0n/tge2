@@ -1114,6 +1114,8 @@
  wasteland_infrastructure_desc:0 "There is still a significant amount of infrastructure left on this world, built by its original inhabitants before they destroyed themselves in a nuclear war. This will aid in the construction of new buildings."
  forest_fire:0 "Forest Fire"
  forest_fire_desc:0 "A forest fire resulted in a stampede by this world's wandering forests, causing temporary damage to several farming regions."
+ consecrated_world:0 "Consecrated World"
+ consecrated_world_desc:0 "This world has been considered holy by its own followers, inspiring more religious affairs."
  
  
  upliftable_species:0 "Upliftable Species"

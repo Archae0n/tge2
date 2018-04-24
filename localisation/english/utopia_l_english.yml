@@ -64,7 +64,7 @@
  allow_think_tank:0 "§HUnlocks Megastructure:§! Science Nexus"
  allow_habitats:0 "§HUnlocks Station:§! Habitat"
  allow_edict_consectrated_worlds:3 "§HUnlocks Planetary Edict:§! Consecrate World"
- describe_edict_consectrated_worlds:3 "§EThis is a Planetary Edict that lasts for §Y100§! years and increases £pop  Pop §Y$MOD_POP_HAPPINESS$§!, increases §YSpiritualist Ethics Attraction§!, increases §Y$MOD_POP_GROWTH_SPEED$§!, and boosts £unity  Unity §YGeneration§!.§!"
+ describe_edict_consectrated_worlds:3 "§EUnlocks an planetary edict that costs 300 £influence  §YInfluence§!, which adds a permanent planet modifier that increases £pop  Pop §Y$MOD_POP_HAPPINESS$§!, §YSpiritualist Ethics Attraction§!, §Y$MOD_POP_GROWTH_SPEED$§!, and £unity  Unity §YGeneration§!.§!"
  allow_machine_worlds:2 "§HUnlocks Terraforming Option:§! Machine World"
  describe_machine_worlds:2 "§YMachine Worlds§! are a special planet class that is uninhabitable for organics. §YMachine Pops§! living on §YMachine Worlds§! have their resource output increased by §G+20%§!."
  
