@@ -1,6 +1,6 @@
 planet_edict = {
 	name = "plentiful_traditions_adaptive_foundry_1"
-	influence_cost = 100
+	cost = { influence = 100 }
 	modifier = {
 #		tile_resource_engineering_research_mult = 0.10
 	}
@@ -53,7 +53,7 @@ planet_edict = {
 
 planet_edict = {
 	name = "plentiful_traditions_adaptive_foundry_2"
-	influence_cost = 100
+	cost = { influence = 100 }
 	modifier = {
 #		tile_resource_engineering_research_mult = 0.10
 	}
@@ -97,7 +97,7 @@ planet_edict = {
 
 planet_edict = {
 	name = "plentiful_traditions_adaptive_foundry_3"
-	influence_cost = 100
+	cost = { influence = 100 }
 	modifier = {
 #		tile_resource_engineering_research_mult = 0.10
 	}
@@ -141,7 +141,7 @@ planet_edict = {
 
 planet_edict = {
 	name = "plentiful_traditions_adaptive_foundry_4"
-	influence_cost = 100
+	cost = { influence = 100 }
 	modifier = {
 #		tile_resource_engineering_research_mult = 0.10
 	}
@@ -185,7 +185,7 @@ planet_edict = {
 
 planet_edict = {
 	name = "plentiful_traditions_adaptive_foundry_5"
-	influence_cost = 100
+	cost = { influence = 100 }
 	modifier = {
 #		tile_resource_engineering_research_mult = 0.10
 	}
@@ -229,7 +229,7 @@ planet_edict = {
 
 planet_edict = {
 	name = "plentiful_traditions_adaptive_foundry_6"
-	influence_cost = 100
+	cost = { influence = 100 }
 	modifier = {
 #		tile_resource_engineering_research_mult = 0.10
 	}
@@ -273,7 +273,7 @@ planet_edict = {
 
 planet_edict = {
 	name = "plentiful_traditions_adaptive_foundry_7"
-	influence_cost = 100
+	cost = { influence = 100 }
 	modifier = {
 #		tile_resource_engineering_research_mult = 0.10
 	}
@@ -317,7 +317,7 @@ planet_edict = {
 
 planet_edict = {
 	name = "plentiful_traditions_adaptive_foundry_8"
-	influence_cost = 100
+	cost = { influence = 100 }
 	modifier = {
 #		tile_resource_engineering_research_mult = 0.10
 	}
@@ -361,7 +361,7 @@ planet_edict = {
 
 planet_edict = {
 	name = "plentiful_traditions_adaptive_foundry_9"
-	influence_cost = 100
+	cost = { influence = 100 }
 	modifier = {
 #		tile_resource_engineering_research_mult = 0.10
 	}
@@ -405,7 +405,7 @@ planet_edict = {
 
 planet_edict = {
 	name = "plentiful_traditions_adaptive_foundry_10"
-	influence_cost = 100
+	cost = { influence = 100 }
 	modifier = {
 #		tile_resource_engineering_research_mult = 0.10
 	}
@@ -449,7 +449,7 @@ planet_edict = {
 
 planet_edict = {
 	name = "plentiful_traditions_overcharge"
-	influence_cost = 100
+	cost = { influence = 100 }
 	modifier = {
 #		tile_resource_energy_mult = 0.10
 #		planet_building_upkeep_mult = 0.20
@@ -485,7 +485,7 @@ planet_edict = {
 
 planet_edict = {
 	name = "plentiful_traditions_ionized_excavation"
-	influence_cost = 100
+	cost = { influence = 100 }
 	modifier = {
 #		tile_resource_minerals_mult = 0.10
 #		planet_building_upkeep_mult = 0.20
@@ -521,7 +521,7 @@ planet_edict = {
 
 planet_edict = {
 	name = "plentiful_traditions_remnant_act"
-	influence_cost = 200
+	cost = { influence = 200 }
 	modifier = {
 #		tile_resource_unity_mult = 0.05
 	}
@@ -575,7 +575,7 @@ planet_edict = {
 
 planet_edict = {
 	name = "plentiful_traditions_sacred_act"
-	influence_cost = 200
+	cost = { influence = 200 }
 	modifier = {
 #		tile_resource_unity_mult = 0.05
 	}
@@ -629,7 +629,7 @@ planet_edict = {
 
 planet_edict = {
     name = "plentiful_traditions_plentiful_deeds"
-    influence_cost = 75
+    cost = { influence = 75 }
     length = 720
 
     effect = {
