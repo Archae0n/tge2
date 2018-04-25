@@ -793,7 +793,8 @@ ethic_industrial = {
 	}		
 	
 	country_modifier = {
-		tile_resource_minerals_mult = 0.1
+		country_resource_minerals_mult = 0.07
+		planet_building_build_speed_mult = 0.1
 
 	}
 	
@@ -1065,10 +1066,10 @@ ethic_fanatic_industrial = {
 	use_for_pops = no	
 	
 	country_modifier = {
-		tile_resource_minerals_mult = 0.15
+		country_resource_minerals_mult = 0.12
         planet_building_build_speed_mult = 0.2
 		starbase_shipyard_build_speed_mult = 0.2
-        pop_environment_tolerance = -0.03		
+        pop_environment_tolerance = -0.10		
 	}
 	
 
