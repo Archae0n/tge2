@@ -144,31 +144,3 @@ trait_immensely_resilient = {
 		pop_fortification_defense = 2.5
 	}
 }
-
-trait_individualistic = {
-	cost = -3
-	advanced_trait = yes	
-	modification = yes
-	initial = no
-	opposites = { "trait_collectivistic" "trait_conformists" }
-	allowed_archetypes = { BIOLOGICAL }
-	icon = "gfx/interface/icons/traits/trait_individualistic.dds"
-	modifier = {
-		pop_government_ethic_attraction = -0.20
-		pop_consumer_goods_mult = 0.40
-	}
-}
-
-trait_collectivistic = {
-	cost = -3
-	modification = yes
-	advanced_trait = yes
-	initial = no
-	opposites = { "trait_individualistic" "trait_deviants" }
-	allowed_archetypes = { BIOLOGICAL }
-	icon = "gfx/interface/icons/traits/trait_collectivistic.dds"
-	modifier = {
-		pop_government_ethic_attraction = 0.20
-		leader_skill_levels = -2
-	}
-}

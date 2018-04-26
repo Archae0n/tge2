@@ -1,6 +1,6 @@
 planet_edict = {
 	name = "plentiful_traditions_harvest_erupt"
-	cost = { influence = 100 }
+	influence_cost = 100
 	
     effect = {
 		if = {

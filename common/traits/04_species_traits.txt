@@ -1,6 +1,5 @@
 trait_agrarian = {
 	cost = 2
-	opposites = { "trait_very_agrarian", "trait_autotrophic", "trait_toxic", "trait_gigantic" }
 	allowed_archetypes = { BIOLOGICAL }
 	modifier = {
 		tile_resource_food_mult = 0.15
@@ -9,49 +8,15 @@ trait_agrarian = {
 
 trait_very_agrarian = {
 	cost = 4
-	opposites = { "trait_agrarian", "trait_autotrophic", "trait_toxic", "trait_gigantic" }
+	opposites = { "trait_agrarian" }
 	allowed_archetypes = { BIOLOGICAL }
 	modifier = {
 		tile_resource_food_mult = 0.30
 	}
 }
 
-trait_autotrophic = {
-	cost = 2
-	opposites = { "trait_very_agrarian", "trait_agrarian", "trait_toxic", "trait_gigantic" }
-	allowed_archetypes = { BIOLOGICAL }
-	modifier = {
-		pop_environment_tolerance = 0.05
-		tile_resource_food_mult = 0.1
-	}
-}
-
-trait_toxic = {
-	cost = -1
-	initial = yes
-	randomized = yes
-	opposites = { "trait_very_agrarian", "trait_autotrophic", "trait_agrarian", "trait_gigantic" }
-	allowed_archetypes = { BIOLOGICAL }
-	modifier = {
-		tile_resource_food_mult = -0.10
-		pop_other_species_happiness = -0.03
-	}
-}
-
-trait_gigantic = {
-	cost = -2
-	initial = yes
-	randomized = yes
-	opposites = { "trait_very_agrarian", "trait_autotrophic", "trait_toxic", "trait_agrarian", "trait_minuscule" }
-	allowed_archetypes = { BIOLOGICAL }
-	modifier = {
-		pop_food_req_mult = 0.3
-	}
-}
-
 trait_thrifty = {
 	cost = 2
-	opposites = { "trait_very_thrifty", "trait_bioreactor", "trait_altruistic" }
 	allowed_archetypes = { BIOLOGICAL }
 	modifier = {
 		tile_resource_energy_mult = 0.15
@@ -60,39 +25,15 @@ trait_thrifty = {
 
 trait_very_thrifty = {
 	cost = 4
-	opposites = { "trait_thrifty", "trait_bioreactor", "trait_altruistic" }
+	opposites = { "trait_thrifty" }
 	allowed_archetypes = { BIOLOGICAL }
 	modifier = {
 		tile_resource_energy_mult = 0.30
 	}
 }
 
-trait_bioreactor = {
-	cost = 3
-	initial = yes
-	randomized = yes
-	opposites = { "trait_very_thrifty", "trait_thrifty", "trait_altruistic" }
-	allowed_archetypes = { BIOLOGICAL }
-	modifier = {
-		tile_resource_energy_mult = 0.25
-		pop_consumer_goods_mult = 0.45
-	}
-}
-
-trait_altruistic = {
-	cost = -1
-	initial = yes
-	randomized = yes
-	opposites = { "trait_very_thrifty", "trait_bioreactor", "trait_thrifty" }
-	allowed_archetypes = { BIOLOGICAL }
-	modifier = {
-		tile_resource_energy_mult = -0.10
-	}
-}
-
 trait_industrious = {
 	cost = 2
-	opposites = { "trait_very_industrious", "trait_metallotolerant", "trait_lethargic" }
 	allowed_archetypes = { BIOLOGICAL }
 	modifier = {
 		tile_resource_minerals_mult = 0.15
@@ -101,33 +42,10 @@ trait_industrious = {
 
 trait_very_industrious = {
 	cost = 4
-	opposites = { "trait_industrious", "trait_metallotolerant", "trait_lethargic" }
+	opposites = { "trait_industrious" }
 	allowed_archetypes = { BIOLOGICAL }
 	modifier = {
 		tile_resource_minerals_mult = 0.30
-	}
-}
-
-trait_metallotolerant = {
-	cost = 3
-	initial = yes
-	randomized = yes
-	opposites = { "trait_very_industrious", "trait_industrious", "trait_lethargic" }
-	allowed_archetypes = { BIOLOGICAL }
-	modifier = {
-		tile_resource_minerals_mult = 0.25
-		pop_food_req_mult = 0.30
-	}
-}
-
-trait_lethargic = {
-	cost = -1
-	initial = yes
-	randomized = yes
-	opposites = opposites = { "trait_very_industrious", "trait_metallotolerant", "trait_industrious", "trait_inert" }
-	allowed_archetypes = { BIOLOGICAL }
-	modifier = {
-		tile_resource_minerals_mult = -0.10
 	}
 }
 
@@ -141,36 +59,9 @@ trait_multidextrous = {
 	}
 }
 
-trait_inert = {
-	cost = -4
-	initial = yes
-	randomized = yes
-	advanced_trait = yes
-	opposites = { "trait_multidextrous", "trait_lethargic" }
-	allowed_archetypes = { BIOLOGICAL }
-	modifier = {
-		tile_resource_energy_mult = -0.20
-		tile_resource_minerals_mult = -0.20
-		tile_resource_food_mult = -0.20
-	}
-}
-
-trait_inquisitive = {
-	cost = 2
-	initial = yes
-	randomized = yes
-	opposites = { "trait_intelligent" "trait_highly_intelligent" "trait_simple" "trait_moronic" "trait_erudite" "trait_nerve_stapled" }
-	allowed_archetypes = { BIOLOGICAL }
-	modifier = {
-		tile_resource_physics_research_mult = 0.05
-		tile_resource_society_research_mult = 0.05
-		tile_resource_engineering_research_mult = 0.05
-	}
-}
-
 trait_intelligent = {
 	cost = 2
-	opposites = { "trait_inquisitive" "trait_highly_intelligent" "trait_simple" "trait_moronic" "trait_erudite" "trait_nerve_stapled" }
+	opposites = { "trait_nerve_stapled" "trait_erudite" }
 	allowed_archetypes = { BIOLOGICAL }
 	modifier = {
 		tile_resource_engineering_research_mult = 0.1
@@ -181,7 +72,7 @@ trait_intelligent = {
 
 trait_highly_intelligent = {
 	cost = 4
-	opposites = { "trait_inquisitive" "trait_intelligent" "trait_simple" "trait_moronic" "trait_erudite" "trait_nerve_stapled" }
+	opposites = { "trait_intelligent" "trait_nerve_stapled" "trait_erudite" }
 	allowed_archetypes = { BIOLOGICAL }
 	modifier = {
 		tile_resource_physics_research_mult = 0.20
@@ -190,38 +81,9 @@ trait_highly_intelligent = {
 	}
 }
 
-trait_simple = {
-	cost = -2
-	initial = yes
-	randomized = yes
-	opposites = { "trait_inquisitive" "trait_highly_intelligent" "trait_inquisitive" "trait_moronic" "trait_erudite" "trait_nerve_stapled" }
-	allowed_archetypes = { BIOLOGICAL }
-	modifier = {
-		leader_scientist_cost = 2.00
-		tile_resource_physics_research_mult = -0.10
-		tile_resource_society_research_mult = -0.10
-		tile_resource_engineering_research_mult = -0.10
-	}
-}
-
-trait_moronic = {
-	cost = -4
-	initial = yes
-	randomized = yes
-	advanced_trait = yes
-	opposites = { "trait_inquisitive" "trait_highly_intelligent" "trait_simple" "trait_inquisitive" "trait_erudite" "trait_nerve_stapled" }
-	allowed_archetypes = { BIOLOGICAL }
-	modifier = {
-		leader_scientist_influence_cost = 4.00
-		tile_resource_physics_research_mult = -0.25
-		tile_resource_society_research_mult = -0.25
-		tile_resource_engineering_research_mult = -0.25
-	}
-}
-
 trait_natural_engineers = {
 	cost = 1
-	opposites = { "trait_natural_physicists" "trait_natural_sociologists" "trait_ingenious" "trait_scholarly" "trait_analytical" "trait_moronic" "trait_nerve_stapled" "trait_simple"}
+	opposites = { "trait_natural_physicists" "trait_natural_sociologists" "trait_nerve_stapled" }
 	allowed_archetypes = { BIOLOGICAL }
 	modifier = {
 		tile_resource_engineering_research_mult = 0.15
@@ -230,7 +92,7 @@ trait_natural_engineers = {
 
 #trait_genius_engineers = {
 #	cost = 3
-#	opposites = { "trait_natural_engineers" "trait_natural_physicists" "trait_natural_sociologists" "trait_nerve_stapled" "trait_genius_sociologists" "trait_genius_physicists" "trait_simple"}
+#	opposites = { "trait_natural_engineers" "trait_natural_physicists" "trait_natural_sociologists" "trait_nerve_stapled" "trait_genius_sociologists" "trait_genius_physicists" }
 #	allowed_archetypes = { BIOLOGICAL }
 #	modifier = {
 #		tile_resource_engineering_research_mult = 0.45
@@ -240,7 +102,7 @@ trait_natural_engineers = {
 trait_ingenious = {
 	cost = 5
 	modification = yes
-	opposites = { "trait_natural_physicists" "trait_natural_sociologists" "trait_natural_engineers" "trait_scholarly" "trait_analytical" "trait_moronic" "trait_nerve_stapled" "trait_simple"}
+	opposites = { "trait_natural_physicists" "trait_genius_physicists" "trait_natural_sociologists" "trait_genius_sociologists" "trait_natural_engineers" "trait_genius_engineers" "trait_scholarly" "trait_analytical" "trait_moronic" "trait_imbecilic" }
 	allowed_archetypes = { BIOLOGICAL }
 	icon = "gfx/interface/icons/traits/trait_ingenious.dds"
 	modifier = {
@@ -252,7 +114,7 @@ trait_ingenious = {
 
 trait_natural_physicists = {
 	cost = 1
-	opposites = { "trait_ingenious" "trait_natural_sociologists" "trait_natural_engineers" "trait_scholarly" "trait_analytical" "trait_moronic" "trait_nerve_stapled" "trait_simple"}
+	opposites = { "trait_natural_engineers" "trait_natural_sociologists" "trait_nerve_stapled" }
 	allowed_archetypes = { BIOLOGICAL }
 	modifier = {
 		tile_resource_physics_research_mult = 0.15
@@ -271,7 +133,7 @@ trait_natural_physicists = {
 trait_analytical = {
 	cost = 5
 	modification = yes
-	opposites = { "trait_ingenious" "trait_natural_sociologists" "trait_natural_physicists" "trait_natural_engineers" "trait_scholarly" "trait_moronic" "trait_nerve_stapled" "trait_simple"}
+	opposites = { "trait_natural_physicists" "trait_genius_physicists" "trait_natural_sociologists" "trait_genius_sociologists" "trait_natural_engineers" "trait_genius_engineers" "trait_scholarly" "trait_ingenious" "trait_nerve_stapled" "trait_moronic" "trait_imbecilic" }
 	allowed_archetypes = { BIOLOGICAL }
 	icon = "gfx/interface/icons/traits/trait_analytical.dds"
 	modifier = {
@@ -283,7 +145,7 @@ trait_analytical = {
 
 trait_natural_sociologists = {
 	cost = 1
-	opposites = { "trait_ingenious" "trait_analytical" "trait_natural_engineers" "trait_natural_physicists" "trait_scholarly" "trait_moronic" "trait_nerve_stapled" "trait_simple"}
+	opposites = { "trait_natural_physicists" "trait_natural_engineers" "trait_nerve_stapled" }
 	allowed_archetypes = { BIOLOGICAL }
 	modifier = {
 		tile_resource_society_research_mult = 0.15
@@ -302,7 +164,7 @@ trait_natural_sociologists = {
 trait_scholarly = {
 	cost = 5
 	modification = yes
-	opposites = { "trait_ingenious" "trait_natural_sociologists" "trait_natural_engineers" "trait_natural_physicists" "trait_moronic" "trait_nerve_stapled" "trait_simple"}
+	opposites = { "trait_natural_physicists" "trait_genius_physicists" "trait_natural_sociologists" "trait_genius_sociologists" "trait_natural_engineers" "trait_genius_engineers" "trait_ingenious" "trait_analytical" "trait_moronic" "trait_imbecilic" }
 	allowed_archetypes = { BIOLOGICAL }
 	icon = "gfx/interface/icons/traits/trait_scholarly.dds"
 	modifier = {
@@ -312,44 +174,44 @@ trait_scholarly = {
 	}
 }
 
-#trait_multitasking = {
-#	cost = 1
-#	opposites = { "trait_natural_physicists" "trait_natural_engineers" "trait_natural_sociologists" "trait_genius_physicists" "trait_genius_engineers" "trait_genius_sociologists" }
-#	allowed_archetypes = { BIOLOGICAL }
-#	modifier = {
-#		tile_resource_engineering_research_mult = 0.05
-#		tile_resource_physics_research_mult = 0.05
-#		tile_resource_society_research_mult = 0.05
-#		
-#	}
-#}
+trait_multitasking = {
+	cost = 1
+	opposites = { "trait_natural_physicists" "trait_natural_engineers" "trait_natural_sociologists" "trait_genius_physicists" "trait_genius_engineers" "trait_genius_sociologists" }
+	allowed_archetypes = { BIOLOGICAL }
+	modifier = {
+		tile_resource_engineering_research_mult = 0.05
+		tile_resource_physics_research_mult = 0.05
+		tile_resource_society_research_mult = 0.05
+		
+	}
+}
 
-#trait_moronic = {
-#	cost = -2
-#	modification = yes
-#	opposites = { "trait_intelligent" "trait_highly_intelligent" "trait_extremely_intelligent" "trait_imbecilic" "trait_immensely_intelligent" "trait_erudite" "trait_illustrious" "trait_natural_physicists" "trait_genius_physicists" "trait_natural_sociologists" "trait_genius_sociologists" "trait_natural_engineers" "trait_genius_engineers" "trait_scholarly" "trait_analytical" "trait_ingenious" "trait_scion_of_the_fallen" "leader_trait_maniacal" }
-#	allowed_archetypes = { BIOLOGICAL }
-#	icon = "gfx/interface/icons/traits/trait_moronic.dds"
-#	modifier = {
-#		tile_resource_engineering_research_mult = -0.10
-#		tile_resource_physics_research_mult = -0.10
-#		tile_resource_society_research_mult = -0.10
-#	}
-#}
+trait_moronic = {
+	cost = -2
+	modification = yes
+	opposites = { "trait_intelligent" "trait_highly_intelligent" "trait_extremely_intelligent" "trait_imbecilic" "trait_immensely_intelligent" "trait_erudite" "trait_illustrious" "trait_natural_physicists" "trait_genius_physicists" "trait_natural_sociologists" "trait_genius_sociologists" "trait_natural_engineers" "trait_genius_engineers" "trait_scholarly" "trait_analytical" "trait_ingenious" "trait_scion_of_the_fallen" "leader_trait_maniacal" }
+	allowed_archetypes = { BIOLOGICAL }
+	icon = "gfx/interface/icons/traits/trait_moronic.dds"
+	modifier = {
+		tile_resource_engineering_research_mult = -0.10
+		tile_resource_physics_research_mult = -0.10
+		tile_resource_society_research_mult = -0.10
+	}
+}
 
-#trait_imbecilic = {
-#	cost = -6
-#	modification = yes
-#	opposites = { "trait_charismatic" "trait_intelligent" "trait_highly_intelligent" "trait_moronic" "trait_extremely_intelligent" "trait_immensely_intelligent" "trait_erudite" "trait_illustrious" "trait_natural_physicists" "trait_genius_physicists" "trait_natural_sociologists" "trait_genius_sociologists" "trait_natural_engineers" "trait_genius_engineers" "trait_scholarly" "trait_analytical" "trait_ingenious" "trait_scion_of_the_fallen" "leader_trait_spark_of_genius" "leader_trait_maniacal" "trait_quick_learners" "trait_talented" }
-#	allowed_archetypes = { BIOLOGICAL }
-#	icon = "gfx/interface/icons/traits/trait_imbecilic.dds"
-#	modifier = {
-#		tile_resource_engineering_research_mult = -0.20
-#		tile_resource_physics_research_mult = -0.20
-#		tile_resource_society_research_mult = -0.20
-#		leader_influence_cost = 0.50
-#	}
-#}
+trait_imbecilic = {
+	cost = -6
+	modification = yes
+	opposites = { "trait_charismatic" "trait_intelligent" "trait_highly_intelligent" "trait_moronic" "trait_extremely_intelligent" "trait_immensely_intelligent" "trait_erudite" "trait_illustrious" "trait_natural_physicists" "trait_genius_physicists" "trait_natural_sociologists" "trait_genius_sociologists" "trait_natural_engineers" "trait_genius_engineers" "trait_scholarly" "trait_analytical" "trait_ingenious" "trait_scion_of_the_fallen" "leader_trait_spark_of_genius" "leader_trait_maniacal" "trait_quick_learners" "trait_talented" }
+	allowed_archetypes = { BIOLOGICAL }
+	icon = "gfx/interface/icons/traits/trait_imbecilic.dds"
+	modifier = {
+		tile_resource_engineering_research_mult = -0.20
+		tile_resource_physics_research_mult = -0.20
+		tile_resource_society_research_mult = -0.20
+		leader_influence_cost = 0.50
+	}
+}
 
 trait_extremely_adaptive = {
 	cost = 4
@@ -393,36 +255,36 @@ trait_extremely_nonadaptive = {
 	}
 }
 
-trait_rapid_breeders = {
-	cost = 1
-	opposites = {"trait_very_rapid_breeders" "trait_extremely_rapid_breeders" "trait_slow_breeders" "trait_very_slow_breeders" "trait_extremely_slow_breeders" "trait_fertile" "trait_sterile"}
-	allowed_archetypes = { BIOLOGICAL }
-	modifier = {
-		pop_growth_speed = 0.20
-	}
-}
-
-trait_very_rapid_breeders = {
-	cost = 2
-	opposites = {"trait_rapid_breeders" "trait_extremely_rapid_breeders" "trait_slow_breeders" "trait_very_slow_breeders" "trait_extremely_slow_breeders" "trait_fertile" "trait_sterile"}
-	allowed_archetypes = { BIOLOGICAL }
-	modifier = {
-		pop_growth_speed = 0.30
-	}
-}
-
 trait_extremely_rapid_breeders = {
 	cost = 3
-	opposites = {"trait_very_rapid_breeders" "trait_rapid_breeders" "trait_slow_breeders" "trait_very_slow_breeders" "trait_extremely_slow_breeders" "trait_fertile" "trait_sterile"}
+	opposites = { "trait_very_rapid_breeders" "trait_rapid_breeders" "trait_slow_breeders" "trait_very_slow_breeders" "trait_extremely_slow_breeders" "trait_fertile" }
 	allowed_archetypes = { BIOLOGICAL }
 	modifier = {
 		pop_growth_speed = 0.45
 	}
 }
 
+trait_very_rapid_breeders = {
+	cost = 2
+	opposites = { "trait_rapid_breeders" "trait_slow_breeders" "trait_very_slow_breeders" "trait_extremely_slow_breeders" "trait_fertile" }
+	allowed_archetypes = { BIOLOGICAL }
+	modifier = {
+		pop_growth_speed = 0.30
+	}
+}
+
+trait_rapid_breeders = {
+	cost = 1
+	opposites = { "trait_slow_breeders" "trait_fertile" }
+	allowed_archetypes = { BIOLOGICAL }
+	modifier = {
+		pop_growth_speed = 0.20
+	}
+}
+
 trait_slow_breeders = {
 	cost = -1
-	opposites = {"trait_very_rapid_breeders" "trait_extremely_rapid_breeders" "trait_rapid_breeders" "trait_very_slow_breeders" "trait_extremely_slow_breeders" "trait_fertile" "trait_sterile"}
+	opposites = { "trait_rapid_breeders" "trait_fertile" }
 	allowed_archetypes = { BIOLOGICAL }
 	modifier = {
 		pop_growth_speed = -0.20
@@ -431,7 +293,7 @@ trait_slow_breeders = {
 
 trait_very_slow_breeders = {
 	cost = -2
-	oopposites = {"trait_very_rapid_breeders" "trait_extremely_rapid_breeders" "trait_slow_breeders" "trait_rapid_breeders" "trait_extremely_slow_breeders" "trait_fertile" "trait_sterile"}
+	opposites = { "trait_very_rapid_breeders" "trait_extremely_rapid_breeders" "trait_slow_breeders" "trait_rapid_breeders" "trait_extremely_slow_breeders" "trait_fertile" }
 	allowed_archetypes = { BIOLOGICAL }
 	modifier = {
 		pop_growth_speed = -0.30
@@ -439,28 +301,16 @@ trait_very_slow_breeders = {
 }
 trait_extremely_slow_breeders = {
 	cost = -3
-	opposites = {"trait_very_rapid_breeders" "trait_extremely_rapid_breeders" "trait_slow_breeders" "trait_very_slow_breeders" "trait_rapid_breeders" "trait_fertile" "trait_sterile"}
+	opposites = { "trait_very_rapid_breeders" "trait_extremely_rapid_breeders" "trait_slow_breeders" "trait_very_slow_breeders" "trait_rapid_breeders" "trait_fertile" }
 	allowed_archetypes = { BIOLOGICAL }
 	modifier = {
 		pop_growth_speed = -0.45
 	}
 }
 
-trait_sterile = {
-	cost = -6
-	initial = yes
-	randomized = no
-	advanced_trait = yes
-	opposites = {"trait_very_rapid_breeders" "trait_extremely_rapid_breeders" "trait_slow_breeders" "trait_very_slow_breeders" "trait_extremely_slow_breeders" "trait_fertile" "trait_rapid_breeders"}
-	allowed_archetypes = { BIOLOGICAL }
-	modifier = {
-		pop_growth_speed = -0.75
-	}
-}
-
 trait_talented = {
 	cost = 1
-	opposites = { "trait_highly_talented" "trait_illustrious" "trait_syncretic_proles"}
+	opposites = { "trait_highly_talented" "trait_greatly_talented" }
 	allowed_archetypes = { BIOLOGICAL }
 	modifier = {
 		leader_skill_levels = 1
@@ -469,43 +319,19 @@ trait_talented = {
 
 trait_highly_talented = {
 	cost = 4
-	opposites = { "trait_talented" "trait_illustrious" "trait_syncretic_proles"}
+	opposites = { "trait_talented" "trait_greatly_talented" }
 	allowed_archetypes = { BIOLOGICAL }
 	modifier = {
 		leader_skill_levels = 2
 	}
 }
 
-trait_illustrious = {
-	cost = 6
-	modification = yes
-	opposites = { "trait_talented" "trait_illustrious" "trait_syncretic_proles"}
-	allowed_archetypes = { BIOLOGICAL }
-	icon = "gfx/interface/icons/traits/trait_illustrious.dds"
-	modifier = {
-		leader_skill_levels = 3
-		leader_cost = -.10
-	}
-}
-
-trait_strategic = {
-	cost = 2
-	initial = yes
-	randomized = yes
-	opposites = {"trait_undisciplined" "trait_syncretic_proles" }
+trait_extremely_quick_learners = {
+	cost = 3
+	opposites = { "trait_very_quick_learners" "trait_quick_learners" "trait_slow_learners" "trait_very_slow_learners" "trait_extremely_slow_learners" }
 	allowed_archetypes = { BIOLOGICAL }
 	modifier = {
-		admiral_skill_levels = 2
-		general_skill_levels = 2
-	}
-}
-
-trait_quick_learners = {
-	cost = 1
-	opposites = { "trait_slow_learners" }
-	allowed_archetypes = { BIOLOGICAL }
-	modifier = {
-		species_leader_exp_gain = 0.25
+		species_leader_exp_gain = 0.75
 	}
 }
 
@@ -518,12 +344,12 @@ trait_very_quick_learners = {
 	}
 }
 
-trait_extremely_quick_learners = {
-	cost = 3
-	opposites = { "trait_very_quick_learners" "trait_quick_learners" "trait_slow_learners" "trait_very_slow_learners" "trait_extremely_slow_learners" }
+trait_quick_learners = {
+	cost = 1
+	opposites = { "trait_slow_learners" }
 	allowed_archetypes = { BIOLOGICAL }
 	modifier = {
-		species_leader_exp_gain = 0.75
+		species_leader_exp_gain = 0.25
 	}
 }
 
@@ -898,26 +724,17 @@ trait_very_fleeting = {
 	opposites = { "trait_venerable" "trait_ethereal" "trait_enduring" "trait_fleeting" "trait_shroudborn" }
 	allowed_archetypes = { BIOLOGICAL }
 	modifier = { 
-		leader_age = -25 
-	}
-}
-
-trait_minuscule = {
-	cost = -2
-	initial = yes
-	randomized = yes
-	opposites = { "trait_syncretic_proles" "trait_gigantic" "trait_xte_robust" "trait_xte_venerable" "trait_enduring" "trait_redundant_organs" "trait_immunodeficient" "trait_fleeting" }
-	allowed_archetypes = { BIOLOGICAL }
-	modifier = {
-		leader_age = -10
-		pop_growth_speed = -0.15
+		leader_age = -30 
 	}
 }
 
 trait_decadent = {
 	cost = -1
+	
 	opposites = { "trait_hive_mind" }
+
 	allowed_archetypes = { BIOLOGICAL }
+	
 	modifier = {
 		pop_eff_wo_slaves = -0.1
 	}
@@ -979,14 +796,14 @@ trait_valiant = {
 		army_morale = 0.4
 	}
 }
-#trait_craven = {
-#	cost = -2
-#	opposites = { "trait_valiant" }
-#	allowed_archetypes = { BIOLOGICAL }	
-#	modifier = {
-#		army_morale = -0.4
-#	}
-#}
+trait_craven = {
+	cost = -2
+	opposites = { "trait_valiant" }
+	allowed_archetypes = { BIOLOGICAL }	
+	modifier = {
+		army_morale = -0.4
+	}
+}
 
 trait_conservational = {
 	cost = 1
@@ -1006,369 +823,6 @@ trait_wasteful = {
 	}
 	ai_weight = {
 		weight = 0
-	}
-}
-
-trait_carnivorous = {
-	cost = 1
-	opposites = { "trait_herbivorous" "trait_autotrophic" "trait_extreme_omnivore" }
-	allowed_archetypes = { BIOLOGICAL }
-	modifier = {
-		army_damage_mult = 0.1
-		tile_resource_food_mult = -0.1
-	}
-}
-
-trait_herbivorous = {
-	cost = 1
-	opposites = { "trait_carnivorous" "trait_autotrophic" "trait_extreme_omnivore" "trait_cannibalistic" }
-	allowed_archetypes = { BIOLOGICAL }
-	modifier = {
-		pop_food_req_mult = -0.1
-		army_damage_mult = -0.1
-	}
-}
-
-trait_electrovore = {
-	cost = -1
-	opposites = { "trait_bioelectrogenesis" }
-	allowed_archetypes = { BIOLOGICAL }
-	modifier = {
-		pop_food_req_mult = -0.25
-		tile_resource_energy_mult = -0.2
-	}
-}
-
-trait_bioelectrogenesis = {
-	cost = -1
-	opposites = { "trait_electrovore" }
-	allowed_archetypes = { BIOLOGICAL }
-	modifier = {
-		pop_food_req_mult = 0.2
-		tile_resource_energy_mult = 0.1
-	}
-}
-
-trait_scavengers = {
-	cost = 1
-	allowed_archetypes = { BIOLOGICAL }
-	modifier = {
-		science_ship_survey_speed = 0.1
-		ship_evasion_mult = 0.1
-	}
-}
-
-trait_subterranean = {
-	cost = 1
-	allowed_archetypes = { BIOLOGICAL }
-	modifier = {
-		army_defense_damage_mult = 0.1
-		planet_building_cost_mult = -0.1
-	}
-}
-
-trait_amphibious = {
-	cost = 1
-	opposites = { "trait_hydrophobic" }
-	allowed_archetypes = { BIOLOGICAL }
-	modifier = {
-		pc_tropical_habitability = 0.05
-		pc_ocean_habitability = 0.05
-		pc_continental_habitability = 0.05
-	}
-}
-
-#trait_parthenogenetic = {
-#	cost = 3
-#	opposites = { "trait_rapid_breeders" "trait_slow_breeders" "trait_very_rapid_breeders" "trait_extremely_rapid_breeders" "trait_very_slow_breeders" "trait_extremely_slow_breeders" "trait_fertile"}
-#	allowed_archetypes = { BIOLOGICAL }
-#	valid_for_all_ethics = no
-#	allowed_ethics = {
-#		ethic_authoritarian
-#		ethic_fanatic_authoritarian
-#		ethic_egalitarian
-#		ethic_fanatic_egalitarian
-#		ethic_xenophobe
-#		ethic_fanatic_xenophobe
-#		ethic_xenophile
-#		ethic_fanatic_xenophile
-#		ethic_materialist
-#		ethic_fanatic_materialist
-#		ethic_spiritualist
-#		ethic_fanatic_spiritualist
-#		ethic_militarist
-#		ethic_fanatic_militarist
-#		ethic_pacifist
-#		ethic_fanatic_pacifist
-#	}
-#	modifier = {
-#		pop_growth_speed = 0.40
-#		pop_government_ethic_attraction = -0.25
-#	}
-#}
-
-#trait_toxic = {
-#	cost = 1
-#	allowed_archetypes = { BIOLOGICAL }
-#	modifier = {
-#		army_damage_mult = 0.20
-#		pop_environment_tolerance = -0.10
-#		pc_nuked_habitability = 0.1
-#	}
-#}
-
-
-trait_violent = {
-	cost = 1
-	allowed_archetypes = { BIOLOGICAL }
-	modifier = {
-		army_damage_mult = 0.10
-		leader_age = -5
-	}
-}
-
-#trait_gigantic = {
-#	cost = -2
-#	modification = yes
-#	allowed_archetypes = { BIOLOGICAL }
-#	opposites = { "trait_weak" }
-#	icon = "gfx/interface/icons/traits/trait_gigantic.dds"
-#	modifier = {
-#		army_damage_mult = 0.75
-#		pop_food_req_mult = 0.50
-#		pop_growth_speed = -0.25
-#	}
-#}
-
-#trait_predator = {
-#	cost = 5
-#	modification = yes
-#	allowed_archetypes = { BIOLOGICAL }
-#	opposites = { "trait_weak" }
-#	icon = "gfx/interface/icons/traits/trait_predator.dds"
-#	modifier = {
-#		army_attack_damage_mult = 0.50
-#		army_defense_damage_mult = 0.20
-#	}
-#}
-
-trait_cannibalistic = {
-	cost = -2
-	allowed_archetypes = { BIOLOGICAL }
-	modifier = {
-		pop_growth_speed = -0.10
-		pop_other_species_happiness = -0.10
-	}
-}
-
-trait_epimorphosis = {
-	cost = 2
-	allowed_archetypes = { BIOLOGICAL }
-	modifier = {
-		army_health = 0.2
-		army_upkeep_mult = -0.2
-	}
-}
-
-trait_politically_adept = {
-	cost = 2
-	allowed_archetypes = { BIOLOGICAL }	
-	modifier = {
-		faction_influence_mult = 0.3
-		diplomacy_influence_cost = -0.25
-	}
-}
-
-trait_voices_in_the_dark = {
-	cost = 3
-	modification = yes
-	allowed_archetypes = { BIOLOGICAL }
-	valid_for_all_ethics = no
-	allowed_ethics = {
-		ethic_spiritualist
-		ethic_fanatic_spiritualist
-	}
-}
-
-#trait_scion_of_the_fallen = {
-#	cost = 4
-#	modification = no
-#	allowed_archetypes = { BIOLOGICAL }
-#	opposites = { "leader_trait_eager" "trait_imbecilic" "trait_moronic" "trait_nerve_stapled" }
-#	icon = "gfx/interface/icons/traits/trait_scion_of_the_fallen.dds"
-#	modifier = {
-#		tile_resource_unity_mult = 0.30
-#		leader_scientist_influence_cost = -0.75
-#	}
-#}
-
-trait_relic_of_the_past = {
-	cost = 1
-	allowed_archetypes = { BIOLOGICAL }
-	modifier = {
-		num_tech_alternatives_add = 1
-	}
-}
-
-trait_quick_reflexes = {
-	cost = 2
-	allowed_archetypes = { BIOLOGICAL }
-	modifier = {
-		weapon_type_kinetic_weapon_fire_rate_mult = 0.05
-		weapon_type_energy_weapon_fire_rate_mult = 0.05
-		weapon_type_explosive_weapon_fire_rate_mult = 0.05
-	}
-}
-
-trait_natural_architects = {
-	cost = 1
-	opposites = { "trait_incompetent_architects" }
-	allowed_archetypes = { BIOLOGICAL }
-	modifier = {
-		building_time_mult = -0.05
-		planet_building_cost_mult = -0.1
-	}
-}
-
-trait_incompetent_architects = {
-	cost = -1
-	opposites = { "trait_natural_architects" }
-	allowed_archetypes = { BIOLOGICAL }
-	modifier = {
-		building_time_mult = 0.05
-		planet_building_cost_mult = 0.1
-	}
-}
-
-trait_destructive = {
-	cost = -2
-	modification = yes
-	opposites = { "trait_charismatic" "trait_communal" "trait_illustrious" }
-	allowed_archetypes = { BIOLOGICAL }
-	icon = "gfx/interface/icons/traits/trait_destructive.dds"
-	modifier = {
-		army_collateral_damage_mult = 0.20
-		pop_happiness = -0.10
-		pop_other_species_happiness = -0.10
-	}
-}
-
-#trait_compliant = {
-#	cost = 2
-#	opposites = { "trait_deferential" "trait_quarrelsome" "trait_combative" }
-#	allowed_archetypes = { BIOLOGICAL }	
-#	modifier = {
-#		tile_resource_unity_mult = 0.20
-#	}
-#}
-#
-#trait_deferential = {
-#	cost = 1
-#	opposites = { "trait_compliant" "trait_quarrelsome" "trait_combative" }
-#	allowed_archetypes = { BIOLOGICAL }	
-#	modifier = {
-#		tile_resource_unity_mult = 0.10
-#	}
-#}
-#
-#
-#trait_quarrelsome = {
-#	cost = -1
-#	opposites = { "trait_compliant" "trait_deferential" "trait_combative" }
-#	allowed_archetypes = { BIOLOGICAL }	
-#	modifier = {
-#		tile_resource_unity_mult = -0.10
-#	}
-#}
-#
-#trait_combative = {
-#	cost = -2
-#	opposites = { "trait_compliant" "trait_quarrelsome" "trait_deferential" }
-#	allowed_archetypes = { BIOLOGICAL }	
-#	modifier = {
-#		tile_resource_unity_mult = -0.20
-#	}
-#}
-
-#trait_ambitious = {
-#	cost = 4
-#	modification = yes
-#	opposites = { "trait_collectivistic" "trait_apathetic" }
-#	allowed_archetypes = { BIOLOGICAL }
-#	icon = "gfx/interface/icons/traits/trait_ambitious.dds"
-#	modifier = {
-#		pop_environment_tolerance = 0.15
-#		pop_migration_speed = 1.00
-#	}
-#}
-
-#trait_apathetic = {
-#	cost = -2
-#	modification = yes
-#	opposites = { "trait_ambitious" }
-#	allowed_archetypes = { BIOLOGICAL }
-#	icon = "gfx/interface/icons/traits/trait_apathetic.dds"
-#	modifier = {
-#		leader_influence_cost = 1.00
-#	}
-#}
-
-#trait_tomb_preference = {
-#	icon = "gfx/interface/icons/traits/trait_pc_nuked_preference.dds"
-#	cost = 1
-#	opposites = { "trait_toxic" }
-#	allowed_archetypes = { BIOLOGICAL }
-#	modifier = {
-#		pc_nuked_habitability = 0.80
-#	}
-#}
-
-########################
-### Hive Mind Traits ###
-########################
-
-trait_organic_buildings = {
-	cost = 2
-	opposites = { "trait_incompetent_architects" "trait_natural_architects" }
-	allowed_archetypes = { BIOLOGICAL }
-	valid_for_all_ethics = no
-	allowed_ethics = {
-		ethic_gestalt_consciousness
-	}
-	modifier = {
-		building_time_mult = 0.50
-		planet_building_cost_mult = -0.75
-	}
-}
-
-trait_autonomy = {
-	cost = 2
-	opposites = { "trait_extremely_agrarian" "trait_extremely_industrious" "trait_extremely_thrifty" }
-	allowed_archetypes = { BIOLOGICAL }
-	valid_for_all_ethics = no
-	allowed_ethics = {
-		ethic_gestalt_consciousness
-	}
-	modifier = {
-		tile_resource_unity_mult = -0.10
-		tile_resource_food_mult = 0.10
-		tile_resource_energy_mult = 0.10
-		tile_resource_minerals_mult = 0.10
-	}	
-}
-
-trait_parasitic = {
-	cost = 3
-	allowed_archetypes = { BIOLOGICAL }
-	valid_for_all_ethics = no
-	allowed_ethics = {
-		ethic_gestalt_consciousness
-	}
-	modifier = {
-		tile_resource_engineering_research_mult = 0.05
-		tile_resource_physics_research_mult = 0.05
-		tile_resource_society_research_mult = 0.05
-		tile_resource_energy_mult = 0.05
 	}
 }
 
@@ -1583,6 +1037,73 @@ trait_apex_predator = {
 	}
 }
 
+trait_analytical = {
+	cost = 4
+	initial = yes
+	randomized = yes
+	advanced_trait = yes
+	opposites = { "trait_simple" "trait_moronic" "trait_natural_physicists" "trait_natural_sociologists" "trait_natural_engineers" "trait_nerve_stapled" "trait_scholarly" "trait_ingenious" "trait_syncretic_proles" }
+	allowed_archetypes = { BIOLOGICAL }
+	modifier = {
+		tile_resource_physics_research_mult = 0.50
+		tile_resource_engineering_research_mult = -0.10
+		tile_resource_society_research_mult = -0.10
+	}
+}
+
+trait_scholarly = {
+	cost = 4
+	initial = yes
+	randomized = yes
+	advanced_trait = yes
+	opposites = { "trait_simple" "trait_moronic" "trait_natural_physicists" "trait_natural_sociologists" "trait_natural_engineers" "trait_nerve_stapled" "trait_analytical" "trait_ingenious" "trait_syncretic_proles" }
+	allowed_archetypes = { BIOLOGICAL }
+	modifier = {
+		tile_resource_physics_research_mult = -0.10
+		tile_resource_society_research_mult = 0.50
+		tile_resource_engineering_research_mult = -0.10
+	}
+}
+
+trait_ingenious = {
+	cost = 4
+	initial = yes
+	randomized = yes
+	advanced_trait = yes
+	opposites = { "trait_simple" "trait_moronic" "trait_natural_physicists" "trait_natural_sociologists" "trait_natural_engineers" "trait_nerve_stapled" "trait_analytical" "trait_scholarly" "trait_syncretic_proles" }
+	allowed_archetypes = { BIOLOGICAL }
+	modifier = {
+		tile_resource_physics_research_mult = -0.10
+		tile_resource_society_research_mult = -0.10
+		tile_resource_engineering_research_mult = 0.50
+
+	}
+}
+
+trait_bioreactor = {
+	cost = 3
+	initial = yes
+	randomized = yes
+	opposites = { "trait_syncretic_proles" }
+	allowed_archetypes = { BIOLOGICAL }
+	modifier = {
+		tile_resource_energy_mult = 0.25
+		pop_consumer_goods_mult = 0.45
+	}
+}
+
+trait_metallotolerant = {
+	cost = 3
+	initial = yes
+	randomized = yes
+	opposites = { "trait_syncretic_proles" }
+	allowed_archetypes = { BIOLOGICAL }
+	modifier = {
+		tile_resource_minerals_mult = 0.25
+		pop_food_req_mult = 0.30
+	}
+}
+
 trait_unbound = {
 	cost = 5
 	initial = yes
@@ -1607,6 +1128,32 @@ trait_oligotroph = {
 		pop_consumer_goods_mult = -0.45
 		tile_resource_energy_mult = -0.10
 		tile_resource_minerals_mult = -0.10
+	}
+}
+
+trait_strategic = {
+	cost = 2
+	initial = yes
+	randomized = yes
+	opposites = { "trait_moronic" "trait_undisciplined" "trait_syncretic_proles" }
+	allowed_archetypes = { BIOLOGICAL }
+	modifier = {
+		admiral_skill_levels = 2
+		general_skill_levels = 2
+	}
+}
+
+trait_inquisitive = {
+	cost = 2
+	initial = yes
+	randomized = yes
+	opposites = { "trait_simple" "trait_moronic" "trait_syncretic_proles" }
+	allowed_archetypes = { BIOLOGICAL }
+	modifier = {
+		leader_scientist_influence_cost = -0.25
+		tile_resource_physics_research_mult = 0.05
+		tile_resource_society_research_mult = 0.05
+		tile_resource_engineering_research_mult = 0.05
 	}
 }
 
@@ -1694,6 +1241,41 @@ trait_cowardly = {
 	}
 }
 
+trait_altruistic = {
+	cost = -1
+	initial = yes
+	randomized = yes
+	opposites = { "trait_thrifty" "trait_inert" }
+	allowed_archetypes = { BIOLOGICAL }
+	modifier = {
+		tile_resource_energy_mult = -0.10
+	}
+}
+
+trait_lethargic = {
+	cost = -1
+	initial = yes
+	randomized = yes
+	opposites = { "trait_industrious" "trait_inert" }
+	allowed_archetypes = { BIOLOGICAL }
+	modifier = {
+		tile_resource_minerals_mult = -0.10
+	}
+}
+
+
+trait_toxic = {
+	cost = -1
+	initial = yes
+	randomized = yes
+	opposites = { "trait_agrarian" "trait_inert" }
+	allowed_archetypes = { BIOLOGICAL }
+	modifier = {
+		tile_resource_food_mult = -0.10
+		pop_other_species_happiness = -0.03
+	}
+}
+
 trait_allergies = {
 	cost = -1
 	initial = yes
@@ -1702,6 +1284,43 @@ trait_allergies = {
 	allowed_archetypes = { BIOLOGICAL }
 	modifier = {
 		pop_resource_output = -0.03
+	}
+}
+
+trait_simple = {
+	cost = -2
+	initial = yes
+	randomized = yes
+	opposites = { "trait_syncretic_proles" "trait_natural_physicists" "trait_natural_sociologists" "trait_natural_engineers" "trait_intelligent" "trait_xte_erudite" "trait_inquisitive" "trait_moronic" }
+	allowed_archetypes = { BIOLOGICAL }
+	modifier = {
+		leader_scientist_cost = 2.00
+		tile_resource_physics_research_mult = -0.10
+		tile_resource_society_research_mult = -0.10
+		tile_resource_engineering_research_mult = -0.10
+	}
+}
+
+trait_gigantic = {
+	cost = -2
+	initial = yes
+	randomized = yes
+	opposites = { "trait_syncretic_proles" "trait_minuscule" "trait_rapid_breeders" }
+	allowed_archetypes = { BIOLOGICAL }
+	modifier = {
+		pop_food_req_mult = 0.50
+		pop_growth_speed = -0.20
+	}
+}
+
+trait_minuscule = {
+	cost = -2
+	initial = yes
+	randomized = yes
+	opposites = { "trait_syncretic_proles" "trait_gigantic" "trait_xte_robust" "trait_xte_venerable" "trait_enduring" "trait_redundant_organs" "trait_immunodeficient" "trait_fleeting" }
+	allowed_archetypes = { BIOLOGICAL }
+	modifier = {
+		leader_age = -30
 	}
 }
 
@@ -1754,6 +1373,35 @@ trait_sadistic = {
 	}
 }
 
+trait_inert = {
+	cost = -4
+	initial = yes
+	randomized = yes
+	advanced_trait = yes
+	opposites = { "trait_syncretic_proles" "trait_agrarian" "trait_industrious" "trait_thrifty" "trait_lethargic" "trait_altruistic" }
+	allowed_archetypes = { BIOLOGICAL }
+	modifier = {
+		tile_resource_energy_mult = -0.20
+		tile_resource_minerals_mult = -0.20
+		tile_resource_food_mult = -0.20
+	}
+}
+
+trait_moronic = {
+	cost = -4
+	initial = yes
+	randomized = yes
+	advanced_trait = yes
+	opposites = { "trait_syncretic_proles" "trait_inquisitive" "trait_strategic" "trait_simple" "trait_intelligent" "trait_xte_erudite" "trait_natural_engineers" "trait_natural_physicists" "trait_natural_sociologists" "trait_analytical" "trait_scholarly" "trait_ingenious" }
+	allowed_archetypes = { BIOLOGICAL }
+	modifier = {
+		leader_scientist_influence_cost = 4.00
+		tile_resource_physics_research_mult = -0.25
+		tile_resource_society_research_mult = -0.25
+		tile_resource_engineering_research_mult = -0.25
+	}
+}
+
 trait_endemic = {
 	cost = -5
 	initial = yes
@@ -1778,5 +1426,17 @@ trait_hedonists = {
 	modifier = {
 		pop_food_req_mult = 0.75
 		pop_consumer_goods_mult = 1.25
+	}
+}
+
+trait_sterile = {
+	cost = -6
+	initial = yes
+	randomized = no
+	advanced_trait = yes
+	opposites = { "trait_syncretic_proles" "trait_slow_breeders" "trait_rapid_breeders" "trait_xte_fertile" }
+	allowed_archetypes = { BIOLOGICAL }
+	modifier = {
+		pop_growth_speed = -0.75
 	}
 }

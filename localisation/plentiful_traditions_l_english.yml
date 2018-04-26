@@ -41,7 +41,7 @@ tr_plentiful_mysticism_4_desc:0 "§Y$country_resource_unity_mult$§! increased b
 tr_plentiful_mysticism_4_delayed:0 "Abscence of compassion, frugality and modesty may lead to a future that is dark and empty."
 
 tr_plentiful_mysticism_5:0 "Unwavering Will"
-tr_plentiful_mysticism_5_desc:1 "§Y$damage_vs_country_type_ai_empire_mult$§! increased by §G+15%§!.\n\n§HUnlocks Building:§! £building  $building_plentiful_traditions_sanctum_of_keys$, an empire unique building that produces  £unity  §YUnity§! and granting empire-wide £unity  §YUnity§! bonus and increasing Spiritualist governing attraction."
+tr_plentiful_mysticism_5_desc:1 "§Y$damage_vs_country_type_ai_empire_mult$§! increased by §G+15%§!.\n\n§HUnlocks Building:§! £building  $building_plentiful_traditions_sanctum_of_keys$, a planet unique building that slightly increases the planet's £happiness  §Y$MOD_POP_HAPPINESS$§!, §Y$MOD_POP_ENVIRONMENT_TOLERANCE$§! and produces £unity  §YUnity§!."
 tr_plentiful_mysticism_5_delayed:0 "Embrace the Keys of Life to avoid an obsession with power or self-interest."
 
 # Mysticism Swapped
