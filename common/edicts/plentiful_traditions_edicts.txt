@@ -28,10 +28,9 @@ country_edict = {
 	modifier = {
 		pop_consumer_goods_mult = -0.2
 	}
-	
-	influence_cost = 1
-	
-	potential = {
+	length = 3600	
+	cost = { influence = 100 }
+		potential = {
 		has_tradition = tr_plentiful_industry_5
 	}
 

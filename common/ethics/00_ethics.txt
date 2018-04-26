@@ -23,7 +23,7 @@ ethic_fanatic_authoritarian = {
 		country_resource_influence_add = 1.15
 		planet_unrest_mult = -0.15	
 		pop_slave_resource_output = 0.10
-		country_resource_energy_mult = -0.03		
+		country_resource_energy_mult = -0.08		
 	}
 	
 	tags = {
