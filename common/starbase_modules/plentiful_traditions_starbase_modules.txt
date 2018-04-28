@@ -1,30 +1,33 @@
 orbital_fracking_cannon = {
 	icon = "GFX_orbital_fracking_cannon"
-	section = "ASSEMBLYYARD_SPACEPORT_SECTION"
+	section = "ASSEMBLYYARD_STARBASE_SECTION"
 	construction_days = 180
-	prerequisites = { "tech_plentiful_traditions_orbital_fracking_cannon" }
-	spaceport_level = 1
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_plentiful_traditions_orbital_fracking_cannon }
+	}
 	
 	cost = {
-		minerals = 75
-		energy = 25
+		minerals = 100
 	}	
 	
 	produced_resources = {
 		minerals = 3
 	}
 	
-	required_resources = {
+	upkeep_resources = {
 		energy = 1.5
 	}
 }
 
 orbital_trading_beacon = {
 	icon = "GFX_orbital_trading_beacon"
-	section = "ASSEMBLYYARD_SPACEPORT_SECTION"
+	section = "ASSEMBLYYARD_STARBASE_SECTION"
 	construction_days = 180
-	prerequisites = { "tech_plentiful_traditions_orbital_trading_beacon" }
-	spaceport_level = 1
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_plentiful_traditions_orbital_trading_beacon }
+	}
 	
 	cost = {
 		minerals = 100
@@ -33,10 +36,10 @@ orbital_trading_beacon = {
 	}	
 	
 	produced_resources = {
-		energy = 1
+		energy = 4
 	}
 	
-	planet_modifier = {
+	system_modifier = {
 		tile_resource_energy_mult = 0.05
 	}
 }

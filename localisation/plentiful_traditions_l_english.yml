@@ -420,7 +420,7 @@ tr_plentiful_aspiration_2_desc:1 "§Y$MOD_COUNTRY_TRUST_GROWTH$§! increased by 
 tr_plentiful_aspiration_2_delayed:0 "Remember past ventures and acts of kindness, as they will remember you."
 
 tr_plentiful_aspiration_3:0 "Persuasion"
-tr_plentiful_aspiration_3_desc:0 "§Y$MOD_COUNTRY_TRADE_ATTRACTIVENESS$§! increased by §G+5%§! for every §Y2§! types of §YStrategic Resources§! under our control. This can stack by up to §Y8§! times for a total of §G+40%§!."
+tr_plentiful_aspiration_3_desc:0 "Trading Hubs now also grant §G+1§! £minerals  §YMineral§! bonus in addition to their  £energy  §YEnergy§! bonuses."
 tr_plentiful_aspiration_3_delayed:0 "Take what you must, but think of greater returns one cannot yet see."
 
 tr_plentiful_aspiration_4:0 "Intrinsic Value"

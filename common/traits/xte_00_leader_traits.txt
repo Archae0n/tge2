@@ -12,7 +12,20 @@ trait_leader_wisdom_of_the_ages = {
 
 	leader_class = { admiral scientist general governor }
 	leader_trait = yes
-	requires_traits = { trait_xte_venerable }
+	requires_traits = { trait_shroudborn }
+}
+
+trait_leader_wisdom_of_the_ages2 = {
+	cost = 1
+	modification = no
+	icon = "gfx/interface/icons/traits/leader_traits/trait_leader_wisdom_of_the_ages.dds"
+	self_modifier = {
+		leader_skill_levels = 1
+	}
+
+	leader_class = { admiral scientist general governor }
+	leader_trait = yes
+	requires_traits = { trait_ethereal }
 }
 
 trait_leader_negligible_senescence = {

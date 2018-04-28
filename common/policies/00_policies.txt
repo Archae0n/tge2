@@ -104,10 +104,10 @@ economy = {
 		
 		modifier = {
 		
-		             country_resource_energy_mult = 0.08
-					 planet_building_upkeep_mult = -0.08	
-					 ship_upkeep_mult = -0.08
-					 country_resource_unity_mult = -0.15
+		             country_resource_energy_mult = 0.1
+					 planet_building_upkeep_mult = -0.1	
+					 ship_upkeep_mult = -0.1
+					 country_resource_unity_mult = -0.1
 
 		}	
 

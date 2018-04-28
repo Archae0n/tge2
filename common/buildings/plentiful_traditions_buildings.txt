@@ -841,25 +841,23 @@ building_plentiful_traditions_obelisk3 = {
 }
 
 building_plentiful_traditions_sanctum_of_keys = {
-	base_buildtime = 300
+	base_buildtime = 360
 	planet_unique = yes
-	
+	empire_unique = yes
 	cost = {
-		minerals = 275
-		influence = 50
+		minerals = 300
 	}
 	
 	required_resources = {
 		energy = 2
-#		food = 1
 	}
 	
 	produced_resources = {
-		unity = 6
+		unity = 8
 	}
 	
 	country_modifier = {
-#
+		country_resource_unity_mult = 0.05
 	}
 	
 	adjacency_bonus = {
@@ -867,8 +865,7 @@ building_plentiful_traditions_sanctum_of_keys = {
 	}
 	
 	planet_modifier  = {
-		pop_happiness = 0.05
-		pop_environment_tolerance = 0.05
+		pop_ethic_spiritualist_attraction_mult = 0.15
 	}
 	
 	potential = {
@@ -909,13 +906,11 @@ building_plentiful_traditions_sanctum_of_the_collective = {
 	planet_unique = yes
 	
 	cost = {
-		minerals = 275
-		influence = 50
+		minerals = 300
 	}
 	
 	required_resources = {
 		energy = 2
-#		food = 1
 	}
 	
 	produced_resources = {

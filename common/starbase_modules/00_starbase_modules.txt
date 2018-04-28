@@ -165,6 +165,16 @@ trading_hub = {
 	produced_resource_trigger = {
 		modifier = {
 			hidden_trigger = { exists = this }
+			owner = { has_ethic = ethic_capitalism } 
+			resources = { energy = 0.5 }
+		}
+		modifier = {
+			hidden_trigger = { exists = this }
+			owner = { has_ethic = ethic_fanatic_capitalism } 
+			resources = { energy = 1 }
+		}
+		modifier = {
+			hidden_trigger = { exists = this }
 			has_starbase_building = offworld_trading_company
 			resources = { energy = 2 }
 		}
@@ -177,6 +187,11 @@ trading_hub = {
 			hidden_trigger = { exists = this }
 			owner = { has_non_swapped_tradition = tr_prosperity_trans_stellar_corporations }
 			resources = { energy = 1 }
+		}
+		modifier = {
+			hidden_trigger = { exists = this }
+			owner = { has_tradition = tr_plentiful_aspiration_3 }
+			resources = { minerals = 1 }
 		}
 		modifier = {
 			hidden_trigger = { exists = this }

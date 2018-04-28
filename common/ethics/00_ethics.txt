@@ -23,7 +23,7 @@ ethic_fanatic_authoritarian = {
 		country_resource_influence_add = 1.15
 		planet_unrest_mult = -0.15	
 		pop_slave_resource_output = 0.10
-		country_resource_energy_mult = -0.03		
+		country_resource_energy_mult = -0.08		
 	}
 	
 	tags = {
@@ -966,9 +966,8 @@ ethic_fanatic_xenophile = {
 	
 	country_modifier = {
 
-		country_border_friction_mult = -0.5
-		diplomacy_influence_cost = -0.35		
-		country_trust_growth = 0.35
+		country_resource_unity_mult = 0.30
+		diplomacy_influence_cost = -0.40		
 		rivalry_influence_gain = -0.35			
 	}
 	
@@ -994,7 +993,7 @@ ethic_xenophile = {
 	}
 	
 	country_modifier = {
-		country_border_friction_mult = -0.25
+		country_resource_unity_mult = 0.10
 		diplomacy_influence_cost = -0.25
 	}
 	
