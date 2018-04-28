@@ -161,7 +161,9 @@ trading_hub = {
 	potential = { exists = owner }
 	possible = { requires_trade_planet = yes }
 	cost = { minerals = 100 }
-	produced_resources = { energy = 4 }
+	produced_resources = { 
+	energy = 4 
+	}
 	produced_resource_trigger = {
 		modifier = {
 			hidden_trigger = { exists = this }
@@ -190,7 +192,7 @@ trading_hub = {
 		}
 		modifier = {
 			hidden_trigger = { exists = this }
-			owner = { has_tradition = tr_plentiful_aspiration_3 }
+			owner = { has_non_swapped_tradition = tr_plentiful_aspiration_3 }
 			resources = { minerals = 1 }
 		}
 		modifier = {

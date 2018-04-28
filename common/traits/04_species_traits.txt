@@ -30,8 +30,8 @@ trait_autotrophic = {
 	opposites = { "trait_extreme_omnivore" "trait_carnivorous" "trait_herbivorous" }
 	allowed_archetypes = { BIOLOGICAL }
 	modifier = {
-		pop_environment_tolerance = 0.1
-		tile_resource_food_mult = 0.1
+		pop_environment_tolerance = 0.05
+		tile_resource_food_mult = 0.05
 	}
 }
 
