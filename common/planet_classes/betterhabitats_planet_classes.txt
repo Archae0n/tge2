@@ -32,7 +32,7 @@ pc_ringworld_habitable = {
 	orbit_lines = no
 	has_colonization_influence_cost = no		# applies when within own borders
 	modifier = {
-		pop_resource_output = 0.05
+		pop_resource_output = 0.25
 	}
 }
 
@@ -61,4 +61,7 @@ pc_habitat = {
 	starting_planet = no
 	orbit_lines = no
 	has_colonization_influence_cost = no			# applies when within own borders
+	modifier = {
+		pop_resource_output = 0.20
+	}	
 }

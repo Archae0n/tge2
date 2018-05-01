@@ -125,5 +125,31 @@ country_event = {
 			}
 		}
 		set_country_flag = already_built_habitat
+		
+		#Give Voidborne Empires Betterhabitat Building Techs
+		give_technology = {
+			message = no
+			tech = tech_microgravity_fabricators
+		}
+		give_technology = {
+			message = no
+			tech = tech_improved_solar_power_processor
+		}
+		give_technology = {
+			message = no
+			tech = tech_improved_astro_mining_bay
+		}
+		give_technology = {
+			message = no
+			tech = tech_isotope_refinery
+		}
+		give_technology = {
+			message = no
+			tech = tech_improved_aeroponics_facility
+		}
+		give_technology = {
+			message = no
+			tech = tech_starbase_3
+		}
 	}
 }

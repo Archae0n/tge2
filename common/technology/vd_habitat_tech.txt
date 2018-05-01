@@ -46,53 +46,6 @@
 ### Engineering ###
 ###################
 
-# Orbital Redevelopment
-tech_orbital_redevelopment = {
-	area = engineering
-	tier = 4
-	category = { voidcraft }
-	cost = @tier4cost2
-	weight = @tier4weight2
-	
-	is_rare = yes
-	
-	potential = { has_ascension_perk = ap_voidborn }
-	
-	weight_modifier = {
-		modifier = {
-			factor = 0.33
-			NOR = {
-				research_leader = {
-					area = engineering
-					has_trait = "leader_trait_curator"
-				}
-				research_leader = {
-					area = engineering
-					has_trait = "leader_trait_spark_of_genius"
-				}
-				research_leader = {
-					area = engineering
-					has_trait = "leader_trait_expertise_voidcraft"
-				}
-			}
-		}
-		modifier = {
-			factor = 2
-			has_ascension_perk = ap_master_builders
-		}
-	}
-	
-	ai_weight = {
-		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_expertise_voidcraft"
-			}
-		}
-	}
-}
-
 # In-Situ Mineral Processing
 tech_improved_astro_mining_bay = {
 	area = engineering

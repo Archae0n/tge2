@@ -54,7 +54,7 @@ country_event = {
 							has_resource = { type = energy amount > 0 }
 						}
 					}
-					clear_deposits = yes
+					clear_deposits = no
 				}
 				if = {
 					limit = {
@@ -104,11 +104,7 @@ country_event = {
 									}
 								}
 							}
-							clear_deposits = yes
-							if = {
-								limit = { has_building = yes }
-								remove_building = yes
-							}
+							clear_deposits = no
 							if = {
 								limit = { has_blocker = yes }
 								remove_blocker = yes
@@ -147,22 +143,6 @@ country_event = {
 						}
 						subtract_variable = { which = num_megastructure_node_points value = 1 }
 					}
-					every_tile = {
-						limit = { has_building = yes }
-						switch = {
-							trigger = has_building
-							building_hab_astro_mining_facility = { set_building = building_manufacturing_complex_3 }
-							building_hab_solar_power_processor = { set_building = building_economic_district_3 }
-							building_hab_agri_bay = { set_building = building_hydroponic_farm_3 }
-							building_hab_laboratory_module = {
-								random_list = {
-									33.3 = { set_building = building_physics_campus_3 }
-									33.3 = { set_building = building_engineering_campus_3 }
-									33.3 = { set_building = building_sociological_campus_3 }
-								}
-							}
-						}
-					}
 					else = {
 						random_list = {
 							50 = {
@@ -199,11 +179,7 @@ country_event = {
 										}
 									}
 								}
-								clear_deposits = yes
-								if = {
-									limit = { has_building = yes }
-									remove_building = yes
-								}
+								clear_deposits = no
 								if = {
 									limit = { has_blocker = yes }
 									remove_blocker = yes
@@ -1017,7 +993,7 @@ planet_event = {
 					has_resource = { type = energy amount > 0 }
 				}
 			}
-			clear_deposits = yes
+			clear_deposits = no
 		}
 		if = {
 			limit = {
@@ -1067,11 +1043,7 @@ planet_event = {
 							}
 						}
 					}
-					clear_deposits = yes
-					if = {
-						limit = { has_building = yes }
-						remove_building = yes
-					}
+					clear_deposits = no
 					if = {
 						limit = { has_blocker = yes }
 						remove_blocker = yes
@@ -1162,11 +1134,7 @@ planet_event = {
 								}
 							}
 						}
-						clear_deposits = yes
-						if = {
-							limit = { has_building = yes }
-							remove_building = yes
-						}
+						clear_deposits = no
 						if = {
 							limit = { has_blocker = yes }
 							remove_blocker = yes
