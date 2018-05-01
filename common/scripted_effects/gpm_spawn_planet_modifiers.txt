@@ -152,10 +152,6 @@ gpm_spawn_planet_modifier = {
 		}
 		100 = {
 			add_modifier = { days = -1 modifier = "Frequent_Thunderstorms" }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_physics_deposit
-			}
 			modifier = { factor = @default }
 			# On these planets #
 			modifier = { factor = 0
@@ -180,10 +176,6 @@ gpm_spawn_planet_modifier = {
 		}
 		100 = {
 			add_modifier = { days = -1 modifier = "Global_Thunderstorms" }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_physics_deposit
-			}
 			modifier = { factor = @uncommon }
 			# On these planets #
 			modifier = { factor = 0
@@ -208,10 +200,6 @@ gpm_spawn_planet_modifier = {
 		}
 		100 = {
 			add_modifier = { days = -1 modifier = "Highly_Charged_Air_Particles" }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_physics_deposit
-			}
 			modifier = { factor = @rare }
 			# On these planets #
 			modifier = { factor = 0
@@ -482,11 +470,6 @@ gpm_spawn_planet_modifier = {
 		}
 		100 = {
 			add_modifier = { days = -1 modifier = "ultra_rich" }
-			orbital_deposit_tile = {
-				if = { limit = { has_deposit = no }
-					add_deposit = d_mineral_deposit
-				}
-			}
 			modifier = { factor = @rare }
 			# On these planets #
 			modifier = { factor = 0
@@ -520,11 +503,6 @@ gpm_spawn_planet_modifier = {
 		}
 		100 = {
 			add_modifier = { days = -1 modifier = "ultra_rich_2" }
-			orbital_deposit_tile = {
-				if = { limit = { has_deposit = no }
-					add_deposit = d_mineral_deposit
-				}
-			}
 			modifier = { factor = @rare }
 			# On these planets #
 			modifier = { factor = 0
@@ -804,10 +782,6 @@ gpm_spawn_planet_modifier = {
 		100 = {
 			add_modifier = { days = -1 modifier = "Artificial_Water" }
 			modifier = { factor = @rare }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_engineering_deposit
-			}
 			# On these planets #
 			modifier = { factor = 0
 				NOR = {
@@ -942,10 +916,6 @@ gpm_spawn_planet_modifier = {
 		}
 		100 = {
 			add_modifier = { days = -1 modifier = "Ruined_Battlefield" }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_society_deposit
-			}
 			modifier = { factor = @default }
 			# On these planets #
 			modifier = { factor = 0 NOT = { gpm_is_planet_tomb = yes } }
@@ -956,10 +926,6 @@ gpm_spawn_planet_modifier = {
 		}
 		100 = {
 			add_modifier = { days = -1 modifier = "Spaceship_Graveyard" }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_engineering_deposit
-			}
 			modifier = { factor = @rare }
 			# On these planets #
 			modifier = { factor = 0
@@ -1378,10 +1344,6 @@ gpm_spawn_planet_modifier = {
 		}
 		100 = {
 			add_modifier = { days = -1 modifier = "Ancient_Temple" }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_society_deposit
-			}
 			modifier = { factor = @rare }
 			# On these planets #
 			modifier = { factor = 0
@@ -1685,10 +1647,6 @@ gpm_spawn_planet_modifier = {
 		}
 		100 = {
 			add_modifier = { days = -1 modifier = "Crystal_Moon_Palace" }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_society_deposit
-			}
 			modifier = { factor = @rare }
 			# On these planets #
 			modifier = { factor = 0 NOT = { gpm_is_planet_wet_cold = yes } }
@@ -1701,10 +1659,6 @@ gpm_spawn_planet_modifier = {
 		100 = {
 			add_modifier = { days = -1 modifier = "Cities_in_the_sky" }
 			modifier = { factor = @default }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_society_deposit
-			}
 			# On these planets #
 			modifier = { factor = 0 NOT = { gpm_is_planet_habitable = yes } }
 			# TWeaks #
@@ -1713,10 +1667,6 @@ gpm_spawn_planet_modifier = {
 		}
 		100 = {
 			add_modifier = { days = -1 modifier = "Old_World" }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_society_deposit
-			}
 			modifier = { factor = @rare }
 			# On these planets #
 			modifier = { factor = 0
@@ -1878,10 +1828,6 @@ gpm_spawn_planet_modifier = {
 		}
 		100 = {
 			add_modifier = { days = -1 modifier = "Temple_of_the_Ancient_One" }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_society_deposit
-			}
 			gpm_spawn_special_blockers = yes
 			modifier = { factor = @rare }
 			# On these planets #
@@ -1996,10 +1942,6 @@ gpm_spawn_planet_modifier = {
 		}
 		100 = {
 			add_modifier = { days = -1 modifier = "Hiveworld" }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_society_deposit
-			}
 			modifier = { factor = @rare }
 			# On these planets #
 			modifier = { factor = 0
@@ -2080,10 +2022,6 @@ gpm_spawn_planet_modifier = {
 		100 = {
 			add_modifier = { days = -1 modifier = "Artificial_Core" }
 			modifier = { factor = @rare }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_engineering_deposit
-			}
 			# On these planets #
 			modifier = { factor = 0
 				NOR = {
@@ -2522,10 +2460,6 @@ gpm_spawn_planet_modifier = {
 		}
 		100 = {
 			add_modifier = { days = -1 modifier = "Surface_Of_Bones" }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_society_deposit
-			}
 			modifier = { factor = @uncommon }
 			# On these planets #
 			modifier = { factor = 0 NOT = { gpm_is_planet_tomb = yes  } }
@@ -2746,10 +2680,6 @@ gpm_spawn_planet_modifier = {
 		100 = {
 			add_modifier = { days = -1 modifier = "Strange_Alien_Eggs" }
 			modifier = { factor = @rare }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_society_deposit
-			}
 			# On these planets #
 			modifier = { factor = 0
 				NOR = {
@@ -2796,10 +2726,6 @@ gpm_spawn_planet_modifier = {
 		100 = {
 			add_modifier = { days = -1 modifier = "Decaying_Structures" }
 			modifier = { factor = @uncommon }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_society_deposit
-			}
 			# On these planets #
 			modifier = { factor = 0 NOT = { gpm_is_planet_toxic = yes } }
 			# TWeaks #
@@ -2845,10 +2771,6 @@ gpm_spawn_planet_modifier = {
 		}
 		100 = {
 			add_modifier = { days = -1 modifier = "Hydrogen_Mist" }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_energy_deposit
-			}
 			modifier = { factor = @plenty }
 			# On these planets #
 			modifier = { factor = 0
@@ -2885,10 +2807,6 @@ gpm_spawn_planet_modifier = {
 		}
 		100 = {
 			add_modifier = { days = -1 modifier = "Hydrogen_Ice" }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_energy_deposit
-			}
 			modifier = { factor = @plenty }
 			# On these planets #
 			modifier = { factor = 0
@@ -2909,10 +2827,6 @@ gpm_spawn_planet_modifier = {
 		}
 		100 = {
 			add_modifier = { days = -1 modifier = "Nitrogen_Ice" }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_energy_deposit
-			}
 			modifier = { factor = @default }
 			# On these planets #
 			modifier = { factor = 0
@@ -2943,10 +2857,6 @@ gpm_spawn_planet_modifier = {
 		}
 		100 = {
 			add_modifier = { days = -1 modifier = "Chlorine_Planet" }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_energy_deposit
-			}
 			modifier = { factor = @plenty }
 			# On these planets #
 			modifier = { factor = 0 NOT = { gpm_is_planet_toxic = yes } }
@@ -2963,10 +2873,6 @@ gpm_spawn_planet_modifier = {
 		}
 		100 = {
 			add_modifier = { days = -1 modifier = "Phosphorus_Planet" }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_energy_deposit
-			}
 			modifier = { factor = @plenty }
 			# On these planets #
 			modifier = { factor = 0 NOT = { gpm_is_planet_toxic = yes } }
@@ -2983,10 +2889,6 @@ gpm_spawn_planet_modifier = {
 		}
 		100 = {
 			add_modifier = { days = -1 modifier = "Sulfur_Planet" }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_energy_deposit
-			}
 			modifier = { factor = @plenty }
 			# On these planets #
 			modifier = { factor = 0 NOT = { gpm_is_planet_toxic = yes } }
@@ -3012,10 +2914,6 @@ gpm_spawn_planet_modifier = {
 		}
 		100 = {
 			add_modifier = { days = -1 modifier = "Iron_Planet" }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_mineral_deposit
-			}
 			modifier = { factor = @plenty }
 			# On these planets #
 			modifier = { factor = 0 NOT = { gpm_is_planet_barren = yes } }
@@ -3045,10 +2943,6 @@ gpm_spawn_planet_modifier = {
 		}
 		100 = {
 			add_modifier = { days = -1 modifier = "Iron_Rich" }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_mineral_deposit
-			}
 			modifier = { factor = @plenty }
 			# On these planets #
 			modifier = { factor = 0 NOT = { gpm_is_planet_molten = yes } }
@@ -3068,10 +2962,6 @@ gpm_spawn_planet_modifier = {
 		}
 		100 = {
 			add_modifier = { days = -1 modifier = "Titanium_Rich" }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_mineral_deposit
-			}
 			modifier = { factor = @plenty }
 			# On these planets #
 			modifier = { factor = 0 NOT = { gpm_is_planet_molten = yes } }
@@ -3091,10 +2981,6 @@ gpm_spawn_planet_modifier = {
 		}
 		100 = {
 			add_modifier = { days = -1 modifier = "Gold_Rich" }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_mineral_deposit
-			}
 			modifier = { factor = @plenty }
 			# On these planets #
 			modifier = { factor = 0 NOT = { gpm_is_planet_molten = yes } }
@@ -3114,10 +3000,6 @@ gpm_spawn_planet_modifier = {
 		}
 		100 = {
 			add_modifier = { days = -1 modifier = "Platinum_Rich" }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_mineral_deposit
-			}
 			modifier = { factor = @plenty }
 			# On these planets #
 			modifier = { factor = 0 NOT = { gpm_is_planet_molten = yes } }
@@ -3137,10 +3019,6 @@ gpm_spawn_planet_modifier = {
 		}
 		100 = {
 			add_modifier = { days = -1 modifier = "Mercury_Atmosphere" }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_mineral_deposit
-			}
 			modifier = { factor = @plenty }
 			# On these planets #
 			modifier = { factor = 0 NOT = { gpm_is_planet_molten = yes } }
@@ -3160,10 +3038,6 @@ gpm_spawn_planet_modifier = {
 		}
 		100 = {
 			add_modifier = { days = -1 modifier = "Cobalt_Rich" }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_mineral_deposit
-			}
 			modifier = { factor = @plenty }
 			# On these planets #
 			modifier = { factor = 0 NOT = { gpm_is_planet_molten = yes } }
@@ -3183,10 +3057,6 @@ gpm_spawn_planet_modifier = {
 		}
 		100 = {
 			add_modifier = { days = -1 modifier = "Lithium_Rich" }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_mineral_deposit
-			}
 			modifier = { factor = @plenty }
 			# On these planets #
 			modifier = { factor = 0 NOT = { gpm_is_planet_molten = yes } }
@@ -3276,11 +3146,6 @@ gpm_spawn_planet_modifier = {
 		}
 		100 = {
 			add_modifier = { days = -1 modifier = "Sunken_Cities" }
-			orbital_deposit_tile = {
-				if = { limit = { has_deposit = no }
-					add_deposit = d_society_deposit
-				}
-			}
 			modifier = { factor = @default }
 			# On these planets #
 			modifier = { factor = 0 NOT = { gpm_is_planet_wet_hot = yes } }
