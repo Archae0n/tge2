@@ -5,37 +5,37 @@
 	station = shipclass_mining_station
 	drop_weight = { weight = 0 }
 	orbital_weight = { weight = 0 }
-	resources = { energy = 2 }
+	resources = { energy = 1 }
 }
 1_minerals = {
 	station = shipclass_mining_station
 	drop_weight = { weight = 0 }
 	orbital_weight = { weight = 0 }
-	resources = { minerals = 2 }
+	resources = { minerals = 1 }
 }
 1_food = {
 	station = shipclass_mining_station
 	drop_weight = { weight = 0 }
 	orbital_weight = { weight = 0 }
-	resources = { food = 2 }
+	resources = { food = 1 }
 }
 1_unity = {
 	station = shipclass_mining_station
 	drop_weight = { weight = 0 }
 	orbital_weight = { weight = 0 }
-	resources = { unity = 2 }
+	resources = { unity = 1 }
 }
 1_society_research = {
 	station = shipclass_mining_station
 	drop_weight = { weight = 0 }
 	orbital_weight = { weight = 0 }
-	resources = { society_research = 2 }
+	resources = { society_research = 1 }
 }
 1_physics_research = {
 	station = shipclass_mining_station
 	drop_weight = { weight = 0 }
 	orbital_weight = { weight = 0 }
-	resources = { physics_research = 2 }
+	resources = { physics_research = 1 }
 }
 1_mining_station_energy = {
 	station = shipclass_mining_station
