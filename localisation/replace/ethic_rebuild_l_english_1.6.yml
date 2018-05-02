@@ -686,7 +686,7 @@ PROGRESSIVE_CASTE:0 "$PROGRESSIVE_NO_CASTE$"
  ethic_fanatic_green:0 "Fanatic Ecologist"
 
  civic_spiritual_harmony:0 "Spiritual Harmony"
- civic_spiritual_harmony_desc:0 "This society has a long-established familiarity with their latent Psionic talents and are already beginning to tap into this power as they ascend to the stars."
+ civic_spiritual_harmony_desc:0 "This society has a long-established familiarity with their latent Psionic talents and are already beginning to tap into this power as they ascend to the stars.\n\nStarts with §HPsionic Theory§!."
  
  civic_drone_brotherhood:0 "Drone Brotherhood"
  civic_drone_brotherhood_desc:0 "In this society working-class people (those employed in low-tech industries) are traditionally glorified and form a global community based on idealistic principles of collectivism and equality. £building  §YFarms§! and §YMines§! produce §Y0.2§! £unity  Unity each."
@@ -1536,8 +1536,8 @@ civic_exalted_priesthood_desc: "The form of government in which society is ruled
   
  ETHIC_ALLOWS_WELFARE_POLICY_1:0 "§EAllows setting §HPlanned§! economic policy: §G+20%§! §HPop Growth§!, §G+33%§! §HPlanet Construction Speed§!, §G+4%§! §HHappiness§!." 
  ETHIC_ALLOWS_WELFARE_POLICY_2:0 "§EAllows setting §HPlanned§! economic policy: §G+30%§! §HPop Growth§!, §G+50%§! §HPlanet Construction Speed§!, §G+50%§! §HShip Construction Speed§!, §G+7%§! §HHappiness§!, §R-5%§! §HEnergy§! £energy§." 
- ETHIC_ALLOWS_MARKET_POLICY_1:0 "§EAllows setting §HMarket§! economic policy: §G+5%§! §HEnergy§! £energy§.\n\n§YTrading Hubs§! produce §Y0.5§! additional £energy  Energy."
- ETHIC_ALLOWS_MARKET_POLICY_2:0 "§EAllows setting §HMarket§! economic policy: §G+8%§! §HEnergy§! £energy, §G-8%§! buildings/ships §HUpkeep§!, §R-15%§! §HUnity§! £unity§.\n\n§YTrading Hubs§! produce §Y1§! additional £energy  Energy."
+ ETHIC_ALLOWS_MARKET_POLICY_1:0 "§EAllows setting §HMarket§! economic policy: §G+7%§! §HEnergy§! £energy§."
+ ETHIC_ALLOWS_MARKET_POLICY_2:0 "§EAllows setting §HMarket§! economic policy: §G+10%§! §HEnergy§! £energy, §G-8%§! buildings/ships §HUpkeep§!, §R-10%§! §HUnity§! £unity§."
  
 DIPLOMACY_TRADITIONS:0 "Diplomacy is for the Weak"
 NO_DIPLOMACY_TRADITIONS:0 "Traditional Militarism"

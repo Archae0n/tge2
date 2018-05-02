@@ -55,28 +55,19 @@ civic_spiritual_harmony = {
 	}
 	random_weight = { base = 5 }
 	modifier = {
-		ship_sensor_range_add = 1
-		pop_consumer_goods_mult = -0.05
-		PLANET_UNREST_ADD = -8
+		ship_sensor_range_add = 3
+		pop_consumer_goods_mult = -0.15
+		PLANET_UNREST_ADD = -25
 	}
 }
 civic_info_tech = {
 	potential = { ethics = { NOT = { value = ethic_gestalt_consciousness } } }
 	random_weight = { base = 5 }
 	modifier = {
-		country_resource_energy_mult = 0.03
-		COUNTRY_TRUST_GROWTH = 0.10
-		COUNTRY_SYNTHETIC_TRUST_CAP_ADD = 10
+		country_resource_energy_mult = 0.05
 		SHIP_TRACKING_ADD = 2
 		SHIP_EVASION_ADD = 2
-		COUNTRY_PHYSICS_TECH_RESEARCH_SPEED = 0.03
-		category_computing_research_speed_mult = 0.25
-		COUNTRY_ENGINEERING_TECH_RESEARCH_SPEED = 0.02
-		ship_anomaly_research_speed_mult = 0.15
-		pop_government_ethic_attraction = 0.05
-		TRADITION_COST_NUM_COLONIES_MULT = -0.02
-		TRADITION_COST_NUM_SYSTEMS_MULT = -0.02
-		country_resource_unity_mult = 0.03
+		COUNTRY_PHYSICS_TECH_RESEARCH_SPEED = 0.15
 	}
 }
 
@@ -182,8 +173,6 @@ civic_machine_cult = {
 		country_resource_unity_mult = 0.06
 		category_industry_research_speed_mult = 0.25
 		pop_ethic_materialist_attraction_mult = 0.20
-		COUNTRY_SYNTHETIC_TRUST_CAP_ADD = 10
-		COUNTRY_ORGANIC_TRUST_CAP_ADD = -15
 		pop_growth_speed = -0.15
 	}
 }
@@ -245,7 +234,6 @@ civic_private_military = {
 				shipsize_military_station_small_upkeep_mult = -0.20
 				army_upkeep_mult = -0.20
 				country_war_exhaustion_mult = -0.05
-				COUNTRY_TRUST_CAP_ADD = -20
 				SHIP_WEAPON_DAMAGE = -0.05
 				COUNTRY_UNREST_UNHAPPY_POP_EFFECT_MULT = 0.18
 				country_resource_unity_mult = -0.1

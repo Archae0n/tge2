@@ -1,38 +1,39 @@
 planet_edict = {
 	name = "plentiful_traditions_harvest_erupt"
-	influence_cost = 100
-	
-    effect = {
+	cost = { influence = 100 }
+
+	effect = {
 		if = {
 			limit = { planet_size < 17 }
-        planet_event = {
-            id = plentiful_traditions_harvest_pedict.3
-        }
+			planet_event = {
+				id = plentiful_traditions_harvest_pedict.3
+			}
 			break = yes
 		}
 		if = {
 			limit = { planet_size < 23 }
-        planet_event = {
-            id = plentiful_traditions_harvest_pedict.2
-        }
+			planet_event = {
+				id = plentiful_traditions_harvest_pedict.2
+			}
 			break = yes
 		}
 		if = {
 			limit = { planet_size < 31 }
-        planet_event = {
-            id = plentiful_traditions_harvest_pedict.1
-        }
+			planet_event = {
+				id = plentiful_traditions_harvest_pedict.1
+			}
 			break = yes
 		}
-    }
+	}
 	
-	length = 3600
+	length = 0
 
 	potential = {
 		owner = {
 			has_tradition = tr_plentiful_industry_finish
 		}
 		OR = {
+			has_building = "building_mining_network_1"
 			has_building = "building_capital_1"
 			has_building = "building_capital_2"
 			has_building = "building_capital_3"
@@ -43,6 +44,15 @@ planet_edict = {
 	}
 	
 	allow = {
+		OR = {
+			has_building = "building_mining_network_1"
+			has_building = "building_capital_1"
+			has_building = "building_capital_2"
+			has_building = "building_capital_3"
+			has_building = "building_machine_capital_1"
+			has_building = "building_machine_capital_2"
+			has_building = "building_machine_capital_3"
+		}
 	}
 	
 	ai_weight = {

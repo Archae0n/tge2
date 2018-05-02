@@ -1,3 +1,9 @@
+@Edict1Cost = 100
+@Edict2Cost = 200
+@Edict3Cost = 300
+
+@EdictDuration = 3600
+
 country_edict = {
 	name = "plentiful_traditions_malicious_intent"
 	modifier = {
@@ -5,7 +11,8 @@ country_edict = {
 		damage_vs_country_type_awakened_fallen_empire_mult = 0.15
 	}
 	
-	influence_cost = 3
+	length = @EdictDuration
+	cost = { influence = @Edict3Cost }
 	
 	potential = {
 		has_tradition = tr_plentiful_malice_finish
@@ -29,7 +36,8 @@ country_edict = {
 		pop_consumer_goods_mult = -0.2
 	}
 	
-	influence_cost = 1
+	length = @EdictDuration
+	cost = { influence = @Edict1Cost }
 	
 	potential = {
 		has_tradition = tr_plentiful_industry_5

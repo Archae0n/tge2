@@ -17,7 +17,7 @@ trait_agrarian = {
 }
 
 trait_very_agrarian = {
-	cost = 4
+	cost = 3
 	opposites = { "trait_agrarian" }
 	allowed_archetypes = { BIOLOGICAL }
 	modifier = {
@@ -69,7 +69,7 @@ trait_thrifty = {
 }
 
 trait_very_thrifty = {
-	cost = 4
+	cost = 3
 	opposites = { "trait_thrifty", "trait_bioreactor", "trait_altruistic" }
 	allowed_archetypes = { BIOLOGICAL }
 	modifier = {
@@ -109,7 +109,7 @@ trait_industrious = {
 }
 
 trait_very_industrious = {
-	cost = 4
+	cost = 3
 	opposites = { "trait_industrious", "trait_metallotolerant", "trait_lethargic" }
 	allowed_archetypes = { BIOLOGICAL }
 	modifier = {
@@ -314,7 +314,7 @@ trait_extremely_adaptive = {
 
 trait_nonadaptive = {
 	cost = -2
-	opposites = { "trait_adaptive" "trait_extremely_adaptive" "trait_robust" "trait_absolutely_adaptive" "trait_absolutely_nonadaptive" "trait_extremely_nonadaptive" }
+	opposites = { "trait_adaptive" "trait_extremely_adaptive" "trait_robust" "trait_absolutely_adaptive" "trait_absolutely_nonadaptive" "trait_extremely_nonadaptive" "trait_endemic"}
 	allowed_archetypes = { BIOLOGICAL }
 	modifier = {
 		pop_environment_tolerance = -0.10
@@ -326,7 +326,7 @@ trait_nonadaptive = {
 
 trait_extremely_nonadaptive = {
 	cost = -4
-	opposites = { "trait_robust" "trait_extremely_adaptive" "trait_absolutely_adaptive" "trait_nonadaptive" "trait_adaptive" "trait_absolutely_nonadaptive" }
+	opposites = { "trait_robust" "trait_extremely_adaptive" "trait_absolutely_adaptive" "trait_nonadaptive" "trait_adaptive" "trait_absolutely_nonadaptive" "trait_endemic"}
 	allowed_archetypes = { BIOLOGICAL }
 	modifier = {
 		pop_environment_tolerance = -0.20
@@ -643,7 +643,7 @@ trait_endemic = {
 	initial = yes
 	randomized = yes
 	advanced_trait = yes
-	opposites = { "trait_syncretic_proles" "trait_nonadaptive" "trait_adaptive" "trait_xte_robust" "trait_extremely_adaptive" "trait_nomadic" "trait_sedentary" "trait_extremely_nomadic" }
+	opposites = { "trait_syncretic_proles" "trait_nonadaptive" "trait_adaptive" "trait_xte_robust" "trait_extremely_adaptive" "trait_nomadic" "trait_sedentary" "trait_extremely_nomadic" "trait_absolutely_nonadaptive" "trait_nonadaptive"}
 	allowed_archetypes = { BIOLOGICAL }
 	modifier = {
 		pop_environment_tolerance = -0.3

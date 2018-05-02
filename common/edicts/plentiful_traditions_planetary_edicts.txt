@@ -1,14 +1,14 @@
 planet_edict = {
 	name = "plentiful_traditions_adaptive_foundry_1"
-	influence_cost = 100
+	cost = { influence = 100 }
 	modifier = {
 #		tile_resource_engineering_research_mult = 0.10
 	}
-    effect = {
-        planet_event = {
-            id = plentiful_traditions_adaptive_foundry_pedict.1
-        }
-    }	
+	effect = {
+		planet_event = {
+			id = plentiful_traditions_adaptive_foundry_pedict.1
+		}
+	}	
 	
 	length = 30 #1800
 
@@ -53,15 +53,15 @@ planet_edict = {
 
 planet_edict = {
 	name = "plentiful_traditions_adaptive_foundry_2"
-	influence_cost = 100
+	cost = { influence = 100 }
 	modifier = {
 #		tile_resource_engineering_research_mult = 0.10
 	}
-    effect = {
-        planet_event = {
-            id = plentiful_traditions_adaptive_foundry_pedict.2
-        }
-    }	
+	effect = {
+		planet_event = {
+			id = plentiful_traditions_adaptive_foundry_pedict.2
+		}
+	}	
 	
 	length = 30 #1800
 
@@ -97,15 +97,15 @@ planet_edict = {
 
 planet_edict = {
 	name = "plentiful_traditions_adaptive_foundry_3"
-	influence_cost = 100
+	cost = { influence = 100 }
 	modifier = {
 #		tile_resource_engineering_research_mult = 0.10
 	}
-    effect = {
-        planet_event = {
-            id = plentiful_traditions_adaptive_foundry_pedict.3
-        }
-    }	
+	effect = {
+		planet_event = {
+			id = plentiful_traditions_adaptive_foundry_pedict.3
+		}
+	}	
 	
 	length = 30 #1800
 
@@ -141,15 +141,15 @@ planet_edict = {
 
 planet_edict = {
 	name = "plentiful_traditions_adaptive_foundry_4"
-	influence_cost = 100
+	cost = { influence = 100 }
 	modifier = {
 #		tile_resource_engineering_research_mult = 0.10
 	}
-    effect = {
-        planet_event = {
-            id = plentiful_traditions_adaptive_foundry_pedict.4
-        }
-    }	
+	effect = {
+		planet_event = {
+			id = plentiful_traditions_adaptive_foundry_pedict.4
+		}
+	}	
 	
 	length = 30 #1800
 
@@ -185,15 +185,15 @@ planet_edict = {
 
 planet_edict = {
 	name = "plentiful_traditions_adaptive_foundry_5"
-	influence_cost = 100
+	cost = { influence = 100 }
 	modifier = {
 #		tile_resource_engineering_research_mult = 0.10
 	}
-    effect = {
-        planet_event = {
-            id = plentiful_traditions_adaptive_foundry_pedict.5
-        }
-    }	
+	effect = {
+		planet_event = {
+			id = plentiful_traditions_adaptive_foundry_pedict.5
+		}
+	}	
 	
 	length = 30 #1800
 
@@ -229,15 +229,15 @@ planet_edict = {
 
 planet_edict = {
 	name = "plentiful_traditions_adaptive_foundry_6"
-	influence_cost = 100
+	cost = { influence = 100 }
 	modifier = {
 #		tile_resource_engineering_research_mult = 0.10
 	}
-    effect = {
-        planet_event = {
-            id = plentiful_traditions_adaptive_foundry_pedict.6
-        }
-    }	
+	effect = {
+		planet_event = {
+			id = plentiful_traditions_adaptive_foundry_pedict.6
+		}
+	}	
 	
 	length = 30 #1800
 
@@ -273,15 +273,15 @@ planet_edict = {
 
 planet_edict = {
 	name = "plentiful_traditions_adaptive_foundry_7"
-	influence_cost = 100
+	cost = { influence = 100 }
 	modifier = {
 #		tile_resource_engineering_research_mult = 0.10
 	}
-    effect = {
-        planet_event = {
-            id = plentiful_traditions_adaptive_foundry_pedict.7
-        }
-    }	
+	effect = {
+		planet_event = {
+			id = plentiful_traditions_adaptive_foundry_pedict.7
+		}
+	}	
 	
 	length = 30 #1800
 
@@ -317,15 +317,15 @@ planet_edict = {
 
 planet_edict = {
 	name = "plentiful_traditions_adaptive_foundry_8"
-	influence_cost = 100
+	cost = { influence = 100 }
 	modifier = {
 #		tile_resource_engineering_research_mult = 0.10
 	}
-    effect = {
-        planet_event = {
-            id = plentiful_traditions_adaptive_foundry_pedict.8
-        }
-    }	
+	effect = {
+		planet_event = {
+			id = plentiful_traditions_adaptive_foundry_pedict.8
+		}
+	}	
 	
 	length = 30 #1800
 
@@ -361,15 +361,15 @@ planet_edict = {
 
 planet_edict = {
 	name = "plentiful_traditions_adaptive_foundry_9"
-	influence_cost = 100
+	cost = { influence = 100 }
 	modifier = {
 #		tile_resource_engineering_research_mult = 0.10
 	}
-    effect = {
-        planet_event = {
-            id = plentiful_traditions_adaptive_foundry_pedict.9
-        }
-    }	
+	effect = {
+		planet_event = {
+			id = plentiful_traditions_adaptive_foundry_pedict.9
+		}
+	}	
 	
 	length = 30 #1800
 
@@ -405,15 +405,15 @@ planet_edict = {
 
 planet_edict = {
 	name = "plentiful_traditions_adaptive_foundry_10"
-	influence_cost = 100
+	cost = { influence = 100 }
 	modifier = {
 #		tile_resource_engineering_research_mult = 0.10
 	}
-    effect = {
-        planet_event = {
-            id = plentiful_traditions_adaptive_foundry_pedict.10
-        }
-    }	
+	effect = {
+		planet_event = {
+			id = plentiful_traditions_adaptive_foundry_pedict.10
+		}
+	}	
 	
 	length = 30 #1800
 
@@ -449,18 +449,18 @@ planet_edict = {
 
 planet_edict = {
 	name = "plentiful_traditions_overcharge"
-	influence_cost = 100
+	cost = { influence = 100 }
 	modifier = {
 #		tile_resource_energy_mult = 0.10
 #		planet_building_upkeep_mult = 0.20
 	}
-    effect = {
-        planet_event = {
-            id = plentiful_traditions_overcharge_pedict.1
-        }
-    }	
+	effect = {
+		planet_event = {
+			id = plentiful_traditions_overcharge_pedict.1
+		}
+	}	
 	
-	length = 1
+	length = 0
 
 	potential = {
 		owner = {
@@ -485,18 +485,18 @@ planet_edict = {
 
 planet_edict = {
 	name = "plentiful_traditions_ionized_excavation"
-	influence_cost = 100
+	cost = { influence = 100 }
 	modifier = {
 #		tile_resource_minerals_mult = 0.10
 #		planet_building_upkeep_mult = 0.20
 	}
-    effect = {
-        planet_event = {
-            id = plentiful_traditions_ionized_excavation_pedict.1
-        }
-    }	
+	effect = {
+		planet_event = {
+			id = plentiful_traditions_ionized_excavation_pedict.1
+		}
+	}	
 	
-	length = 1
+	length = 0
 
 	potential = {	
 		owner = {
@@ -521,17 +521,17 @@ planet_edict = {
 
 planet_edict = {
 	name = "plentiful_traditions_remnant_act"
-	influence_cost = 200
+	cost = { influence = 200 }
 	modifier = {
 #		tile_resource_unity_mult = 0.05
 	}
-    effect = {
-        planet_event = {
-            id = plentiful_traditions_remnant_act_pedict.1
-        }
-    }	
+	effect = {
+		planet_event = {
+			id = plentiful_traditions_remnant_act_pedict.1
+		}
+	}	
 	
-	length = 1
+	length = 0
 	
 	potential = {
 		owner = {
@@ -575,17 +575,17 @@ planet_edict = {
 
 planet_edict = {
 	name = "plentiful_traditions_sacred_act"
-	influence_cost = 200
+	cost = { influence = 200 }
 	modifier = {
 #		tile_resource_unity_mult = 0.05
 	}
-    effect = {
-        planet_event = {
-            id = plentiful_traditions_sacred_act_pedict.1
-        }
-    }	
+	effect = {
+		planet_event = {
+			id = plentiful_traditions_sacred_act_pedict.1
+		}
+	}	
 	
-	length = 1
+	length = 0
 
 	potential = {
 		owner = {
@@ -628,83 +628,137 @@ planet_edict = {
 }
 
 planet_edict = {
-    name = "plentiful_traditions_plentiful_deeds"
-    influence_cost = 75
-    length = 720
+	name = "plentiful_traditions_plentiful_deeds"
+	cost = { influence = 75 }
+	length = 0
 
-    effect = {
-        planet_event = {
-            id = plentiful_traditions_plentiful_deeds_pedict.1
-        }
-    }	
+	effect = {
+		planet_event = {
+			id = plentiful_traditions_plentiful_deeds_pedict.1
+		}
+	}	
 	
-    potential = {
+	potential = {
 		has_building = "building_plentiful_traditions_trading_terminal"
-    }
+	}
 
-    allow = { }
+	allow = { }
 	
 	prerequisites = {
 		
 	}
 
-    modifier = {
- #       tile_resource_energy_mult = 0.10
-    }
+	modifier = {
+ #	   tile_resource_energy_mult = 0.10
+	}
 
-    ai_weight = {
-        weight = 1
-        modifier = {
-            factor = 0
-            NOT = {
-                owner = {
-                    any_country = {
-                        is_primitive = no
-                        NOT = {
-                            is_same_value = prev
-                            is_same_species = root.owner
-                            opinion = {
-                                who = root.owner
-                                value = 0
-                            }
-                        }
-                        any_owned_planet = {
-                            distance = {
-                                source = root
-                                max_distance = 350
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+			NOT = {
+				owner = {
+					any_country = {
+						is_primitive = no
+						NOT = {
+							is_same_value = prev
+							is_same_species = root.owner
+							opinion = {
+								who = root.owner
+								value = 0
+							}
+						}
+						any_owned_planet = {
+							distance = {
+								source = root
+								max_distance = 350
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 
-    effect = {
-        every_planet = {
-            limit = {
-                exists = owner
-                owner = {
-                    is_primitive = no
-                    has_communications = root.owner
-                    NOR = {
-                        is_same_value = root.owner
-                        is_same_species = root.owner
-                    }
-                }
-                distance = {
-                    source = ROOT
-                    max_distance = 350
-                }
-            }
-            hidden_effect = {
-                owner = {
-                    add_opinion_modifier = {
-                        who = root.owner
-                        modifier = opinion_plentiful_deeds
-                    }
-                }
-            }
-        }
-    }
+	effect = {
+		every_planet = {
+			limit = {
+				exists = owner
+				owner = {
+					is_primitive = no
+					has_communications = root.owner
+					NOR = {
+						is_same_value = root.owner
+						is_same_species = root.owner
+					}
+				}
+				distance = {
+					source = ROOT
+					max_distance = 350
+				}
+			}
+			hidden_effect = {
+				owner = {
+					add_opinion_modifier = {
+						who = root.owner
+						modifier = opinion_plentiful_deeds
+					}
+				}
+			}
+		}
+	}
+}
+
+planet_edict = {
+	name = "plentiful_traditions_lebensraum_enlargement"
+	cost = { influence = 150 energy = 1000 minerals = 1000 }
+	length = 0
+	
+	potential = {
+		OR = {
+			num_pops > 9
+			any_pop = {
+				is_robot_pop = yes
+			}
+		}
+		habitable_structure = yes
+		owner = {
+			has_ascension_perk = ap_plentiful_traditions_lebensraum_enlargement
+		}
+		planet_size < 25
+		NOT = { has_modifier = modifier_plentiful_traditions_lebensraum_enlargement_cooldown }
+	}
+	
+	allow = {
+		custom_tooltip = {
+			fail_text = plentiful_traditions_lebensraum_enlargement_not_max_size
+			planet_size < 25
+		}	
+		custom_tooltip = {
+			fail_text = plentiful_traditions_lebensraum_enlargement_full_or_robot
+			OR = {
+				num_pops = 12
+				any_pop = {
+					is_robot_pop = yes
+				}
+			}
+		}
+	}
+	
+	effect = {
+		add_modifier = {
+			modifier = "modifier_plentiful_traditions_lebensraum_enlargement_cooldown"
+			days = 360
+		}
+		hidden_effect = { change_planet_size = 1 }	
+		custom_tooltip = plentiful_traditions_lebensraum_enlargement_plus_one
+	}
+	
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 0
+			num_pops < 10
+		}
+	}
 }
