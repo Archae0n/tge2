@@ -70,7 +70,7 @@ economy = {
 		
 		modifier = {
 		
-		             country_resource_energy_mult = 0.05
+		             country_resource_energy_mult = 0.07
 
 
 		}	
@@ -116,25 +116,8 @@ economy = {
 				factor = 20
 				has_ethic = "ethic_fanatic_capitalism"
 			           }			
-		}	
-
-
-
-
-
-		
-			
+		}			
     }
-	
-	
-	
-	
-
-	
-	
-	
-
-
 	option = {
 		name = "socialism_economy"
 		
