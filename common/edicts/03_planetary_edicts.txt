@@ -84,6 +84,9 @@ planet_edict = {
 	}
 	
 	allow = {
+        owner = {
+            has_ascension_perk = ap_consecrated_worlds
+        }
 		NOT = {
 			has_modifier = consecrated_world
 		}
