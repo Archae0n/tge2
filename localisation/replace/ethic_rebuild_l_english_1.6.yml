@@ -1628,8 +1628,8 @@ MERITOCRATIC_ELITE:0 "Developed Egalitarianism"
 NO_MERITOCRATIC_ELITE:0 "No Developed Egalitarianism"
 MERITOCRATIC_ELITE_DESC:0 "Active §YLabour Unions§! or §YIdealistic Foundation§! government civic will please the [Root.GetName]."
 
-XENOIST_NO_PURITY:0 "Traditional Purity"
-XENOIST_PURITY:0 "No Traditional Purity"
+XENOIST_NO_PURITY:0 "Xenophobia"
+XENOIST_PURITY:0 "No Xenophobia"
 XENOIST_NO_PURITY_DESC:0 "Adoption of §YPurity§! tradition displeases the [Root.GetName]."
 
 XENOIST_DIPLOMACY_TRADITION:0 "Diplomacy Traditions"

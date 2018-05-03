@@ -164,7 +164,7 @@ socialists = {
 		unfulfilled_title = "NO_HUMANITARIAN_SCIENCE"
 		desc = "HUMANITARIAN_SCIENCE_DESC"
 		
-		fulfilled_effect = 3
+		fulfilled_effect = 5
 		
 		potential = {
 			exists = owner
@@ -184,7 +184,7 @@ socialists = {
 		unfulfilled_title = "NO_WELFARE_ECONOMY"
 		desc = "WELFARE_ECONOMY_DESC"
 		
-		fulfilled_effect = 4
+		fulfilled_effect = 10
 		unfulfilled_effect = -5
 		
 		potential = {

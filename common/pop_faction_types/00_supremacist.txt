@@ -134,33 +134,7 @@ supremacist = {
 		}
 	}	
 
-	
-	
-	demand = {
-		title = "SUPREMACIST_PURITY_TRADITION"
-		unfulfilled_title = "SUPREMACIST_PURITY_NO_TRADITION"
-		desc = "SUPREMACIST_PURITY_TRADITION_DESC"
-
-		fulfilled_effect = 3
-		unfulfilled_effect = -5
-
-		potential = {
-			exists = owner
-			owner = {
-				has_any_tradition_unlocked = yes
-			}
-		}
-
-		trigger = {
-			owner = {
-				OR = {
-					has_tradition = "tr_purity_adopt"
-				}
-			}
-		}
-	}
-
-	
+		
 	
 	demand = {
 		title = "SUPREMACIST_NO_UNITY"
@@ -305,7 +279,7 @@ supremacist = {
 		desc = "SUPREMACIST_CORE_WORLD_EXCLUSIVITY_DESC"
 
 		fulfilled_effect = 5
-		unfulfilled_effect = -10
+		unfulfilled_effect = -5
 
 		potential = {
 			exists = owner
@@ -364,7 +338,7 @@ supremacist = {
 		unfulfilled_title = "SUPREMACIST_NOT_FANATIC_PURIFIERS"
 		desc = "SUPREMACIST_FANATIC_PURIFIERS_DESC"
 
-		fulfilled_effect = 20
+		fulfilled_effect = 30
 		
 		potential = {
 			exists = owner

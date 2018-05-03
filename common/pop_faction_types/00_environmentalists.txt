@@ -89,11 +89,10 @@ environmentalists = {
 		trigger = {
 			owner = {
 				NOT = {
-				has_tradition = tr_prosperity_adopt
+					has_tradition = tr_prosperity_adopt
 				}
-				}
-            }				
-		}
+			}
+		}				
 	}	
 	
 	demand = {

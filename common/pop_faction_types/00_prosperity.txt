@@ -118,7 +118,7 @@ prosperity = {
 		unfulfilled_title = "PROSPERITY_NO_IDEOLOGY"
 		desc = "PROSPERITY_IDEOLOGY_DESC"
 
-		fulfilled_effect = 4
+		fulfilled_effect = 5
 
 		potential = {
 			exists = owner
@@ -141,7 +141,7 @@ prosperity = {
 		unfulfilled_title = "NO_PROSPERITY_TRADITION"
 		desc = "PROSPERITY_TRADITION_DESC"
 
-		unfulfilled_effect = -15
+		unfulfilled_effect = -10
 
 		potential = {
 			exists = owner
@@ -166,7 +166,7 @@ prosperity = {
 		unfulfilled_title = "PROSPERITY_NO_LOW_MILITARY"
 		desc = "PROSPERITY_LOW_MILITARY_DESC"
 
-		fulfilled_effect = 3
+		fulfilled_effect = 5
 
 		potential = {
 			exists = owner
@@ -310,8 +310,7 @@ prosperity = {
 		unfulfilled_title = "PROSPERITY_NO_PEACE"
 		desc = "PROSPERITY_PEACE_DESC"
 
-		fulfilled_effect = 5
-		unfulfilled_effect = -10
+		fulfilled_effect = 10
 
 		potential = {
 			exists = owner
@@ -356,7 +355,7 @@ prosperity = {
 		unfulfilled_title = "PROSPERITY_AGGRESSOR"
 		desc = "PROSPERITY_NOT_AGGRESSOR_DESC"
 
-		unfulfilled_effect = -25
+		unfulfilled_effect = -30
 
 		potential = {
 			exists = owner

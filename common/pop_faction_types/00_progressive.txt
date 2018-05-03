@@ -106,7 +106,7 @@ progressive = {
 		desc = "DIRECT_DEMOCRACY_DESC"
 
 		fulfilled_effect = 5
-		unfulfilled_effect = -3
+		unfulfilled_effect = -5
 
 		potential = {
 			exists = owner
@@ -129,7 +129,7 @@ progressive = {
 		unfulfilled_title = "NO_PROGRESSIVE_ANARCHY"
 		desc = "PROGRESSIVE_ANARCHY_DESC"
 
-		fulfilled_effect = 4
+		fulfilled_effect = 5
 
 		potential = {
 			exists = owner
@@ -143,25 +143,7 @@ progressive = {
 				}
 			}
 		}
-	}
-	
-	
-	demand = {
-		title = "TRADITION_ANARCHY"
-		unfulfilled_title = "NO_TRADITION_ANARCHY"
-		desc = "TRADITION_ANARCHY_DESC"
-
-		unfulfilled_effect = -15
-
-		potential = {
-			exists = owner
-			owner = { has_tradition = tr_domination_adopt }
-		}
-
-		trigger = {
-		}
 	}	
-	
 
 	demand = {
 		title = "PROGRESSIVE_NO_AUTO"
@@ -169,7 +151,7 @@ progressive = {
 		desc = "PROGRESSIVE_DEMOCRATIC_GOVERNMENT_DESC"
 
 		fulfilled_effect = 5
-		unfulfilled_effect = -15
+		unfulfilled_effect = -20
 
 		potential = {
 			exists = owner
@@ -190,8 +172,8 @@ progressive = {
 		unfulfilled_title = "PROGRESSIVE_NO_FREE_MOVEMENT"
 		desc = "PROGRESSIVE_FREE_MOVEMENT_DESC"
 
-		fulfilled_effect = 3
-		unfulfilled_effect = -10
+		fulfilled_effect = 5
+		unfulfilled_effect = -15
 
 		potential = {
 			exists = owner
@@ -224,8 +206,8 @@ progressive = {
 		unfulfilled_title = "PROGRESSIVE_NO_REPRODUCTIVE_FREEDOM"
 		desc = "PROGRESSIVE_REPRODUCTIVE_FREEDOM_DESC"
 
-		fulfilled_effect = 2
-		unfulfilled_effect = -10
+		fulfilled_effect = 5
+		unfulfilled_effect = -15
 
 		potential = {
 			exists = owner
@@ -251,8 +233,8 @@ progressive = {
 		unfulfilled_title = "PROGRESSIVE_NO_GUN_RIGHTS"
 		desc = "PROGRESSIVE_GUN_RIGHTS_DESC"
 
-		fulfilled_effect = 3
-		unfulfilled_effect = -7
+		fulfilled_effect = 5
+		unfulfilled_effect = -15
 
 	potential = {
 			exists = owner

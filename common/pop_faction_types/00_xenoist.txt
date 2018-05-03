@@ -126,30 +126,7 @@ xenoist = {
 			}
 		}
 	}
-	
-	
-	
-	
-	demand = {
-		title = "XENOIST_NO_PURITY"
-		unfulfilled_title = "XENOIST_PURITY"
-		desc = "XENOIST_NO_PURITY_DESC"
-
-		unfulfilled_effect = -15
-
-		potential = { 
-			exists = owner
-			owner = {  has_tradition = tr_purity_adopt }
-		}
-
-		trigger = {
-	
-			
-		}
-	}
-
-	
-	
+		
 	
     demand = { # "XENOIST_NO_SLAVES" # TEMP TODO rewrite loc to reflect any species only slaves
         title = "XENOIST_NO_SLAVES"

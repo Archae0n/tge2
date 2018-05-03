@@ -181,7 +181,7 @@ manufacturers = {
 		unfulfilled_title = "NO_INDUSTRIAL_ECONOMY"
 		desc = "INDUSTRIAL_ECONOMY_DESC"
 
-		fulfilled_effect = 2
+		fulfilled_effect = 5
 
 		potential = { 
 			exists = owner
@@ -192,43 +192,6 @@ manufacturers = {
 		}
 	}	
 	
-	demand = {
-		title = "DEVELOPMENT_ECONOMY"
-		unfulfilled_title = "NO_DEVELOPMENT_ECONOMY"
-		desc = "DEVELOPMENT_ECONOMY_DESC"
-
-		unfulfilled_effect = -15
-
-		potential = { 
-			exists = owner
-			owner = {
-				has_tradition = tr_harmony_adopt
-			}
-		}
-
-		trigger = {
-		}
-	}	
-	
-
-	
-	demand = {
-		title = "ENGINEERING_SCIENCE"
-		unfulfilled_title = "NO_ENGINEERING_SCIENCE"
-		desc = "ENGINEERING_SCIENCE_DESC"
-		
-		fulfilled_effect = 5
-		
-		potential = {
-			exists = owner
-		}
-		
-		trigger = {
-			owner = {
-				has_country_edict = engineering_research_focus 
-			}
-		}
-	}	
 	
 	demand = {
 		title = "INDUSTRIAL_INFRASTRUCTURE"
@@ -260,7 +223,7 @@ manufacturers = {
 		unfulfilled_title = "NO_MINERALS_ACCUMULATION_1"
 		desc = "MINERALS_ACCUMULATION_1_DESC"
 
-		fulfilled_effect = 3
+		fulfilled_effect = 5
 
 		potential = { # TODO get a reasonable trigger for counting colonies?
 			exists = owner
@@ -279,7 +242,7 @@ manufacturers = {
 		unfulfilled_title = "NO_MINERALS_ACCUMULATION_2"
 		desc = "MINERALS_ACCUMULATION_2_DESC"
 
-		fulfilled_effect = 4
+		fulfilled_effect = 5
 
 		potential = { # TODO get a reasonable trigger for counting colonies?
 			exists = owner
@@ -379,7 +342,7 @@ manufacturers = {
 		unfulfilled_title = "NO_INDUSTRY_ASCENSION_1"
 		desc = "INDUSTRY_ASCENSION_1_DESC"
 
-		fulfilled_effect = 2
+		fulfilled_effect = 5
 
 		potential = {
 			exists = owner
@@ -403,7 +366,7 @@ manufacturers = {
 		unfulfilled_title = "NO_INDUSTRY_ASCENSION_2"
 		desc = "INDUSTRY_ASCENSION_2_DESC"
 
-		fulfilled_effect = 4
+		fulfilled_effect = 5
 
 		potential = {
 			exists = owner

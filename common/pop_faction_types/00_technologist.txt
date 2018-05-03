@@ -131,7 +131,7 @@ technologist = {
 		unfulfilled_title = "INDUSTRIAL_FOCUS"
 		desc = "NO_INDUSTRIAL_FOCUS_DESC"
 
-		unfulfilled_effect = -10
+		unfulfilled_effect = -5
 
 		potential = { 
 			exists = owner
@@ -183,32 +183,12 @@ technologist = {
 	}	
 
 	demand = {
-		title = "TECHNOLOGIST_NO_SPIRITUALISM"
-		unfulfilled_title = "TECHNOLOGIST_SPIRITUALISM"
-		desc = "TECHNOLOGIST_NO_SPIRITUALISM_DESC"
-
-		unfulfilled_effect = -15
-
-		potential = { 
-			exists = owner
-			owner = { OR = { has_tradition = tr_harmony_adopt } }
-		}
-
-		trigger = {		
-		}
-	}	
-	
-
-
-	
-
-	demand = {
 		title = "TECHNOLOGIST_ROBOTS_ALLOWED"
 		unfulfilled_title = "TECHNOLOGIST_ROBOTS_BANNED"
 		desc = "TECHNOLOGIST_ROBOTS_ALLOWED_DESC"
 
 		fulfilled_effect = 5
-		unfulfilled_effect = -15
+		unfulfilled_effect = -5
 
 		potential = {
 			exists = owner
@@ -319,7 +299,7 @@ technologist = {
 		desc = "TECHNOLOGIST_NO_SYNTH_ENVY_DESC"
 
 		fulfilled_effect = 5
-		unfulfilled_effect = -10
+		unfulfilled_effect = -5
 
 		potential = {
 			exists = owner
