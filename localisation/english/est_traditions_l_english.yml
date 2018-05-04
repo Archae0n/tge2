@@ -1,0 +1,81 @@
+﻿l_english:
+ 
+################################################################
+# COMMERCE
+################################################################
+tradition_est_commerce:0 "Commerce"
+tradition_est_commerce_desc:0 "Where there is trade there is a profit to be made. Trade is the lifeblood of the galaxy and from it we can draw vast fortunes."
+tr_est_commerce_adopt:0 "Commerce Traditions"
+tr_est_commerce_adopt_desc:0 "$tradition_est_commerce_desc$\n\n$tr_est_commerce_adopt_effect$\n\n$tr_est_commerce_finish_effect$"
+tr_est_commerce_adopt_no_dip_desc:0 "$tradition_est_commerce_desc$\n\n$tr_est_commerce_adopt_no_dip_effect$\n\n$tr_est_commerce_finish_effect$"
+tr_est_commerce_adopt_effect:0 "§E$TRADITIONS_ADOPT$:§!\n§Y$MOD_COUNTRY_TRADE_ATTRACTIVENESS$§! increased by §G+10%§!."
+tr_est_commerce_adopt_no_dip_effect:0 "§E$TRADITIONS_ADOPT$:§!\nOur £energy  §YEnergy Credit§! output is increased by §G+10%§!."
+
+tr_est_commerce_1:0 "Economic Boom"
+tr_est_commerce_1_desc:0 "Our £energy  §YEnergy Credit§! output is increased by §G+15%§! while £energy  §YEnergy Credit§! gain is positive."
+tr_est_commerce_1_delayed:0 "Thanks to our successful fiscal policies our economy is booming. Both our citizen and the businesses have increased power to buy, consume, and produce. These favourable conditions will allow our empire to increase its spending on infrastructure and the military."
+
+tr_est_commerce_2:0 "Encourage Local Economies"
+tr_est_commerce_2_desc:0 "Unlocks 3 new planetary edicts which will increase either our £food  §YFood§!, £energy  §YEnergy Credit§! or £minerals  §YMinerals§! output by §G+25%§! while reducing the output of the other 2 by §R-10%§!."
+tr_est_commerce_2_AI_desc:0 "£energy  §YEnergy Credit§!, £food  §YFood§! and £minerals  §YMineral§! output is increased by §G+5%§!."
+tr_est_commerce_2_delayed:0 "We should encourage each one of our planets to develop their local economies in their own distinct way. This relaxing certain imperial regulations we can allow planets to better adapt to their local conditions and thereby increase their productive output."
+
+tr_est_commerce_3:0 "Financial Reforms"
+tr_est_commerce_3_desc:0 "§YEnergy Storage Capacity§! increased by §G+50%§!."
+tr_est_commerce_3_delayed:0 "Our financial system is still adapted to when we were bound to our own solar system. Now we are a part of a galactic system with an endless number of modes of payment. Hence our old financial system will need to be reformed."
+
+#tr_est_commerce_4:0 "Free Trade"
+#tr_est_commerce_4_desc:0 "The £happiness  §Y$MOD_POP_HAPPINESS$§! of all £pops  Pops is increased by §G+1%§! and our £unity  §YUnity§! output is increased by §G+2%§! for every §Y20§! in £energy  §YEnergy§! §YTrade Income§! or §YTrade Expenses§!. Stack up to §Y10§! times."
+#tr_est_commerce_4_delayed:0 "Everyone is entitled to pursue the profession of a trader, and everything may be traded. As long as trade flows and profits are made we can ensure prosperity for our empire."
+
+tr_est_commerce_4:0 "Trade Routes"
+tr_est_commerce_4_desc:0 "For every neighbour with whom we have mutual open borders, our £energy §YEnergy Credit§! and £minerals  §YMineral§! output is increased by §G+2.5%§! (stacks up to §Y6§! times). Each such neighbour also have their §YEnergy Credit§! and £minerals  §YMineral§! output is increased by §G+2.5%§!. This has no effect on small neighbours (those who have less than §Y4§! planets while we have at least §Y4§! planets)."
+tr_est_commerce_4_delayed:0 "Through trade we and our neighbours may make mutual profits. Traders are allowed passage over our borders to purchase commodities which are coveted within our empire."
+
+#tr_est_commerce_4:0 "The Traders"
+#tr_est_commerce_4_desc:0 "Gain £energy  §YEnergy Credits§! and £minerals  §YMinerals§! equal to a six times of our monthly gain when surveying a planet colonized by another empire."
+#tr_est_commerce_4_delayed:0 "Specially sanctioned traders travel to the distant corners of the galaxy selling and buying rare commodities and making large profits."
+
+tr_est_commerce_4_no_dip:0 "Free Trade"
+tr_est_commerce_4_no_dip_desc:0 "£unity  Unity output increased by §G+5%§! per unique strategic resource, up to a maximum of §G+30%§!."
+tr_est_commerce_4_no_dip_delayed:0 "Everyone is entitled to pursue the profession of a trader, and everything may be traded. As long as trade flows and profits are made we can ensure prosperity for our empire."
+
+tr_est_commerce_5:0 "Market Exchange"
+tr_est_commerce_5_desc:0 "§HUnlocks Building:§! $building_est_commerce_5_market_exchange$. \n(Provides §Y3§! £energy  §YEnergy Credits§! in adjacency bonus)"
+tr_est_commerce_5_AI_desc:0 "£energy  §YEnergy Credit§! output is increased by §G+10%§!."
+tr_est_commerce_5_delayed:0 "The Market Exchange serves as a hub of trade on our planets. Here our citizen can come to buy and sell all manner of services and goods."
+
+tr_est_commerce_finish:0 "Commerce Traditions finished"
+tr_est_commerce_finish_effect:0 "§E$TRADITIONS_FINISH$:§!\nAdopting all $tr_est_commerce_adopt$ increases our £energy  §YEnergy Credit§! production by §G+5%§! for every §Y3§! types of §YStrategic Resources§! we control. Stack up to §Y5§! times."
+
+## Swap - Benevolence
+
+tradition_est_benevolence:0 "Benevolence"
+tradition_est_benevolence_desc:0 "We should not make unjustified harm to the mortals we encounter. They have a place in this galaxy, just as we do."
+tr_est_benevolence_adopt:0 "Benevolence Traditions"
+tr_est_benevolence_adopt_desc:0 "$tradition_est_benevolence_desc$\n\n$tr_est_benevolence_adopt_effect$\n\n$tr_est_benevolence_finish_effect$"
+tr_est_benevolence_adopt_effect:0 "§E$TRADITIONS_ADOPT$:§!\n§YDiplomatic Upkeep Cost§! reduced by §G-33%§!."
+
+tr_est_benevolence_1:0 "Trade Deals"
+tr_est_benevolence_1_desc:0 "§Y$MOD_COUNTRY_TRADE_ATTRACTIVENESS$§! increased by §G+10%§! and £energy  §YEnergy Credit§! output is increased by §G+5%§!."
+tr_est_benevolence_1_delayed:0 "While we have no concept of possession, it is essential to many other beings in the galaxy. Through trade deals with other civilizations we may acquire goods that are hard to find on our own planets."
+
+tr_est_benevolence_2:0 "Peaceful Contacts"
+tr_est_benevolence_2_desc:0 "Reduce §YBorder Friction§! by §G-50%§! and increase §YTrust Growth§! by §G+20%§!."
+tr_est_benevolence_2_delayed:0 "When we make contact with other civilizations our approach needs not be aggressive. Rather lets it be known that our ships will not attack those that have no harm in mind."
+
+tr_est_benevolence_3:0 "Foreign Embassies"
+tr_est_benevolence_3_desc:0 "Foreign Empire £opinion  §YOpinion§! is increased by §G+30§!."
+tr_est_benevolence_3_delayed:0 "We will send out representation drones to other empires through which we will be able to contact directly with their rulers. This way we can promote good relations with the other inhabitants of the galaxy and prevent misunderstandings."
+
+#Trade Routes from Commerce.
+#tr_est_benevolence_4:0 "Trade Missions"
+#tr_est_benevolence_4_desc:0 "Gain £energy  §YEnergy Credits§! and £minerals  §YMinerals§! equal to a six times of our monthly gain when surveying a planet colonized by another empire."
+#tr_est_benevolence_4_delayed:0 "We will send out specialized trade ships throughout the galaxy, carrying specialized goods that we can make, but which is sought-after throughout the galaxy. These goods can then be traded for other valuables. "
+
+tr_est_benevolence_5:0 "Sharing of Ideas"
+tr_est_benevolence_5_desc:0 "§Y$MOD_COUNTRY_ALL_TECH_RESEARCH_SPEED$§! increased by §G+5%§!."
+tr_est_benevolence_5_delayed:0 "While the mortals of this galaxy carry inferior minds they might have come up with a few interesting ideas. By studying their technology and culture we might find something that could be of use to our own research projects."
+
+tr_est_benevolence_finish:0 "Benevolence Traditions finished"
+tr_est_benevolence_finish_effect:0 "§E$TRADITIONS_FINISH$:§!\nAdopting all $tr_est_benevolence_adopt$ increases our §YWeapon Damage§! to §YFallen Empires§!, §YAwakened Empires§! and §YEnd Game Crisis§! by §G+20%§!."

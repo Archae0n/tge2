@@ -119,11 +119,11 @@ guiTypes = {
 	positionType = { name = "tr_plentiful_malice_4" position = { x = 201 y = 125 } }
 	positionType = { name = "tr_plentiful_malice_5" position = { x = 131 y = 125 } }
 
-	positionType = { name = "tr_plentiful_aspiration_1" position = { x = 61 y = 55 } }
-	positionType = { name = "tr_plentiful_aspiration_2" position = { x = 61 y = 125 } }
-	positionType = { name = "tr_plentiful_aspiration_3" position = { x = 131 y = 125 } }
-	positionType = { name = "tr_plentiful_aspiration_4" position = { x = 201 y = 55 } }
-	positionType = { name = "tr_plentiful_aspiration_5" position = { x = 201 y = 125 } }
+	positionType = { name = "tr_est_commerce_1" position = { x = 61 y = 55 } }
+	positionType = { name = "tr_est_commerce_2" position = { x = 201 y = 55 } }
+	positionType = { name = "tr_est_commerce_3" position = { x = 131 y = 55 } }
+	positionType = { name = "tr_est_commerce_4" position = { x = 61 y = 125 } }
+	positionType = { name = "tr_est_commerce_5" position = { x = 131 y = 125 } }
 
 	positionType = { name = "tr_plentiful_affinity_1" position = { x = 61 y = 55 } }
 	positionType = { name = "tr_plentiful_affinity_2" position = { x = 131 y = 55 } }
@@ -1686,19 +1686,19 @@ guiTypes = {
 		################################################################
 
 		containerWindowType = {
-			name = "tradition_plentiful_aspiration"
+			name = "tradition_est_commerce"
 			size = { width = @entry_w height = @entry_h_narrow }
 			position = { x = @entries_column2 y = @entries_row5_y }
 			
 			background = {
 				name = "black"
-				spriteType = "GFX_tradition_category_tile_plentiful_aspiration"
+				spriteType = "GFX_tradition_category_tile_est_commerce"
 				alwaysTransparent = yes
 			}
 			
 			iconType = {
 				name = "hex_bg"
-				spriteType = "GFX_tradition_hex_bg_plentiful_aspiration"
+				spriteType = "GFX_tradition_hex_bg_est_commerce"
 				position = { x = -23 y = -18 }
 				alwaysTransparent = yes
 			}
@@ -1707,7 +1707,7 @@ guiTypes = {
 				name = "category_label"
 				font = "malgun_goth_24"
 				position = { x = 18 y = 4 }
-				text = "tradition_plentiful_aspiration"
+				text = "tradition_est_commerce"
 			}
 
 			containerWindowType = {
@@ -1760,7 +1760,7 @@ guiTypes = {
 				format = center
 				vertical_alignment = center
 				alwaystransparent = yes
-				text = "tradition_plentiful_aspiration_desc"
+				text = "tradition_est_commerce_desc"
 			}
 
 			containerWindowType = {
@@ -1769,23 +1769,29 @@ guiTypes = {
 				iconType = {
 					name = "arrow_1"
 					spriteType = "GFX_arrow_single"
-					position = { x = 217 y = 100 }
-				}
-
-				iconType = {
-					name = "arrow_2"
-					spriteType = "GFX_arrow_single"
 					position = { x = 77 y = 100 }
 				}
-
+				
+				iconType = {
+					name = "arrow_2"
+					spriteType = "GFX_arrow_est_right"
+					position = { x = 106 y = 140 }
+				}
+				
 				iconType = {
 					name = "arrow_3"
-					spriteType = "GFX_arrow_right"
-					position = { x = 108 y = 140 }
+					spriteType = "GFX_arrow_est_right"
+					position = { x = 106 y = 70 }
+				}
+				
+				iconType = {
+					name = "arrow_4"
+					spriteType = "GFX_arrow_est_left"
+					position = { x = 178 y = 70}
 				}
 			}
 		}
-
+		
 		################################################################
 		# TRADITION CATEGORY AFFINITY
 		################################################################

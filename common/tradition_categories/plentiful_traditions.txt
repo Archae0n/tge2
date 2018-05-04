@@ -93,15 +93,24 @@ tradition_plentiful_malice = {
 	}
 }
 
-tradition_plentiful_aspiration = {
-	adoption_bonus = "tr_plentiful_aspiration_adopt"
-	finish_bonus = "tr_plentiful_aspiration_finish"
+tradition_est_commerce = {
+	adoption_bonus = "tr_est_commerce_adopt"
+	finish_bonus = "tr_est_commerce_finish"
 	traditions = {
-		"tr_plentiful_aspiration_1"
-		"tr_plentiful_aspiration_2"
-		"tr_plentiful_aspiration_3"
-		"tr_plentiful_aspiration_4"
-		"tr_plentiful_aspiration_5"
+		"tr_est_commerce_1"
+		"tr_est_commerce_2"
+		"tr_est_commerce_3"
+		"tr_est_commerce_4"
+		"tr_est_commerce_5"
+	}
+	tradition_swap = {
+		name = tradition_est_benevolence
+		trigger = {
+			has_ethic = ethic_gestalt_consciousness
+		}
+		weight = {
+			factor = 1
+		}		
 	}
 }
 

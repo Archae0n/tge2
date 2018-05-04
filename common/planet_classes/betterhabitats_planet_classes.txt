@@ -62,6 +62,6 @@ pc_habitat = {
 	orbit_lines = no
 	has_colonization_influence_cost = no			# applies when within own borders
 	modifier = {
-		pop_resource_output = 0.20
+		pop_resource_output = 0.1
 	}	
 }

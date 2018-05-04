@@ -1,0 +1,31 @@
+General
+- Reduced Habitats' pop production to 10%, from 20%
+
+Ascension Perks
+- Future Society now gives 400 influence upon taking in addition to +1 Civic slot (not implemented, Arch will be doing this event)
+
+Civics
+- Reduced the sensor range of Spiritual Harmony to 1, but increased the consumer goods to -25%
+- Superior Education now grants 10% research speed (from 3%), 35% leader experience gain (up from 15%), and 25% governing ethics attraction (up from 15), but no longer grants Unity
+- Superior Medicine now gives +15 lifespan (up from 5), and 15% pop growth (from 10%)
+- Leadership Forge no longer reduces Unity nor influence gain
+- Telecommunications Experts renamed to Telecommunications, and reduced Sensor range to 1 (from 2) but now grants -10% tradition costs to system/colonies
+- Cultural Fundamentals no longer grants citizen pop happiness, pop growth, army bonuses, war exhaustion, nor trust growth/cap. Instead, grants 15% Unity, 25% Rival influence bonus, and 25% Xenophobe/Spiritualist attraction
+- Space Engineers no longer reduce starbase upkeep
+- Ascetic food consumption increased to -25% from -10%
+- Consumerism now gives 15% Energy and Food production, and decreased to -10% consumer goods, from -12%
+- Parliamentary Monarchy now gives 35% Faction influence, up from 15%
+- Corporate Dominion now grants 1 Unity
+- Meritocracy now gives 2 Leader cap (from 1), 5 Leader pool size (from 3), and 25% Leader exp gain
+- Cutthroat Politics now reduces Edict cost by 10% and buffed Influence (to 1.5) and edict length to 35%
+- Shadow Council now reduces election influence cost by 99%
+- Efficient Bureaucracy now reduces colonies' tradition cost by 25%
+- Nationalist Zeal now reduces influence claim cost by 25%, from 15%
+- Functional Architecture now reduces building cost by 40%, up from 15%, building speed to 40%, and now reduces building upkeep by 10%
+- Police State now increases Army damage by 25% and reduces pirate risk by 50%
+- War Lord now increases admiral and general skill cap by 3, Army morale to 25%, and ship upkeep to -15%, from 7% (this is due to ruler ships being unable to be built as a nature of deprecation)
+- Research Insitutions/Inquistive Processing/Insatiable Curiosity increased to 25% Research speed, from 5%
+
+Traditions
+- Fixed Mysticism's last tradition localisation
+- Aspiration tree has been completely replaced with Commerce tree from Expanded Stellaris traditions, now featuring trade routes and indirectly buffing Lighteer

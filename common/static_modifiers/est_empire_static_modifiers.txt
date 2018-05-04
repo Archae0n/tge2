@@ -1,0 +1,70 @@
+##########################################################################
+# Modifiers
+##########################################################################
+
+
+#Commerce
+mod_est_commerce_1 = {
+	country_resource_energy_mult = 0.15
+}
+mod_est_commerce_3_PP_1 = {
+	max_energy = 2500
+}
+mod_est_commerce_3_PP_2 = {
+	max_energy = 7500
+}
+mod_est_commerce_3_PP_3 = {
+	max_energy = 12500
+}
+mod_est_commerce_3_T_1 = {
+	max_energy = 2500
+}
+mod_est_commerce_3_T_2 = {
+	max_energy = 5000
+}
+mod_est_commerce_3_T_3 = {
+	max_energy = 7500
+}
+mod_est_commerce_4_1 = {
+	country_resource_energy_mult = 0.015
+	country_resource_minerals_mult = 0.015
+}
+mod_est_commerce_4_2 = {
+	country_resource_energy_mult = 0.015
+	country_resource_minerals_mult = 0.015
+}
+mod_est_commerce_4_3 = {
+	country_resource_energy_mult = 0.03
+	country_resource_minerals_mult = 0.03
+}
+mod_est_commerce_4_4 = {
+	country_resource_energy_mult = 0.045
+	country_resource_minerals_mult = 0.045
+}
+mod_est_commerce_4_5 = {
+	country_resource_energy_mult = 0.06
+	country_resource_minerals_mult = 0.06
+}
+mod_est_commerce_4_6 = {
+	country_resource_energy_mult = 0.075
+	country_resource_minerals_mult = 0.075
+}
+mod_est_commerce_4_neighbour = {
+	country_resource_energy_mult = 0.025
+	country_resource_minerals_mult = 0.025
+}
+mod_est_commerce_finish_1 = {
+	country_resource_energy_mult = 0.05
+}
+mod_est_commerce_finish_2 = {
+	country_resource_energy_mult = 0.10
+}
+mod_est_commerce_finish_3 = {
+	country_resource_energy_mult = 0.15
+}
+mod_est_commerce_finish_4 = {
+	country_resource_energy_mult = 0.20
+}
+mod_est_commerce_finish_5 = {
+	country_resource_energy_mult = 0.25
+}
