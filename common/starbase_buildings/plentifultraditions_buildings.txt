@@ -1,0 +1,18 @@
+orbital_trading_beacon = {
+	icon = "GFX_starbase_offworld_trading_company"
+	construction_days = 360
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_plentiful_traditions_orbital_trading_beacon }
+	}
+	cost = { minerals = 200 }
+
+	produced_resources = {
+		energy = 4
+	}
+	
+	system_modifier = {
+		tile_resource_energy_mult = 0.05
+	}
+	
+}

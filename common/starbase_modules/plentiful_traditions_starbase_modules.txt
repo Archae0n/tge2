@@ -19,27 +19,3 @@ orbital_fracking_cannon = {
 		energy = 1.5
 	}
 }
-
-orbital_trading_beacon = {
-	icon = "GFX_orbital_trading_beacon"
-	section = "ASSEMBLYYARD_STARBASE_SECTION"
-	construction_days = 180
-	potential = {
-		exists = owner
-		owner = { has_technology = tech_plentiful_traditions_orbital_trading_beacon }
-	}
-	
-	cost = {
-		minerals = 100
-		energy = 25
-		influence = 10
-	}	
-	
-	produced_resources = {
-		energy = 4
-	}
-	
-	system_modifier = {
-		tile_resource_energy_mult = 0.05
-	}
-}

@@ -7,8 +7,8 @@
 country_edict = {
 	name = "plentiful_traditions_malicious_intent"
 	modifier = {
-		damage_vs_country_type_fallen_empire_mult = 0.15
-		damage_vs_country_type_awakened_fallen_empire_mult = 0.15
+		damage_vs_country_type_fallen_empire_mult = 0.35
+		damage_vs_country_type_awakened_fallen_empire_mult = 0.35
 	}
 	
 	length = @EdictDuration

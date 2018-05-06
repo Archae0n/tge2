@@ -3,7 +3,7 @@
 tr_plentiful_kleptocracy_adopt = {
 	cost = { unity = @cost }
 	modifier = {
-		ship_fire_rate_mult = 0.08
+		ship_fire_rate_mult = 0.2
 	}
 	
 	ai_weight = {
@@ -29,7 +29,7 @@ tr_plentiful_kleptocracy_adopt = {
 
 tr_plentiful_kleptocracy_finish = {
 	modifier = {
-		country_trade_attractiveness = 0.25
+		country_resource_influence_add = 1
 		ascension_perks_add = 1
 	}
 }
@@ -85,9 +85,7 @@ tr_plentiful_kleptocracy_4 = {
 		has_tradition = tr_plentiful_kleptocracy_3
 	}
 	modifier = {
-		diplomacy_influence_cost = -0.15
-		country_trust_growth = 0.15
-# Opinion
+		diplomacy_influence_cost = -0.3
 	}
 	
 	ai_weight = {

@@ -22,18 +22,18 @@ tr_plentiful_mysticism_adopt_desc:0 "$tradition_plentiful_mysticism_desc$\n\n$tr
 tr_plentiful_mysticism_adopt_effect:0 "§E$TRADITIONS_ADOPT$:§!\n§Y$MOD_LEADER_SPECIES_EXP_GAIN$§! increased by §G+20%§!."
 
 tr_plentiful_mysticism_finish:0 "Mysticism Traditions Finished"
-tr_plentiful_mysticism_finish_effect:0 "§E$TRADITIONS_FINISH$:§!\n§HUnlocks Planetary Edict:§! $edict_plentiful_traditions_sacred_act$, allowing the planet's obelisks, temples, pillars, uplinks and sanctums to have a chance of producing additional £unity  §YUnity§! and gives a temporary §G+5%§! bonus to the planet's unity production at the cost of £influence  §YInfluence§!."
+tr_plentiful_mysticism_finish_effect:0 "§E$TRADITIONS_FINISH$:§!\n§HUnlocks Planetary Edict:§! $edict_plentiful_traditions_sacred_act$, allowing the planet's obelisks, temples, pillars, uplinks and sanctums to have a chance of producing additional £unity  §YUnity§! and gives a temporary §G+5%§! bonus to the planet's unity production at the cost of £influence  §YInfluence§!.\n\n"
 
 tr_plentiful_mysticism_1:0 "Compassionate Guidance"
-tr_plentiful_mysticism_1_desc:0 "§Y$MOD_LEADER_AGE$§! increased by §G+20§!.\n\n§HUnlocks Building:§! £building  $building_plentiful_traditions_obelisk1$, a planet unique upgrade of a Blessed Foundation increasing the planet's £food §Y$tile_resource_food_mult$§! and £energy §Y$tile_resource_energy_mult$§! production. Only one Obelisk is allowed to be built on a planet."
+tr_plentiful_mysticism_1_desc:0 "§Y$MOD_LEADER_AGE$§! increased by §G+10§!.\n\n§HUnlocks Building:§! £building  $building_plentiful_traditions_obelisk1$, a planet unique upgrade of a Blessed Foundation increasing the planet's £food §Y$tile_resource_food_mult$§! and £energy §Y$tile_resource_energy_mult$§! production. Only one Obelisk is allowed to be built on a planet."
 tr_plentiful_mysticism_1_delayed:0 "No virtue is greater than our elders' compassion when we are faced with animosity."
 
 tr_plentiful_mysticism_2:0 "Selfless Frugality"
-tr_plentiful_mysticism_2_desc:0 "§Y$MOD_PLANET_BUILDING_COST_MULT$§! reduced by §G-15%§!.\n\n§HUnlocks Building:§! £building  $building_plentiful_traditions_obelisk2$, a planet unique upgrade of a Blessed Foundation that increases the planet's £energy §Y$tile_resource_energy_mult$§! and £minerals §Y$tile_resource_minerals_mult$§! production. Only one Obelisk is allowed to be built on a planet."
+tr_plentiful_mysticism_2_desc:0 "§Y$MOD_PLANET_BUILDING_COST_MULT$§! reduced by §G-10%§!.\n\n§HUnlocks Building:§! £building  $building_plentiful_traditions_obelisk2$, a planet unique upgrade of a Blessed Foundation that increases the planet's £energy §Y$tile_resource_energy_mult$§! and £minerals §Y$tile_resource_minerals_mult$§! production. Only one Obelisk is allowed to be built on a planet."
 tr_plentiful_mysticism_2_delayed:0 "Moderating consumption and avoiding extravagance sustains the beauty and economy of nature itself."
 
 tr_plentiful_mysticism_3:0 "Circle of Modesty"
-tr_plentiful_mysticism_3_desc:0 "§Y$pc_nuked_habitability$§! increased by §G+50%§!.\n\n§HUnlocks Building:§! £building  $building_plentiful_traditions_obelisk3$, a planet unique upgrade of a Blessed Foundation that increases the planet's £minerals §Y$tile_resource_minerals_mult$§! and £food §Y$tile_resource_food_mult$§! production. Only one Obelisk is allowed to be built on a planet."
+tr_plentiful_mysticism_3_desc:0 "Reduces the mineral cost of §Y$CONSUMER_GOODS$§! used by our £pops  Pops by §G-10%§!.\n\n§HUnlocks Building:§! £building  $building_plentiful_traditions_obelisk3$, a planet unique upgrade of a Blessed Foundation that increases the planet's £minerals §Y$tile_resource_minerals_mult$§! and £food §Y$tile_resource_food_mult$§! production. Only one Obelisk is allowed to be built on a planet."
 tr_plentiful_mysticism_3_delayed:0 "A natural fear of death, brings out an unquestioned love for life. Even places void of life and filled with destruction deserve a chance for redemption."
 
 tr_plentiful_mysticism_4:0 "Keys of Life"
@@ -372,7 +372,7 @@ tr_plentiful_malice_adopt_desc:0 "$tradition_plentiful_malice_desc$\n\n$tr_plent
 tr_plentiful_malice_adopt_effect:0 "§E$TRADITIONS_ADOPT$:§!\n§Y$MOD_COUNTRY_INSULT_EFFICIENCY$§! increased by §G+50%§!. The §YSlaves§! within our empire have their £happiness  §Y$MOD_POP_HAPPINESS$§! increased by §G+5%§! and the mineral cost of their §Y$CONSUMER_GOODS$§! decreased by §G-20%§!."
 
 tr_plentiful_malice_finish:0 "Malice Traditions Finished"
-tr_plentiful_malice_finish_effect:0 "§E$TRADITIONS_FINISH$:§!\nAdopting all $tr_plentiful_malice_adopt$ unlocks the §YMalicious Intent§! edict increasing our §Y$damage_vs_country_type_fallen_empire_mult$§! and §Y$damage_vs_country_type_awakened_fallen_empire_mult$§! by §G+15%§!."
+tr_plentiful_malice_finish_effect:0 "§E$TRADITIONS_FINISH$:§!\nAdopting all $tr_plentiful_malice_adopt$ unlocks the §YMalicious Intent§! edict increasing our damage against §YFallen§!, §YAwakened§!, and §YAscended Empires§! by §G+35%§!.\n\n"
  
 tr_plentiful_malice_1:0 "Despair"
 tr_plentiful_malice_1_desc:0 "§Y$MOD_COUNTRY_UNREST_UNHAPPY_SLAVE_EFFECT_MULT$§! decreased by §G-20%§!."
@@ -469,17 +469,17 @@ tradition_plentiful_affinity:0 "Affinity"
 tradition_plentiful_affinity_desc:0 "The reward for being kind is inherent in the act of giving it."
 tr_plentiful_affinity_adopt:0 "Affinity Traditions"
 tr_plentiful_affinity_adopt_desc:0 "$tradition_plentiful_affinity_desc$\n\n$tr_plentiful_affinity_adopt_effect$\n\n$tr_plentiful_affinity_finish_effect$"
-tr_plentiful_affinity_adopt_effect:0 "§E$TRADITIONS_ADOPT$:§!\n§Y$MOD_TRADITION_COST_NUM_SYSTEMS_MULT$§! is reduced by §G-15%§!."
+tr_plentiful_affinity_adopt_effect:0 "§E$TRADITIONS_ADOPT$:§!\n§Y$MOD_TRADITION_COST_NUM_SYSTEMS_MULT$§! is reduced by §G-25%§!."
 
 tr_plentiful_affinity_finish:0 "Affinity Traditions Finished"
-tr_plentiful_affinity_finish_effect:0 "§E$TRADITIONS_FINISH$:§!\nAdopting all $tr_plentiful_affinity_adopt$ increases the §Y$MOD_POP_RESOURCE_OUTPUT$§! of £pops  Pops by §G+0.8%§! for each additional species beyond the first §Y2§! an owned planet has. This stacks by up to §Y10§! times, for a total of §G+8%§!."
+tr_plentiful_affinity_finish_effect:0 "§E$TRADITIONS_FINISH$:§!\nAdopting all $tr_plentiful_affinity_adopt$ increases the £pops  §Y$MOD_POP_RESOURCE_OUTPUT$§! by §G+2.5%§! and £pops  §Y$MOD_POP_GROWTH_SPEED$§! by §G+5%§! for each additional species beyond the first §Y2§! an owned planet has. This stacks by up to §Y10§! times, for a total of §G+25%§! and §G+50%§!, respectively.\n\n"
  
 tr_plentiful_affinity_1:0 "Tolerance"
-tr_plentiful_affinity_1_desc:0 "§Y$MOD_PLANET_MIGRATION_XENO_PULL$§! increased by §G+25%§! and £influence  §Y$MOD_COUNTRY_FACTION_INFLUENCE_ADD$§! increased by §G+1§!."
+tr_plentiful_affinity_1_desc:0 "§Y$MOD_PLANET_MIGRATION_XENO_PULL$§! increased by §G+50%§! and £influence  §Y$MOD_COUNTRY_FACTION_INFLUENCE_ADD$§! increased by §G+1§!."
 tr_plentiful_affinity_1_delayed:0 "Tolerance towards others is what sets us apart from our enemies."
 
 tr_plentiful_affinity_2:0 "Empathetic Society"
-tr_plentiful_affinity_2_desc:0 "When our empire is at §GPeace§!, the £happiness  §Y$MOD_POP_HAPPINESS$§! of all our £pops  Pops increases by §G+5%§!."
+tr_plentiful_affinity_2_desc:0 "When our empire is at §GPeace§!, the £happiness  §Y$MOD_POP_HAPPINESS$§! of all our £pops  Pops increases by §G+10%§!."
 tr_plentiful_affinity_2_delayed:0 "The understanding and sharing of feelings between other species, is what brings us forward."
  
 tr_plentiful_affinity_3:0 "Mercy"
@@ -487,7 +487,7 @@ tr_plentiful_affinity_3_desc:0 "§Y$MOD_POP_MIGRATION_SPEED$§! increased by §G
 tr_plentiful_affinity_3_delayed:0 "Allowing all species to migrate freely, may break the chains of the unfortunate."
  
 tr_plentiful_affinity_4:0 "Pathfinder"
-tr_plentiful_affinity_4_desc:0 "Our £physics  £society  £engineering §Y$MOD_COUNTRY_ALL_TECH_RESEARCH_SPEED$§! is increased by §G+3%§!. Wen our empire is at §GPeace§! this is doubled for a total of §G+6%§!."
+tr_plentiful_affinity_4_desc:0 "Our £physics  £society  £engineering §Y$MOD_COUNTRY_ALL_TECH_RESEARCH_SPEED$§! is increased by §G+5%§!, or §G+10%§! while we are not in a war."
 tr_plentiful_affinity_4_delayed:0 "The discovery of new worlds, is what brings us closer together and allows us to share thoughts and knowledge."
  
 tr_plentiful_affinity_5:0 "United Passion"
@@ -498,8 +498,8 @@ modifier_plentiful_traditions_trial:0 "Trial and Error"
 modifier_plentiful_traditions_pathfinder:0 "Peaceful Pathfinder"
 modifier_plentiful_traditions_empathetic:0 "Empathetic"
 
-modifier_plentiful_traditions_united1:0 "United Rank 1/10"
-modifier_plentiful_traditions_united1_desc:1 "The £pops  Pops on this planet get a production bonus."
+modifier_plentiful_traditions_united1:0 "United Rank 1"
+modifier_plentiful_traditions_united1_desc:1 "The £pops  Pops on this planet get a production and growth speed bonus."
 modifier_plentiful_traditions_united2:0 "United Rank 2/10"
 modifier_plentiful_traditions_united2_desc:1 "$modifier_plentiful_traditions_united1_desc$"
 modifier_plentiful_traditions_united3:0 "United Rank 3/10"
@@ -676,17 +676,17 @@ tradition_plentiful_kleptocracy:0 "Kleptocracy"
 tradition_plentiful_kleptocracy_desc:0 "Business is done more frequent and effective when our business-partners are 'convinced' to do so by any means."
 tr_plentiful_kleptocracy_adopt:0 "Kleptocracy Traditions"
 tr_plentiful_kleptocracy_adopt_desc:0 "$tradition_plentiful_kleptocracy_desc$\n\n$tr_plentiful_kleptocracy_adopt_effect$\n\n$tr_plentiful_kleptocracy_finish_effect$"
-tr_plentiful_kleptocracy_adopt_effect:0 "§E$TRADITIONS_ADOPT$:§!\n§Y$MOD_SHIP_FIRE_RATE_MULT$§! increased by §G+8%§!."
-
+tr_plentiful_kleptocracy_adopt_effect:0 "§E$TRADITIONS_ADOPT$:§!\n§Y$MOD_SHIP_FIRE_RATE_MULT$§! increased by §G+20%§!."
+2
 tr_plentiful_kleptocracy_finish:0 "Kleptocracy Traditions Finished"
-tr_plentiful_kleptocracy_finish_effect:0 "§E$TRADITIONS_FINISH$:§!\nAdopting all $tr_plentiful_kleptocracy_adopt$ increases our §Y$MOD_COUNTRY_TRADE_ATTRACTIVENESS$§! by §G+25%§!.\n\n§HUnlocks War Demand:§! §YEmbargo§!, increases the mineral cost of an enemy empire's §Y$CONSUMER_GOODS$§! by §R+20%§! for §Y10§! years."
+tr_plentiful_kleptocracy_finish_effect:0 "§E$TRADITIONS_FINISH$:§!\nAdopting all $tr_plentiful_kleptocracy_adopt$ increases our £influence  §Y$country_resource_influence_add$§! by §G+1§!.\n\n§HUnlocks War Demand:§! §YEmbargo§!, increases the mineral cost of an enemy empire's §Y$CONSUMER_GOODS$§! by §R+40%§! for §Y10§! years.\n\n"
 
 tr_plentiful_kleptocracy_1:0 "Fabricated Claims"
 tr_plentiful_kleptocracy_1_desc:0 "§Y$MOD_COUNTRY_COMMAND_LIMIT_ADD$§! increased by §G20%§! and §Y$MOD_COUNTRY_CLAIM_INFLUENCE_COST_MULT$§! increased by §G-15%§!."
 tr_plentiful_kleptocracy_1_delayed:0 "In times of conflict many empires often have to endure severe sanctions. Some more than others."
 
 tr_plentiful_kleptocracy_2:0 "Loan-Shark Activities"
-tr_plentiful_kleptocracy_2_desc:0 "§Y$MOD_COUNTRY_NAVAL_CAP_MULT$§! increased by §G+10%§!.\n\n§HUnlocks Spaceport Module:§! $sm_orbital_trading_beacon$, a spaceport module that adds to the planet's £energy  §YEnergy§! production."
+tr_plentiful_kleptocracy_2_desc:0 "§Y$MOD_COUNTRY_NAVAL_CAP_MULT$§! increased by §G+10%§!.\n\n§HUnlocks Spaceport Building:§! $sm_orbital_trading_beacon$, a spaceport building that adds to the planet's £energy  §YEnergy§! production and produces £energy  §YEnergy§!."
 tr_plentiful_kleptocracy_2_delayed:0 "Illegal conditions are sometimes a necessity to get things done... effectively."
 
 tr_plentiful_kleptocracy_3:0 "Reckless Greed"
@@ -694,11 +694,11 @@ tr_plentiful_kleptocracy_3_desc:0 "§HUnlocks Planetary Edict:§! $edict_plentif
 tr_plentiful_kleptocracy_3_delayed:0 "Energy production and its logistics are carefully monitored to keep stability within the empire. However, temporarily overcharging the planet's energy production might not always be noticed."
 
 tr_plentiful_kleptocracy_4:0 "Partners in Crime"
-tr_plentiful_kleptocracy_4_desc:0 "£influence  §Y$MOD_COUNTRY_DIPLOMACY_INFLUENCE_COST$§! reduced by §G-15%§! and §Y$MOD_COUNTRY_TRUST_GROWTH$§! increased by §G+15%§!. In addition, empire £opinion  §YOpinion§! is increased by §G+10§!."
+tr_plentiful_kleptocracy_4_desc:0 "Reduces the £influence  §Y$MOD_COUNTRY_DIPLOMACY_INFLUENCE_COST$§! with other empires by §G-30%§!."
 tr_plentiful_kleptocracy_4_delayed:0 "Trading agreements don't always need to be formalized in order for them to be effective. Sometimes a little bit of credits is all you need to in order to convince the right people."
 
 tr_plentiful_kleptocracy_5:0 "Ominous Operators"
-tr_plentiful_kleptocracy_5_desc:1 "§Y$MOD_STARBASE_SHIP_BUILD_TIME_MULT$§! decreased by §G-15%§!.\n\n§HUnlocks Building:§! £building  $building_plentiful_traditions_syndicate_quarters$, a planet unique building that provides the empire with a greater amount of §Y$MOD_NAVY_SIZE_ADD$§!.\n\n"
+tr_plentiful_kleptocracy_5_desc:1 "§Y$MOD_STARBASE_SHIP_BUILD_TIME_MULT$§! decreased by §G-15%§!.\n\n§HUnlocks Building:§! £building  $building_plentiful_traditions_syndicate_quarters$, a planet unique building that provides the empire with a greater amount of §YNaval Capacity§!.\n\n"
 tr_plentiful_kleptocracy_5_delayed:0 "Formalities are great, but conducting business is best done when paid 'under the table', where credits are not documented."
 
 # Kleptocracy buildings
@@ -722,7 +722,7 @@ modifier_plentiful_traditions_overcharge_desc:1 "Our planet gets a temporary £e
 war_demand_plentiful_traditions_embargo_header:1 "§HEmbargo§!"
 war_demand_plentiful_traditions_embargo_subtext:0 "[parameter:country.GetName]"
 war_demand_plentiful_traditions_embargo_tooltip_header:0 "$war_demand_plentiful_traditions_embargo_header$"
-war_demand_plentiful_traditions_embargo_tooltip_content:2 "Our contacts will attempt to embargo [parameter:country.GetName], increasing the mineral cost of their §Y$CONSUMER_GOODS$§! by §R+20%§! for §Y10§! years."
+war_demand_plentiful_traditions_embargo_tooltip_content:2 "Our contacts will attempt to embargo [parameter:country.GetName], increasing the mineral cost of their §Y$CONSUMER_GOODS$§! by §R+40%§! for §Y10§! years."
 war_demand_plentiful_traditions_embargo_tooltip_proper_header:0 "$war_demand_plentiful_traditions_embargo_header$"
 war_demand_plentiful_traditions_embargo_tooltip_proper_content:1 "$war_demand_plentiful_traditions_embargo_tooltip_content$"
 war_demand_plentiful_traditions_embargo_no_planets:1 "All the Empire's planets will be ceded."
@@ -737,29 +737,29 @@ tradition_plentiful_anguish:0 "Anguish"
 tradition_plentiful_anguish_desc:0 "With carefully crafted war strategies and high-tech weaponry, we will overcome the potential dangers in space."
 tr_plentiful_anguish_adopt:0 "Anguish Traditions"
 tr_plentiful_anguish_adopt_desc:0 "$tradition_plentiful_anguish_desc$\n\n$tr_plentiful_anguish_adopt_effect$\n\n$tr_plentiful_anguish_finish_effect$"
-tr_plentiful_anguish_adopt_effect:0 "§E$TRADITIONS_ADOPT$:§!\nWhenever we research a military §YDoctrine§! that adds §Y$MOD_NAVY_SIZE_ADD$§!, we get a permanent §G-4%§! decrease to our §Y$MOD_SPACEPORT_SHIP_BUILD_COST_MULT$§!. This stacks by up to §Y5§! times, for a total of §G-20%§!."
+tr_plentiful_anguish_adopt_effect:0 "§E$TRADITIONS_ADOPT$:§!\nWhenever we research a military §YDoctrine§! that adds §YNaval Capacity§!, we get a permanent §G-5%§! decrease to our §YShipyard Cost§!. This stacks by up to §Y5§! times, for a total of §G-25%§!."
 
 tr_plentiful_anguish_finish:0 "Anguish Traditions Finished"
-tr_plentiful_anguish_finish_effect:0 "§E$TRADITIONS_FINISH$:§!\nAdopting all $tr_plentiful_anguish_adopt$ increases our damage to the §YPrethoryn§!, §YUnbidden§!, §YAberrant§! and §YVehement§! by §G+15%§!. Gains £influence  §YInfluence§! from purging Xeno £pop  Pops."
+tr_plentiful_anguish_finish_effect:0 "§E$TRADITIONS_FINISH$:§!\nAdopting all $tr_plentiful_anguish_adopt$ increases our damage to the §YPrethoryn§!, §YUnbidden§!, §YAberrant§! and §YVehement§! by §G+15%§!. Gains 10 £influence  §YInfluence§! from purging Xeno £pop  Pops."
 
 tr_plentiful_anguish_1:0 "Precise Calibrations"
 tr_plentiful_anguish_1_desc:0 "§Y$MOD_SHIP_WEAPON_RANGE_MULT$§! increased by §G+10%§!."
 tr_plentiful_anguish_1_delayed:0 "While difficult in their use, long-range weaponry are dangerously effective to turn the tide of battle."
 
 tr_plentiful_anguish_2:0 "Dimensional Folding"
-tr_plentiful_anguish_2_desc:0 "§Y$MOD_SHIP_WEAPON_DAMAGE$§! increased by §G+8%§!."
+tr_plentiful_anguish_2_desc:0 "§Y$MOD_SHIP_WEAPON_DAMAGE$§! increased by §G+15%§!."
 tr_plentiful_anguish_2_delayed:0 "Understanding the offensive applications of zero-point fields, lets us keep our weaponry systems intact while increasing their damage."
 
 tr_plentiful_anguish_3:0 "Accelerated War Operations"
-tr_plentiful_anguish_3_desc:0 "When our empire is at §RWar§!, our §Y$country_resource_unity_mult$§! increases by §G+10%§! and our £influence  §Y$country_resource_influence_add$§! increases by §G+1§!."
+tr_plentiful_anguish_3_desc:0 "When our empire is at §RWar§!, our §Y$country_resource_unity_mult$§! increases by §G+25%§! and our £influence  §Y$country_resource_influence_add$§! increases by §G+1§!."
 tr_plentiful_anguish_3_delayed:0 "Advances in war operations simplifies the efficiency of our fleet and keeps morale high."
 
 tr_plentiful_anguish_4:0 "Militarist Negotiations"
-tr_plentiful_anguish_4_desc:0 "§Y$category_military_theory_research_speed_mult$§! increased by §G+20%§! and §Y$shipclass_military_station_hit_points_mult$§! increased by §G+50%§!."
+tr_plentiful_anguish_4_desc:0 "§Y$category_military_theory_research_speed_mult$§! increased by §G+20%§! and §YDefense Station Hull§ increased by §G+50%§!."
 tr_plentiful_anguish_4_delayed:0 "The complexities of running a military and its strategic, tactical and operational elements is not possible without the experience of generals that have a tested understanding of war."
 
 tr_plentiful_anguish_5:0 "Special Tactics"
-tr_plentiful_anguish_5_desc:1 "Damage to §YFallen§! and §YAwakened Empires§! increased by §G+15%§!."
+tr_plentiful_anguish_5_desc:1 "Damage to §YFallen§!, §YAwakened§!, and §YAscended Empires§! increased by §G+25%§!."
 tr_plentiful_anguish_5_delayed:0 "When faced with more powerful adversaries we must use special tactics to stay ahead."
 
 modifier_plentiful_traditions_enraged:0 "Enraged"

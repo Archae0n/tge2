@@ -29,61 +29,71 @@ modifier_plentiful_traditions_blockchain_4 = {
 modifier_plentiful_traditions_united1 = {
     icon = "gfx/interface/icons/planet_modifiers/pm_united.dds"
 	icon_frame = 1
-	pop_resource_output = 0.008
+	pop_resource_output = 0.025
+	pop_growth_speed = 0.05
 }
 
 modifier_plentiful_traditions_united2 = {
     icon = "gfx/interface/icons/planet_modifiers/pm_united.dds"
 	icon_frame = 1
-	pop_resource_output = 0.016
+	pop_resource_output = 0.05
+	pop_growth_speed = 0.1
 }
 
 modifier_plentiful_traditions_united3 = {
     icon = "gfx/interface/icons/planet_modifiers/pm_united.dds"
 	icon_frame = 1
-	pop_resource_output = 0.024
+	pop_resource_output = 0.075
+	pop_growth_speed = 0.15
 }
 
 modifier_plentiful_traditions_united4 = {
     icon = "gfx/interface/icons/planet_modifiers/pm_united.dds"
 	icon_frame = 1
-	pop_resource_output = 0.032
+	pop_resource_output = 0.1
+	pop_growth_speed = 0.2
 }
 
 modifier_plentiful_traditions_united5 = {
     icon = "gfx/interface/icons/planet_modifiers/pm_united.dds"
 	icon_frame = 1
-	pop_resource_output = 0.04
+	pop_resource_output = 0.125
+	pop_growth_speed = 0.25
 }
 
 modifier_plentiful_traditions_united6 = {
     icon = "gfx/interface/icons/planet_modifiers/pm_united.dds"
 	icon_frame = 1
-	pop_resource_output = 0.048
+	pop_resource_output = 0.15
+	pop_growth_speed = 0.3
 }
 
 modifier_plentiful_traditions_united7 = {
     icon = "gfx/interface/icons/planet_modifiers/pm_united.dds"
 	icon_frame = 1
-	pop_resource_output = 0.056
+	pop_resource_output = 0.175
+	pop_growth_speed = 0.35
 }
 
 modifier_plentiful_traditions_united8 = {
     icon = "gfx/interface/icons/planet_modifiers/pm_united.dds"
 	icon_frame = 1
-	pop_resource_output = 0.064
+	pop_resource_output = 0.2
+	pop_growth_speed = 0.4
 }
 
 modifier_plentiful_traditions_united9 = {
     icon = "gfx/interface/icons/planet_modifiers/pm_united.dds"
 	icon_frame = 1
-	pop_resource_output = 0.072
+	pop_resource_output = 0.225
+	pop_growth_speed = 0.45
 }
 
 modifier_plentiful_traditions_united10 = {
     icon = "gfx/interface/icons/planet_modifiers/pm_united.dds"
 	icon_frame = 1
-	pop_resource_output = 0.08
+	pop_resource_output = 0.25
+	pop_growth_speed = 0.5
 }
 
 modifier_plentiful_traditions_due1 = {
@@ -155,23 +165,23 @@ modifier_plentiful_traditions_slave1 = {
 }
 
 modifier_plentiful_traditions_doctrine1 = {
-	starbase_shipyard_build_cost_mult = -0.04
+	starbase_shipyard_build_cost_mult = -0.05
 }
 
 modifier_plentiful_traditions_doctrine2 = {
-	starbase_shipyard_build_cost_mult = -0.08
+	starbase_shipyard_build_cost_mult = -0.1
 }
 
 modifier_plentiful_traditions_doctrine3 = {
-	starbase_shipyard_build_cost_mult = -0.12
+	starbase_shipyard_build_cost_mult = -0.15
 }
 
 modifier_plentiful_traditions_doctrine4 = {
-	starbase_shipyard_build_cost_mult = -0.16
+	starbase_shipyard_build_cost_mult = -0.2
 }
 
 modifier_plentiful_traditions_doctrine5 = {
-	starbase_shipyard_build_cost_mult = -0.2
+	starbase_shipyard_build_cost_mult = -0.25
 }
 
 modifier_plentiful_traditions_trial = {
@@ -183,7 +193,7 @@ modifier_plentiful_traditions_trial = {
 modifier_plentiful_traditions_embargo = {
 	icon = "gfx/interface/icons/planet_modifiers/pm_embargo.dds"
 	icon_frame = 3
-	pop_consumer_goods_mult = 0.2
+	pop_consumer_goods_mult = 0.4
 }
 
 modifier_plentiful_traditions_undertaking_positive = {
@@ -201,20 +211,20 @@ modifier_plentiful_traditions_undertaking_negative = {
 modifier_plentiful_traditions_enraged = {
     icon = "gfx/interface/icons/planet_modifiers/pm_enraged.dds"
 	icon_frame = 1
-	country_resource_unity_mult = 0.1
+	country_resource_unity_mult = 0.25
 	country_resource_influence_add = 1
 }
 
 modifier_plentiful_traditions_empathetic = {
     icon = "gfx/interface/icons/planet_modifiers/pm_empathetic.dds"
 	icon_frame = 1
-	pop_happiness = 0.05
+	pop_happiness = 0.1
 }
 
 modifier_plentiful_traditions_pathfinder = {
     icon = "gfx/interface/icons/modifiers/mod_country_all_tech_research_speed.dds"
 	icon_frame = 1
-	all_technology_research_speed = 0.03
+	all_technology_research_speed = 0.05
 }
 
 modifier_plentiful_traditions_sequence = {

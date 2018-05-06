@@ -1,0 +1,27 @@
+Ascension Perks
+- Fixed Purification Proctocol missing icon
+- Sound Investment Principles no longer require pacifist ethos
+- Removed Executive Vigor ascension perk, due to "Bureaucratic Perfection" already existing (which is an identical effect)
+- Transcendent Learning now increases leader xp gain by 25%
+- One Vision unity bonus increased to 25%, up from 10%
+- Technological Ascendancy increased to 20% research speed, up from 15%
+
+Traditions
+- Malice finisher increased the bonus damage to 35% against Fallen/Awakened/Ascended empires, up from 15%, via the edict
+- Kleptocracy starter now increases fire rate to 20%, up from 8%
+- Kleptocracy finisher now grants 1 influence, instead of 25% trade attraction, and Embrago casus belli increased to 40% consumer goods, up from 20%
+- Kleptocracy: Loan-Shark Activities Orbital Trading Beacon is now a building, not a module
+- Kleptocracy: Partners in Crime now no longer increase opinion, but also reduces diplomatic influence cost by -30%, up from -15%
+- Fixed several Kleptocracy localisations
+- Anguish starter increases to -5% per tech, for an additional of -25% Shipyard cost, up from -4%, and fixed localisation
+- Anguish: Dimensional Folding increased weapon damage to 15%, up from 8%
+- Anguish: Accelerated War Operations increased Unity to 25%, up from 10%, while at war
+- Anguish: Militarist Negotiations fixed localisation
+- Affinity starter now reduces tradition cost of systems by -25%, up from 15%
+- Affinity finisher now increases Pop resource production per species after 2, by 2.5%, up from 0.8%, and growth speed by 5%, per species after 2 species, stacking up to 10 times for a total amount of 25% pop production resource and 50% growth speed on the same world
+- Affinity: Tolerance increased alien migration attraction to 50%, from 25%
+- Affinity: Empathetic Society increased happiness to 10%, from 5%, while not at war
+- Affinity: Pathfinder increased research speed to 5%/10%, from 3%/6%, and fixed spelling error
+- Mysticism: Compassionate Guidance reduced lifespan to 10 years, down from 20
+- Mysticism: Selfless Frugality Building cost reduced to -10%, down from -15%
+- Mysticism: Circle of Modesty no longer grant 50% Tomb world habitability, but instead reduces consumer goods by 10%

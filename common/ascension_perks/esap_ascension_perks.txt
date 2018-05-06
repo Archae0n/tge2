@@ -955,7 +955,7 @@ ap_esap_colony = {
 ap_one_vision = {
 	modifier = {
 		pop_government_ethic_attraction = 0.50
-		tile_resource_unity_mult = 0.10
+		tile_resource_unity_mult = 0.25
 	}
 	
 	possible = {
@@ -1565,7 +1565,7 @@ ap_esap_adv_buildings_machine = {
 
 ap_technological_ascendancy = {
 	modifier = {
-		all_technology_research_speed = 0.15
+		all_technology_research_speed = 0.20
 	}
 	
 	potential = {
@@ -2131,10 +2131,6 @@ ap_esap_pacifism_1 = {
 	potential = {
 		NOT = {
 			has_ascension_perk = ap_esap_pacifism_1
-		}
-		OR = {
-			has_ethic = ethic_pacifist
-			has_ethic = ethic_fanatic_pacifist
 		}
 	}
 	
