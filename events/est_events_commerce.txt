@@ -154,16 +154,6 @@ event = {
 							has_closed_borders = prev
 						}
 					}
-					their_opinion = {
-						who = prev
-						value > 0
-					}
-					prev = {
-						their_opinion = {
-							who = prev
-							value > 0
-						}
-					}
 					Or = {
 						num_owned_planets < 5
 						prev = {

@@ -7,6 +7,7 @@ civic_cofh_se_research_speed = {
 	random_weight = { base = 1 }
 	modifier = {
 		all_technology_research_speed = 0.25
+		country_resource_unity_mult = -0.05
 	}
 }
 

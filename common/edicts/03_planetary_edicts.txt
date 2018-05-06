@@ -73,22 +73,20 @@ planet_edict = {
 			modifier = "consecrated_world"
 			days = -1
 		}
+	}
 	potential = {
 		owner = {
 			has_ascension_perk = ap_consecrated_worlds
 		}
-		NOT = {
+		Not = {
 			has_modifier = consecrated_world
 		}
 	}
 	
 	allow = {
-		NOT = {
+		Not = {
 			has_modifier = consecrated_world
 		}
-	}
-	
-	effect = {		
 	}
 	
 	ai_weight = {

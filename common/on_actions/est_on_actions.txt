@@ -1,0 +1,17 @@
+# No scope, like on_game_start
+on_monthly_pulse = {
+	events = {
+		est_commerce.1
+		est_commerce.3
+		est_commerce.4
+	}
+}
+
+
+# A country has increased the level of a tech, use last_increased_tech trigger to check tech and level.
+# This = Country
+on_tech_increased = {
+	events = {
+		est_commerce.2
+	}
+}

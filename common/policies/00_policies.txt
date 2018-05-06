@@ -22,11 +22,9 @@
 
 
 economy = {
-
 	potential = {
 		always = yes   # only normal Empires should have this policy
 	}
-	
 	
 	option = {
 		name = "mixed_economy"
@@ -46,10 +44,6 @@ economy = {
 		modifier = {
 
 		}
-		
-		
-		
-		
 	}
 			
 	

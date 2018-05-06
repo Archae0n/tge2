@@ -167,23 +167,13 @@ trading_hub = {
 	produced_resource_trigger = {
 		modifier = {
 			hidden_trigger = { exists = this }
-			owner = { has_ethic = ethic_capitalism } 
-			resources = { energy = 0.5 }
-		}
-		modifier = {
-			hidden_trigger = { exists = this }
-			owner = { has_ethic = ethic_fanatic_capitalism } 
-			resources = { energy = 1 }
-		}
-		modifier = {
-			hidden_trigger = { exists = this }
 			has_starbase_building = offworld_trading_company
 			resources = { energy = 2 }
 		}
 		modifier = {
 			hidden_trigger = { exists = this }
 			owner = { has_civic = civic_corporate_dominion }
-			resources = { energy = 1 }
+			resources = { energy = 2 }
 		}
 		modifier = {
 			hidden_trigger = { exists = this }
