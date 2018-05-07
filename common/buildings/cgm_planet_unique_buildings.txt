@@ -257,6 +257,20 @@ building_clinic = {
 		potential = { overhauled_building_stats_enabled = yes }
 		modifier = { pop_growth_speed = 0.15 }
 	}
+	produced_resource_trigger = {
+		modifier = {
+			has_technology = "tech_eutab_folk_community"
+			resources = {
+				unity = 2
+			}
+		}
+		modifier = {
+			has_policy_flag = public_healthcare
+			resources = {
+				unity = 1
+			}
+		}
+	}
 	#ai restrictions and weights
 	ai_allow = { society_and_unity_buildings_ai_allow_conditions = yes }
 	ai_weight = {
@@ -296,6 +310,20 @@ building_hospital_direct_build = {
 		potential = { overhauled_building_stats_enabled = yes }
 		modifier = { pop_growth_speed = 0.3 }
 	}
+	produced_resource_trigger = {
+		modifier = {
+			has_technology = "tech_eutab_folk_community"
+			resources = {
+				unity = 4
+			}
+		}
+		modifier = {
+			has_policy_flag = public_healthcare
+			resources = {
+				unity = 1
+			}
+		}
+	}
 	ai_allow = { society_and_unity_buildings_ai_allow_conditions = yes }
 	show_tech_unlock_if = { always = no }
 	icon = building_hospital
@@ -326,6 +354,20 @@ building_hospital = {
 		key = building_hospital
 		potential = { overhauled_building_stats_enabled = yes }
 		modifier = { pop_growth_speed = 0.3 }
+	}
+	produced_resource_trigger = {
+		modifier = {
+			has_technology = "tech_eutab_folk_community"
+			resources = {
+				unity = 4
+			}
+		}
+		modifier = {
+			has_policy_flag = public_healthcare
+			resources = {
+				unity = 1
+			}
+		}
 	}
 	upgrades = { building_clinic_hidden_tree_root }
 }

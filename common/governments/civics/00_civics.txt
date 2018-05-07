@@ -1793,7 +1793,7 @@ civic_technocracy = {
 	modifier = {
 	
 		num_tech_alternatives_add = 1
-		all_technology_research_speed = 0.04
+		all_technology_research_speed = 0.1
 		ship_anomaly_research_speed_mult = 0.15								 
 		LEADER_SCIENTIST_COST = -0.25
 	}
@@ -1836,11 +1836,6 @@ civic_exploration = {
 	}
 }
 
-
-
-
-
-
 #Innovative Economics - Materialist/Individualist
 civic_innovative_economy = {
 	potential = { ethics = { NOT = { value = ethic_gestalt_consciousness } } }
@@ -1858,12 +1853,8 @@ civic_innovative_economy = {
 			    value = ethic_capitalism
 				value = ethic_fanatic_capitalism
 			}
-			
 		}
-	
 	}
-	
-
 	random_weight = { base = 1 }
 	modifier = {
 	
@@ -1878,25 +1869,6 @@ civic_innovative_economy = {
 				           
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #Government Civics
 #################################################
