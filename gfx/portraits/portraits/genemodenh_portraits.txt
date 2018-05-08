@@ -1,0 +1,914 @@
+#Workaround to get rid of error spam
+
+portraits = {
+
+	#Humanoid
+	
+	human_genemod = { entity = "portrait_human_female_04_entity" clothes_selector = "gm_human_clothes" hair_selector = "gm_human_hair" greeting_sound = "human_female_greetings_03"}
+	
+	humanoid_02_genemod = {	entity = "humanoid_02_female_01_entity"	clothes_selector = "gm_humanoid_02_clothes" hair_selector = "gm_humanoid_02_hair" greeting_sound = "humanoid_female_greeting_d"	
+		character_textures = {
+			"gfx/models/portraits/humanoid/humanoid_02_female_body_01.dds"
+			"gfx/models/portraits/humanoid/humanoid_02_female_body_01_dark_brown.dds"
+			"gfx/models/portraits/humanoid/humanoid_02_female_body_01_light_green.dds"
+		}
+	}
+	
+	humanoid_03_genemod = { entity = "humanoid_03_female_01_entity" clothes_selector = "gm_humanoid_03_clothes" hair_selector = "no_texture" greeting_sound = "humanoid_female_greeting_b"
+		character_textures = {
+			"gfx/models/portraits/humanoid/humanoid_03_female_01_light_blue.dds"
+			"gfx/models/portraits/humanoid/humanoid_03_female_01.dds"
+			"gfx/models/portraits/humanoid/humanoid_03_female_01_purple.dds"
+			"gfx/models/portraits/humanoid/humanoid_03_female_01_cyan.dds"
+		}
+	}
+	
+	humanoid_04_genemod = { entity = "humanoid_04_female_01_entity" clothes_selector = "gm_humanoid_03_clothes" hair_selector = "no_texture" greeting_sound = "humanoid_female_greeting_c" 
+		character_textures = {
+			"gfx/models/portraits/humanoid/humanoid_04_female_01_blue.dds"
+			"gfx/models/portraits/humanoid/humanoid_04_female_01_blue.dds"
+			"gfx/models/portraits/humanoid/humanoid_04_female_01_purple.dds"
+			"gfx/models/portraits/humanoid/humanoid_04_female_01_pink.dds"
+			"gfx/models/portraits/humanoid/humanoid_04_female_01_red.dds"
+		}
+	}
+	
+	humanoid_05_genemod = { entity = "humanoid_05_female_01_entity" clothes_selector = "gm_humanoid_05_clothes" hair_selector = "gm_humanoid_05_hair" greeting_sound = "humanoid_female_greeting_a" }
+	
+	#Humanoid Species Pack
+	
+	humanoid_hp_01_genemod 	= {	entity = "humanoid_hp_01_entity"	clothes_selector = "gm_mam_slender_01_clothes" hair_selector = "no_texture"	greeting_sound = "humanoid_portrait_a_male"	
+		character_textures = {
+			"gfx/models/portraits/humanoid/humanoid_hp_01.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_01_yellow.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_01_red.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_01_brown.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_01_female.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_01_female_yellow.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_01_female_red.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_01_female_brown.dds"
+		}
+	}
+	
+	humanoid_hp_02_genemod 	= {	entity = "humanoid_hp_02_entity"	clothes_selector = "gm_mam_slender_01_clothes" hair_selector = "gm_hum_hp_02_hair"	greeting_sound = "humanoid_portrait_b_male"	
+		character_textures = {
+			"gfx/models/portraits/humanoid/humanoid_hp_02.dds"
+		}
+	}
+	
+	humanoid_hp_06_genemod 	= {	entity = "humanoid_hp_06_entity"	clothes_selector = "gm_mam_normal_01_clothes" hair_selector = "no_texture"	greeting_sound = "humanoid_portrait_c_male"	
+		character_textures = {
+			"gfx/models/portraits/humanoid/humanoid_hp_06.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_06_orange.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_06_red.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_06_pink.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_06_female.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_06_female_orange.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_06_female_red.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_06_female_pink.dds"
+		}
+	}
+	
+	humanoid_hp_07_genemod 	= {	entity = "humanoid_hp_07_entity"	clothes_selector = "gm_mam_normal_01_clothes" hair_selector = "no_texture"	greeting_sound = "humanoid_portrait_d_male"	
+		character_textures = {
+			"gfx/models/portraits/humanoid/humanoid_hp_07.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_07_female.dds"
+		}
+	}
+	
+	humanoid_hp_08_genemod 	= {	entity = "humanoid_hp_08_entity"	clothes_selector = "gm_mam_normal_01_clothes" hair_selector = "no_texture"	greeting_sound = "humanoid_male_greeting_d"	
+		character_textures = {
+			"gfx/models/portraits/humanoid/humanoid_hp_08.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_08_orange.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_08_yellow.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_08_purple.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_08_female.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_08_female_orange.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_08_female_yellow.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_08_female_purple.dds"
+		}
+	}
+	
+	humanoid_hp_09_genemod 	= {	entity = "humanoid_hp_09_entity"	clothes_selector = "gm_mam_normal_01_clothes" hair_selector = "no_texture"	greeting_sound = "humanoid_portrait_f_male"	
+		character_textures = {
+			"gfx/models/portraits/humanoid/humanoid_hp_09.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_09v2.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_09v3.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_09v4.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_09_female.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_09_femalev2.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_09_femalev3.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_09_femalev4.dds"
+		}
+	}
+	
+	humanoid_hp_10_genemod 	= {	entity = "humanoid_hp_10_entity"	clothes_selector = "gm_mam_normal_01_clothes" hair_selector = "no_texture"	greeting_sound = "humanoid_portrait_g_male"	
+		character_textures = {
+			"gfx/models/portraits/humanoid/humanoid_hp_10.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_10v2.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_10v3.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_10v4.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_10_female.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_10_femalev2.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_10_femalev3.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_10_femalev4.dds"
+		}
+	}
+	
+	humanoid_hp_11_genemod 	= {	entity = "humanoid_hp_11_entity"	clothes_selector = "gm_mam_massive_01_clothes" hair_selector = "gm_hum_hp_11_hair"	greeting_sound = "humanoid_portrait_h_male"	
+		character_textures = {
+			"gfx/models/portraits/humanoid/humanoid_hp_11.dds"
+		}
+	}
+	
+	humanoid_hp_12_genemod 	= {	entity = "humanoid_hp_12_entity"	clothes_selector = "gm_mam_massive_01_clothes" hair_selector = "no_texture"	greeting_sound = "humanoid_portrait_i_male"	
+		character_textures = {
+			"gfx/models/portraits/humanoid/humanoid_hp_12.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_12_teal.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_12_brown.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_12_pale.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_12_female.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_12_female_teal.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_12_female_brown.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_12_female_pale.dds"
+		}
+	}
+	
+	humanoid_hp_13_genemod 	= {	entity = "humanoid_hp_13_entity"	clothes_selector = "gm_mam_massive_01_clothes" hair_selector = "no_texture"	greeting_sound = "humanoid_portrait_j_male"	
+		character_textures = {
+			"gfx/models/portraits/humanoid/humanoid_hp_13_purple.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_13.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_13_yellow.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_13_green.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_13_female_purple.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_13_female.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_13_female_yellow.dds"
+			"gfx/models/portraits/humanoid/humanoid_hp_13_female_green.dds"
+		}
+	}	
+	
+	#Mammalian
+	
+	mam1_genemod = {	entity = "portrait_mammalian_01_entity" clothes_selector = "gm_mam_slender_01_clothes" hair_selector = "no_texture" greeting_sound = "mammalian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/mammalian/mammalian_slender_01_blue_orange.dds"
+			"gfx/models/portraits/mammalian/mammalian_slender_01_blue_white.dds"
+			"gfx/models/portraits/mammalian/mammalian_slender_01_black_yellow.dds"
+			"gfx/models/portraits/mammalian/mammalian_slender_01_black_orange.dds"
+			"gfx/models/portraits/mammalian/mammalian_slender_01_green_yellow.dds"
+			"gfx/models/portraits/mammalian/mammalian_slender_01_green_white.dds"
+			"gfx/models/portraits/mammalian/mammalian_slender_01_black_white.dds"
+		}	
+	}
+	mam2_genemod = {	entity = "portrait_mammalian_02_entity" clothes_selector = "gm_mam_slender_02_clothes" hair_selector = "no_texture" greeting_sound = "mammalian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/mammalian/mammalian_slender_02_blue.dds"
+			"gfx/models/portraits/mammalian/mammalian_slender_02_purple.dds"
+			"gfx/models/portraits/mammalian/mammalian_slender_02_pink.dds"
+			"gfx/models/portraits/mammalian/mammalian_slender_02_black.dds"
+			"gfx/models/portraits/mammalian/mammalian_slender_02_white.dds"
+		}	
+	}
+	mam3_genemod = {	entity = "portrait_mammalian_03_entity" clothes_selector = "gm_mam_slender_03_clothes" hair_selector = "no_texture" greeting_sound = "mammalian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/mammalian/mammalian_slender_03_orange.dds"
+			"gfx/models/portraits/mammalian/mammalian_slender_03_brown.dds"
+			"gfx/models/portraits/mammalian/mammalian_slender_03_red.dds"
+			"gfx/models/portraits/mammalian/mammalian_slender_03_white.dds"
+			"gfx/models/portraits/mammalian/mammalian_slender_03_black.dds"
+			"gfx/models/portraits/mammalian/mammalian_slender_03_all_black.dds"
+		}	
+	}
+
+	mam4_genemod = {	entity = "portrait_mammalian_04_entity" clothes_selector = "gm_mam_slender_04_clothes" hair_selector = "no_texture" greeting_sound = "mammalian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/mammalian/mammalian_slender_04_blue.dds"
+			"gfx/models/portraits/mammalian/mammalian_slender_04_black.dds"
+			"gfx/models/portraits/mammalian/mammalian_slender_04_green.dds"
+			"gfx/models/portraits/mammalian/mammalian_slender_04_purple.dds"
+			"gfx/models/portraits/mammalian/mammalian_slender_04_all_blue.dds"
+			"gfx/models/portraits/mammalian/mammalian_slender_04_all_black.dds"
+			"gfx/models/portraits/mammalian/mammalian_slender_04_all_green.dds"
+			"gfx/models/portraits/mammalian/mammalian_slender_04_all_purple.dds"
+		}
+	}
+	
+	mam5_genemod = {	entity = "portrait_mammalian_05_entity" clothes_selector = "gm_mam_slender_01_clothes" hair_selector = "no_texture" greeting_sound = "mammalian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/mammalian/mammalian_slender_05_orange.dds"
+			"gfx/models/portraits/mammalian/mammalian_slender_05_red.dds"
+			"gfx/models/portraits/mammalian/mammalian_slender_05_pink.dds"
+			"gfx/models/portraits/mammalian/mammalian_slender_05_purple.dds"
+			"gfx/models/portraits/mammalian/mammalian_slender_05_black.dds"
+		}
+	}
+	
+	mam6_genemod = {	entity = "portrait_mammalian_06_entity" clothes_selector = "gm_mam_normal_01_clothes" hair_selector = "no_texture" greeting_sound = "mammalian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/mammalian/mammalian_normal_06_brown.dds"
+			"gfx/models/portraits/mammalian/mammalian_normal_06_dark_brown.dds"
+			"gfx/models/portraits/mammalian/mammalian_normal_06_dark_red.dds"
+			"gfx/models/portraits/mammalian/mammalian_normal_06_red.dds"
+			"gfx/models/portraits/mammalian/mammalian_normal_06_black.dds"
+		}	
+	}
+	mam7_genemod = {	entity = "portrait_mammalian_07_entity"	clothes_selector = "gm_mam_normal_01_clothes" hair_selector = "no_texture" greeting_sound = "mammalian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/mammalian/mammalian_normal_07_light_brown.dds"
+			"gfx/models/portraits/mammalian/mammalian_normal_07_medium_brown.dds"
+			"gfx/models/portraits/mammalian/mammalian_normal_07_dark_brown.dds"
+			"gfx/models/portraits/mammalian/mammalian_normal_07_light_red.dds"
+			"gfx/models/portraits/mammalian/mammalian_normal_07_red.dds"
+			"gfx/models/portraits/mammalian/mammalian_normal_07_dark_red.dds"
+			"gfx/models/portraits/mammalian/mammalian_normal_07_orange.dds"
+		}
+	}
+	mam8_genemod = {	entity = "portrait_mammalian_08_entity"	clothes_selector = "gm_mam_normal_01_clothes" hair_selector = "no_texture" greeting_sound = "mammalian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/mammalian/mammalian_normal_08_black.dds"
+			"gfx/models/portraits/mammalian/mammalian_normal_08_blue.dds"
+			"gfx/models/portraits/mammalian/mammalian_normal_08_purple.dds"
+			"gfx/models/portraits/mammalian/mammalian_normal_08_pink.dds"
+			"gfx/models/portraits/mammalian/mammalian_normal_08_red.dds"
+		}	
+	}
+	mam9_genemod = {	entity = "portrait_mammalian_09_entity"	clothes_selector = "gm_mam_normal_01_clothes" hair_selector = "no_texture" greeting_sound = "mammalian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/mammalian/mammalian_normal_09_yellow.dds"
+			"gfx/models/portraits/mammalian/mammalian_normal_09_orange.dds"
+			"gfx/models/portraits/mammalian/mammalian_normal_09_red.dds"
+			"gfx/models/portraits/mammalian/mammalian_normal_09_brown.dds"
+			"gfx/models/portraits/mammalian/mammalian_normal_09_black.dds"
+			"gfx/models/portraits/mammalian/mammalian_normal_09_white.dds"
+		}
+	}
+	mam10_genemod = {	entity = "portrait_mammalian_10_entity"	clothes_selector = "gm_mam_normal_01_clothes" hair_selector = "no_texture" greeting_sound = "mammalian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/mammalian/mammalian_normal_10_beige.dds"
+			"gfx/models/portraits/mammalian/mammalian_normal_10_dark_brown.dds"
+			"gfx/models/portraits/mammalian/mammalian_normal_10_red_brown.dds"
+			"gfx/models/portraits/mammalian/mammalian_normal_10_red.dds"
+			"gfx/models/portraits/mammalian/mammalian_normal_10_black.dds"
+			"gfx/models/portraits/mammalian/mammalian_normal_10_grey.dds"
+			"gfx/models/portraits/mammalian/mammalian_normal_10_white.dds"
+		}	
+	}
+	mam11_genemod = {	entity = "portrait_mammalian_11_entity"	clothes_selector = "gm_mam_massive_01_clothes" hair_selector = "no_texture" greeting_sound = "mammalian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/mammalian/mammalian_massive_11_yellow.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_11_green.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_11_blue.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_11_black.dds"
+		}	
+	}
+	mam12_genemod = {	entity = "portrait_mammalian_12_entity"	clothes_selector = "gm_mam_massive_01_clothes" hair_selector = "no_texture" greeting_sound = "mammalian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/mammalian/mammalian_massive_12_yellow.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_12_red.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_12_white.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_12_full_black.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_12_full_red.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_12_full_yellow.dds"
+		}	
+	}
+	mam13_genemod = {	entity = "portrait_mammalian_13_entity"	clothes_selector = "gm_mam_massive_01_clothes" hair_selector = "no_texture" greeting_sound = "mammalian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/mammalian/mammalian_massive_13_brown.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_13_red.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_13_black.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_13_full_black.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_13_white.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_13_blond.dds"
+		}
+	
+	}
+	mam14_genemod = {	entity = "portrait_mammalian_14_entity"	clothes_selector = "gm_mam_massive_01_clothes" hair_selector = "no_texture" greeting_sound = "mammalian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/mammalian/mammalian_massive_14_beige.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_14_white.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_14_grey.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_14_black.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_14_brown.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_14_orange.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_14_red.dds"
+		}
+	}
+	mam15_genemod = {	entity = "portrait_mammalian_15_entity"	clothes_selector = "gm_mam_massive_01_clothes" hair_selector = "no_texture" greeting_sound = "mammalian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/mammalian/mammalian_massive_15_brown.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_15_black.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_15_full_black.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_15_white.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_15_blond.dds"
+		}
+
+	}
+	mam16_genemod = {	entity = "portrait_mammalian_16_entity"	clothes_selector = "gm_mam_massive_01_clothes" hair_selector = "no_texture" 	greeting_sound = "mammalian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/mammalian/mammalian_massive_16_brown.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_16_red.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_16_blond.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_16_black.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_16_white.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_16_brown_blue.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_16_blond_blue.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_16_black_blue.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_16_white_blue.dds"
+		}
+	}
+	mam17_genemod = {	entity = "portrait_mammalian_17_entity"	clothes_selector = "gm_mam_massive_01_clothes" hair_selector = "no_texture" greeting_sound = "mammalian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/mammalian/mammalian_massive_17_1.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_17_2.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_17_3.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_17_4.dds"
+		}
+	}
+	
+	#Fungoid
+	
+	fun6_genemod = {	entity = "portrait_fungoid_06_entity"	clothes_selector = "gm_fun_normal_01_clothes" hair_selector = "no_texture"	greeting_sound = "fungoid_01_greetings" 
+		character_textures = {
+			"gfx/models/portraits/fungoid/fungoid_06_yellow.dds"
+			"gfx/models/portraits/fungoid/fungoid_06_orange.dds"
+			"gfx/models/portraits/fungoid/fungoid_06_red.dds"
+			"gfx/models/portraits/fungoid/fungoid_06_brown.dds"
+			"gfx/models/portraits/fungoid/fungoid_06_black.dds"
+		}
+	}
+	fun7_genemod = {	entity = "portrait_fungoid_07_entity"	clothes_selector = "gm_fun_normal_01_clothes" hair_selector = "no_texture"	greeting_sound = "fungoid_01_greetings" 
+		character_textures = {
+			"gfx/models/portraits/fungoid/fungoid_07_green.dds"
+			"gfx/models/portraits/fungoid/fungoid_07_teal.dds"
+			"gfx/models/portraits/fungoid/fungoid_07_blue.dds"
+			"gfx/models/portraits/fungoid/fungoid_07_purple.dds"
+			"gfx/models/portraits/fungoid/fungoid_07_black.dds"
+		}
+	}
+	fun8_genemod = {	entity = "portrait_fungoid_08_entity"	clothes_selector = "gm_fun_normal_08_clothes" hair_selector = "no_texture"	greeting_sound = "fungoid_01_greetings" 
+		character_textures = {
+			"gfx/models/portraits/fungoid/fungoid_08_orange.dds"
+			"gfx/models/portraits/fungoid/fungoid_08_red.dds"
+			"gfx/models/portraits/fungoid/fungoid_08_purple.dds"
+			"gfx/models/portraits/fungoid/fungoid_08_blue.dds"
+			"gfx/models/portraits/fungoid/fungoid_08_teal.dds"
+		}
+	}
+	fun9_genemod = {	entity = "portrait_fungoid_09_entity"	clothes_selector = "gm_fun_normal_09_clothes" hair_selector = "no_texture" 
+		character_textures = {
+			"gfx/models/portraits/fungoid/fungoid_09_purple_red.dds"
+			"gfx/models/portraits/fungoid/fungoid_09_blue_red.dds"
+			"gfx/models/portraits/fungoid/fungoid_09_teal_red.dds"
+			"gfx/models/portraits/fungoid/fungoid_09_green_red.dds"
+			"gfx/models/portraits/fungoid/fungoid_09_purple_yellow.dds"
+			"gfx/models/portraits/fungoid/fungoid_09_blue_yellow.dds"
+			"gfx/models/portraits/fungoid/fungoid_09_teal_yellow.dds"
+			"gfx/models/portraits/fungoid/fungoid_09_green_yellow.dds"
+		}
+	}
+	fun10_genemod = {	entity = "portrait_fungoid_10_entity"	clothes_selector = "gm_fun_normal_01_clothes" hair_selector = "no_texture"	greeting_sound = "fungoid_01_greetings" 
+		character_textures = {
+			"gfx/models/portraits/fungoid/fungoid_10_yellow_yellow.dds"
+			"gfx/models/portraits/fungoid/fungoid_10_yellow_orange.dds"
+			"gfx/models/portraits/fungoid/fungoid_10_yellow_red.dds"
+			"gfx/models/portraits/fungoid/fungoid_10_cyan_red.dds"
+			"gfx/models/portraits/fungoid/fungoid_10_cyan_pink.dds"
+			"gfx/models/portraits/fungoid/fungoid_10_cyan_purple.dds"
+			"gfx/models/portraits/fungoid/fungoid_10_cyan_blue.dds"
+			"gfx/models/portraits/fungoid/fungoid_10_cyan_black.dds"
+		}	
+	}
+	
+	#Arthropoid
+	
+	art6_genemod = {	entity = "portrait_arthropoid_06_entity" clothes_selector = "gm_art_normal_01_clothes" hair_selector = "no_texture"	greeting_sound = "arthropoid_01_greetings" 
+		character_textures = {
+			"gfx/models/portraits/arthropoid/arthropoid_normal_06_yellow.dds"
+			"gfx/models/portraits/arthropoid/arthropoid_normal_06_green_yellow.dds"
+			"gfx/models/portraits/arthropoid/arthropoid_normal_06_teal_yellow.dds"
+			"gfx/models/portraits/arthropoid/arthropoid_normal_06_blue_yellow.dds"
+			"gfx/models/portraits/arthropoid/arthropoid_normal_06_black_yellow.dds"
+		}
+	}
+	art7_genemod = {	entity = "portrait_arthropoid_07_entity" clothes_selector = "gm_art_normal_01_clothes" hair_selector = "no_texture"	greeting_sound = "arthropoid_01_greetings" 
+		character_textures = {
+			"gfx/models/portraits/arthropoid/arthropoid_normal_07_green_yellow.dds"
+			"gfx/models/portraits/arthropoid/arthropoid_normal_07_green_red.dds"
+			"gfx/models/portraits/arthropoid/arthropoid_normal_07_green_purple.dds"
+			"gfx/models/portraits/arthropoid/arthropoid_normal_07_blue_yellow.dds"
+			"gfx/models/portraits/arthropoid/arthropoid_normal_07_blue_red.dds"
+			"gfx/models/portraits/arthropoid/arthropoid_normal_07_blue_purple.dds"
+		}
+	}
+	art8_genemod = {	entity = "portrait_arthropoid_08_entity" clothes_selector = "gm_art_normal_01_clothes" hair_selector = "no_texture"	greeting_sound = "arthropoid_01_greetings" 
+		character_textures = {
+			"gfx/models/portraits/arthropoid/arthropoid_normal_08_brown.dds"
+			"gfx/models/portraits/arthropoid/arthropoid_normal_08_orange.dds"
+			"gfx/models/portraits/arthropoid/arthropoid_normal_08_red.dds"
+			"gfx/models/portraits/arthropoid/arthropoid_normal_08_purple.dds"
+			"gfx/models/portraits/arthropoid/arthropoid_normal_08_blue.dds"
+			"gfx/models/portraits/arthropoid/arthropoid_normal_08_black.dds"
+		}
+	}
+	art9_genemod = {	entity = "portrait_arthropoid_09_entity" clothes_selector = "gm_art_normal_01_clothes" hair_selector = "no_texture"	greeting_sound = "arthropoid_01_greetings" 
+		character_textures = {
+			"gfx/models/portraits/arthropoid/arthropoid_normal_09_teal.dds"
+			"gfx/models/portraits/arthropoid/arthropoid_normal_09_blue.dds"
+			"gfx/models/portraits/arthropoid/arthropoid_normal_09_purple.dds"
+			"gfx/models/portraits/arthropoid/arthropoid_normal_09_red.dds"
+			"gfx/models/portraits/arthropoid/arthropoid_normal_09_brown.dds"
+			"gfx/models/portraits/arthropoid/arthropoid_normal_09_black.dds"
+		}
+	}
+	art10_genemod = {	entity = "portrait_arthropoid_10_entity" clothes_selector = "gm_art_normal_01_clothes" hair_selector = "no_texture"	greeting_sound = "arthropoid_01_greetings" 
+		character_textures = {
+			"gfx/models/portraits/arthropoid/arthropoid_normal_10_black_green.dds"
+			"gfx/models/portraits/arthropoid/arthropoid_normal_10_black_yellow.dds"
+			"gfx/models/portraits/arthropoid/arthropoid_normal_10_black_orange.dds"
+			"gfx/models/portraits/arthropoid/arthropoid_normal_10_black_red.dds"
+		}
+	}
+	art18_genemod = {	entity = "portrait_arthropoid_18_entity" clothes_selector = "no_texture" hair_selector = "no_texture"	greeting_sound = "cute_arthopoid_greetings" 
+			character_textures = {
+					"gfx/models/portraits/arthropoid/arthropoid_18_purple.dds"
+					"gfx/models/portraits/arthropoid/arthropoid_18_blue.dds"
+					"gfx/models/portraits/arthropoid/arthropoid_18_teal.dds"
+					"gfx/models/portraits/arthropoid/arthropoid_18_teal_red.dds"
+					"gfx/models/portraits/arthropoid/arthropoid_18_blue_red.dds"
+					"gfx/models/portraits/arthropoid/arthropoid_18_purple_red.dds"
+			}
+	}
+
+	#Reptilian
+	
+	rep1_genemod = {	entity = "portrait_reptilian_01_entity"	clothes_selector = "gm_rep_slender_01_clothes" hair_selector = "no_texture" greeting_sound = "reptilian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/reptilian/reptilian_slender_01_turqoise.dds"
+			"gfx/models/portraits/reptilian/reptilian_slender_01_blue.dds"
+			"gfx/models/portraits/reptilian/reptilian_slender_01_purple.dds"
+			"gfx/models/portraits/reptilian/reptilian_slender_01_white.dds"
+			"gfx/models/portraits/reptilian/reptilian_slender_01_black.dds"
+		}
+	}
+	rep2_genemod = {	entity = "portrait_reptilian_02_entity"	clothes_selector = "gm_rep_slender_01_clothes" hair_selector = "gm_rep_02_hat" greeting_sound = "reptilian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/reptilian/reptilian_slender_02_blue.dds"
+			"gfx/models/portraits/reptilian/reptilian_slender_02_purple.dds"
+			"gfx/models/portraits/reptilian/reptilian_slender_02_white.dds"
+			"gfx/models/portraits/reptilian/reptilian_slender_02_turqiouse.dds"
+			"gfx/models/portraits/reptilian/reptilian_slender_02_green.dds"
+		}
+	}
+	rep3_genemod = {	entity = "portrait_reptilian_03_entity"	clothes_selector = "gm_rep_slender_01_clothes" hair_selector = "no_texture" greeting_sound = "reptilian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/reptilian/reptilian_slender_03_green_yellow.dds"
+			"gfx/models/portraits/reptilian/reptilian_slender_03_teal_yellow.dds"	
+			"gfx/models/portraits/reptilian/reptilian_slender_03_blue_yellow.dds"					
+			"gfx/models/portraits/reptilian/reptilian_slender_03_purple_yellow.dds"
+			"gfx/models/portraits/reptilian/reptilian_slender_03_green.dds"
+			"gfx/models/portraits/reptilian/reptilian_slender_03_teal.dds"	
+			"gfx/models/portraits/reptilian/reptilian_slender_03_blue.dds"					
+			"gfx/models/portraits/reptilian/reptilian_slender_03_purple.dds"
+		}
+	}	
+	
+	rep4_genemod = {	entity = "portrait_reptilian_04_entity"	clothes_selector = "gm_rep_slender_01_clothes" hair_selector = "no_texture" greeting_sound = "reptilian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/reptilian/reptilian_slender_04_green.dds"
+			"gfx/models/portraits/reptilian/reptilian_slender_04_teal.dds"
+			"gfx/models/portraits/reptilian/reptilian_slender_04_blue.dds"
+			"gfx/models/portraits/reptilian/reptilian_slender_04_black.dds"
+			"gfx/models/portraits/reptilian/reptilian_slender_04_white.dds"
+		}
+	}
+	rep5_genemod = {	entity = "portrait_reptilian_05_entity"	clothes_selector = "gm_rep_slender_05_clothes" hair_selector = "no_texture" greeting_sound = "reptilian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/reptilian/reptilian_slender_05_orange_purople.dds"
+			"gfx/models/portraits/reptilian/reptilian_slender_05_purple_pink.dds"
+			"gfx/models/portraits/reptilian/reptilian_slender_05_purple.dds"
+			"gfx/models/portraits/reptilian/reptilian_slender_05_purple_blue.dds"
+			"gfx/models/portraits/reptilian/reptilian_slender_05_blue.dds"
+			"gfx/models/portraits/reptilian/reptilian_slender_05_black.dds"
+			"gfx/models/portraits/reptilian/reptilian_slender_05_orange.dds"
+		}
+	}
+	
+	rep6_genemod = {	entity = "portrait_reptilian_06_entity"	clothes_selector = "gm_rep_normal_01_clothes" hair_selector = "no_texture" greeting_sound = "reptilian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/reptilian/reptilian_normal_06_orange.dds"
+			"gfx/models/portraits/reptilian/reptilian_normal_06_orange_mix_1.dds"
+			"gfx/models/portraits/reptilian/reptilian_normal_06_orange_mix_2.dds"
+			"gfx/models/portraits/reptilian/reptilian_normal_06_white.dds"
+			"gfx/models/portraits/reptilian/reptilian_normal_06_red_mix_2.dds"
+			"gfx/models/portraits/reptilian/reptilian_normal_06_red_mix_1.dds"
+			"gfx/models/portraits/reptilian/reptilian_normal_06_red.dds"
+		}
+	}
+	rep7_genemod = {	entity = "portrait_reptilian_07_entity" clothes_selector = "gm_rep_normal_01_clothes" hair_selector = "no_texture" greeting_sound = "reptilian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/reptilian/reptilian_normal_07_red.dds"
+			"gfx/models/portraits/reptilian/reptilian_normal_07_orange.dds"
+			"gfx/models/portraits/reptilian/reptilian_normal_07_beige.dds"
+			"gfx/models/portraits/reptilian/reptilian_normal_07_white.dds"
+			"gfx/models/portraits/reptilian/reptilian_normal_07_black.dds"
+		}
+	}
+	rep8_genemod = {	entity = "portrait_reptilian_08_entity"	clothes_selector = "gm_rep_normal_01_clothes" hair_selector = "no_texture" greeting_sound = "reptilian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/reptilian/reptilian_normal_08_beige.dds"
+			"gfx/models/portraits/reptilian/reptilian_normal_08_brown.dds"
+			"gfx/models/portraits/reptilian/reptilian_normal_08_red.dds"
+			"gfx/models/portraits/reptilian/reptilian_normal_08_black.dds"
+			"gfx/models/portraits/reptilian/reptilian_normal_08_white.dds"
+		}
+	}
+	rep9_genemod = {	entity = "portrait_reptilian_09_entity"	clothes_selector = "gm_rep_normal_01_clothes" hair_selector = "no_texture" greeting_sound = "reptilian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/reptilian/reptilian_normal_09_yellow.dds"
+			"gfx/models/portraits/reptilian/reptilian_normal_09_orange.dds"
+			"gfx/models/portraits/reptilian/reptilian_normal_09_red.dds"
+			"gfx/models/portraits/reptilian/reptilian_normal_09_black.dds"
+			"gfx/models/portraits/reptilian/reptilian_normal_09_white.dds"
+			"gfx/models/portraits/reptilian/reptilian_normal_09_green.dds"
+		}
+	}
+	rep10_genemod = {	entity = "portrait_reptilian_10_entity"	clothes_selector = "gm_rep_normal_01_clothes" hair_selector = "no_texture" greeting_sound = "reptilian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/reptilian/reptilian_normal_10_blue.dds"
+			"gfx/models/portraits/reptilian/reptilian_normal_10_red.dds"
+			"gfx/models/portraits/reptilian/reptilian_normal_10_yellow.dds"
+			"gfx/models/portraits/reptilian/reptilian_normal_10_brown.dds"
+			"gfx/models/portraits/reptilian/reptilian_normal_10_purple.dds"
+		}
+	}
+	
+	rep11_genemod = {	entity = "portrait_reptilian_11_entity"	clothes_selector = "gm_rep_massive_01_clothes" hair_selector = "no_texture" greeting_sound = "reptilian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/reptilian/reptilian_massive_11_yellow.dds"
+			"gfx/models/portraits/reptilian/reptilian_massive_11_yellow_green.dds"
+			"gfx/models/portraits/reptilian/reptilian_massive_11_green.dds"
+			"gfx/models/portraits/reptilian/reptilian_massive_11_dark_green.dds"
+			"gfx/models/portraits/reptilian/reptilian_massive_11_teal.dds"
+			"gfx/models/portraits/reptilian/reptilian_massive_11_turquoise.dds"
+			"gfx/models/portraits/reptilian/reptilian_massive_11_blue.dds"
+			"gfx/models/portraits/reptilian/reptilian_massive_11_purple.dds"
+		}
+	}
+	rep12_genemod = {	entity = "portrait_reptilian_12_entity"	clothes_selector = "gm_rep_massive_01_clothes" hair_selector = "no_texture" greeting_sound = "reptilian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/reptilian/reptilian_massive_12_yellow.dds"
+			"gfx/models/portraits/reptilian/reptilian_massive_12_orange.dds"
+			"gfx/models/portraits/reptilian/reptilian_massive_12_red.dds"
+			"gfx/models/portraits/reptilian/reptilian_massive_12_burgundy.dds"
+			"gfx/models/portraits/reptilian/reptilian_massive_12_black.dds"
+			"gfx/models/portraits/reptilian/reptilian_massive_12_brown.dds"
+		}
+	}
+	rep13_genemod = {	entity = "portrait_reptilian_13_entity"	clothes_selector = "gm_rep_massive_01_clothes" hair_selector = "no_texture" greeting_sound = "reptilian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/reptilian/reptilian_massive_13_black.dds"
+			"gfx/models/portraits/reptilian/reptilian_massive_13_green.dds"
+			"gfx/models/portraits/reptilian/reptilian_massive_13_turqouise.dds"
+			"gfx/models/portraits/reptilian/reptilian_massive_13_blue.dds"
+			"gfx/models/portraits/reptilian/reptilian_massive_13_purple.dds"
+			"gfx/models/portraits/reptilian/reptilian_massive_13_brown.dds"
+		}
+	}
+	rep14_genemod = {	entity = "portrait_reptilian_14_entity"	clothes_selector = "gm_rep_massive_01_clothes" hair_selector = "no_texture" greeting_sound = "reptilian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/reptilian/reptilian_massive_14_yellow.dds"
+			"gfx/models/portraits/reptilian/reptilian_massive_14_green_yellow.dds"
+			"gfx/models/portraits/reptilian/reptilian_massive_14_green.dds"
+			"gfx/models/portraits/reptilian/reptilian_massive_14_black.dds"
+			"gfx/models/portraits/reptilian/reptilian_massive_14_brown.dds"
+			"gfx/models/portraits/reptilian/reptilian_massive_14_red.dds"
+		}				
+	}
+	
+	rep15_genemod = {	entity = "portrait_reptilian_15_entity"	clothes_selector = "gm_rep_massive_01_clothes" hair_selector = "no_texture" greeting_sound = "reptilian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/reptilian/reptilian_massive_15_red.dds"
+			"gfx/models/portraits/reptilian/reptilian_massive_15_orange.dds"
+			"gfx/models/portraits/reptilian/reptilian_massive_15_yellow.dds"
+			"gfx/models/portraits/reptilian/reptilian_massive_15_white.dds"
+			"gfx/models/portraits/reptilian/reptilian_massive_15_brown.dds"
+			"gfx/models/portraits/reptilian/reptilian_massive_15_black.dds"
+		}
+	}
+	
+	rep16_genemod = {	entity = "portrait_reptilian_16_entity"	clothes_selector = "no_texture" hair_selector = "no_texture" greeting_sound = "cute_reptilian_greetings"
+		character_textures = {
+			"gfx/models/portraits/reptilian/reptilian_16_green.dds"
+			"gfx/models/portraits/reptilian/reptilian_16_yellow.dds"
+			"gfx/models/portraits/reptilian/reptilian_16_orange.dds"
+			"gfx/models/portraits/reptilian/reptilian_16_red.dds"
+			"gfx/models/portraits/reptilian/reptilian_16_brown.dds"
+			"gfx/models/portraits/reptilian/reptilian_16_white.dds"
+			"gfx/models/portraits/reptilian/reptilian_16_black.dds"
+		}
+	}
+	
+	#Avian
+	
+	avi1_genemod = {	entity = "portrait_avian_01_entity"	clothes_selector = "gm_avi_slender_01_clothes" hair_selector = "no_texture"	greeting_sound = "avian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/avian/avian_slender_01_orange.dds"
+			"gfx/models/portraits/avian/avian_slender_01_red.dds"
+			"gfx/models/portraits/avian/avian_slender_01_black.dds"
+			"gfx/models/portraits/avian/avian_slender_01_blue.dds"
+			"gfx/models/portraits/avian/avian_slender_01_purple.dds"
+		}
+	}
+	avi2_genemod = {	entity = "portrait_avian_02_entity"	clothes_selector = "gm_avi_slender_01_clothes" hair_selector = "no_texture"	greeting_sound = "avian_01_greetings" 
+		character_textures = {
+			"gfx/models/portraits/avian/avian_slender_02_blue_yellow.dds"
+			"gfx/models/portraits/avian/avian_slender_02_blue_orange.dds"
+			"gfx/models/portraits/avian/avian_slender_02_blue_red.dds"
+			"gfx/models/portraits/avian/avian_slender_02_black_red.dds"
+			"gfx/models/portraits/avian/avian_slender_02_black_orange.dds"
+			"gfx/models/portraits/avian/avian_slender_02_black_yellow.dds"
+			"gfx/models/portraits/avian/avian_slender_02_brown_orange.dds"
+			"gfx/models/portraits/avian/avian_slender_02_brown_red.dds"
+		}
+	}
+	avi3_genemod = {	entity = "portrait_avian_03_entity"	clothes_selector = "gm_avi_slender_01_clothes" hair_selector = "no_texture"	greeting_sound = "avian_01_greetings" 
+		character_textures = {
+			"gfx/models/portraits/avian/avian_slender_03_olive.dds"
+			"gfx/models/portraits/avian/avian_slender_03_green.dds"
+			"gfx/models/portraits/avian/avian_slender_03_teal.dds"
+			"gfx/models/portraits/avian/avian_slender_03_blue.dds"
+			"gfx/models/portraits/avian/avian_slender_03_white.dds"
+			"gfx/models/portraits/avian/avian_slender_03_yellow.dds"
+		}
+	}
+	avi4_genemod = {	entity = "portrait_avian_04_entity"	clothes_selector = "gm_avi_slender_01_clothes" hair_selector = "no_texture"	greeting_sound = "avian_01_greetings" 
+		character_textures = {
+			"gfx/models/portraits/avian/avian_slender_04_cyan.dds"
+			"gfx/models/portraits/avian/avian_slender_04_blue.dds"
+			"gfx/models/portraits/avian/avian_slender_04_purple.dds"
+			"gfx/models/portraits/avian/avian_slender_04_pink.dds"
+			"gfx/models/portraits/avian/avian_slender_04_red.dds"
+			"gfx/models/portraits/avian/avian_slender_04_black.dds"
+		}
+	}
+	avi5_genemod = {	entity = "portrait_avian_05_entity"	clothes_selector = "gm_avi_slender_01_clothes" hair_selector = "no_texture"	greeting_sound = "avian_01_greetings" 
+		character_textures = {
+			"gfx/models/portraits/avian/avian_slender_05_orange.dds"
+			"gfx/models/portraits/avian/avian_slender_05_red.dds"
+			"gfx/models/portraits/avian/avian_slender_05_purple.dds"
+			"gfx/models/portraits/avian/avian_slender_05_black.dds"
+			"gfx/models/portraits/avian/avian_slender_05_white.dds"
+		}
+	}
+	
+	avi6_genemod = {	entity = "portrait_avian_06_entity"	clothes_selector = "gm_avi_normal_01_clothes" hair_selector = "no_texture"	greeting_sound = "avian_01_greetings" 
+		character_textures = {
+			"gfx/models/portraits/avian/avian_normal_06_beige_red.dds"
+			"gfx/models/portraits/avian/avian_normal_06_beige_black.dds"
+			"gfx/models/portraits/avian/avian_normal_06_beige_red.dds"
+			"gfx/models/portraits/avian/avian_normal_06_brown.dds"
+			"gfx/models/portraits/avian/avian_normal_06_black.dds"
+			"gfx/models/portraits/avian/avian_normal_06_yellow.dds"
+			"gfx/models/portraits/avian/avian_normal_06_orange.dds"
+			"gfx/models/portraits/avian/avian_normal_06_red.dds"
+		}
+	}
+	
+	avi7_genemod = {	entity = "portrait_avian_07_entity"	clothes_selector = "gm_avi_normal_01_clothes" hair_selector = "no_texture"	greeting_sound = "avian_01_greetings" 
+		character_textures = {
+			"gfx/models/portraits/avian/avian_normal_07_green_yellow.dds"
+			"gfx/models/portraits/avian/avian_normal_07_green_orange.dds"
+			"gfx/models/portraits/avian/avian_normal_07_green_red.dds"
+			"gfx/models/portraits/avian/avian_normal_07_blue_red.dds"
+			"gfx/models/portraits/avian/avian_normal_07_blue_orange.dds"
+			"gfx/models/portraits/avian/avian_normal_07_blue_yellow.dds"
+			"gfx/models/portraits/avian/avian_normal_07_brown_yellow.dds"
+			"gfx/models/portraits/avian/avian_normal_07_brown_orange.dds"
+			"gfx/models/portraits/avian/avian_normal_07_brown_red.dds"
+			"gfx/models/portraits/avian/avian_normal_07_brown_black.dds"
+			"gfx/models/portraits/avian/avian_normal_07_black.dds"
+		}
+	}
+	
+	avi8_genemod = {	entity = "portrait_avian_08_entity"	clothes_selector = "gm_avi_normal_01_clothes" hair_selector = "no_texture"	greeting_sound = "avian_01_greetings" 
+		character_textures = {
+			"gfx/models/portraits/avian/avian_normal_08_red.dds"
+			"gfx/models/portraits/avian/avian_normal_08_purple.dds"
+			"gfx/models/portraits/avian/avian_normal_08_blue.dds"
+			"gfx/models/portraits/avian/avian_normal_08_cyan.dds"
+		}
+	}
+	avi9_genemod = {	entity = "portrait_avian_09_entity"	clothes_selector = "gm_avi_normal_01_clothes" hair_selector = "no_texture"	greeting_sound = "avian_01_greetings" 
+		character_textures = {
+			"gfx/models/portraits/avian/avian_normal_09_yellow.dds"
+			"gfx/models/portraits/avian/avian_normal_09_orange.dds"
+			"gfx/models/portraits/avian/avian_normal_09_red.dds"
+			"gfx/models/portraits/avian/avian_normal_09_dark.dds"
+			"gfx/models/portraits/avian/avian_normal_09_black.dds"
+		}
+	}
+	avi10_genemod = {	entity = "portrait_avian_10_entity"	clothes_selector = "gm_avi_normal_01_clothes" hair_selector = "no_texture"	greeting_sound = "avian_01_greetings" 
+		character_textures = {
+			"gfx/models/portraits/avian/avian_normal_10_orange.dds"
+			"gfx/models/portraits/avian/avian_normal_10_white.dds"
+			"gfx/models/portraits/avian/avian_normal_10_brown.dds"
+			"gfx/models/portraits/avian/avian_normal_10_black.dds"
+			"gfx/models/portraits/avian/avian_normal_10_purple.dds"
+		}
+	}
+	
+	avi11_genemod = {	entity = "portrait_avian_11_entity"	clothes_selector = "gm_avi_massive_01_clothes" hair_selector = "no_texture"	greeting_sound = "avian_01_greetings" 
+		character_textures = {
+			"gfx/models/portraits/avian/avian_massive_11_beige_blue.dds"
+			"gfx/models/portraits/avian/avian_massive_11_white.dds"
+			"gfx/models/portraits/avian/avian_massive_11_beige.dds"
+			"gfx/models/portraits/avian/avian_massive_11_brown.dds"
+			"gfx/models/portraits/avian/avian_massive_11_black.dds"
+		}
+	}
+	avi12_genemod = {	entity = "portrait_avian_12_entity"	clothes_selector = "gm_avi_massive_01_clothes" hair_selector = "no_texture"	greeting_sound = "avian_01_greetings" 
+		character_textures = {
+			"gfx/models/portraits/avian/avian_massive_12_orange.dds"
+			"gfx/models/portraits/avian/avian_massive_12_red.dds"
+			"gfx/models/portraits/avian/avian_massive_12_purple.dds"
+			"gfx/models/portraits/avian/avian_massive_12_blue.dds"
+			"gfx/models/portraits/avian/avian_massive_12_black.dds"
+		}
+	}
+	avi13_genemod = {	entity = "portrait_avian_13_entity"	clothes_selector = "gm_avi_massive_01_clothes" hair_selector = "no_texture"	greeting_sound = "avian_01_greetings" 
+		character_textures = {
+			"gfx/models/portraits/avian/avian_massive_13_red.dds"
+			"gfx/models/portraits/avian/avian_massive_13_purple.dds"
+			"gfx/models/portraits/avian/avian_massive_13_blue.dds"
+			"gfx/models/portraits/avian/avian_massive_13_dark_blue.dds"
+			"gfx/models/portraits/avian/avian_massive_13_black.dds"
+		}
+	}
+	
+	avi14_genemod = {	entity = "portrait_avian_14_entity"	clothes_selector = "gm_avi_massive_01_clothes" hair_selector = "no_texture"	greeting_sound = "avian_01_greetings" 
+		character_textures = {
+			"gfx/models/portraits/avian/avian_massive_14_half_teal.dds"
+			"gfx/models/portraits/avian/avian_massive_14_half_blue.dds"
+			"gfx/models/portraits/avian/avian_massive_14_half_black.dds"
+			"gfx/models/portraits/avian/avian_massive_14_green.dds"
+			"gfx/models/portraits/avian/avian_massive_14_blue.dds"
+			"gfx/models/portraits/avian/avian_massive_14_black.dds"
+		}
+	}
+	
+	avi16_genemod = {	entity = "portrait_avian_16_entity"	clothes_selector = "gm_avi_massive_01_clothes" hair_selector = "no_texture"	greeting_sound = "avian_01_greetings" }
+	
+	#Molluscoid
+	
+	mol1_genemod = {	entity = "portrait_molluscoid_01_entity" clothes_selector = "gm_mol_slender_01_clothes" hair_selector = "no_texture"	greeting_sound = "molluscoid_01_greetings" 
+		character_textures = {
+			"gfx/models/portraits/molluscoid/molluscoid_slender_01_beige.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_slender_01_green.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_slender_01_teal.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_slender_01_blue.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_slender_01_purple.dds"
+		}
+	}
+	mol2_genemod = {	entity = "portrait_molluscoid_02_entity" clothes_selector = "gm_mol_slender_01_clothes" hair_selector = "no_texture"	greeting_sound = "molluscoid_01_greetings" 
+		character_textures = {
+			"gfx/models/portraits/molluscoid/molluscoid_slender_02_purple.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_slender_02_red.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_slender_02_orange.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_slender_02_yellow.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_slender_02_white.dds"
+		}
+	}
+	mol3_genemod = {	entity = "portrait_molluscoid_03_entity" clothes_selector = "gm_mol_slender_01_clothes" hair_selector = "no_texture"	greeting_sound = "molluscoid_01_greetings" 
+		character_textures = {
+			"gfx/models/portraits/molluscoid/molluscoid_slender_03_white.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_slender_03_brown.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_slender_03_black.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_slender_03_purple.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_slender_03_blue.dds"
+		}
+	}
+	mol4_genemod = {	entity = "portrait_molluscoid_04_entity" clothes_selector = "gm_mol_slender_01_clothes" hair_selector = "no_texture"	greeting_sound = "molluscoid_01_greetings" 
+		character_textures = {
+			"gfx/models/portraits/molluscoid/molluscoid_slender_04_blue_red.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_slender_04_blue_pink.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_slender_04_blue_orange.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_slender_04_blue_yellow.dds"					
+			"gfx/models/portraits/molluscoid/molluscoid_slender_04_black_yellow.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_slender_04_black_orange.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_slender_04_black_pink.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_slender_04_black_red.dds"
+		}
+	}
+	mol5_genemod = {	entity = "portrait_molluscoid_05_entity" clothes_selector = "gm_mol_slender_01_clothes" hair_selector = "no_texture"	greeting_sound = "molluscoid_01_greetings" 
+		character_textures = {
+			"gfx/models/portraits/molluscoid/molluscoid_slender_05_green_red.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_slender_05_cyan_red.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_slender_05_blue_red.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_slender_05_black_red.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_slender_05_black_yellow.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_slender_05_blue_yellow.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_slender_05_cyan_yellow.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_slender_05_green_yellow.dds"
+		}
+	}
+	mol11_genemod = {	entity = "portrait_molluscoid_11_entity" clothes_selector = "gm_mol_massive_01_clothes" hair_selector = "no_texture"	greeting_sound = "molluscoid_01_greetings" 
+		character_textures = {
+			"gfx/models/portraits/molluscoid/molluscoid_massive_11_blue_beige.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_massive_11_blue_orange.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_massive_11_blue_red.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_massive_11_purple_red.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_massive_11_purple_orange.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_massive_11_purple_beige.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_massive_11_black_beige.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_massive_11_black_orange.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_massive_11_purple_red.dds"
+		}
+	}
+	mol12_genemod = {	entity = "portrait_molluscoid_12_entity" clothes_selector = "gm_mol_massive_01_clothes" hair_selector = "no_texture"	greeting_sound = "molluscoid_01_greetings" 
+		character_textures = {
+			"gfx/models/portraits/molluscoid/molluscoid_massive_12_cyan.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_massive_12_cyan_beige.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_massive_12_cyan_white.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_massive_12_blue.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_massive_12_blue_beige.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_massive_12_blue_white.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_massive_12_purple.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_massive_12_purple_beige.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_massive_12_purple_white.dds"
+		}
+	}
+	mol13_genemod = {	entity = "portrait_molluscoid_13_entity" clothes_selector = "gm_mol_massive_01_clothes" hair_selector = "no_texture"	greeting_sound = "molluscoid_01_greetings" 
+		character_textures = {
+			"gfx/models/portraits/molluscoid/molluscoid_massive_13_pink.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_massive_13_purple.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_massive_13_blue.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_massive_13_black.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_massive_13_brown.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_massive_13_beige.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_massive_13_white.dds"
+		}
+	}
+	mol14_genemod = {	entity = "portrait_molluscoid_14_entity" clothes_selector = "gm_mol_massive_01_clothes" hair_selector = "no_texture"	greeting_sound = "molluscoid_01_greetings" 
+		character_textures = {
+			"gfx/models/portraits/molluscoid/molluscoid_massive_14_red.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_massive_14_purple.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_massive_14_blue.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_massive_14_black.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_massive_14_white.dds"
+		}
+	}
+	mol15_genemod = {	entity = "portrait_molluscoid_15_entity" clothes_selector = "gm_mol_massive_01_clothes" hair_selector = "no_texture"	greeting_sound = "molluscoid_01_greetings" 
+		character_textures = {
+			"gfx/models/portraits/molluscoid/molluscoid_massive_15_orange_black.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_massive_15_orange_2.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_massive_15_red_black.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_massive_15_purple_2.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_massive_15_purple_black.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_massive_15_blue_black.dds"
+			"gfx/models/portraits/molluscoid/molluscoid_massive_15_white_blue.dds"
+		}
+	}
+	
+	#Plantoid
+	
+	pla6_genemod = {	entity = "portrait_plantoid_06_entity" clothes_selector = "gm_pla_normal_01_clothes" hair_selector = "no_texture"	greeting_sound = "plantoid_greetings" 
+			character_textures = {
+					"gfx/models/portraits/plantoid/plantoid_06_blue_pink.dds"
+					"gfx/models/portraits/plantoid/plantoid_06_blue_orange.dds"
+					"gfx/models/portraits/plantoid/plantoid_06_black_orange.dds"
+					"gfx/models/portraits/plantoid/plantoid_06_green_orange.dds"				
+			}
+	}
+	pla7_genemod = {	entity = "portrait_plantoid_07_entity" clothes_selector = "gm_pla_normal_01_clothes" hair_selector = "no_texture"	greeting_sound = "plantoid_greetings" 
+			character_textures = {
+					"gfx/models/portraits/plantoid/plantoid_07_orange.dds"
+					"gfx/models/portraits/plantoid/plantoid_07_red.dds"
+					"gfx/models/portraits/plantoid/plantoid_07_purple.dds"
+					"gfx/models/portraits/plantoid/plantoid_07_blue.dds"				
+			}
+	}
+	pla8_genemod = {	entity = "portrait_plantoid_08_entity" clothes_selector = "gm_pla_normal_01_clothes" hair_selector = "no_texture"	greeting_sound = "plantoid_greetings" 
+			character_textures = {
+					"gfx/models/portraits/plantoid/plantoid_08_green_pink.dds"
+					"gfx/models/portraits/plantoid/plantoid_08_olive_teal.dds"
+					"gfx/models/portraits/plantoid/plantoid_08_beige_blue.dds"
+					"gfx/models/portraits/plantoid/plantoid_08_brown_orange.dds"				
+			}
+	}
+	pla9_genemod = {	entity = "portrait_plantoid_09_entity" clothes_selector = "gm_pla_normal_01_clothes" hair_selector = "no_texture"	greeting_sound = "plantoid_greetings" 
+			character_textures = {
+					"gfx/models/portraits/plantoid/plantoid_09_green_red.dds"
+					"gfx/models/portraits/plantoid/plantoid_09_teal_orange.dds"
+					"gfx/models/portraits/plantoid/plantoid_09_olive_yellow.dds"
+					"gfx/models/portraits/plantoid/plantoid_09_beige_black.dds"				
+			}
+	}
+	pla10_genemod = {	entity = "portrait_plantoid_10_entity" clothes_selector = "gm_pla_normal_01_clothes" hair_selector = "no_texture"	greeting_sound = "plantoid_greetings" 
+			character_textures = {
+					"gfx/models/portraits/plantoid/plantoid_10_purple_pink.dds"
+					"gfx/models/portraits/plantoid/plantoid_10_purple_purple.dds"
+					"gfx/models/portraits/plantoid/plantoid_10_purple_blue.dds"
+					"gfx/models/portraits/plantoid/plantoid_10_purple_orange.dds"
+			}
+	}
+}

@@ -112,25 +112,6 @@ totalitarian = {
 	}		
 
 	demand = {
-		title = "TOTALITARIAN_MONARCHY"
-		unfulfilled_title = "TOTALITARIAN_NO_MONARCHY"
-		desc = "TOTALITARIAN_MONARCHY_DESC"
-
-		fulfilled_effect = 5
-
-		potential = {
-			exists = owner
-			owner = { has_authority = auth_imperial }
-		}
-
-		trigger = {
-			owner = {
-				has_authority = auth_imperial
-			}
-		}
-	}
-
-	demand = {
 		title = "TOTALITARIAN_MONARCHY1"
 		unfulfilled_title = "TOTALITARIAN_NO_MONARCHY"
 		desc = "TOTALITARIAN_MONARCHY_DESC"
@@ -140,14 +121,16 @@ totalitarian = {
 
 		potential = {
 			exists = owner
-			owner = { has_authority = auth_dictatorial }
 		}
 
 		trigger = {
 			owner = {
+				OR = {
 				has_authority = auth_imperial
+				has_authority = auth_dictatorial
 			}
 		}
+	}
 	}
 
 	demand = {
@@ -160,14 +143,17 @@ totalitarian = {
 
 		potential = {
 			exists = owner
-			owner = { has_authority = auth_oligarchic }
+			owner = { has_authority = auth_democratic }
 		}
 
 		trigger = {
 			owner = {
+				OR = {
 				has_authority = auth_imperial
+				has_authority = auth_dictatorial
 			}
 		}
+	}
 	}
 
 	demand = {
@@ -180,14 +166,17 @@ totalitarian = {
 
 		potential = {
 			exists = owner
-			owner = { has_authority = auth_democratic }
+			owner = { has_authority = auth_direct_democratic }
 		}
 
 		trigger = {
 			owner = {
+				OR = {
 				has_authority = auth_imperial
+				has_authority = auth_dictatorial
 			}
 		}
+	}
 	}
 
 	demand = {

@@ -779,6 +779,13 @@
  tech_cyber_society:0 "Doctrine: Cybernetic Society"
  tech_cyber_society_desc:0 " "
  
+ TOTALITARIAN_NO_MONARCHY:0 "Hegemonic Leadership"
+ TOTALITARIAN_MONARCHY:0 "Hegemonic Leadership"
+ TOTALITARIAN_MONARCHY1:0 "Hegemonic Leadership"
+ TOTALITARIAN_MONARCHY2:0 "Hegemonic Leadership"
+ TOTALITARIAN_MONARCHY3:0 "Hegemonic Leadership"
+ TOTALITARIAN_MONARCHY_DESC:0 "Failure to adopt an Autocratic Government will displease this faction"
+ 
  RT_CHIEFTAIN:0 "Magistrate"
  
  ETHIC_REBUILD_TECH_UNLOCK_SOC_TITLE:0 "§HUnlocks Feature:§! Fanatic Libertarian/Collectivists get an option to chose "Anarchist Communism" as an advanced government form."

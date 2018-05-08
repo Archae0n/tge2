@@ -1,0 +1,924 @@
+namespace = genemodenh
+
+#Initial setup
+country_event = { id = genemodenh.100
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_ai = no
+		NOT = { #Prevent multiple menus
+			has_country_flag = genemod_menu_active
+			has_country_flag = genemod_prevent_menu
+		} 
+	}
+
+	immediate = {
+		from = { save_event_target_as = genemod_species }
+		genemod_clean_menu = yes
+		set_country_flag = genemod_menu_active
+		set_timed_country_flag = { flag = genemod_timeout days = 120 }
+		country_event = { id = genemodenh.2 }
+	}
+}
+
+#Initial setup (uplift)
+planet_event = { id = genemodenh.110
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		owner = {
+			is_ai = no
+			NOT = { #Prevent multiple menus
+				has_country_flag = genemod_menu_active
+				has_country_flag = genemod_prevent_menu
+			}
+		}
+	}
+	
+	immediate = {
+		owner = {
+			genemod_clean_menu = yes
+			set_country_flag = genemod_menu_uplift
+			set_country_flag = genemod_menu_active
+			set_timed_country_flag = { flag = genemod_timeout days = 120 }
+		}
+		planet_event = { id = genemodenh.111 days = 1 }
+	}
+}
+
+planet_event = { id = genemodenh.111
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		random_pop = {
+			limit = {
+				home_planet = { is_same_value = root }
+				has_trait = "trait_uplifted"
+			}
+			species = { save_event_target_as = genemod_species }
+		}
+		owner = { country_event = { id = genemodenh.2 } }	
+	}
+}
+
+#Main Menu
+country_event = { id = genemodenh.2
+	title = "genemodenh.2.name"
+	desc = { trigger = { switch = {
+		trigger = has_country_flag
+		genemod_cheats = { text = "genemodenh.2.desc.cheats" }
+		default = { text = "genemodenh.2.desc" }
+	} } }
+	is_triggered_only = yes
+	
+	picture_event_data = { portrait = event_target:genemod_species room = genemod_enh_room }
+	diplomatic = yes
+	force_open = yes
+	
+	immediate = {
+		hidden_effect = {
+			every_owned_planet = { limit = { has_planet_flag = genemod_current_home }
+				remove_planet_flag = genemod_current_home
+			}
+			event_target:genemod_species.home_planet = { set_planet_flag = genemod_current_home }
+		}
+	}
+	
+	#Convert machine to robot
+	option = { name = "genemodenh.2.machine2robot" custom_tooltip = "genemodenh.2.machine2robot.tooltip"
+		trigger = {
+			hidden_trigger = {
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				any_owned_pop = {
+					is_exact_same_species = event_target:genemod_species
+					has_trait = "trait_machine_unit"
+				}
+			}
+		}
+		allow = {
+			has_technology = tech_robomodding
+			has_technology = tech_synthetic_workers
+		}
+		hidden_effect = {
+			random_owned_pop = {
+				limit = { is_exact_same_species = event_target:genemod_species }
+				species = { save_event_target_as = genemod_species }
+				modify_species = {
+					species = this
+					remove_trait = "trait_machine_unit"
+				}
+				create_species = { name = this namelist = this plural = this class = "ROBOT" portrait = this
+					traits = { trait = "trait_mechanical" trait = "trait_robotic_3" } traits = this
+					new_pop_resource_requirement = { type = robot_food value = 30 }
+					pops_auto_growth = 1.0 pops_can_reproduce = no pop_maintenance = 1
+				}
+				change_species = last_created_species
+			}
+			genemod_convert = yes
+			last_created_species = {
+				set_species_identity = event_target:genemod_species
+				set_species_homeworld = event_target:genemod_species.home_planet
+				save_event_target_as = genemod_species
+			}
+			country_event = { id = genemodenh.2 }
+		}
+	}
+	
+	#Change portrait
+	option = { name = "genemodenh.2.portrait" custom_tooltip = "genemodenh.2.portrait.tooltip"
+		hidden_effect = {
+			IF = {
+				limit = {
+					OR = {
+						AND = {
+							OR = {
+								has_technology = tech_gene_seed_purification
+								has_technology = tech_genetic_resequencing
+							}
+							event_target:genemod_species = { genemod_is_synth = no }
+						}
+						has_country_flag = genemod_cheats
+					}
+				}
+				country_event = { id = genemodenh.201 } break = yes
+				ELSE = {
+					event_target:genemod_species = {
+						switch = {
+							trigger = is_species_class
+							HUM = { root = { country_event = { id = genemodmenu.101 } } }
+							MAM = { root = { country_event = { id = genemodmenu.201 } } }
+							FUN = { root = { country_event = { id = genemodmenu.301 } } }
+							ART = { root = { country_event = { id = genemodmenu.401 } } }
+							REP = { root = { country_event = { id = genemodmenu.501 } } }
+							AVI = { root = { country_event = { id = genemodmenu.601 } } }
+							MOL = { root = { country_event = { id = genemodmenu.701 } } }
+							PLANT = { root = { country_event = { id = genemodmenu.801 } } }
+							ROBOT = { root = { country_event = { id = genemodmenu.901 } } }
+							MACHINE = { root = { country_event = { id = genemodmenu.901 } } }
+							default = { root = { country_event = { id = genemodenh.201 } } }
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	#Rename Speceis
+	option = { name = "genemodenh.2.species_name" custom_tooltip = "genemodenh.2.species_name.tooltip"
+		is_dialog_only = yes
+		event_target:genemod_species = {
+			rename_species = { prompt_country = root name_list = genemod_names }
+		}
+	}
+	
+	#Modify leaders
+	option = { name = "genemodenh.2.leader" custom_tooltip = "genemodenh.2.leader.tooltip"
+		is_dialog_only = yes
+		trigger = { 
+			NOT = { has_country_flag = genemod_menu_uplift }
+			event_target:genemod_species = { NOT = {
+				has_trait = "trait_robotic_1"
+				has_trait = "trait_robotic_2"
+			} }
+		}
+		allow = {
+			custom_tooltip = { fail_text = "genemodenh.2.timesup.tooltip"
+				OR = {
+					has_country_flag = genemod_timeout
+					has_country_flag = genemod_cheats
+				}
+			}
+		}
+		hidden_effect = {
+			every_owned_leader = {
+				limit = { is_same_species = event_target:genemod_species }
+				change_species = event_target:genemod_species
+				change_leader_portrait = species
+			}
+			every_pool_leader = {
+				limit = { is_same_species = event_target:genemod_species }
+				change_species = event_target:genemod_species
+				change_leader_portrait = species
+			}
+		}
+	}
+	
+	#Modify armies
+	option = { name = "genemodenh.2.army" custom_tooltip = "genemodenh.2.army.tooltip"
+		is_dialog_only = yes
+		trigger = {
+			NOT = { has_country_flag = genemod_menu_uplift }
+			event_target:genemod_species = { NOT = { has_trait = "trait_robotic_1" } }
+		}
+		allow = {
+			custom_tooltip = { fail_text = "genemodenh.2.timesup.tooltip"
+				OR = {
+					has_country_flag = genemod_timeout
+					has_country_flag = genemod_cheats
+				}
+			}
+		}
+		hidden_effect = {
+			every_owned_army = {
+				limit = { is_same_species = event_target:genemod_species }
+				change_species = event_target:genemod_species
+			}
+		}
+	}
+	
+	#Modify colonizers
+	option = { name = "genemodenh.2.colonizer" custom_tooltip = "genemodenh.2.colonizer.tooltip"
+		is_dialog_only = yes
+		trigger = {
+			NOT = { has_country_flag = genemod_menu_uplift }
+			event_target:genemod_species = { NOT = { has_trait = "trait_robotic_1" } }
+		}
+		allow = {
+			custom_tooltip = { fail_text = "genemodenh.2.timesup.tooltip"
+				OR = {
+					has_country_flag = genemod_timeout
+					has_country_flag = genemod_cheats
+				}
+			}
+		}
+		hidden_effect = {
+			every_owned_ship = {
+				limit = {
+					is_ship_class = shipclass_colonizer
+					is_same_species = event_target:genemod_species
+				}
+				change_species = event_target:genemod_species
+			}
+		}
+	}
+	
+	#Set as founder
+	option = { name = "genemodenh.2.new_founder" custom_tooltip = "genemodenh.2.new_founder.tooltip"
+		trigger = {
+			hidden_trigger = {
+				OR = {
+					has_country_flag = genemod_cheats
+					AND = { #Make sure only hive pops can be set as founder in hive empires.
+						has_authority = auth_hive_mind
+						event_target:genemod_species = { has_trait = "trait_hive_mind" }
+					}
+					AND = { #Make sure only machine pops can be set as founder in machine empires.
+						has_authority = auth_machine_intelligence
+						event_target:genemod_species = { has_trait = "trait_machine_unit" }
+					}
+					AND = {
+						NOT = {
+							has_authority = auth_hive_mind
+							has_authority = auth_machine_intelligence
+						}
+						event_target:genemod_species = { NOT = {
+							has_trait = "trait_machine_unit"
+							has_trait = "trait_hive_mind"
+							has_trait = "trait_robotic_1"
+							has_trait = "trait_robotic_2"
+						} }
+					}
+				}
+			}
+		}
+		allow = {
+			custom_tooltip = { fail_text = "genemodenh.2.timesup.tooltip"
+				OR = {
+					has_country_flag = genemod_timeout
+					has_country_flag = genemod_cheats
+				}
+			}
+			custom_tooltip = { fail_text = "genemodenh.2.not_founder.tooltip"
+				NOT = { is_exact_same_species = event_target:genemod_species }
+			}
+			custom_tooltip = { fail_text = default 
+				OR = {
+					custom_tooltip = { text = "genemodenh.2.is_not_synth.tooltip"
+						event_target:genemod_species = { NOT = { has_trait = "trait_robotic_3" } }
+					}
+					AND = {
+						custom_tooltip = { text = "genemodenh.2.is_synth.tooltip"
+							event_target:genemod_species = { has_trait = "trait_robotic_3" }
+						}
+						custom_tooltip = { text = "genemodenh.2.is_synth_empire.tooltip"
+							OR = {
+								has_country_flag = synthetic_empire
+								has_country_flag = px_was_synth_empire
+							}
+						}
+					}
+					hidden_trigger = { has_country_flag = genemod_cheats }
+				}
+			}
+		}
+		IF = { limit = { NOT = { is_same_species = event_target:genemod_species } }
+			custom_tooltip = "genemodenh.2.new_founder_cost.tooltip"
+		}
+		hidden_effect = { country_event = { id = genemodenh.202 } }
+	}
+	
+	#Convert to founder sub-species
+	option = { name = "genemodenh.2.sub_founder" custom_tooltip = "genemodenh.2.sub_founder.tooltip"
+		trigger = {
+			hidden_trigger = {
+				OR = {
+					has_country_flag = genemod_cheats
+					AND = {
+						OR = {
+							has_trait = "trait_machine_unit"
+							has_trait = "trait_mechanical"
+						}
+						event_target:genemod_species = { OR = {
+							has_trait = "trait_machine_unit"
+							has_trait = "trait_mechanical"
+						} }
+					}
+					AND = {
+						has_trait = "trait_hive_mind"
+						event_target:genemod_species = { has_trait = "trait_hive_mind" }
+					}
+					AND = {
+						NOT = {
+							has_trait = "trait_machine_unit"
+							has_trait = "trait_mechanical"
+							has_trait = "trait_hive_mind"
+						}
+						event_target:genemod_species = { NOT = {
+							has_trait = "trait_machine_unit"
+							has_trait = "trait_mechanical"
+							has_trait = "trait_hive_mind"
+						} }
+					}
+				}
+			}
+		}
+		allow = {
+			custom_tooltip = { fail_text = "genemodenh.2.timesup.tooltip"
+				OR = {
+					has_country_flag = genemod_timeout
+					has_country_flag = genemod_cheats
+				}
+			}
+			custom_tooltip = { fail_text = "genemodenh.2.not_founder.tooltip"
+				NOT = { is_exact_same_species = event_target:genemod_species }
+			}
+			custom_tooltip = { fail_text = "genemodenh.2.not_same_species.tooltip"
+				event_target:genemod_species = { NOT = { is_same_species = root.species } }
+			}
+			custom_tooltip = { fail_text = default
+				OR = {
+					AND = {
+						OR = {
+							has_technology = tech_genetic_resequencing
+							has_technology = tech_gene_seed_purification
+							hidden_trigger = { has_country_flag = genemod_cheats }
+						}
+						custom_tooltip = { text = "genemodenh.2.f_is_organic.tooltip"
+							genemod_is_synth = no
+						}
+					}
+					custom_tooltip = { text = "genemodenh.2.f_is_not_organic.tooltip"
+						genemod_is_synth = yes
+					}
+				}
+			}
+		}
+		hidden_effect = { country_event = { id = genemodenh.203 } }
+	}
+	
+	#Convert to base species
+	option = { name = "genemodenh.2.identity" custom_tooltip = "genemodenh.2.identity.tooltip"
+		trigger = {
+			OR = {
+				NOT = { has_country_flag = genemod_menu_uplift }
+				AND = {
+					has_country_flag = genemod_cheats
+					event_target:genemod_species = {
+						NOT = {
+							has_trait = "trait_robotic_1"
+							has_trait = "trait_robotic_2"
+						}
+					}
+				}
+			}
+		}
+		allow = {
+			custom_tooltip = { fail_text = "genemodenh.2.timesup.tooltip"
+				OR = {
+					has_country_flag = genemod_timeout
+					has_country_flag = genemod_cheats
+				}
+			}
+			custom_tooltip = { fail_text = default
+				OR = {
+					OR = {
+						has_technology = tech_genetic_resequencing
+						has_technology = tech_gene_seed_purification
+						hidden_trigger = { has_country_flag = genemod_cheats }
+					}
+					custom_tooltip = { text = "genemodenh.2.s_is_not_organic.tooltip"
+						event_target:genemod_species = { genemod_is_synth = yes }
+					}
+				}
+			}
+		}
+		hidden_effect = { country_event = { id = genemodenh.204 } }
+	}
+	
+	#Change species class
+	option = { name = "genemodenh.2.class" custom_tooltip = "genemodenh.2.class.tooltip"
+		trigger = {
+			OR = {
+				NOT = {
+					has_country_flag = genemod_menu_uplift
+					event_target:genemod_species = { genemod_is_synth = yes }
+				}
+				has_country_flag = genemod_cheats
+			}
+		}
+		allow = {
+			OR = {
+				has_technology = tech_genetic_resequencing
+				has_technology = tech_gene_seed_purification
+				hidden_trigger = { has_country_flag = genemod_cheats }
+			}
+		}
+		hidden_effect = { country_event = { id = genemodenh.205 } }
+	}
+	
+	#Change species namelist
+	option = { name = "genemodenh.2.namelist" custom_tooltip = "genemodenh.2.namelist.tooltip"
+		trigger = {
+			event_target:genemod_species = {
+				NOT = {
+					has_trait = "trait_robotic_1"
+					has_trait = "trait_robotic_2"
+				}
+			}
+		}
+		hidden_effect = {
+			IF = { limit = { event_target:genemod_species = {
+				OR = { is_species_class = ART is_species_class = AVI is_species_class = FUN } } }
+				country_event = { id = genemodname.2 } break = yes
+			}
+			IF = { limit = { event_target:genemod_species = {
+				OR = { is_species_class = MACHINE is_species_class = MAM is_species_class = MOL } } }
+				country_event = { id = genemodname.3 } break = yes
+			}
+			IF = { limit = { event_target:genemod_species = {
+				OR = { is_species_class = PLANT is_species_class = REP } } }
+				country_event = { id = genemodname.4 } break = yes
+			}
+			country_event = { id = genemodname.1 }
+		}
+	}
+	
+	#Set homeworld
+	option = { name = "genemodenh.2.homeworld" custom_tooltip = "genemodenh.2.homeworld.tooltip"
+		trigger = {
+			OR = {
+				NOT = {
+					has_country_flag = genemod_menu_uplift
+					event_target:genemod_species = { genemod_is_synth = yes }
+				}
+				has_country_flag = genemod_cheats
+			}
+		}
+		allow = {
+			custom_tooltip = { fail_text = "genemodenh.2.timesup.tooltip"
+				OR = {
+					has_country_flag = genemod_timeout
+					has_country_flag = genemod_cheats
+				}
+			}
+			custom_tooltip = { fail_text = "genemodenh.2.homeworld.fail"
+				has_country_flag = genemod_homeworld_set
+			}
+			custom_tooltip = { fail_text = "genemodenh.2.has_glan_acc.tooltip"
+				OR = {
+					has_technology = tech_glandular_acclimation
+					has_country_flag = genemod_cheats
+				}
+			}
+		}
+		hidden_effect = {
+			random_owned_planet = {
+				limit = { has_planet_flag = genemod_new_homeworld }
+				save_event_target_as = genemod_new_homeworld
+				remove_planet_flag = genemod_new_homeworld
+			}
+			event_target:genemod_species = { set_species_homeworld = event_target:genemod_new_homeworld }
+			remove_country_flag = genemod_homeworld_set
+			country_event = { id = genemodenh.2 }
+		}
+	}
+	
+	option = { name = "genemodenh.2.close"
+		default_hide_option = yes
+		hidden_effect = { country_event = { id = genemodenh.299 } }
+	}
+}
+
+#Change Species Appearance
+country_event = { id = genemodenh.201
+	title = "genemodenh.201.name"
+	desc = "genemodenh.201.desc"
+	is_triggered_only = yes
+	
+	picture_event_data = { room = genemod_classes_room }
+	diplomatic = yes
+	force_open = yes
+
+	option = { name = genemodenh.HUM hidden_effect = { country_event = { id = genemodmenu.101 } } }
+	option = { name = genemodenh.MAM hidden_effect = { country_event = { id = genemodmenu.201 } } }
+	option = { name = genemodenh.FUN hidden_effect = { country_event = { id = genemodmenu.301 } } }
+	option = { name = genemodenh.ART hidden_effect = { country_event = { id = genemodmenu.401 } } }
+	option = { name = genemodenh.REP hidden_effect = { country_event = { id = genemodmenu.501 } } }
+	option = { name = genemodenh.AVI hidden_effect = { country_event = { id = genemodmenu.601 } } }
+	option = { name = genemodenh.MOL hidden_effect = { country_event = { id = genemodmenu.701 } } }
+	option = { name = genemodenh.PLA custom_tooltip = "genemodmenu.Plant.desc"
+		hidden_effect = { country_event = { id = genemodmenu.801 } }
+	}
+	option = { name = genemodenh.SYN
+		trigger = { has_country_flag = genemod_cheats }
+		hidden_effect = { country_event = { id = genemodmenu.901 } }
+	}
+	option = { name = genemodenh.CRI
+		trigger = { has_country_flag = genemod_cheats }
+		hidden_effect = { country_event = { id = genemodmenu.1001 } }
+	}
+	option = { name = genemodenh.PRE
+		trigger = { has_country_flag = genemod_cheats }
+		hidden_effect = { country_event = { id = genemodmenu.1101 } }
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes
+		hidden_effect = { country_event = { id = genemodenh.2 } }
+	}
+}
+
+#Set new founders
+country_event = { id = genemodenh.202
+	title = "genemodenh.202.name"
+	desc = "genemodenh.202.desc"
+	picture = GFX_evt_genetic_modification
+	is_triggered_only = yes
+	
+	after = { hidden_effect = { country_event = { id = genemodenh.2 } } }
+	
+	option = { name = YES
+		allow = {
+			hidden_trigger = {
+				OR = {
+					AND = {
+						NOT = { is_same_species = event_target:genemod_species }
+						influence > 199
+					}
+					is_same_species = event_target:genemod_species
+				}
+			}
+			custom_tooltip = { fail_text = "genemodenh.2.timesup.tooltip"
+				OR = {
+					has_country_flag = genemod_timeout
+					has_country_flag = genemod_cheats
+				}
+			}
+		}
+		IF = { limit = { NOT = { is_same_species = event_target:genemod_species } }
+			add_influence = -200
+		}
+		hidden_effect = {
+			IF = {
+				limit = {
+					NOT = {
+						is_same_species = event_target:genemod_species
+						has_country_flag = genemod_cheats
+					}
+				}
+				every_owned_pop = {
+					limit = {
+						is_same_species = root.species
+						is_growing = no
+						is_robot_pop = no
+					}
+					genemod_remove_pop_modifiers_founder = yes
+					IF = { limit = { has_ethic = ethic_xenophobe }
+						add_modifier = { modifier = "PX_species_was_founder_xenophobe" days = 3600 }
+						ELSE =  { IF = { limit = { has_ethic = ethic_xenophile }
+							add_modifier = { modifier = "PX_species_was_founder_xenophile" days = 3600 }
+							ELSE =  { IF = { limit = { genemod_has_ethics = yes }
+								add_modifier = { modifier = "PX_species_was_founder" days = 3600 }
+							} }
+						} }
+					}
+				}
+			}
+			every_owned_pop = {
+				limit = { is_exact_same_species = event_target:genemod_species }
+				genemod_remove_pop_modifiers_founder = yes
+			}
+		}
+		#Fix for synth empires when setting organic as founder. Temporary removes synth empire flag.
+		IF = {
+			limit = {
+				has_country_flag = synthetic_empire
+				event_target:genemod_species = { NOT = { has_trait = "trait_mechanical" } }
+			}
+			remove_country_flag = synthetic_empire
+			set_country_flag = px_was_synth_empire
+			ELSE = {
+				IF = { #give back synth empire flag if setting synths as founders again.
+					limit = {
+						has_country_flag = px_was_synth_empire
+						event_target:genemod_species = { has_trait = "trait_mechanical" }
+					}
+					remove_country_flag = px_was_synth_empire
+					set_country_flag = synthetic_empire
+				}
+			}
+		}
+		change_dominant_species = { species = event_target:genemod_species }
+	}
+	option = { name = NO }
+}
+
+#Convert to founder sub-species
+country_event = { id = genemodenh.203
+	title = "genemodenh.203.name"
+	desc = "genemodenh.203.desc"
+	picture = GFX_evt_genetic_modification
+	is_triggered_only = yes
+	
+	after = { hidden_effect = { country_event = { id = genemodenh.2 } } }
+	
+	option = { name = YES
+		allow = {
+			custom_tooltip = { fail_text = "genemodenh.2.timesup.tooltip"
+				OR = {
+					has_country_flag = genemod_timeout
+					has_country_flag = genemod_cheats
+				}
+			}
+		}
+		event_target:genemod_species = { set_species_identity = root.species }
+		hidden_effect = {
+			set_country_flag = genemod_identity_set
+			IF = { limit = { NOT = { has_country_flag = genemod_cheats } }
+				every_owned_pop = {
+					limit = {
+						is_exact_same_species = event_target:genemod_species
+						is_growing = no
+						is_robot_pop = no
+					}
+					genemod_remove_pop_modifiers_founder = yes
+					genemod_remove_pop_modifiers = yes
+					IF = { limit = { has_ethic = ethic_xenophobe }
+						add_modifier = { modifier = "PX_species_convert_xenophobe" days = 3600 }
+						ELSE =  { IF = { limit = { has_ethic = ethic_xenophile }
+							add_modifier = { modifier = "PX_species_convert_xenophile" days = 3600 }
+							ELSE =  { IF = { limit = { genemod_has_ethics = yes }
+								add_modifier = { modifier = "PX_species_convert" days = 3600 }
+							} }
+						} }
+					}
+				}
+			}
+		}
+	}
+	option = { name = NO }
+}
+
+#Set new Species Base Identity
+country_event = { id = genemodenh.204
+	title = "genemodenh.204.name"
+	desc = "genemodenh.204.desc"
+	picture = GFX_evt_genetic_modification
+	is_triggered_only = yes
+	
+	after = { hidden_effect = { country_event = { id = genemodenh.2 } } }
+	
+	option = { name = YES
+		allow = {
+			custom_tooltip = { fail_text = "genemodenh.2.timesup.tooltip"
+				OR = {
+					has_country_flag = genemod_timeout
+					has_country_flag = genemod_cheats
+				}
+			}
+		}
+		hidden_effect = {
+			IF = {
+				limit = {
+					is_exact_same_species = event_target:genemod_species
+					NOT = { has_country_flag = genemod_cheats }
+				}
+				every_owned_pop = {
+					limit = {
+						is_same_species = root.species
+						NOT = { is_exact_same_species = event_target:genemod_species }
+						is_growing = no
+					}
+					genemod_remove_pop_modifiers_founder = yes
+					IF = { limit = { has_ethic = ethic_xenophobe }
+						add_modifier = { modifier = "PX_species_was_founder_xenophobe" days = 3600 }
+						ELSE =  { IF = { limit = { has_ethic = ethic_xenophile }
+							add_modifier = { modifier = "PX_species_was_founder_xenophile" days = 3600 }
+							ELSE =  { IF = { limit = { genemod_has_ethics = yes }
+								add_modifier = { modifier = "PX_species_was_founder" days = 3600 }
+							} }
+						} }
+					}
+				}
+			}
+			every_pop = {
+				limit = { is_exact_same_species = event_target:genemod_species }
+				modify_species = {
+					species = this
+					base = none
+				}
+			}
+			last_created_species = { save_event_target_as = genemod_species }
+		}
+	}
+	option = { name = NO }
+}
+
+#Change Species Class
+country_event = { id = genemodenh.205
+	title = "genemodenh.205.name"
+	desc = "genemodenh.205.desc"
+	is_triggered_only = yes
+	
+	picture_event_data = { room = genemod_classes_room }
+	diplomatic = yes
+	force_open = yes
+	
+	immediate = { set_country_flag = genemod_class_set }
+	
+	after = {
+		hidden_effect = {
+			IF = { limit = { has_country_flag = genemod_class_set }
+				remove_country_flag = genemod_class_set
+				genemod_convert = yes
+				last_created_species = {
+					set_species_identity = event_target:genemod_species
+					set_species_homeworld = event_target:genemod_species.home_planet
+					IF = { limit = { OR = { has_trait = "trait_robotic_3" has_trait = "trait_machine_unit" } }
+						apply_robotic_pop_growth_behavior = yes
+					}
+					save_event_target_as = genemod_species
+				}
+			}
+			country_event = { id = genemodenh.2 }
+		}
+	}
+
+	option = { name = "genemodenh.HUM" trigger = { event_target:genemod_species = { NOT = { is_species_class = HUM } } }
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = this name = this plural = this class = HUM portrait = this traits = this } }
+	}	}
+	option = { name = "genemodenh.MAM" trigger = { event_target:genemod_species = { NOT = { is_species_class = MAM } } }
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = this name = this plural = this class = MAM portrait = this traits = this } }
+	}	}
+	option = { name = "genemodenh.FUN" trigger = { event_target:genemod_species = { NOT = { is_species_class = FUN } } }
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = this name = this plural = this class = FUN portrait = this traits = this } }
+	}	}
+	option = { name = "genemodenh.ART" trigger = { event_target:genemod_species = { NOT = { is_species_class = ART } } }
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = this name = this plural = this class = ART portrait = this traits = this } }
+	}	}
+	option = { name = "genemodenh.REP" trigger = { event_target:genemod_species = { NOT = { is_species_class = REP } } }
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = this name = this plural = this class = REP portrait = this traits = this } }
+	}	}
+	option = { name = "genemodenh.AVI" trigger = { event_target:genemod_species = { NOT = { is_species_class = AVI } } }
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = this name = this plural = this class = AVI portrait = this traits = this } }
+	}	}
+	option = { name = "genemodenh.MOL" trigger = { event_target:genemod_species = { NOT = { is_species_class = MOL } } }
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = this name = this plural = this class = MOL portrait = this traits = this } }
+	}	}
+	option = { name = "genemodenh.PLA" trigger = { event_target:genemod_species = { NOT = { is_species_class = PLANT } } }
+		allow = { host_has_dlc = "Plantoid" }
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = this name = this plural = this class = PLANT portrait = this traits = this } }
+	}	}
+	option = { name = "genemodenh.ROBOT"
+		trigger = {
+			event_target:genemod_species = { NOT = { is_species_class = ROBOT } }
+			has_country_flag = genemod_cheats
+		}
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = this name = this plural = this class = ROBOT portrait = this traits = this } }
+	}	}
+	option = { name = "genemodenh.MACHINE"
+		trigger = {
+			event_target:genemod_species = { NOT = { is_species_class = MACHINE } }
+			has_country_flag = genemod_cheats
+		}
+		allow = { host_has_dlc = "Synthetic Dawn Story Pack" }
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = this name = this plural = this class = MACHINE portrait = this traits = this } }
+	}	}
+	option = { name = "genemodmenu.cancel" default_hide_option = yes
+		hidden_effect = { remove_country_flag = genemod_class_set }
+	}
+}
+
+#Confirm close main menu
+country_event = { id = genemodenh.299
+	title = "genemodenh.299.name"
+	desc = "genemodenh.299.desc"
+	picture = GFX_evt_genetic_modification
+	is_triggered_only = yes
+	
+	option = { name = YES hidden_effect = { genemod_clean_menu = yes } }
+	
+	option = { name = NO hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+#Cheatmode toggle
+country_event = { id = genemodenh.369
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = { limit = { has_country_flag = genemod_cheats }
+			remove_country_flag = genemod_cheats
+			ELSE =  {
+				set_country_flag = genemod_cheats
+			}
+		}
+	}
+}
+
+#debug
+country_event = { id = genemodenh.661
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		genemod_clean_menu = yes
+		remove_country_flag = genemod_prevent_menu
+		set_timed_country_flag = { flag = genemod_timeout days = 120 }
+	}
+}
+
+#debug. Quick set up for testing. And to give minimum amount of tech needed to test things.
+country_event = { id = genemodenh.666
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				OR = {
+					NOT = { has_authority = auth_machine_intelligence }
+					has_civic = civic_machine_assimilator
+					has_civic = civic_machine_servitor
+				}
+			}
+			give_technology = { tech = "tech_gene_tailoring" message = no }
+			give_technology = { tech = "tech_epigenetic_triggers" message = no }
+		}
+		IF = {
+			limit = { has_authority = auth_machine_intelligence }
+			give_technology = { tech = "tech_robomodding_m" message = no }
+		}
+		IF = {
+			limit = { NOT = { has_ethic = "ethic_gestalt_consciousness" } }
+			give_technology = { tech = "tech_robomodding" message = no }
+		}
+		give_technology = { tech = "tech_mining_network_2" message = no }
+		give_technology = { tech = "tech_mining_network_3" message = no }
+		give_technology = { tech = "tech_mining_network_4" message = no }
+		give_technology = { tech = "tech_mega_engineering" message = no }
+		give_technology = { tech = "tech_power_plant_2" message = no }
+		give_technology = { tech = "tech_power_plant_3" message = no }
+		give_technology = { tech = "tech_power_plant_4" message = no }
+		give_technology = { tech = "tech_starbase_3" message = no }
+		give_technology = { tech = "tech_starbase_4" message = no }
+		give_technology = { tech = "tech_starbase_5" message = no }
+		add_minerals = 1000000
+		add_energy = 1000000
+		add_influence = 1000000
+		add_unity = 1000000
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = fallen_empire
+				}
+				NOT = { has_communications = root }
+			}
+			establish_communications_no_message = root
+		}
+	}
+}
+
+		

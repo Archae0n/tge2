@@ -1,0 +1,86 @@
+genemod_clean_menu = {
+	remove_country_flag = genemod_menu_active
+	remove_country_flag = genemod_menu_uplift
+	remove_country_flag = genemod_homeworld_set
+	remove_country_flag = genemod_identity_set
+	remove_country_flag = genemod_class_set
+	remove_country_flag = genemod_timeout
+	remove_country_flag = genemod_page
+	remove_country_flag = genemod_name_set
+	every_owned_planet = {
+		limit = { has_planet_flag = genemod_new_homeworld }
+		remove_planet_flag = genemod_new_homeworld
+	}
+	every_owned_planet = {
+		limit = { has_planet_flag = genemod_current_home }
+		remove_planet_flag = genemod_current_home
+	}
+}
+
+#Convert everything of original to target species
+genemod_convert = {
+	every_pop = { limit = { is_exact_same_species = event_target:genemod_species } 
+		change_species = last_created_species
+	}
+	IF = { limit = { is_exact_same_species = event_target:genemod_species }
+		change_dominant_species = { species = last_created_species }
+	}
+	every_owned_leader = {
+		limit = { is_exact_same_species = event_target:genemod_species }
+		change_species = last_created_species
+		change_leader_portrait = species
+	}
+	every_pool_leader = {
+		limit = { is_exact_same_species = event_target:genemod_species }
+		change_species = last_created_species
+		change_leader_portrait = species
+	}
+	every_owned_army = {
+		limit = { is_exact_same_species = event_target:genemod_species }
+		change_species = last_created_species
+	}
+	every_owned_ship = {
+		limit = {
+			is_ship_class = shipclass_colonizer
+			is_exact_same_species = event_target:genemod_species
+		}
+		change_species = last_created_species
+	}
+}
+
+genemod_remove_pop_modifiers = {
+	IF =  { limit = { has_modifier = PX_species_convert }
+		remove_modifier = PX_species_convert
+	}
+	IF =  { limit = { has_modifier = PX_species_convert_xenophobe }
+		remove_modifier = PX_species_convert_xenophobe
+	}
+	IF =  { limit = { has_modifier = PX_species_convert_xenophile }
+		remove_modifier = PX_species_convert_xenophile
+	}
+}
+
+genemod_remove_pop_modifiers_founder = {
+	IF =  { limit = { has_modifier = PX_species_was_founder }
+		remove_modifier = PX_species_was_founder
+	}
+	IF =  { limit = { has_modifier = PX_species_was_founder_xenophobe }
+		remove_modifier = PX_species_was_founder_xenophobe
+	}
+	IF =  { limit = { has_modifier = PX_species_was_founder_xenophile }
+		remove_modifier = PX_species_was_founder_xenophile
+	}
+}
+
+genemod_menu_finish = {
+	every_owned_leader = {
+		limit = { is_exact_same_species = event_target:genemod_species }
+		change_leader_portrait = event_target:genemod_species
+	}
+	every_pool_leader = {
+		limit = { is_exact_same_species = event_target:genemod_species }
+		change_leader_portrait = event_target:genemod_species
+	}
+	country_event = { id = genemodenh.2 }
+}
+

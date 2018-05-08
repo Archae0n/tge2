@@ -1,0 +1,198 @@
+named_lists = {
+	genemod_names = {
+		alari = {
+			name = Alari
+			plural = Alari
+		}	
+		
+		mireesh = {
+			name = Mireesh
+			plural = Mireeshi
+		}
+		
+		triech = {
+			name = Triech
+			plural = Triechs
+		}
+		
+		vrinn = {
+			name = Vrinn
+			plural = Vrinn
+		}
+		
+		cevanti = {
+			name = Cevanti
+			plural = Cevanti
+		}
+		
+		mishar = {
+			name = Mishar
+			plural = Mishars
+		}
+		
+		fareen = {
+			name = Fareen
+			plural = Fareens
+		}
+		
+		yldar = {
+			name = Yldar
+			plural = Yldars
+		}
+		
+		korinth = {
+			name = Korinth
+			plural = Korinths
+		}
+			
+		sildor = {
+			name = Sildor
+			plural = Sildors
+		}
+		
+		khellzen = {
+			name = Khell'Zen
+			plural = Khell'Zen
+		}
+		
+		sutharian = {
+			name = Sutharian
+			plural = Sutharians
+		}
+		
+		velutarian = {
+			name = Velutarian
+			plural = Velutarians
+		}
+		
+		zelvan = {
+			name = Zelvan
+			plural = Zelvans
+		}
+		
+		quenti = {
+			name = Quenti
+			plural = Quenti
+		}
+		
+		rihinar = {
+			name = Rihi'Nar
+			plural = Rihi'Nari
+		}
+		
+		prossnakan = {
+			name = Prossnakan
+			plural = Prossnakans
+		}
+		
+		mitron = {
+			name = Mitron
+			plural = Mitrons
+		}
+		
+		cevelli = {
+			name = Cevelli
+			plural = Cevelli
+		}
+		
+		panuri = {
+			name = Panuri
+			plural = Panuri
+		}
+		
+		ylkhahan = {
+			name = Yl'Khahan
+			plural = Yl'Khahans
+		}
+		
+		giranshu = {
+			name = Giranshu
+			plural = Giranshu
+		}
+		
+		bebaki = {
+			name = Bebaki
+			plural = Bebaki
+		}
+		
+		alvanian = {
+			name = Alvanian
+			plural = Alvanians
+		}
+	}
+		lozavata = {
+			name = Lozavata
+			plural = Lozavatae
+		}
+
+		queptilium = {
+			name = Queptilium
+			plural = Queptilia
+		}
+
+		lilarobius = {
+			name = Lilarobius
+			plural = Lilarobii
+		}
+
+		vetirisio = {
+			name = Vetirisius
+			plural = Vetirisii
+		}
+
+		belmacosa = {
+			name = Belmacosa
+			plural = Belmacosae
+		}
+
+		panaxala = {
+			name = Panaxala
+			plural = Panaxalae
+		}
+
+		ganvius = {
+			name = Ganvius
+			plural = Ganvii
+		}
+
+		caloctora = {
+			name = Caloctora
+			plural = Caloctorae
+		}
+
+		vivisandia = {
+			name = Vivisandia
+			plural = Vivisandia
+		}
+
+		sidimatus = {
+			name = Sidimatus
+			plural = Sidimati
+		}
+
+		mandasura = {
+			name = Mandasura
+			plural = Mandasurae
+		}
+
+		mirovandia = {
+			name = Mirovandia
+			plural = Mirovandia
+		}
+
+		pelisimus = {
+			name = Pelisimus
+			plural = Pelisimi
+		}
+
+		lavis = {
+			name = Lavis
+			plural = Lavii
+		}
+		
+		raxycodium = {
+			name = Raxycodium
+			plural = Raxycodia
+		}
+	}
+}

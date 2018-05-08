@@ -1,0 +1,41 @@
+#Workaround to get rid of error spam
+
+gm_human_clothes = { default = "gfx/models/portraits/human/human_female_clothes_admiral.dds" }
+gm_human_hair = { default = "gfx/models/portraits/human/human_female_hair_blonde_style_01.dds" }
+
+gm_humanoid_02_clothes = { default = "gfx/models/portraits/humanoid/humanoid_02_outfit_ruler.dds" }
+gm_humanoid_02_hair = { default = "gfx/models/portraits/humanoid/humanoid_02_female_hair_style_03.dds" }
+gm_humanoid_03_clothes = { default = "gfx/models/portraits/humanoid/humanoid_03_outfit_ruler.dds" }
+gm_humanoid_05_clothes = { default = "gfx/models/portraits/humanoid/humanoid_05_outfit_ruler.dds" }
+gm_humanoid_05_hair = { default = "gfx/models/portraits/humanoid/humanoid_05_female_hair_blonde_style_03.dds" }
+
+gm_hum_hp_02_hair = { default = "gfx/models/portraits/humanoid/humanoid_hp_02_hair_brown.dds" }
+gm_hum_hp_11_hair = { default = "gfx/models/portraits/humanoid/humanoid_hp_11_beard_01.dds" }
+
+gm_mam_slender_01_clothes = { default = "gfx/models/portraits/mammalian/mammalian_slender_outfit_ruler_blue.dds" }
+gm_mam_slender_02_clothes = { default = "gfx/models/portraits/mammalian/mammalian_slender_outfit_governor_purple.dds" }
+gm_mam_slender_03_clothes = { default = "gfx/models/portraits/mammalian/mammalian_slender_outfit_scientist.dds" }
+gm_mam_slender_04_clothes = { default = "gfx/models/portraits/mammalian/mammalian_slender_outfit_admiral.dds" }
+gm_mam_normal_01_clothes = { default = "gfx/models/portraits/mammalian/mammalian_normal_outfit_ruler.dds" }
+gm_mam_massive_01_clothes = { default = "gfx/models/portraits/mammalian/mammalian_massive_outfit_ruler.dds" }
+
+gm_fun_normal_01_clothes = { default = "gfx/models/portraits/fungoid/fungoid_normal_outfit_ruler.dds" }
+gm_fun_normal_08_clothes = { default = "gfx/models/portraits/fungoid/fungoid_normal_outfit_ruler_08.dds" }
+gm_fun_normal_09_clothes = { default = "gfx/models/portraits/fungoid/fungoid_normal_outfit_ruler_09.dds" }
+
+gm_art_normal_01_clothes = { default = "gfx/models/portraits/arthropoid/arthropoid_normal_outfit_governor.dds" }
+
+gm_rep_slender_01_clothes = { default = "gfx/models/portraits/reptilian/reptilian_slender_outfit_ruler_03.dds" }
+gm_rep_slender_05_clothes = { default = "gfx/models/portraits/reptilian/reptilian_slender_outfit_ruler_05.dds" }
+gm_rep_normal_01_clothes = { default = "gfx/models/portraits/reptilian/reptilian_normal_outfit_ruler.dds" }
+gm_rep_massive_01_clothes = { default = "gfx/models/portraits/reptilian/reptilian_massive_outfit_general.dds" }
+gm_rep_02_hat = { default = "gfx/models/nospec.dds" }
+
+gm_avi_slender_01_clothes = { default = "gfx/models/portraits/avian/avian_slender_outfit_ruler.dds" }
+gm_avi_normal_01_clothes = { default = "gfx/models/portraits/avian/avian_normal_outfit_ruler.dds" }
+gm_avi_massive_01_clothes = { default = "gfx/models/portraits/avian/avian_massive_outfit_ruler.dds" }
+
+gm_mol_slender_01_clothes = { default = "gfx/models/portraits/molluscoid/molluscoid_slender_outfit_ruler.dds" }
+gm_mol_massive_01_clothes = { default = "gfx/models/portraits/molluscoid/molluscoid_massive_outfit_ruler.dds" }
+
+gm_pla_normal_01_clothes = { default = "gfx/models/portraits/plantoid/plantoid_normal_outfit_ruler.dds" }

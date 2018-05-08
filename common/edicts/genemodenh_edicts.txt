@@ -1,0 +1,122 @@
+
+planet_edict = {
+	name = "genemod_homeworld"
+	cost = { influence = 0 }
+	
+	potential = {
+		owner = {
+			has_country_flag = genemod_menu_active
+			NOT = { has_country_flag = genemod_menu_uplift }
+		}
+		NOR = {
+			has_planet_flag = genemod_new_homeworld
+			has_planet_flag = genemod_current_home
+		}
+	}
+	
+	length = 0
+	
+	effect = {
+		owner = {
+			every_owned_planet = {
+				limit = { has_planet_flag = genemod_new_homeworld }
+				remove_planet_flag = genemod_new_homeworld
+			}
+			set_country_flag = genemod_homeworld_set
+		}
+		set_planet_flag = genemod_new_homeworld
+	}
+	
+	ai_weight = {
+		weight = 0	
+	}
+}
+
+planet_edict = {
+	name = "genemod_homeworld_set"
+	cost = { influence = 0 }
+	
+	potential = {
+		owner = {
+			has_country_flag = genemod_menu_active
+			NOT = { has_country_flag = genemod_menu_uplift }
+		}
+		has_planet_flag = genemod_new_homeworld
+		NOT = { has_planet_flag = genemod_current_home }
+	}
+	
+	length = 0
+	
+	effect = {
+		owner = {
+			every_owned_planet = {
+				limit = { has_planet_flag = genemod_new_homeworld }
+				remove_planet_flag = genemod_new_homeworld
+			}
+			remove_country_flag = genemod_homeworld_set
+		}
+		remove_planet_flag = genemod_new_homeworld
+	}
+	
+	ai_weight = {
+		weight = 0	
+	}
+}
+
+planet_edict = {
+	name = "genemod_homeworld_current"
+	cost = { influence = 0 }
+	
+	potential = {
+		owner = {
+			has_country_flag = genemod_menu_active
+			NOT = { has_country_flag = genemod_menu_uplift }
+		}
+		has_planet_flag = genemod_current_home
+	}
+	
+	length = 0
+	
+	effect = {
+	}
+	
+	ai_weight = {
+		weight = 0	
+	}
+}
+
+country_edict = {
+	name = "genemod_prevent_menu_on"
+	length = 0
+	cost = { influence = 0 }
+	
+	potential = {
+		has_country_flag = genemod_prevent_menu
+	}
+	
+	effect = {
+		remove_country_flag = genemod_prevent_menu
+	}
+	
+	ai_weight = {
+		weight = 0	
+	}
+}
+
+country_edict = {
+	name = "genemod_prevent_menu_off"
+	length = 0
+	cost = { influence = 0 }
+	
+	potential = {
+		NOT = { has_country_flag = genemod_prevent_menu }
+	}
+	
+	effect = {
+		set_country_flag = genemod_prevent_menu
+	}
+	
+	ai_weight = {
+		weight = 0	
+	}
+}

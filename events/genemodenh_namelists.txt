@@ -1,0 +1,329 @@
+namespace = genemodname
+
+country_event = { id = genemodname.1
+	title = "genemodname.1.name"
+	desc = "genemodname.1.desc"
+	picture = GFX_evt_genetic_modification
+	is_triggered_only = yes
+	
+	immediate = { set_country_flag = genemod_name_set }
+	
+	after = { hidden_effect = {
+			IF = { limit = { NOT = { has_country_flag = genemod_page } }
+				IF = { limit = { has_country_flag = genemod_name_set }
+					remove_country_flag = genemod_name_set
+					genemod_convert = yes
+					last_created_species = {
+						set_species_identity = event_target:genemod_species
+						set_species_homeworld = event_target:genemod_species.home_planet
+						IF = { limit = { OR = { has_trait = "trait_robotic_3" has_trait = "trait_machine_unit" } }
+							apply_robotic_pop_growth_behavior = yes
+						}
+						save_event_target_as = genemod_species
+					}
+				}
+				country_event = { id = genemodenh.2 }
+			}
+			remove_country_flag = genemod_page
+	} }
+	
+	option = { name = "genemodmenu.next" hidden_effect = {
+		set_country_flag = genemod_page
+		country_event = { id = genemodname.2 } 
+	} }
+	option = { name = "genemodmenu.prev" hidden_effect = {
+		set_country_flag = genemod_page
+		country_event = { id = genemodname.4 }
+	} }
+	option = { name = "genemodmenu.cancel" hidden_effect = { remove_country_flag = genemod_name_set } }
+	
+	option = { name = "name_list_HUMAN1" custom_tooltip = "genemodname.HUMAN1.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "HUMAN1" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_HUMAN2" custom_tooltip = "genemodname.HUMAN1.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "HUMAN2" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_HUMAN3" custom_tooltip = "genemodname.HUMAN3.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "HUMAN3" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_HUM1" custom_tooltip = "genemodname.HUM1.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "HUM1" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_HUM2" custom_tooltip = "genemodname.HUM2.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "HUM2" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_HUM3" custom_tooltip = "genemodname.HUM3.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "HUM3" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_HUM4" custom_tooltip = "genemodname.HUM4.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "HUM4" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "genemodname.PRT1" custom_tooltip = "genemodname.PRT1.tooltip" #Yarrrrrrrrrrrrrrr!
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "PRT1" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_HIVE" custom_tooltip = "genemodname.HIVE.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "HIVE" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "AI" custom_tooltip = "genemodname.AI.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "AI" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+}
+	
+country_event = { id = genemodname.2
+	title = "genemodname.1.name"
+	desc = "genemodname.1.desc"
+	picture = GFX_evt_genetic_modification
+	is_triggered_only = yes
+	
+	immediate = { set_country_flag = genemod_name_set }
+	
+	after = { hidden_effect = {
+			IF = { limit = { NOT = { has_country_flag = genemod_page } }
+				IF = { limit = { has_country_flag = genemod_name_set }
+					remove_country_flag = genemod_name_set
+					genemod_convert = yes
+					last_created_species = {
+						set_species_identity = event_target:genemod_species
+						set_species_homeworld = event_target:genemod_species.home_planet
+						IF = { limit = { OR = { has_trait = "trait_robotic_3" has_trait = "trait_machine_unit" } }
+							apply_robotic_pop_growth_behavior = yes
+						}
+						save_event_target_as = genemod_species
+					}
+				}
+				country_event = { id = genemodenh.2 }
+			}
+			remove_country_flag = genemod_page
+	} }
+	
+	option = { name = "genemodmenu.next" hidden_effect = {
+		set_country_flag = genemod_page
+		country_event = { id = genemodname.3 } 
+	} }
+	option = { name = "genemodmenu.prev" hidden_effect = {
+		set_country_flag = genemod_page
+		country_event = { id = genemodname.1 }
+	} }
+	option = { name = "genemodmenu.cancel" hidden_effect = { remove_country_flag = genemod_name_set } }
+	
+	option = { name = "name_list_ART1" custom_tooltip = "genemodname.ART1.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "ART1" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_ART2" custom_tooltip = "genemodname.ART2.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "ART2" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_ART3" custom_tooltip = "genemodname.ART3.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "ART3" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_ART4" custom_tooltip = "genemodname.ART4.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "ART4" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_AVI1" custom_tooltip = "genemodname.AVI1.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "AVI1" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_AVI2" custom_tooltip = "genemodname.AVI2.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "AVI2" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_AVI3" custom_tooltip = "genemodname.AVI3.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "AVI3" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_AVI4" custom_tooltip = "genemodname.AVI4.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "AVI4" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_FUN1" custom_tooltip = "genemodname.FUN1.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "FUN1" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_FUN2" custom_tooltip = "genemodname.FUN2.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "FUN2" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_FUN3" custom_tooltip = "genemodname.FUN3.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "FUN3" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_FUN4" custom_tooltip = "genemodname.FUN4.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "FUN4" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+}
+	
+country_event = { id = genemodname.3
+	title = "genemodname.1.name"
+	desc = "genemodname.1.desc"
+	picture = GFX_evt_genetic_modification
+	is_triggered_only = yes
+	
+	immediate = { set_country_flag = genemod_name_set }
+	
+	after = { hidden_effect = {
+			IF = { limit = { NOT = { has_country_flag = genemod_page } }
+				IF = { limit = { has_country_flag = genemod_name_set }
+					remove_country_flag = genemod_name_set
+					genemod_convert = yes
+					last_created_species = {
+						set_species_identity = event_target:genemod_species
+						set_species_homeworld = event_target:genemod_species.home_planet
+						IF = { limit = { OR = { has_trait = "trait_robotic_3" has_trait = "trait_machine_unit" } }
+							apply_robotic_pop_growth_behavior = yes
+						}
+						save_event_target_as = genemod_species
+					}
+				}
+				country_event = { id = genemodenh.2 }
+			}
+			remove_country_flag = genemod_page
+	} }
+	
+	option = { name = "genemodmenu.next" hidden_effect = {
+		set_country_flag = genemod_page
+		country_event = { id = genemodname.4 } 
+	} }
+	option = { name = "genemodmenu.prev" hidden_effect = {
+		set_country_flag = genemod_page
+		country_event = { id = genemodname.2 }
+	} }
+	option = { name = "genemodmenu.cancel" hidden_effect = { remove_country_flag = genemod_name_set } }
+	
+	option = { name = "name_list_MACHINE1" custom_tooltip = "genemodname.MACHINE1.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "MACHINE1" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_MACHINE2" custom_tooltip = "genemodname.MACHINE2.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "MACHINE2" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_MACHINE3" custom_tooltip = "genemodname.MACHINE3.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "MACHINE3" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_MACHINE4" custom_tooltip = "genemodname.MACHINE4.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "MACHINE4" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_MAM1" custom_tooltip = "genemodname.MAM1.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "MAM1" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_MAM2" custom_tooltip = "genemodname.MAM2.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "MAM2" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_MAM3" custom_tooltip = "genemodname.MAM3.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "MAM3" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_MAM4" custom_tooltip = "genemodname.MAM4.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "MAM4" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_MOL1" custom_tooltip = "genemodname.MOL1.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "MOL1" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_MOL2" custom_tooltip = "genemodname.MOL2.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "MOL2" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_MOL3" custom_tooltip = "genemodname.MOL3.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "MOL3" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_MOL4" custom_tooltip = "genemodname.MOL4.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "MOL4" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+}
+	
+country_event = { id = genemodname.4
+	title = "genemodname.1.name"
+	desc = "genemodname.1.desc"
+	picture = GFX_evt_genetic_modification
+	is_triggered_only = yes
+	
+	immediate = { set_country_flag = genemod_name_set }
+	
+	after = { hidden_effect = {
+			IF = { limit = { NOT = { has_country_flag = genemod_page } }
+				IF = { limit = { has_country_flag = genemod_name_set }
+					remove_country_flag = genemod_name_set
+					genemod_convert = yes
+					last_created_species = {
+						set_species_identity = event_target:genemod_species
+						set_species_homeworld = event_target:genemod_species.home_planet
+						IF = { limit = { OR = { has_trait = "trait_robotic_3" has_trait = "trait_machine_unit" } }
+							apply_robotic_pop_growth_behavior = yes
+						}
+						save_event_target_as = genemod_species
+					}
+				}
+				country_event = { id = genemodenh.2 }
+			}
+			remove_country_flag = genemod_page
+	} }
+	
+	option = { name = "genemodmenu.next" hidden_effect = {
+		set_country_flag = genemod_page
+		country_event = { id = genemodname.1 } 
+	} }
+	option = { name = "genemodmenu.prev" hidden_effect = {
+		set_country_flag = genemod_page
+		country_event = { id = genemodname.3 }
+	} }
+	option = { name = "genemodmenu.cancel" hidden_effect = { remove_country_flag = genemod_name_set } }
+	
+	option = { name = "name_list_PLANT" custom_tooltip = "genemodname.PLANT.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "PLANT" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_PLANT2" custom_tooltip = "genemodname.PLANT2.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "PLANT2" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_PLANT3" custom_tooltip = "genemodname.PLANT3.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "PLANT3" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_PLANT4" custom_tooltip = "genemodname.PLANT4.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "PLANT4" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_REP1" custom_tooltip = "genemodname.REP1.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "REP1" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_REP2" custom_tooltip = "genemodname.REP2.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "REP2" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_REP3" custom_tooltip = "genemodname.REP3.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "REP3" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+	option = { name = "name_list_REP4" custom_tooltip = "genemodname.REP4.tooltip"
+		hidden_effect = { event_target:genemod_species = {
+			create_species = { namelist = "REP4" name = this plural = this class = this portrait = this traits = this } }
+	}	}
+}
+
+#Cut my life into pieces...
+	
+	

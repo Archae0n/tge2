@@ -1,0 +1,2431 @@
+namespace = genemodmenu
+
+#Change Species apperance sub-menu
+	
+###HUMANOID###
+
+country_event = {
+	id = genemodmenu.101 title = "genemodmenu.101.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = human_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.102 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.115 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = human } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.102 title = "genemodmenu.102.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = humanoid_02_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.103 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.101 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = humanoid_02 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.103 title = "genemodmenu.103.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = humanoid_03_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.104 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.102 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = humanoid_03 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.104 title = "genemodmenu.104.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = humanoid_04_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.105 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.103 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = humanoid_04 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.105 title = "genemodmenu.105.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = humanoid_05_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.106 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.104 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = humanoid_05 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+#Humanoid Species Pack
+country_event = {
+	id = genemodmenu.106 title = "genemodmenu.106.name" desc = "genemodmenu.hum.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = humanoid_hp_01_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.107 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.105 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Humanoids Species Pack" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = humanoid_hp_01 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.107 title = "genemodmenu.107.name" desc = "genemodmenu.hum.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = humanoid_hp_02_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.108 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.106 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Humanoids Species Pack" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = humanoid_hp_02 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.108 title = "genemodmenu.108.name" desc = "genemodmenu.hum.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = humanoid_hp_06_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.109 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.107 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Humanoids Species Pack" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = humanoid_hp_06 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.109 title = "genemodmenu.109.name" desc = "genemodmenu.hum.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = humanoid_hp_07_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.110 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.108 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Humanoids Species Pack" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = humanoid_hp_07 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.110 title = "genemodmenu.110.name" desc = "genemodmenu.hum.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = humanoid_hp_08_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.111 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.109 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Humanoids Species Pack" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = humanoid_hp_08 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.111 title = "genemodmenu.111.name" desc = "genemodmenu.hum.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = humanoid_hp_09_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.112 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.110 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Humanoids Species Pack" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = humanoid_hp_09 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.112 title = "genemodmenu.112.name" desc = "genemodmenu.hum.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = humanoid_hp_10_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.113 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.111 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Humanoids Species Pack" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = humanoid_hp_10 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.113 title = "genemodmenu.113.name" desc = "genemodmenu.hum.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = humanoid_hp_11_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.114 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.112 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Humanoids Species Pack" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = humanoid_hp_11 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.114 title = "genemodmenu.114.name" desc = "genemodmenu.hum.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = humanoid_hp_12_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.115 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.113 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Humanoids Species Pack" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = humanoid_hp_12 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.115 title = "genemodmenu.115.name" desc = "genemodmenu.hum.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = humanoid_hp_13_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.101 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.114 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Humanoids Species Pack" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = humanoid_hp_13 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+###MAMMALIAN###
+
+country_event = {
+	id = genemodmenu.201 title = "genemodmenu.201.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = mam1_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.202 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.217 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = mam1 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.202 title = "genemodmenu.202.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = mam2_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.203 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.201 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = mam2 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.203 title = "genemodmenu.203.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = mam3_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.204 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.202 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = mam3 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.204 title = "genemodmenu.204.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = mam4_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.205 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.203 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = mam4 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.205 title = "genemodmenu.205.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = mam5_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.206 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.204 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = mam5 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.206 title = "genemodmenu.206.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = mam6_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.207 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.205 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = mam6 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.207 title = "genemodmenu.207.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = mam7_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.208 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.206 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = mam7 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.208 title = "genemodmenu.208.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = mam8_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.209 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.207 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = mam8 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.209 title = "genemodmenu.209.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = mam9_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.210 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.208 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = mam9 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.210 title = "genemodmenu.210.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = mam10_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.211 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.209 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = mam10 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.211 title = "genemodmenu.211.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = mam11_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.212 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.210 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = mam11 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.212 title = "genemodmenu.212.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = mam12_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.213 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.211 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = mam12 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.213 title = "genemodmenu.213.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = mam13_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.214 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.212 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = mam13 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.214 title = "genemodmenu.214.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = mam14_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.215 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.213 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = mam14 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.215 title = "genemodmenu.215.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = mam15_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.216 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.214 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = mam15 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.216 title = "genemodmenu.216.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = mam16_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.217 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.215 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = mam16 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = { #Creatures of the Void Portrait Pack
+	id = genemodmenu.217 title = "genemodmenu.217.name" desc = "genemodmenu.void.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = mam17_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.201 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.216 } } }
+	option = { name = genemodmenu.applylook
+		allow = {
+			OR = {
+				host_has_dlc = "Creatures of the Void Portrait Pack"
+				host_has_dlc = "Anniversary Portraits"
+			}
+		}
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = mam17 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+###FUNGOID###
+
+country_event = {
+	id = genemodmenu.301 title = "genemodmenu.301.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = fun1 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.302 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.317 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = fun1 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.302 title = "genemodmenu.302.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = fun2 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.303 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.301 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = fun2 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.303 title = "genemodmenu.303.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = fun3 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.304 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.302 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = fun3 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.304 title = "genemodmenu.304.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = fun4 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.306 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.303 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = fun4 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.306 title = "genemodmenu.306.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = fun6_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.307 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.304 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = fun6 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.307 title = "genemodmenu.307.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = fun7_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.308 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.306 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = fun7 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.308 title = "genemodmenu.308.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = fun8_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.309 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.307 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = fun8 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.309 title = "genemodmenu.309.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = fun9_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.310 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.308 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = fun9 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.310 title = "genemodmenu.310.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = fun10_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.311 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.309 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = fun10 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.311 title = "genemodmenu.311.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = fun11 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.312 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.310 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = fun11 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.312 title = "genemodmenu.312.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = fun12 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.313 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.311 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = fun12 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.313 title = "genemodmenu.313.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = fun13 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.314 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.312 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = fun13 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.314 title = "genemodmenu.314.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = fun14 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.315 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.313 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = fun14 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.315 title = "genemodmenu.315.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = fun15 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.316 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.314 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = fun15 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = { #Creatures of the Void Portrait Pack
+	id = genemodmenu.316 title = "genemodmenu.316.name" desc = "genemodmenu.void.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = fun16 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.317 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.315 } } }
+	option = { name = genemodmenu.applylook
+		allow = {
+			OR = {
+				host_has_dlc = "Creatures of the Void Portrait Pack"
+				host_has_dlc = "Anniversary Portraits"
+			}
+		}
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = fun16 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = { #Leviathans Story Pack
+	id = genemodmenu.317 title = "genemodmenu.317.name" desc = "genemodmenu.lev.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = fun17 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.301 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.316 } } }
+	option = { name = genemodmenu.applylook
+		allow = {	host_has_dlc = "Leviathans Story Pack"
+		}
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = fun17 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+###ARTHROPOID###
+
+country_event = {
+	id = genemodmenu.401 title = "genemodmenu.401.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = art1 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.403 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.420 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = art1 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.403 title = "genemodmenu.403.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = art3 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.405 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.401 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = art3 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.405 title = "genemodmenu.405.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = art5 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.406 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.403 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = art5 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.406 title = "genemodmenu.406.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = art6_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.407 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.405 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = art6 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.407 title = "genemodmenu.407.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = art7_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.408 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.406 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = art7 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.408 title = "genemodmenu.408.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = art8_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.409 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.407 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = art8 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.409 title = "genemodmenu.409.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = art9_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.410 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.408 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = art9 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.410 title = "genemodmenu.410.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = art10_genemod room = genemod_enh_room }
+	
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.411 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.409 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = art10 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.411 title = "genemodmenu.411.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = art11 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.412 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.410 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = art11 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.412 title = "genemodmenu.412.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = art12 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.413 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.411 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = art12 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.413 title = "genemodmenu.413.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = art13 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.414 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.412 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = art13 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.414 title = "genemodmenu.414.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = art14 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.415 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.413 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = art14 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.415 title = "genemodmenu.415.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = art15 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.416 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.414 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = art15 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = { #Arachnoid Portrait Pack
+	id = genemodmenu.416 title = "genemodmenu.416.name" desc = "genemodmenu.arac.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = art16 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.417 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.415 } } }
+	option = { name = genemodmenu.applylook
+		allow = {
+			OR = {
+				host_has_dlc = "Arachnoid Portrait Pack"
+				hidden_trigger = { has_global_flag = genemod_debug }
+			}
+		}
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = art16 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = { #Creatures of the Void Portrait Pack
+	id = genemodmenu.417 title = "genemodmenu.417.name" desc = "genemodmenu.void.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = art17 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.418 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.416 } } }
+	option = { name = genemodmenu.applylook
+		allow = {
+			OR = {
+				host_has_dlc = "Creatures of the Void Portrait Pack"
+				host_has_dlc = "Anniversary Portraits"
+			}
+		}
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = art17 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = { #Leviathans Story Pack
+	id = genemodmenu.418 title = "genemodmenu.418.name" desc = "genemodmenu.lev.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = art18_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.419 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.417 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Leviathans Story Pack" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = art18 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.419 title = "genemodmenu.419.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = art19 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.420 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.418 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = art19 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = { #Anniversary Portraits
+	id = genemodmenu.420 title = "genemodmenu.420.name" desc = "genemodmenu.ann.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = art20 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.401 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.419 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Anniversary Portraits" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = art20 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+###REPTILIAN###
+
+country_event = {
+	id = genemodmenu.501 title = "genemodmenu.501.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = rep1_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.502 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.517 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = rep1 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.502 title = "genemodmenu.502.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = rep2_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.503 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.501 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = rep2 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.503 title = "genemodmenu.503.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = rep3_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.504 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.502 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = rep3 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.504 title = "genemodmenu.504.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = rep4_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.505 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.503 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = rep4 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.505 title = "genemodmenu.505.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = rep5_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.506 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.504 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = rep5 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.506 title = "genemodmenu.506.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = rep6_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.507 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.505 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = rep6 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.507 title = "genemodmenu.507.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = rep7_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.508 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.506 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = rep7 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.508 title = "genemodmenu.508.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = rep8_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.509 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.507 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = rep8 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.509 title = "genemodmenu.509.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = rep9_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.510 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.508 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = rep9 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.510 title = "genemodmenu.510.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = rep10_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.511 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.509 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = rep10 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.511 title = "genemodmenu.511.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = rep11_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.512 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.510 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = rep11 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.512 title = "genemodmenu.512.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = rep12_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.513 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.511 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = rep12 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.513 title = "genemodmenu.513.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = rep13_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.514 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.512 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = rep13 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.514 title = "genemodmenu.514.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = rep14_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.515 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.513 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = rep14 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.515 title = "genemodmenu.515.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = rep15_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.516 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.514 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = rep15 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = { #Leviathans Story Pack
+	id = genemodmenu.516 title = "genemodmenu.516.name" desc = "genemodmenu.lev.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = rep16_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.517 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.515 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Leviathans Story Pack" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = rep16 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = { #Anniversary Portraits
+	id = genemodmenu.517 title = "genemodmenu.517.name" desc = "genemodmenu.ann.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = rep17 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.501 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.516 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Anniversary Portraits" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = rep17 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+###AVIAN###
+
+country_event = {
+	id = genemodmenu.601 title = "genemodmenu.601.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = avi1_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.602 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.618 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = avi1 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.602 title = "genemodmenu.602.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = avi2_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.603 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.601 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = avi2 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.603 title = "genemodmenu.603.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = avi3_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.604 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.602 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = avi3 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.604 title = "genemodmenu.604.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = avi4_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.605 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.603 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = avi4 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.605 title = "genemodmenu.605.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = avi5_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.606 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.604 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = avi5 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.606 title = "genemodmenu.606.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = avi6_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.607 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.605 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = avi6 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.607 title = "genemodmenu.607.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = avi7_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.608 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.606 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = avi7 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.608 title = "genemodmenu.608.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = avi8_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.609 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.607 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = avi8 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.609 title = "genemodmenu.609.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = avi9_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.610 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.608 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = avi9 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.610 title = "genemodmenu.610.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = avi10_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.611 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.609 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = avi10 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.611 title = "genemodmenu.611.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = avi11_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.612 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.610 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = avi11 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.612 title = "genemodmenu.612.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = avi12_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.613 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.611 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = avi12 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.613 title = "genemodmenu.613.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = avi13_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.614 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.612 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = avi13 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.614 title = "genemodmenu.614.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = avi14_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.615 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.613 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = avi14 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.615 title = "genemodmenu.615.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = avi15 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.616 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.614 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = avi15 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.616 title = "genemodmenu.616.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = avi16_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.617 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.615 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = avi16 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = { #Creatures of the Void Portrait Pack
+	id = genemodmenu.617 title = "genemodmenu.617.name" desc = "genemodmenu.void.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = avi17 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.618 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.616 } } }
+	option = { name = genemodmenu.applylook
+		allow = {
+			OR = {
+				host_has_dlc = "Creatures of the Void Portrait Pack"
+				host_has_dlc = "Anniversary Portraits"
+			}
+		}
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = avi17 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = { #Anniversary Portraits
+	id = genemodmenu.618 title = "genemodmenu.618.name" desc = "genemodmenu.ann.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = avi18 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.601 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.617 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Anniversary Portraits" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = avi18 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+###MOLLUSCOID###
+
+country_event = {
+	id = genemodmenu.701 title = "genemodmenu.701.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = mol1_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.702 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.718 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = mol1 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.702 title = "genemodmenu.702.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = mol2_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.703 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.701 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = mol2 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.703 title = "genemodmenu.703.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = mol3_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.704 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.702 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = mol3 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.704 title = "genemodmenu.704.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = mol4_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.705 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.703 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = mol4 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.705 title = "genemodmenu.705.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = mol5_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.706 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.704 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = mol5 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.706 title = "genemodmenu.706.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = mol6 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.707 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.705 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = mol6 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.707 title = "genemodmenu.707.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = mol7 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.708 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.706 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = mol7 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.708 title = "genemodmenu.708.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = mol8 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.711 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.707 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = mol8 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.711 title = "genemodmenu.711.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = mol11_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.712 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.708 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = mol11 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.712 title = "genemodmenu.712.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = mol12_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.713 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.711 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = mol12 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.713 title = "genemodmenu.713.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = mol13_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.714 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.712 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = mol13 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.714 title = "genemodmenu.714.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = mol14_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.715 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.713 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = mol14 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.715 title = "genemodmenu.715.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = mol15_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.716 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.714 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = mol15 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = { #Creatures of the Void Portrait Pack
+	id = genemodmenu.716 title = "genemodmenu.716.name" desc = "genemodmenu.void.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = mol16 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.717 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.715 } } }
+	option = { name = genemodmenu.applylook
+		allow = {
+			OR = {
+				host_has_dlc = "Creatures of the Void Portrait Pack"
+				host_has_dlc = "Anniversary Portraits"
+			}
+		}
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = mol16 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = { #Leviathans Story Pack
+	id = genemodmenu.717 title = "genemodmenu.717.name" desc = "genemodmenu.lev.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = mol17 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.718 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.716 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Leviathans Story Pack" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = mol17 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = { #Leviathans Story Pack
+	id = genemodmenu.718 title = "genemodmenu.718.name" desc = "genemodmenu.lev.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = mol18 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.701 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.717 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Leviathans Story Pack" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = mol18 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+###PLANTOID###
+
+country_event = {
+	id = genemodmenu.801 title = "genemodmenu.801.name" desc = "genemodmenu.plant.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = pla1 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.802 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.815 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Plantoid" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = pla1 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.802 title = "genemodmenu.802.name" desc = "genemodmenu.plant.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = pla2 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.803 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.801 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Plantoid" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = pla2 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.803 title = "genemodmenu.803.name" desc = "genemodmenu.plant.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = pla3 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.804 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.802 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Plantoid" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = pla3 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.804 title = "genemodmenu.804.name" desc = "genemodmenu.plant.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = pla4 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.805 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.803 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Plantoid" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = pla4 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.805 title = "genemodmenu.805.name" desc = "genemodmenu.plant.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = pla5 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.806 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.804 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Plantoid" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = pla5 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.806 title = "genemodmenu.806.name" desc = "genemodmenu.plant.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = pla6_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.807 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.805 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Plantoid" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = pla6 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.807 title = "genemodmenu.807.name" desc = "genemodmenu.plant.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = pla7_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.808 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.806 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Plantoid" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = pla7 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.808 title = "genemodmenu.808.name" desc = "genemodmenu.plant.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = pla8_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.809 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.807 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Plantoid" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = pla8 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.809 title = "genemodmenu.809.name" desc = "genemodmenu.plant.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = pla9_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.810 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.808 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Plantoid" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = pla9 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.810 title = "genemodmenu.810.name" desc = "genemodmenu.plant.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = pla10_genemod room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.811 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.809 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Plantoid" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = pla10 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.811 title = "genemodmenu.811.name" desc = "genemodmenu.plant.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = pla11 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.812 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.810 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Plantoid" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = pla11 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.812 title = "genemodmenu.812.name" desc = "genemodmenu.plant.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = pla12 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.813 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.811 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Plantoid" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = pla12 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.813 title = "genemodmenu.813.name" desc = "genemodmenu.plant.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = pla13 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.814 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.812 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Plantoid" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = pla13 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.814 title = "genemodmenu.814.name" desc = "genemodmenu.plant.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = pla14 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.815 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.813 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Plantoid" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = pla14 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.815 title = "genemodmenu.815.name" desc = "genemodmenu.plant.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = pla15 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.801 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.814 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Plantoid" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = pla15 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+###SYNTHS###
+
+country_event = {
+	id = genemodmenu.901 title = "genemodmenu.901.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = default_robot room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.902 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.909 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = default_robot } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.902 title = "genemodmenu.902.name" desc = "genemodmenu.synth.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = sd_hum_robot room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.903 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.901 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Synthetic Dawn Story Pack" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = sd_hum_robot } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.903 title = "genemodmenu.903.name" desc = "genemodmenu.synth.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = sd_mam_robot room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.904 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.902 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Synthetic Dawn Story Pack" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = sd_mam_robot } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.904 title = "genemodmenu.904.name" desc = "genemodmenu.synth.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = sd_rep_robot room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.905 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.903 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Synthetic Dawn Story Pack" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = sd_rep_robot } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.905 title = "genemodmenu.905.name" desc = "genemodmenu.synth.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = sd_avi_robot room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.906 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.904 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Synthetic Dawn Story Pack" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = sd_avi_robot } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.906 title = "genemodmenu.906.name" desc = "genemodmenu.synth.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = sd_art_robot room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.907 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.905 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Synthetic Dawn Story Pack" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = sd_art_robot } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.907 title = "genemodmenu.907.name" desc = "genemodmenu.synth.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = sd_mol_robot room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.908 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.906 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Synthetic Dawn Story Pack" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = sd_mol_robot } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.908 title = "genemodmenu.908.name" desc = "genemodmenu.synth.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = sd_fun_robot room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.909 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.907 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Synthetic Dawn Story Pack" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = sd_fun_robot } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.909 title = "genemodmenu.909.name" desc = "genemodmenu.synth.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = sd_pla_robot room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.901 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.908 } } }
+	option = { name = genemodmenu.applylook
+		allow = { host_has_dlc = "Synthetic Dawn Story Pack" }
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = sd_pla_robot } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+###CRISIS###
+
+country_event = {
+	id = genemodmenu.1001 title = "genemodmenu.1001.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = ai_crisis_1 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.1002 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.1009 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = ai_crisis_1 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.1002 title = "genemodmenu.1002.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = ai_crisis_2 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.1003 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.1001 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = ai_crisis_2 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.1003 title = "genemodmenu.1003.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = hum_robot_red room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.1004 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.1002 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = hum_robot_red } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.1004 title = "genemodmenu.1004.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = swarm1 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.1005 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.1003 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = swarm1 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.1005 title = "genemodmenu.1005.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = swarm1small room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.1006 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.1004 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = swarm1small } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.1006 title = "genemodmenu.1006.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = exd1 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.1007 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.1005 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = exd1 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.1007 title = "genemodmenu.1007.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = exd2 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.1008 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.1006 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = exd2 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.1008 title = "genemodmenu.1008.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = exd3 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.1009 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.1007 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = exd3 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.1009 title = "genemodmenu.1009.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = shroud1 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.1001 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.1008 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = shroud1 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+###PRE-SAPIENT###
+
+country_event = {
+	id = genemodmenu.1101 title = "genemodmenu.601.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = pre_avi1 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.1102 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.1116 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = pre_avi1 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.1102 title = "genemodmenu.612.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = pre_avi12 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.1103 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.1101 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = pre_avi12 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.1103 title = "genemodmenu.206.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = pre_mam6 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.1104 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.1102 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = pre_mam6 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.1104 title = "genemodmenu.213.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = pre_mam13 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.1105 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.1103 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = pre_mam13 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.1105 title = "genemodmenu.701.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = pre_mol1 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.1106 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.1104 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = pre_mol1 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.1106 title = "genemodmenu.703.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = pre_mol3 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.1107 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.1105 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = pre_mol3 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.1107 title = "genemodmenu.509.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = pre_rep09 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.1108 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.1106 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = pre_rep09 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.1108 title = "genemodmenu.512.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = pre_rep12 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.1109 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.1107 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = pre_rep12 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.1109 title = "genemodmenu.401.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = pre_art1 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.1110 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.1108 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = pre_art1 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.1110 title = "genemodmenu.411.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = pre_art11 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.1111 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.1109 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = pre_art11 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.1111 title = "genemodmenu.412.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = pre_art12 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.1112 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.1110 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = pre_art12 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.1112 title = "genemodmenu.413.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = pre_art13 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.1113 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.1111 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = pre_art13 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.1113 title = "genemodmenu.414.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = pre_art14 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.1114 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.1112 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = pre_art14 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.1114 title = "genemodmenu.415.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = pre_art15 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.1115 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.1113 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = pre_art15 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.1115 title = "genemodmenu.309.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = pre_fun9 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.1116 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.1114 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = pre_fun9 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+country_event = {
+	id = genemodmenu.1116 title = "genemodmenu.313.name" desc = "genemodmenu.100.desc" diplomatic = yes force_open = yes is_triggered_only = yes
+	picture_event_data = { portrait = pre_fun13 room = genemod_enh_room }
+	option = { name = genemodmenu.next hidden_effect = { country_event = { id = genemodmenu.1101 } } }
+	option = { name = genemodmenu.prev hidden_effect = { country_event = { id = genemodmenu.1115 } } }
+	option = { name = genemodmenu.applylook
+		hidden_effect = {
+			event_target:genemod_species = { change_species_characteristics = { portrait = pre_fun13 } }
+			genemod_menu_finish = yes
+		}
+	}
+	option = { name = genemodmenu.cancel default_hide_option = yes hidden_effect = { country_event = { id = genemodenh.2 } } }
+}
+
+#Sweet Monkey Jesus! That's a lot of code...

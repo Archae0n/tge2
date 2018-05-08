@@ -1,7 +1,7 @@
 FE_Spiritualist= {
 	
 	randomized = no
-	playable = { always = no }
+	
 	portraits = {
 	}
 
@@ -12,7 +12,7 @@ FE_Spiritualist= {
 FE_Materialist = {
 	
 	randomized = no
-	playable = { always = no }
+	
 	portraits = {
 	}
 
@@ -23,7 +23,7 @@ FE_Materialist = {
 FE_Xenophile = {
 	
 	randomized = no
-	playable = { always = no }
+	
 	portraits = {
 	}
 
@@ -34,7 +34,7 @@ FE_Xenophile = {
 FE_Xenophobe = {
 	
 	randomized = no
-	playable = { always = no }
+	
 	portraits = {
 	}
 
@@ -45,7 +45,7 @@ FE_Xenophobe = {
 FE_Mechanical = {
 	
 	randomized = no
-	playable = { always = no }
+	
 	portraits = {
 	}
 
@@ -56,7 +56,7 @@ FE_Mechanical = {
 FE_National = {
 	
 	randomized = no
-	playable = { always = no }
+	
 	portraits = {
 	}
 
