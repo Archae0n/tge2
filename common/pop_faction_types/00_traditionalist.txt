@@ -166,10 +166,10 @@ traditionalist = {
 					any_owned_planet = {
 						is_planet_class = pc_nuked
 					}
-					any_planet_within_border = { 
-						is_planet_class = pc_nuked
-						is_terraforming = yes
-					}
+					#any_planet_within_border = { 
+					#	is_planet_class = pc_nuked
+					#	is_terraforming = yes
+					#}
 				}
 			}
 		}
@@ -260,7 +260,7 @@ traditionalist = {
 			exists = owner
 			owner = {
 				has_ascension_perk = ap_the_flesh_is_weak
-				has_ascension_perk = ap_esap_bio_cyber_psi
+				NOT = { has_ascension_perk = ap_esap_bio_cyber_psi }
 			}
 		}
 
