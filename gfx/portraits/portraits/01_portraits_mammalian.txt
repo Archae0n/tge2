@@ -138,7 +138,7 @@ portraits = {
 			"gfx/models/portraits/mammalian/mammalian_normal_10_white.dds"
 		}	
 	}
-	mam11 = {	entity = "portrait_mammalian_11_entity"	clothes_selector = "mammalian_massive_clothes_01" hair_selector = "no_texture" 
+	mam11 = {	entity = "portrait_mammalian_11_entity"	clothes_selector = "haleel_massive_clothes_01" hair_selector = "no_texture" 
 		greeting_sound = "mammalian_01_greetings"
 		character_textures = {
 			"gfx/models/portraits/mammalian/mammalian_massive_11_yellow.dds"
