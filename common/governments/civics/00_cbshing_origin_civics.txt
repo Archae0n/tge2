@@ -549,8 +549,49 @@ civic_cbshing_dyson_sphere = {
 	}
 	modifier = { 
 		megastructure_build_speed_mult = 0.5
+		mod_megastructure_build_cost_mult = -0.5
 		country_starbase_capacity_add = -2
 		shipclass_starbase_hull_mult = 0.25
+	
+		#country_physics_tech_research_speed = -1.15
+		#country_society_tech_research_speed = -0.75
+		#country_engineering_tech_research_speed = 1.15
+		###Overengineer
+		#starbase_module_build_cost_mult = 0.5
+		#shipsize_research_station_build_cost_mult = 0.5
+		#shipsize_mining_station_build_cost_mult = 0.5
+		#shipsize_starbase_outpost_build_cost_mult = 0.5
+		#shipsize_military_station_small_build_cost_mult = 0.5
+		#starbase_shipyard_build_cost_mult = 0.5
+		#shipsize_colonizer_build_cost_mult = 0.5
+		#shipsize_constructor_build_cost_mult = 0.5
+		#shipsize_science_build_cost_mult = 0.5		
+		#starbase_shipyard_build_cost_mult = 0.5
+		#planet_building_cost_mult = 0.5
+		#planet_building_upkeep_mult = 0.5
+		#country_starbase_upkeep_mult = 0.5
+		#ship_upkeep_mult = 0.5
+		###Ships built to last
+		#ship_armor_mult = 0.5
+		ship_windup_mult = 0.5
+		#ship_evasion_mult = -0.5
+		#ship_speed_mult = -0.5
+		#ship_hull_add = 500
+		###Legendary Builders
+		#starbase_upgrade_speed_mult = 0.5
+		#planet_building_build_speed_mult = 0.5
+		#shipsize_colonizer_build_speed_mult = 0.5
+		#shipsize_corvette_build_speed_mult = 0.5
+		#shipsize_destroyer_build_speed_mult = 0.5
+		#shipsize_cruiser_build_speed_mult = 0.5
+		#shipsize_battleship_build_speed_mult = 0.5
+		#shipsize_starbase_outpost_build_speed_mult = 0.5
+		#shipsize_starbase_starport_build_speed_mult = 0.5
+		#shipsize_starbase_starhold_build_speed_mult = 0.5
+		#shipsize_starbase_starfortress_build_speed_mult = 0.5
+		#shipsize_starbase_citadel_build_speed_mult = 0.5
+		#shipsize_military_station_small_build_speed_mult = 0.5
+		###Hoarders
 		max_energy = 5000
 		#start with Dyson Sphere
 	}

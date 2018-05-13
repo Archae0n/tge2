@@ -75,7 +75,7 @@ admiral_shield_overcharge_expert = {
 	cost = 1
 	opposites = { }
 	modifier = {
-		ship_shield_mult = 0.15
+		ship_shield_hp_mult = 0.15
 	}
 	leader_trait = yes
 	leader_class = { admiral }
@@ -103,7 +103,7 @@ admiral_void_sniper = {
 	opposites = { }
 	modifier = {
 		SHIP_WEAPON_RANGE_MULT = 1.00
-	 	ship_fire_rate_mult = -0.60
+	 	ship_fire_rate_mult = -0.80
 	}
 	leader_trait = yes
 	leader_class = { admiral }
