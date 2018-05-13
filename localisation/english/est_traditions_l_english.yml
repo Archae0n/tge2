@@ -50,7 +50,7 @@ tr_est_commerce_finish_effect:0 "§E$TRADITIONS_FINISH$:§!\nAdopting all $tr_es
 
 ## Swap - Benevolence
 
-tradition_est_benevolence:0 "Benevolence"
+tradition_est_benevolence:0 "Commerce"
 tradition_est_benevolence_desc:0 "We should not make unjustified harm to the mortals we encounter. They have a place in this galaxy, just as we do."
 tr_est_benevolence_adopt:0 "Benevolence Traditions"
 tr_est_benevolence_adopt_desc:0 "$tradition_est_benevolence_desc$\n\n$tr_est_benevolence_adopt_effect$\n\n$tr_est_benevolence_finish_effect$"
