@@ -976,11 +976,11 @@ building_plentiful_traditions_syndicate_quarters = {
 	}
 	
 	produced_resources = {
-		unity = 1
+		unity = 3
 	}
 	
 	country_modifier  = {
-		navy_size_add = 4
+		country_naval_cap_add = 4
 	}
 	
 	potential = {

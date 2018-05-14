@@ -2026,6 +2026,8 @@ ap_esap_xenophobe_1 = {
 		OR = {
 			has_ethic = ethic_xenophobe
 			has_ethic = ethic_fanatic_xenophobe
+			has_ethic = ethic_fanatic_authoritarian
+			has_ethic = ethic_authoritarian
 		}
 	}
 	
