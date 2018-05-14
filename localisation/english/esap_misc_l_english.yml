@@ -89,7 +89,7 @@
  esap.22.option2:0 "Deny Migrants"
  
  esap.47.name:0 "Raiding for Slaves"
- esap.47.desc:0 "Slaves captured from foreign empires can prove a valuable acet to our empire. We care little for these xenos and we will put them to work with little care for their well being. To bolster our supplies of slaves we will send raiding parties to neighbouring worlds and captue their inhabitants.\n\nInstructions: The various options will show the name of the species of the pop that will be brought to the planet. Select one species which suits you and choose that option. Else select 'Call of the Raid', in which case the energy cost will not be payed."
+ esap.47.desc:0 "Slaves captured from foreign empires can prove a valuable asset to our empire. We care little for these xenos and we will put them to work with little care for their well being. To bolster our supplies of slaves we will send raiding parties to neighbouring worlds and captue their inhabitants.\n\nInstructions: The various options will show the name of the species of the pop that will be brought to the planet. Select one species which suits you and choose that option. Else select 'Call of the Raid', in which case the energy cost will not be payed."
  esap.47.option1:0 "Capture Slaves"
  esap.47.option2:0 "Call of the Raid"
  
