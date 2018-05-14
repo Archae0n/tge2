@@ -76,7 +76,7 @@ eutab_monastery = {
 	system_modifier = {
 		pop_ethic_spiritualist_attraction_mult = 0.25
 		planet_unrest_add = -25
-		shipsize_colonizer_build_cost_mult = -0.15
+		shipsize_colonizer_build_cost_mult = -0.05
 	}
 	
 	show_in_tech = "tech_eutab_new_monastism"

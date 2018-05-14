@@ -39,5 +39,5 @@ cbshing_origins_eco_disaster_annoucement_open = {
 	#country_society_tech_research_speed = 0.1
 	#shipsize_colonizer_construction_speed_mult = 0.2
 	shipsize_colonizer_build_speed_mult = 0.2
-	shipsize_colonizer_build_cost_mult = -0.3
+	shipsize_colonizer_build_cost_mult = -0.12
 }

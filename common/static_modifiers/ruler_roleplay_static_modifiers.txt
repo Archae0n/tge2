@@ -336,7 +336,7 @@ ruler_speed_focus_2 = {
 ####
 ruler_colonize_focus_1 = {
 	planet_colony_development_speed_mult = 0.66
-	shipsize_colonizer_build_cost_mult = -0.25
+	shipsize_colonizer_build_cost_mult = -0.1
 	country_resource_energy_add = -2
 	tile_resource_energy_mult = -0.02
 	country_resource_minerals_add = -1
@@ -346,7 +346,7 @@ ruler_colonize_focus_1 = {
 }
 ruler_colonize_focus_2 = {
 	planet_colony_development_speed_mult = 0.75
-	shipsize_colonizer_build_cost_mult = -0.35
+	shipsize_colonizer_build_cost_mult = -0.1
 	tile_resource_energy_mult = -0.01
 	tile_resource_minerals_mult = -0.01
 	country_resource_unity_add = 2
@@ -471,7 +471,7 @@ ruler_individualist_focus_1 = {
 	planet_migration_all_pull = 0.25
 	planet_colony_development_speed_mult = 0.5
 	ship_upkeep_mult = -0.1
-	shipsize_colonizer_build_cost_mult = -0.25
+	shipsize_colonizer_build_cost_mult = -0.1
 	country_resource_unity_add = 5
 	country_resource_unity_mult = 0.05
 }

@@ -69,7 +69,7 @@ tech_eutab_peace_envoy = {
 	
 	modifier = {
 		planet_building_build_speed_mult = 0.05
-		shipsize_colonizer_build_cost_mult = -0.25
+		shipsize_colonizer_build_cost_mult = -0.1
 	}
 	
 	gateway = eu_dominion

@@ -322,7 +322,7 @@ tech_eutab_holy_pioneers = {
 	
 	modifier = {
 		planet_colony_development_speed_mult = 0.33
-		shipsize_colonizer_build_cost_mult = -0.2
+		shipsize_colonizer_build_cost_mult = -0.05
 	}
 	
 	weight_modifier = {
