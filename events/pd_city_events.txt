@@ -387,4 +387,5 @@ planet_event = {
 		owner = {
 			add_minerals = 1000
 		}
+	}
 }

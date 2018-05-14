@@ -92,8 +92,8 @@ planet_event = {
 			is_ideal_planet_class = { who = owner status = yes }
 		}
 	}
-	mean_time_to_happen  { years = 25 }
-	#mean_time_to_happen  { years = 1 } #only for debugging
+	mean_time_to_happen = { years = 25 }
+	#mean_time_to_happen = { years = 1 } #only for debugging
 	
 	immediate = {
 		#save_event_target_as = cbshing_origins_restore_home_event_homeworld #used to make homeworld POI
