@@ -387,7 +387,7 @@ tr_plentiful_malice_3_desc:0 "§Y$MOD_POP_SLAVE_RESOURCE_OUTPUT$§! increased by
 tr_plentiful_malice_3_delayed:0 "Our slaves seem to be working themselves to death, but why? Death is only a waste of good suffering."
  
 tr_plentiful_malice_4:0 "Wrath"
-tr_plentiful_malice_4_desc:0 "§Y$MOD_COUNTRY_MAX_RIVALRIES$§! increased by §G+4§!."
+tr_plentiful_malice_4_desc:0 "§YXenophobe Ethic Attraction§! increased by §G+100%§!."
 tr_plentiful_malice_4_delayed:0 "We'll read their pain slowly, page by page."
  
 tr_plentiful_malice_5:0 "Spite"

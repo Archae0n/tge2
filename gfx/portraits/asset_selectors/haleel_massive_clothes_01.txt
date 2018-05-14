@@ -1,7 +1,7 @@
 # This is a template which multiple species can use. 
 
 haleel_massive_clothes_01 = {
-	default = "gfx/models/portraits/mammalian/mammalian_massive_outfit_ruler.dds"
+	default = "gfx/models/portraits/mammalian/haleel_massive_outfit_ruler.dds"
 	
 	game_setup = {#will run with a limited country scope. species and government is set but the country does not actually exist
 		default = "gfx/models/portraits/mammalian/haleel_massive_outfit_ruler.dds"

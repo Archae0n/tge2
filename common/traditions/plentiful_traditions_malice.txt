@@ -75,7 +75,7 @@ tr_plentiful_malice_4 = {
 		has_tradition = tr_plentiful_malice_2
 	}
 	modifier = {
-		max_rivalries = 4
+		pop_ethic_xenophobe_attraction_mult = 1
 	}
 	
 	ai_weight = {
