@@ -193,19 +193,19 @@ ap_anarchy_utopia = {
 #Future Society
 ap_future_society = {
 
-
 	modifier = {
-	          	 
 			country_government_civic_points_add = 1	 
-
 	}
 	
 	potential = {
 		NOR = {
 			has_ascension_perk = ap_future_society
 		}
-				
 	}
+	
+	on_enabled = {
+        add_influence = 400
+    }
 	
 	ai_weight = {
 		factor = 10
