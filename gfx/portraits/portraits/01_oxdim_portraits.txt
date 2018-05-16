@@ -1,11 +1,13 @@
 portraits = {
-	mam11 = {	entity = "portrait_mammalian_11_entity"	clothes_selector = "mammalian_normal_clothes_01" hair_selector = "no_texture" greeting_sound = "mammalian_01_greetings"
-			character_textures = {
-						"gfx/models/portraits/mammalian/mammalian_massive_11_yellow.dds"
-						"gfx/models/portraits/mammalian/mammalian_massive_11_green.dds"
-						"gfx/models/portraits/mammalian/mammalian_massive_11_blue.dds"
-						"gfx/models/portraits/mammalian/mammalian_massive_11_black.dds"
-				}
+	mam11 = {	entity = "portrait_mammalian_11_entity"	clothes_selector = "haleel_normal_clothes_01" hair_selector = "no_texture" greeting_sound = "mammalian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/mammalian/mammalian_massive_11_yellow.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_11_green.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_11_blue.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_11_black.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_11_green_01.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_11_green_blue.dds"
+		}
 	}
 	mamfem11 = {	entity = "portrait_mammalian_female_11_entity" clothes_selector = "mammalian_female11massive_clothes_10" hair_selector = "no_texture" greeting_sound = "mammalian_01_greetings"
 			character_textures = {
@@ -13,6 +15,8 @@ portraits = {
 						"gfx/models/portraits/mammalian/mammalian_female_massive_11_green.dds"
 						"gfx/models/portraits/mammalian/mammalian_female_massive_11_blue.dds"
 						"gfx/models/portraits/mammalian/mammalian_female_massive_11_black.dds"
+						"gfx/models/portraits/mammalian/mammalian_female_massive_11_green_01.dds"
+						"gfx/models/portraits/mammalian/mammalian_female_massive_11_green_blue.dds"
 				}
 	}
 }

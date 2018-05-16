@@ -145,6 +145,8 @@ portraits = {
 			"gfx/models/portraits/mammalian/mammalian_massive_11_green.dds"
 			"gfx/models/portraits/mammalian/mammalian_massive_11_blue.dds"
 			"gfx/models/portraits/mammalian/mammalian_massive_11_black.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_11_green_01.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_11_green_blue.dds"
 		}	
 	}
 	
