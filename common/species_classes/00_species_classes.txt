@@ -239,12 +239,12 @@ ROBOT = {
 	playable = { has_global_flag = game_started }
 	randomized = no
 	robotic = yes
-	gender = no
+	gender = yes
 	use_climate_preference = no
 	portrait_modding = yes
 	
-	leader_age_min = 2
-	leader_age_max = 10
+	leader_age_min = 1
+	leader_age_max = 35
 	
 	custom_portraits = {
 		randomized = { host_has_dlc = "Synthetic Dawn Story Pack" }
@@ -258,6 +258,22 @@ ROBOT = {
 			"sd_mol_robot"
 			"sd_fun_robot"
 			"sd_pla_robot"
+			"humansynth"
+			"mammaliansynth"
+			"reptiliansynth"
+			"aviansynth"
+			"arthropoidsynth"
+			"molluscoidsynth"
+			"fungoidsynth"
+			"plantoidsynth"
+			"anthrobot"
+			"anthroid"
+			"humrobot"
+			"humroid"
+			"humaicon"
+			"holofrixigram"
+			"zeriphensynth"
+			"syntherminator"
 		}
 	}
 
@@ -287,12 +303,12 @@ MACHINE = {
 	possible_secondary = { always = no text = SECONDARY_SPECIES_CLASS_INVALID }
 
 	robotic = yes
-	gender = no
+	gender = yes
 	use_climate_preference = no
 	portrait_modding = yes
 	
-	leader_age_min = 2
-	leader_age_max = 10
+	leader_age_min = 1
+	leader_age_max = 60
 
 	portraits = {
 		"sd_hum_robot"
@@ -304,6 +320,22 @@ MACHINE = {
 		"sd_fun_robot"
 		"sd_pla_robot"
 		"default_robot"
+		"humansynth"
+		"mammaliansynth"
+		"reptiliansynth"
+		"aviansynth"
+		"arthropoidsynth"
+		"molluscoidsynth"
+		"fungoidsynth"
+		"plantoidsynth"
+		"anthrobot"
+		"anthroid"
+		"humrobot"
+		"humroid"
+		"humaicon"
+		"holofrixigram"
+		"zeriphensynth"
+		"syntherminator"		
 	}
 
 	graphical_culture = mammalian_01
