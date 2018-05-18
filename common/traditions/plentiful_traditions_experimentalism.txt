@@ -36,6 +36,7 @@ tr_plentiful_experimentalism_adopt = {
 
 tr_plentiful_experimentalism_finish = {
 	modifier = {
+		country_leader_cap = 3
 		ascension_perks_add = 1
 	}
 }

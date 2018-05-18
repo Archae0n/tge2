@@ -1,0 +1,206 @@
+objectTypes = {
+
+	pdxmesh = {
+		name = "unbidden_04_warship_large_mesh"
+		file = "gfx/models/ships/extra_dimensional_01/extra_dimensional_large_ship.mesh"
+		scale = 1.0
+		meshsettings = {
+			texture_diffuse = "ship_mask_red.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_04_warship_medium_mesh"
+		file = "gfx/models/ships/extra_dimensional_01/extra_dimensional_medium_ship.mesh"
+		scale = 1.0
+		meshsettings = {
+			texture_diffuse = "ship_mask_red.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_04_warship_small_mesh"
+		file = "gfx/models/ships/extra_dimensional_01/extra_dimensional_small_ship.mesh"
+		scale = 1.0
+		meshsettings = {
+			texture_diffuse = "ship_mask_red.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_04_civilian_mesh"
+		file = "gfx/models/ships/extra_dimensional_01/extra_dimensional_large_civilian.mesh"
+		scale = 1.0
+		meshsettings = {
+			texture_diffuse = "ship_mask_red.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_04_station_large_mesh"
+		file = "gfx/models/ships/extra_dimensional_01/extra_dimensional_large_station.mesh"
+		scale = 3.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_red.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}	
+	
+	pdxmesh = {
+		name = "unbidden_04_station_small_mesh"
+		file = "gfx/models/ships/extra_dimensional_01/extra_dimensional_small_station.mesh"
+		scale = 3.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_red.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+
+	#################################
+	#	Stole some fungoid stuff	#
+	#################################
+	
+	pdxmesh = {
+		name = "unbidden_04_outpost_frame_mesh"
+		file = "gfx/models/ships/starbases/fungoid_01_outpost_frame.mesh"
+		scale = 1.0
+		meshsettings = {
+			texture_diffuse = "ship_mask_red.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+
+	}
+		
+	pdxmesh = {
+		name = "unbidden_04_starport_frame_mesh"
+		file = "gfx/models/ships/starbases/fungoid_01_starport_frame.mesh"
+		scale = 1.0
+		meshsettings = {
+			texture_diffuse = "ship_mask_red.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_04_starhold_frame_mesh"
+		file = "gfx/models/ships/starbases/fungoid_01_starhold_frame.mesh"
+		scale = 1.0
+		meshsettings = {
+			texture_diffuse = "ship_mask_red.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_04_starfort_frame_mesh"
+		file = "gfx/models/ships/starbases/fungoid_01_starfort_frame.mesh"
+		scale = 1.0
+		meshsettings = {
+			texture_diffuse = "ship_mask_red.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+		pdxmesh = {
+		name = "unbidden_04_citadel_frame_mesh"
+		file = "gfx/models/ships/starbases/fungoid_01_citadel_frame.mesh"
+		scale = 1.0
+		meshsettings = {
+			texture_diffuse = "ship_mask_red.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_04_outpost_mesh"
+		file = "gfx/models/ships/starbases/fungoid_01_outpost.mesh"
+		scale = 1.0
+		
+		animation = { id = "idle"			type = "fungoid_01_citadel_idle_animation" }
+		meshsettings = {
+			texture_diffuse = "ship_mask_red.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+		
+	pdxmesh = {
+		name = "unbidden_04_starport_mesh"
+		file = "gfx/models/ships/starbases/fungoid_01_starport.mesh"
+		scale = 1.0
+		
+		animation = { id = "idle"			type = "fungoid_01_citadel_idle_animation" }
+		meshsettings = {
+			texture_diffuse = "ship_mask_red.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_04_starhold_mesh"
+		file = "gfx/models/ships/starbases/fungoid_01_starhold.mesh"
+		scale = 1.0
+		
+		animation = { id = "idle"			type = "fungoid_01_citadel_idle_animation" }
+		meshsettings = {
+			texture_diffuse = "ship_mask_red.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_04_starfort_mesh"
+		file = "gfx/models/ships/starbases/fungoid_01_starfort.mesh"
+		scale = 1.0
+		
+		animation = { id = "idle"			type = "fungoid_01_citadel_idle_animation" }
+		meshsettings = {
+			texture_diffuse = "ship_mask_red.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+		pdxmesh = {
+		name = "unbidden_04_citadel_mesh"
+		file = "gfx/models/ships/starbases/fungoid_01_citadel.mesh"
+		scale = 1.0
+		
+		animation = { id = "idle"			type = "fungoid_01_citadel_idle_animation" }
+		meshsettings = {
+			texture_diffuse = "ship_mask_red.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_04_starbase_turret_section_mesh"
+		file = "gfx/models/ships/starbases/fungoid_01_starbase_turret_section.mesh"
+		meshsettings = {
+			texture_diffuse = "ship_mask_red.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_04_ion_cannon_mesh"
+		file = "gfx/models/ships/starbases/fungoid_01_ion_cannon.mesh"
+	}	
+		meshsettings = {
+			texture_diffuse = "ship_mask_red.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}	
+}
+	pdxmesh = {
+		name = "extra_dimensional_01_station_small_red_mesh"
+		file = "gfx/models/ships/extra_dimensional_01/extra_dimensional_small_station.mesh"
+		scale = 3.0
+		meshsettings = {
+			shader = "PdxMeshExtraDimensionalShip"
+			texture_diffuse = "ship_mask_red.dds"
+		}
+	}	

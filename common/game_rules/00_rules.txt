@@ -663,6 +663,7 @@ is_bio_trophy = {
 # This = Pop
 pop_eats_energy = {
 	OR = {
+		has_trait = trait_extradimensional #Extradimensional
 		pop_maintenance_cost > 0
 		has_trait = trait_machine_unit # Native machine
 		has_trait = trait_mechanical # Robot

@@ -36,6 +36,15 @@
  building_ice_refinery:0 "Ice Distillery"
  building_ice_refinery_desc:0 "By distilling the volatile substances found in the ice of frozen worlds, we can acquire an acceptably pure product for industrial and scientific use."
  
+ modifier_extensively_surveyed:0 "Extensively Surveyed"
+ modifier_extensively_surveyed_desc:0 "This planet has undergone extensive mapping and scanning. Any and all secrets this world holds is known to us."
+ 
+ extensive_survey:0 "Extensive Survey"
+ extensive_survey_desc:0 "Perform deep-scanning and orbital relay optimization of the planet, adding a positive modifier to the planet. There is a 10% chance of unearthing an ancient Precursor or Fallen relic"
+ 
+ 
+ 
+ 
  solar_system:0 "System"
  SOLAR_SYSTEM:0 "System"
  

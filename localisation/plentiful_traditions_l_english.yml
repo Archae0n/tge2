@@ -531,10 +531,10 @@ tradition_plentiful_experimentalism:0 "Experimentalism"
 tradition_plentiful_experimentalism_desc:0 "The truth lies in experimentation and empiricism. Only then will we be met with the full understanding of the universe."
 tr_plentiful_experimentalism_adopt:0 "Experimentalism Traditions"
 tr_plentiful_experimentalism_adopt_desc:0 "$tradition_plentiful_experimentalism_desc$\n\n$tr_plentiful_experimentalism_adopt_effect$\n\n$tr_plentiful_experimentalism_finish_effect$"
-tr_plentiful_experimentalism_adopt_effect:0 "§E$TRADITIONS_ADOPT$:§!\nWhen our empire is at §GPeace§!, our £physics  §Y$MOD_COUNTRY_PHYSICS_TECH_RESEARCH_SPEED$§! increases by §G+10%§! but when at §RWar§! decreases by §R-15%§! instead."
+tr_plentiful_experimentalism_adopt_effect:0 "§E$TRADITIONS_ADOPT$:§!\nWhen our empire is at §GPeace§!, our £physics  §Y$MOD_COUNTRY_PHYSICS_TECH_RESEARCH_SPEED$§! increases by §G+10%§!."
 
 tr_plentiful_experimentalism_finish:0 "Experimentalism Traditions Finished"
-tr_plentiful_experimentalism_finish_effect:0 "§E$TRADITIONS_FINISH$:§!\nAdopting all $tr_plentiful_experimentalism_adopt$ allows our §YScientist Leaders§! to gain extra £energy  §YEnergy§! on a §Ylevel up§! equaling §Y1§! times our monthly income."
+tr_plentiful_experimentalism_finish_effect:0 "§E$TRADITIONS_FINISH$:§!\nAdopting all $tr_plentiful_experimentalism_adopt$ increases our §YLeader Level Cap§! by §G3§!."
  
 tr_plentiful_experimentalism_1:0 "Keepers of Knowledge"
 tr_plentiful_experimentalism_1_desc:0 "§HUnlocks Building:§! £building  $building_plentiful_traditions_experimental_weapons_facility$, a planet unique building that increases the planet's  £physics  §YPhysics§! output."
@@ -545,12 +545,12 @@ tr_plentiful_experimentalism_2_desc:0 "Whenever one of our §YScientist Leaders�
 tr_plentiful_experimentalism_2_delayed:0 "Guided empiricism is one of the ways of true understanding."
  
 tr_plentiful_experimentalism_3:0 "Optical Sequencing"
-tr_plentiful_experimentalism_3_desc:0 "§Y$ASSIST_RESEARCH_ORDER$§! increases a planet £physics  §YPhysics§! output by §G+10%§!."
+tr_plentiful_experimentalism_3_desc:0 "We unlock the §YExtensive Survey§! edict for each of our planets, that can be used one time to add a random positive modifier to the planet, or very rarely, a Precursor/Fallen Empire modifier."
 tr_plentiful_experimentalism_3_delayed:0 "Mapping the stars in a careful sequence of exercises, as if they are but details in the grand design of the universe."
  
-tr_plentiful_experimentalism_4:0 "Concepts of Khwarizmi"
-tr_plentiful_experimentalism_4_desc:0 "Our £building  §Y$building_physics_lab_3$§! and £building  §Y$building_physics_lab_4$§! buildings are automatically upgraded to an £building  §Y$building_plentiful_traditions_university_of_wisdom$§! that increases the planet's £physics  §YPhysics§! output."
-tr_plentiful_experimentalism_4_delayed:0 "Mathematicians, astronomers, geographers, physicists and chemists; together they unite us and are key to the progress of our kind."
+tr_plentiful_experimentalism_4:0 "Planetary Survey Corps"
+tr_plentiful_experimentalism_4_desc:0 "Whenever we survey a planetary body, we receive a science bonus equal to 10% of our science income."
+tr_plentiful_experimentalism_4_delayed:0 "The stars hide an infinite amount of mysteries waiting to be solved, and the sooner that we seek them out, the sooner we thrive as a species."
  
 tr_plentiful_experimentalism_5:0 "Repeated Enquiries"
 tr_plentiful_experimentalism_5_desc:1 "§Y$MOD_COUNTRY_NUM_TECH_ALTERNATIVES_ADD$§! increased by §G+1§! and §Y$MOD_COUNTRY_RESEARCH_STATION_COST_MULT$§! reduced by §G-15%§!."

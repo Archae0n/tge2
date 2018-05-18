@@ -1,0 +1,25 @@
+UNBIDDEN1 = {
+	randomized = no
+	archetype = BIOLOGICAL
+	portraits = {
+			unbidden_all
+			unbidden_white
+			unbidden_black
+			unbidden_yellow
+			unbidden_violet
+			unbidden_rose
+			unbidden_red
+			unbidden_orange
+			unbidden_magenta
+			unbidden_green
+			unbidden_cyan
+			unbidden_chartreuse
+			unbidden_blue
+			unbidden_azure
+			unbidden_aquamarine
+	}
+	
+	graphical_culture = unbidden_04
+	move_pop_sound_effect = "moving_pop_confirmation"
+}
+

@@ -762,3 +762,37 @@ planet_edict = {
 		}
 	}
 }
+
+planet_edict = {
+	name = "extensive_survey"
+	cost = { influence = 150 }
+	length = 0
+
+	effect = {
+		planet_event = {
+			id = plentiful_traditions_experimentalism.1
+		}
+		add_modifier = {
+			modifier = "modifier_extensively_surveyed"
+			days = -1
+		}		
+	}	
+	
+	potential = {
+		has_tradition = tr_plentiful_experimentalism_3
+		NOT = { has_modifier = modifier_extensively_surveyed }
+	}
+
+	allow = { }
+	
+	prerequisites = {
+		
+	}
+
+	modifier = {
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}

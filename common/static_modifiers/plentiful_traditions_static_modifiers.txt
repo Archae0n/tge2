@@ -227,6 +227,11 @@ modifier_plentiful_traditions_pathfinder = {
 	all_technology_research_speed = 0.05
 }
 
+modifier_extensively_surveyed = {
+    icon = "gfx/interface/icons/planet_modifiers/pm_united.dds"
+	icon_frame = 1
+}
+
 modifier_plentiful_traditions_sequence = {
     icon = "gfx/interface/icons/planet_modifiers/pm_sequence.dds"
 	icon_frame = 1

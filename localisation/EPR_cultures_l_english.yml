@@ -1,0 +1,11 @@
+﻿l_english:
+ 
+ UNBIDDEN1: "Extradimensional"
+ UNBIDDEN2: "Green Extradimensional"
+ UNBIDDEN3: "Orange Extradimensional"
+ UNBIDDEN4: "Red Extradimensional"
+ UNBIDDEN5: "Yellow Extradimensional"
+ UNBIDDEN6: "Magenta Extradimensional"
+ UNBIDDEN7: "Blue Extradimensional"
+ trait_extradimensional:0 "Extradimensional"
+ trait_extradimensional_desc:0 "§LSeemingly hailing from another plane, this species breaks many laws of physics by merely existing. Their physical forms make them weak at physical labour, but masters of energy manipulation.§!"

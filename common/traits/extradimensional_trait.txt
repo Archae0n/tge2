@@ -1,0 +1,18 @@
+trait_extradimensional = {
+	cost = 0
+	icon = "gfx/interface/icons/traits/trait_extradimensional.dds"
+
+	randomized = no
+	modification = no
+
+	allowed_archetypes = { BIOLOGICAL }
+	
+	modifier = {
+		tile_resource_engineering_research_mult = -0.10
+		tile_resource_physics_research_mult = 0.4
+		tile_resource_society_research_mult = -0.10
+		weapon_type_energy_weapon_fire_rate_mult = 0.10
+		tile_resource_minerals_mult = -0.10
+		pop_environment_tolerance = -0.10
+	}
+}
