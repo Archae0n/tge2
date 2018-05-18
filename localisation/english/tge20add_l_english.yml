@@ -1,0 +1,4 @@
+﻿l_english:
+ civic_sms:0 "Subspace Masters"
+ civic_sms_desc:0 "This society has mastered the Art of Subspace Manipulation even before leaving their homesystem, giving them the edge in traversing the galaxy."
+ civic_tooltip_civic_sms:1 " £physics Hyperdrive Tier 2 \n £physics Hyperdrive Tier 3 \n £physics Wormhole Exploration \n £physics Gateway Restoration \n £physics Gateway Construction \n §Y$MOD_PLANET_BUILDING_UPKEEP_MULT$§! increased by §G+15%§!.\n §Y$MOD_SHIP_UPKEEP_MULT$§! increased by §G+15%§!."

@@ -1,0 +1,321 @@
+### The Rawa'o System 
+
+rawa_system_initializer = {
+
+    name = "Rawa'O System"
+
+    class = "sc_g"
+    #usage = custom_empire
+    max_instances = 1
+    flags = { rawa_system }
+    asteroids_distance = 90
+
+    planet = {
+        class = star
+        orbit_distance = 0
+        orbit_angle = 30
+        set_planet_flag = starting_deposit
+		set_planet_flag = starting_mining_target
+        init_effect = {
+            orbital_deposit_tile = {
+                clear_deposits = yes # will not work without this deposit clearing
+				add_deposit = d_vast_energy_deposit # 3 energy
+			}
+        }
+        init_effect = {
+			prevent_anomaly = yes
+        }
+        init_effect = {
+			set_name = "Rawa'O"
+        }
+    }
+    planet = {
+        name = "New Aaka Kino"
+        class = "pc_alpine"
+        orbit_angle = { min = 60 max = 180}
+        orbit_distance = 45
+        size = { min = 18 max = 22}
+        tile_blockers = none
+        modifiers = none
+        starting_planet = no
+        flags = { planet_tauine }
+
+        init_effect = {
+            prevent_anomaly = yes
+        }
+        init_effect = {
+			set_global_flag = tauine_homeworld_spawned
+			if = {
+				create_species = { 
+				    name = "Tauine" 
+				    class="MAM"
+				    portrait = mam3
+                    homeworld = THIS
+                    extra_trait_points = 5
+				    traits = { 
+				        trait = "trait_intelligent"
+                        trait = "trait_traditional"
+                        trait = "trait_slow_breeders"
+                        trait = "trait_communal"
+                        trait = "trait_delicate"
+                        trait = "trait_venerable"
+                        trait = "trait_altruistic"
+				        ideal_planet_class = "pc_alpine" 
+					} 
+				}
+				last_created_species = { save_global_event_target_as = tauineSpecies }
+				create_country = {
+					name = "Tauine Order"
+					ship_prefix = "TTS"
+					type = default
+					ignore_initial_colony_error = yes
+                    civics = { civic = "civic_pilgrims" civic = "civic_cbshing_voidborne" civic = "civic_technocracy" }
+                    authority = "auth_democratic"
+                    government = "gov_rational_consensus"
+					name_list = "MAM1"
+                    ethos = { ethic = "ethic_fanatic_xenophile" ethic = "ethic_pacifist" ethic = "ethic_materialist" ethic = "ethic_pluralist" }
+					species = event_target:tauineSpecies
+					flag={
+                        icon={
+                            category="spherical"
+                            file="flag_spherical_18.dds"
+                        }
+                        background={
+                            category="backgrounds"
+                            file="v.dds"
+                        }
+                        colors={
+                            "gray_100"
+                            "gray_100"
+                            "null"
+                            "null"
+                        }
+                    }
+					effect = {
+						set_graphical_culture = "mammalian_01"
+						save_global_event_target_as = tauine_homeplanet
+					}
+                }
+                last_created_country = { 
+                    save_global_event_target_as = tauine_order
+                }
+				create_colony = { owner = event_target:tauine_order species = event_target:tauineSpecies ethos = owner }
+			}
+			set_capital = yes
+			random_country = {
+				limit = { has_country_flag = tauine_order }
+				save_global_event_target_as = tauine_order
+			}
+			set_owner = event_target:tauine_order
+            set_name = "New Aaka Kino"
+            generate_start_buildings_and_blockers = yes
+            while = {
+				count = 16
+				random_tile = {
+					limit = { has_building = yes }
+					create_pop = {
+						species = event_target:tauineSpecies
+					}
+				}
+            }
+		}
+    }
+    planet = {
+        name = "Toka"
+        class = "pc_asteroid"
+        orbit_distance = 45
+        orbit_angle = { min = 90 max = 160}
+        has_ring = no
+        size = 3
+        init_effect = {
+            orbital_deposit_tile = {
+                clear_deposits = yes
+				add_deposit = d_vast_mineral_deposit
+			}
+        }
+        init_effect = {
+            prevent_anomaly = yes
+        }
+        init_effect = {
+            create_mining_station = {
+			owner = event_target:tauine_order
+			}
+        }
+    }
+    planet = {
+        name = "Kohatu"
+        class = "pc_asteroid"
+        orbit_distance = 0
+        orbit_angle = { min = 180 max = 270}
+        has_ring = no
+        size = 3
+        set_planet_flag = starting_deposit
+		set_planet_flag = starting_mining_target
+        init_effect = {
+            orbital_deposit_tile = {
+                clear_deposits = yes 
+				add_deposit = d_vast_mineral_deposit
+			}
+        }
+        init_effect = {
+            prevent_anomaly = yes
+        }
+    }
+    planet = {
+        name = "Vatkan"
+        class = "pc_toxic"
+        orbit_distance = 30
+        orbit_angle = { min = 30 max = 270}
+        has_ring = no
+        size = 12
+        set_planet_flag = starting_deposit
+		set_planet_flag = starting_research_target
+        init_effect = {
+            prevent_anomaly = yes
+            orbital_deposit_tile = {
+                clear_deposits = yes # will not work without this deposit clearing
+				random_List = {
+                    33 = {add_deposit = d_rich_engineering_deposit}
+                    33 = {add_deposit = d_rich_physics_deposit}
+                    33 = {add_deposit = d_rich_society_deposit}
+                }
+			}
+        }
+    }
+    planet = {
+        name = "A'rewa"
+        class = "pc_molten"
+        orbit_distance = 30
+        orbit_angle = { min = 30 max = 270}
+        has_ring = no
+        size = 23
+        init_effect = {
+            prevent_anomaly = yes
+            orbital_deposit_tile = {
+                clear_deposits = yes # will not work without this deposit clearing
+				random_List = {
+                    33 = {add_deposit = d_rich_engineering_deposit}
+                    33 = {add_deposit = d_rich_physics_deposit}
+                    33 = {add_deposit = d_rich_society_deposit}
+                }
+			}
+        }
+        init_effect = {
+            create_research_station = {
+			owner = event_target:tauine_order
+			}
+        }
+    }
+    planet = {
+        name = "Hau Nui"
+        class = "pc_gas_giant"
+        orbit_distance = 40
+        orbit_angle = { min = 30 max = 270}
+        has_ring = yes
+        size = 23
+        init_effect = {
+            prevent_anomaly = yes
+            orbital_deposit_tile = {
+                clear_deposits = yes # will not work without this deposit clearing
+				add_deposit = d_vast_energy_deposit # 3 energy
+			}
+        }
+        init_effect = {
+            create_mining_station = {
+			owner = event_target:tauine_order
+			}
+        }
+    }
+    ### Create Starbase
+    init_effect = {
+		create_starbase = {
+			size = starbase_starport
+            module = shipyard
+            building = crew_quarters
+			owner = event_target:tauine_order
+		}
+    }
+    ### Create Science Ship
+    init_effect = {
+        create_fleet = {
+			effect = {
+				set_owner = event_target:tauine_order
+
+				create_ship = {
+					name = random
+					random_existing_design = science
+				}
+
+				set_fleet_stance = evasive				
+				#set_location = capital_star
+				set_location = event_target:tauine_order.capital_scope.star
+				
+				owner = {
+                    create_leader = {
+						type = governor
+						name = random
+						species = owner_main_species
+					}
+                    create_leader = {
+						type = scientist
+						name = random
+						species = owner_main_species
+					}
+                    create_leader = {
+						type = scientist
+						name = random
+						species = owner_main_species
+					}
+                    create_leader = {
+						type = scientist
+						name = random
+						species = owner_main_species
+					}
+                    create_leader = {
+						type = scientist
+						sub_type = survey
+						name = random
+						species = owner_main_species
+					}
+				}
+				set_leader = last_created_leader
+			}			
+		}
+    }
+    ### Create Constructionship
+    init_effect = {
+        create_fleet = {
+			effect = {
+				set_owner = event_target:tauine_order
+
+				create_ship = {
+					name = random
+					random_existing_design = constructor
+				}
+
+				set_fleet_stance = evasive				
+				#set_location = capital_star
+				set_location = event_target:tauine_order.capital_scope.star
+			}			
+		}
+    }
+    ### Create Inital Fleet
+    init_effect = {
+        create_fleet = {
+			set_take_point = yes
+			effect = {
+				set_owner = event_target:tauine_order
+				
+				while = {
+					count = 3
+					create_ship = {
+						name = random
+						random_existing_design = corvette
+					}
+				}
+				#set_location = root.star
+			    set_location = event_target:tauine_order.capital_scope.star
+			}
+		}
+    }
+}

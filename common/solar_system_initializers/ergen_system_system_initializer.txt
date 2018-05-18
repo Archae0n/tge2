@@ -1,0 +1,192 @@
+### Ergen Home Sytem
+
+ergen_system_initializer = {
+	name = "The Ergen System"
+	
+	class = "sc_black_hole"
+	asteroids_distance = 90
+	#usage = custom_empire
+	usage_odds = 100
+	max_instances = 1
+    
+    flags = {}
+
+	planet = {
+		class = star
+		orbit_distance = 0
+
+		init_effect = {
+			while = {
+				count = 30
+				create_ambient_object = {
+					type = "large_debris_object"
+					entity_offset_height = { min = -0 max = -25 }
+					location = this
+				}
+				last_created_ambient_object = {
+					set_location = {
+						target = prev
+						distance = 45
+						angle = random
+					}
+				}
+			}
+			while = {
+				count = 50
+				create_ambient_object = {
+					type = "medium_debris_01_object"
+					entity_offset_height = { min = -0 max = -25 }
+					location = this
+				}
+				last_created_ambient_object = {
+					set_location = {
+						target = prev
+						distance = 45
+						angle = random
+					}
+				}
+			}
+			while = {
+				count = 50
+				create_ambient_object = {
+					type = "medium_debris_02_object"
+					entity_offset_height = { min = -0 max = -25 }
+					location = this
+				}
+				last_created_ambient_object = {
+					set_location = {
+						target = prev
+						distance = 45
+						angle = random
+					}
+				}
+			}
+			while = {
+				count = 100
+				create_ambient_object = {
+					type = "small_debris_object"
+					entity_offset_height = { min = -0 max = -25 }
+					location = this
+				}
+				last_created_ambient_object = {
+					set_location = {
+						target = prev
+						distance = 45
+						angle = random
+					}
+				}
+			}
+		}
+	}
+
+	change_orbit = 45
+
+	init_effect = {
+		every_system_planet = {
+			clear_deposits = yes
+		}
+		while = {
+			count = 30
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = solar_system
+			}
+		}
+		while = {
+			count = 50
+			create_ambient_object = {
+				type = "medium_debris_01_object"
+				location = solar_system
+			}
+		}
+		while = {
+			count = 50
+			create_ambient_object = {
+				type = "medium_debris_02_object"
+				location = solar_system
+			}
+		}
+		while = {
+			count = 100
+			create_ambient_object = {
+				type = "small_debris_object"
+				location = solar_system
+			}
+		}
+
+		create_fe_outpost = yes
+	}
+
+	change_orbit = 45
+	
+	planet = {
+        class = "pc_broken"
+        size = 25
+        orbit_distance = 0
+        orbit_angle = 0
+        has_ring = no
+        init_effect = {
+            set_name = "Belen"
+        }
+    }
+    planet = {
+        class = "pc_shattered"
+        size = 25
+        orbit_distance = 0
+        orbit_angle = 30
+        has_ring = no
+        init_effect = {
+            set_name = "Antus"
+        }
+    }
+    planet = {
+        class = "pc_broken"
+        size = 25
+        orbit_distance = 0
+        orbit_angle = 60
+        has_ring = no
+        init_effect = {
+            set_name = "Vaeret"
+        }
+    }
+    planet = {
+        class = "pc_shattered"
+        size = 25
+        orbit_distance = 0
+        orbit_angle = 90
+        has_ring = no
+        init_effect = {
+            set_name = "Emlen"
+        }
+    }
+    planet = {
+        class = "pc_broken"
+        size = 25
+        orbit_distance = 0
+        orbit_angle = 120
+        has_ring = no
+        init_effect = {
+            set_name = "Murella"
+        }
+        moon = {
+			class = "pc_shattered"
+			size = 25
+			orbit_distance = 20
+			orbit_angle = 1
+			has_ring = no
+			init_effect = {
+				set_name = "Murilla"
+			}
+        }
+    }
+    planet = {
+        class = "pc_broken"
+        size = 25
+        orbit_distance = 0
+        orbit_angle = 150
+        has_ring = no
+        init_effect = {
+            set_name = "Myr Tariniel"
+        }
+    }
+}

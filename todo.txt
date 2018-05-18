@@ -1,0 +1,23 @@
+Future Society              Status  Done
+
+Subspace Masters
+
+CIVIC                       Status  Done
+Game_start                  Status  Done
+spawn_gateway               Status  ???
+On_Action                   Status  Done
+Tooltip                     Status  Done
+Localisation                Status  Done
+Custom Logo                 Status  Done
+Testing                     Status  Done
+
+Solar System Inits
+
+Arch System                 Status  Done
+
+Saxheelian System           Status  Done
+
+Ergen Strand
+Customize Home System       Status  Done
+Customize Wormhole System   Status  Done
+

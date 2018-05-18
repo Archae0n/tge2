@@ -1,0 +1,423 @@
+### Arch's Ringworld
+
+arch_system_system_initializer = {
+	name = "Arch's System"
+	class = "sc_neutron_star"
+	
+	# flags ring_world_built and ringworld_deposited should prevent events that put to much research in the main system on start
+	flags = { ring_world_built ringworld_deposited empire_home_system }
+	
+	usage = custom_empire
+
+	planet = {
+		orbit_distance = 0
+		orbit_angle = 0
+	}
+
+	planet = {
+		class = star
+		orbit_distance = 10
+		orbit_angle = 0
+		size = 10
+		
+		init_effect = {
+			prevent_anomaly = yes
+			set_planet_flag = starting_deposit
+			set_planet_flag = starting_mining_target
+			orbital_deposit_tile = {
+				clear_deposits = yes
+				add_deposit = d_vast_energy_deposit
+			}
+		}
+
+		init_effect = {
+			prevent_anomaly = yes
+			create_ambient_object = {
+				type = "medium_debris_01_object"
+				entity_offset_height = { min = -0 max = -25 }
+				location = this
+			}
+			last_created_ambient_object = { 
+				set_location = {
+					target = prev
+					distance = 45
+					angle = 90
+				}
+			}
+			create_ambient_object = {
+				type = "medium_debris_02_object"
+				entity_offset_height = { min = -0 max = -25 }
+				location = this
+			}
+			last_created_ambient_object = { 
+				set_location = {
+					target = prev
+					distance = 45
+					angle = 145
+				}
+			}
+			create_ambient_object = {
+				type = "small_debris_object"
+				entity_offset_height = { min = -0 max = -25 }
+				location = this
+			}
+			last_created_ambient_object = { 
+				set_location = {
+					target = prev
+					distance = 45
+					angle = 210
+				}
+			}
+			create_ambient_object = {
+				type = "medium_debris_object"
+				entity_offset_height = { min = -0 max = -25 }
+				location = this
+			}
+			last_created_ambient_object = { 
+				set_location = {
+					target = prev
+					distance = 45
+					angle = 270
+				}
+			}
+		}
+	}
+
+	planet = {
+		class = star
+		orbit_distance = 0
+		orbit_angle = 180
+		size = 10
+		
+		init_effect = {
+			prevent_anomaly = yes
+			orbital_deposit_tile = {
+				clear_deposits = yes
+				add_deposit = d_vast_energy_deposit
+			}
+		}
+	}
+
+	change_orbit = 30
+	
+	planet = {
+		class = "pc_ringworld_seam"
+		name = "Ring Section C"
+		orbit_angle = -30
+		orbit_distance = 0
+		
+		### Mineral Deposit 1
+
+		init_effect = {
+			prevent_anomaly = yes
+			set_planet_flag = ringworld_section_deposit
+			set_planet_flag = starting_deposit
+			set_planet_flag = starting_mining_target
+			orbital_deposit_tile = {
+				clear_deposits = yes
+				add_deposit = d_vast_mineral_deposit
+			}
+		}
+	}
+	planet = {
+		class = pc_ringworld_habitable
+		orbit_angle = 30
+		orbit_distance = 0
+		home_planet = yes
+		size = 25
+		tile_blockers = none
+		modifiers = none		
+		
+		init_effect = {
+			change_pc = pc_ringworld_habitable
+			prevent_anomaly = yes	
+			random_tile = {
+				limit = { has_blocker = no has_building = no num_adjacent_tiles > 3 }
+				set_building = "building_capital_1"
+				set_deposit = d_energy_deposit				
+				random_neighboring_tile = {
+					limit = { has_blocker = no has_building = no }
+					set_building = "building_hydroponics_farm_1"
+					set_deposit = d_rich_farmland_deposit					
+				}
+				random_neighboring_tile = {
+					limit = { has_blocker = no has_building = no }
+					set_building = "building_hydroponics_farm_1"
+					set_deposit = d_rich_farmland_deposit							
+				}
+				random_neighboring_tile = {
+					limit = { has_blocker = no has_building = no }
+					set_building = "building_power_plant_1"
+					set_deposit = d_rich_energy_deposit						
+				}
+				random_neighboring_tile = {
+					limit = { has_blocker = no has_building = no }
+					set_building = "building_mining_network_1"
+					set_deposit = d_rich_mineral_deposit					
+				}				
+			}
+			random_tile = {
+				limit = { has_blocker = no has_building = no }
+				set_building = "building_basic_science_lab_1"
+				random_list = {
+					33 = { 
+						set_deposit = d_engineering_deposit										
+					}
+					33 = { 
+						set_deposit = d_society_deposit											
+					}
+					33 = { 
+						set_deposit = d_physics_deposit											
+					}					
+				}
+			}	
+			random_tile = {
+				limit = { has_blocker = no has_building = no }
+				set_building = "building_mining_network_1"
+				set_deposit = d_mineral_deposit						
+			}	
+			random_tile = {
+				limit = { has_blocker = no has_building = no }
+				set_blocker = "tb_failing_infrastructure"
+				set_deposit = d_engineering_deposit				
+			}
+			random_tile = {
+				limit = { has_blocker = no has_building = no }
+				set_blocker = "tb_failing_infrastructure"
+				set_deposit = d_society_deposit					
+			}
+			random_tile = {
+				limit = { has_blocker = no has_building = no }
+				set_blocker = "tb_failing_infrastructure"
+				set_deposit = d_physics_deposit				
+			}
+			random_tile = {
+				limit = { has_blocker = no has_building = no }
+				set_blocker = "tb_decrepit_dwellings"
+				set_deposit = d_rich_energy_deposit						
+			}
+			random_tile = {
+				limit = { has_blocker = no has_building = no }
+				set_blocker = "tb_decrepit_dwellings"
+				set_deposit = d_rich_farmland_deposit					
+			}
+			random_tile = {
+				limit = { has_blocker = no has_building = no }
+				set_blocker = "tb_failing_infrastructure"
+				set_deposit = d_rich_mineral_deposit	
+			}
+			random_tile = {
+				limit = { has_blocker = no has_building = no }
+				set_building = "building_power_plant_1"
+				set_deposit = d_rich_energy_deposit			
+			}
+			random_tile = {
+				limit = { has_blocker = no has_building = no }
+				set_blocker = "tb_failing_infrastructure"
+			}
+			random_tile = {
+				limit = { has_blocker = no has_building = no }
+				set_blocker = "tb_failing_infrastructure"
+			}
+			random_tile = {
+				limit = { has_blocker = no has_building = no }
+				set_blocker = "tb_failing_infrastructure"
+			}	
+			random_tile = {
+				limit = { has_blocker = no has_building = no }
+				set_blocker = "tb_failing_infrastructure"
+			}	
+			random_tile = {
+				limit = { has_blocker = no has_building = no }
+				set_blocker = "tb_decrepit_dwellings"
+				set_deposit = d_rich_farmland_deposit					
+			}
+			random_tile = {
+				limit = { has_blocker = no has_building = no }
+				set_blocker = "tb_failing_infrastructure"
+			}
+			random_tile = {
+				limit = { has_blocker = no has_building = no }
+				set_blocker = "tb_decrepit_dwellings"
+			}			
+			random_tile = {
+				limit = { has_blocker = no has_building = no }
+				set_blocker = "tb_decrepit_dwellings"
+				set_deposit = d_rich_energy_deposit				
+			}
+		}
+	}
+	planet = {
+		class = "pc_ringworld_tech"
+		name = "Ring Section A"
+		orbit_angle = 30
+		orbit_distance = 0
+		
+		### Mineral Deposit 2
+
+		init_effect = {
+			prevent_anomaly = yes
+			set_planet_flag = ringworld_section_deposit
+			orbital_deposit_tile = {
+				clear_deposits = yes
+				add_deposit = d_vast_mineral_deposit
+			}
+		}
+	}
+	
+	###  Test from here  ###
+
+		planet = {
+			class = "pc_ringworld_tech"
+			name = "Ring Section D"
+			orbit_angle = 30
+			orbit_distance = 0
+		}
+
+		planet = {
+			class = "pc_ringworld_seam"
+			name = "Ring Section E"
+			orbit_angle = 30
+			orbit_distance = 0
+		}
+		planet = {
+			class = "pc_ringworld_tech"
+			name = "Ring Section F"
+			orbit_angle = -90
+			orbit_distance = 0
+		}
+
+		planet = {
+			class = "pc_ringworld_seam"
+			name = "Ring Section G"
+			orbit_angle = 30
+			orbit_distance = 0
+		}
+		planet = {
+			class = "pc_ringworld_tech"
+			name = "Ring Section H"
+			orbit_angle = 30
+			orbit_distance = 0
+		}
+
+		planet = {
+			class = "pc_ringworld_seam"
+			name = "Ring Section I"
+			orbit_angle = 30
+			orbit_distance = 0
+		}
+		planet = {
+			class = "pc_ringworld_tech"
+			name = "Ring Section J"
+			orbit_angle = 30
+			orbit_distance = 0
+		}
+
+		planet = {
+			class = "pc_ringworld_seam"
+			name = "Ring Section K"
+			orbit_angle = 30
+			orbit_distance = 0
+		}
+		planet = {
+			class = "pc_ringworld_tech"
+			name = "Ring Section L"
+			orbit_angle = 30
+			orbit_distance = 0
+
+			init_effect = {
+				prevent_anomaly = yes
+				set_planet_flag = starting_deposit
+				set_planet_flag = starting_research_target
+				orbital_deposit_tile = {
+					clear_deposits = yes # will not work without this deposit clearing
+					random_List = {
+						33 = {add_deposit = d_rich_engineering_deposit}
+						33 = {add_deposit = d_rich_physics_deposit}
+						33 = {add_deposit = d_rich_society_deposit}
+					}
+				}
+			}
+		}
+		planet = {
+			class = "pc_ringworld_seam"
+			name = "Ring Section M"
+			orbit_angle = 30
+			orbit_distance = 0
+		}
+		planet = {
+			class = "pc_ringworld_tech"
+			name = "Ring Section N"
+			orbit_angle = 30
+			orbit_distance = 0
+
+			init_effect = {
+				prevent_anomaly = yes
+				orbital_deposit_tile = {
+					clear_deposits = yes # will not work without this deposit clearing
+					random_List = {
+						33 = {add_deposit = d_rich_engineering_deposit}
+						33 = {add_deposit = d_rich_physics_deposit}
+						33 = {add_deposit = d_rich_society_deposit}
+					}
+				}
+			}
+		}
+
+		planet = {
+			class = "pc_ringworld_seam"
+			name = "Ring Section O"
+			orbit_angle = 30
+			orbit_distance = 0
+		}
+		planet = {
+			class = "pc_ringworld_tech"
+			name = "Ring Section N"
+			orbit_angle = 30
+			orbit_distance = 0
+		}
+
+	change_orbit = 90
+
+	planet = {
+		class = "sc_neutron_star"
+		size = 5
+		orbit_distance = 0
+		orbit_angle = 0
+		
+		init_effect = {
+			prevent_anomaly = yes
+			set_planet_flag = starting_deposit
+			set_planet_flag = starting_mining_target
+			orbital_deposit_tile = {
+				clear_deposits = yes
+				add_deposit = d_vast_energy_deposit
+			}
+		}
+	}
+
+	#init_effect = {
+	#	generate_home_system_resources = yes
+	#}
+	###  Test till here  ###
+
+
+
+	init_effect = {
+		every_neighbor_system = {
+			set_star_flag = empire_cluster
+			every_neighbor_system = {
+				set_star_flag = empire_cluster
+			}
+		}
+	}	
+
+	neighbor_system = {
+		distance = { min = 10 max = 50 }
+		initializer = "neighbor_t1"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = 50 }	
+		initializer = "neighbor_t1_first_colony"
+	}
+}

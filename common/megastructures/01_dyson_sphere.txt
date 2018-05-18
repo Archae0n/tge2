@@ -6,9 +6,9 @@ dyson_sphere_0 = {
 	place_entity_on_planet_plane = no
 	construction_blocks_others = no
 	entity_offset = { x = -7 y = -7 }
-	build_time = 1400
+	build_time = 700
 	build_cost = {
-		minerals = 8000
+		minerals = 4000
 		influence = 300
 	}
 
@@ -120,9 +120,9 @@ dyson_sphere_1 = {
 	upgrade_from = {
 		dyson_sphere_0
 	}
-	build_time = 2800
+	build_time = 1400
 	build_cost = {
-		minerals = 40000
+		minerals = 20000
 	}
 
 	possible = {
@@ -144,7 +144,7 @@ dyson_sphere_2 = {
 		minerals = 40000
 	}
 	monthly_production = {
-		energy = 250
+		energy = 100
 	}
 
 	possible = {

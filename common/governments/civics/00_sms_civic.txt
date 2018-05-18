@@ -1,0 +1,27 @@
+civic_sms = {
+    potential = {
+        ethics = {
+            NOT = { value = ethic_gestalt_consciousness }
+        }
+    }
+    playable = {
+        host_has_dlc = "Utopia"
+    }
+    modification = no
+    random_weight = {
+        base = 0.2
+        modifier = {
+            factor = 0
+            NOT = { host_has_dlc = "Utopia" }
+        }
+        modifier = {
+            factor = 0
+            has_global_flag = game_start
+        }
+    }
+    modifier = {
+        planet_building_upkeep_mult = 0.15
+        ship_upkeep_mult = 0.15
+    }
+    description = "civic_tooltip_civic_sms"
+}
