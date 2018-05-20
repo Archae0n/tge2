@@ -130,7 +130,6 @@ civic_gpm_fallen_empire_colony = {
 	modifier = {
 		country_resource_influence_add = 1
 		all_technology_research_speed = -0.10
-		pop_growth_speed = -0.10
 	}
 	traits = {
 		trait = trait_gpm_high_status

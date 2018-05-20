@@ -257,9 +257,9 @@ gpm_building_ancient_archives = {
 	}
 	
 	produced_resources = {
-		engineering_research = 3
-		society_research = 3
-		physics_research = 3
+		engineering_research = 10
+		society_research = 10
+		physics_research = 10
 	}
 	
 	upgrades = {

@@ -192,6 +192,9 @@ als.44.e:0 "§HStrike Craft§! Weapon Type."
 als.44.f:0 "§RPoint-Defense§! Weapon Type."
 als.44.g:0 "On the second thought..."
 
+fallen_building_ancient_archive:0 "Ancient Archive"
+fallen_building_ancient_archive_desc:0 "§LThis ancient archive contains knowledge of people, places, and events from ages long ago.§!"
+
 als_bombardment_debuff_lv1:0 "Under Siege"
  als_bombardment_debuff_lv1_desc:0 "The bombardment of the planet is ongoing - which will make this planet more likely get damaged."
  als_bombardment_debuff_lv2:0 "$als_bombardment_debuff_lv1$"

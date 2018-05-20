@@ -8,7 +8,7 @@
 @b5effect = 8
 @b5upkeep = 3
 
-@feupkeep = 4
+@feupkeep = 3
 @feproduction = 12
 @fecost = 500
 @fetime = 730
@@ -505,9 +505,34 @@ building_fe_agri_processing_complex = {
 			}
 		}		
 	}
-	
 	prerequisites = { "tech_fe_agri_processing_complex" }
+	ai_replace = no	
+}
+
+fallen_building_ancient_archive = {
+	icon = "fallen_building_ancient_archive"
+	base_buildtime = @fetime
+	is_listed = no
 	
-	ai_replace = no
+	
+	cost = {
+		minerals = @fecost
+	}
+	produced_resources = {
+		engineering_research = 10
+		society_research = 10
+		physics_research = 10
+	}
+
+	
+	required_resources = {
+		energy = @feupkeep
+	}
+	
+	potential = {
+		planet = {
+			NOT = { is_planet_class = pc_habitat }	
+		}
+	}
 	
 }

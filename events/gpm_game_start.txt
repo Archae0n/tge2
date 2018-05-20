@@ -278,7 +278,7 @@ country_event = {
 					limit = {
 						has_building = building_power_plant_1
 					}
-					set_building = gpm_building_dark_matter_power_plant
+					set_building = building_fe_dark_matter_power_plant
 					clear_deposits = yes
 				}
 				random_tile = {
@@ -286,14 +286,14 @@ country_event = {
 						has_building = building_mining_network_1
 					}
 					kill_pop = yes
-					set_building = gpm_building_ancient_factory
+					set_building = building_fe_ancient_factory
 					clear_deposits = yes
 				}
 				random_tile = {
 					limit = {
 						has_building = building_hydroponics_farm_1
 					}
-					set_building = gpm_building_agri_processing_complex
+					set_building = building_fe_agri_processing_complex
 					clear_deposits = yes
 				}
 				random_tile = {
@@ -301,7 +301,7 @@ country_event = {
 						has_building = building_basic_science_lab_1
 					}
 					kill_pop = yes
-					set_building = gpm_building_ancient_archives
+					set_building = fallen_building_ancient_archive
 					clear_deposits = yes
 				}
 			}
